@@ -1,0 +1,7 @@
+/bin
+.idea
+.tscache
+.test
+.baseDir.ts
+.npmrc
+node_modules
