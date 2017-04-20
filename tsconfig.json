@@ -1,0 +1,38 @@
+{
+  "filesGlob": [
+    "./sources/src/**/*.ts",
+    "./sources/test/**/*.ts"
+  ],
+  "exclude": [
+    ".build",
+    ".test",
+    ".tscache",
+    "bin",
+    "build",
+    "config",
+    "grunt",
+    "logs",
+    "node_modules",
+    "sources/server"
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "sourceRoot": "/sources/src",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "client_build",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "lib": ["es2015", "dom"],
+    "types": ["node", "mocha", "chai"],
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}
