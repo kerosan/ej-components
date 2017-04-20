@@ -70,7 +70,8 @@ describe('Userpic', () => {
 	it('Check onClick event', () => {
 		let actualUserId: number,
 			expectedUserId: number = 5;
-		const onClick: (userId) => void = (userId: number) => {
+		
+		const onClick: (userId: number) => void = (userId: number) => {
 				actualUserId = userId;
 			},
 			component: renderer.Renderer = renderer.create(
