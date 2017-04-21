@@ -123,3 +123,43 @@ CSS-классы:
         * ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
 
 ### Userpic ###
+Аватарка пользователя  
+Простое использовани:
+
+    <Userpic size={'40x40'} />
+    
+Расширенное использование:
+   
+   			<Userpic size={'40x40'}
+   					 href={'http://example.com/'}
+   					 target={'_self'}
+   					 alt={'Всплавающая подсказка'}
+   					 src={'/path/to/my/image.png'}
+   					 className={'some-css-class'}
+   					 userId={5} />
+   					 
+Подключение CSS-стилей в проекте:
+
+    @todo
+    
+Свойства:
+
+* size: UserpicSize - обязательное поле! Размер аватарки. Допустимые значения: 40x40, 50x50, 80x80, 150x150, 200x200;
+* href: string - ссылка по которой произойдет переход при клике;
+* target: LinkTarget - где должна открываться страница при клике. Допустимые значение: _blank, _self, _parent, _top. По умолчанию: _blank;
+* alt: string - текст с всплывающей подсказкой;
+* src: string - адрес аватарки. По умолчанию: @todo подкорректировать путь;
+* className: string - дополнительный CSS-класс;
+* userId: number - идентификатор пользователя;
+
+События:
+
+* onClick: (userId: number) => void - срабатывает по клику по аватарке;
+
+CSS-классы:  
+
+* ej-components__userpic-40x40
+* ej-components__userpic-50x50
+* ej-components__userpic-80x80
+* ej-components__userpic-150x150
+* ej-components__userpic-200x200
