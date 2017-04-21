@@ -12,7 +12,7 @@
     
 ## Компоненты ##
 ### Button ###
-Кнопка
+Кнопка  
 Простое использование:
 
     <Button />
@@ -46,7 +46,7 @@ CSS-классы:
 * ej-components__button
 
 ### Checkbox ###
-Галочка
+Галочка  
 Простое использование:
 
     <Checkbox />
@@ -89,4 +89,37 @@ CSS-классы:
     * ej-components__checkbox-icon__unchecked - класс иконки выключенной галочки;
 
 ### ExpandablePanel ###
+Раскрывающаяся панель  
+Простое использование:
+
+    <ExpandablePanel />
+    
+Расширенное использование:
+
+    const header: JSX.Element = (
+            <span>
+                Текст в заголовке
+            </span>
+        );
+    ...
+    <ExpandablePanel header={header} defaultExpanded={true} />
+    
+Подключение CSS-стилей в проекте:
+
+    @todo
+
+Свойства:
+
+* header: JSX.Element - содержимое заголовка панели;
+* defaultExpanded: boolean - должна ли панель быть по умолчаниб развернута или нет;
+
+События:  
+Компонент не имеет событий  
+
+CSS-классы:  
+
+* ej-components__expandable-panel
+    * ej-components__expandable-panel-header - класс заголовка панели;
+        * ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
+
 ### Userpic ###
