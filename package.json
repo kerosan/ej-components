@@ -1,7 +1,7 @@
 {
   "name": "@ej/components",
   "main": "index.ts",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "EJ Client components",
   "dependencies": {
     "@common/client-libs": "^0.0.21",
