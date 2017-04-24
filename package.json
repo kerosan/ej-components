@@ -1,10 +1,9 @@
 {
   "name": "@ej/components",
   "main": "index.ts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "EJ Client components",
   "dependencies": {
-    "@common/client-libs": "^0.0.21",
     "@types/node": "^7.0.4",
     "@types/react": "^15.0.21",
     "@types/react-bootstrap": "^0.0.47",
