@@ -16,6 +16,6 @@ module.exports = function (grunt) {
 		'clean:test',
 		'tslint:default',
 		'ts:test',
-		'mochaTest:default',
+		'run:jest',
 	]);
 };

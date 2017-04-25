@@ -1,3 +1,5 @@
+import './Userpic.scss';
+
 import * as React from 'react';
 
 import {LinkTarget, UserpicSize} from '../types/index';

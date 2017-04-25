@@ -1,3 +1,5 @@
+import './Button.scss';
+
 import * as React from 'react';
 
 export interface IButtonProps {
