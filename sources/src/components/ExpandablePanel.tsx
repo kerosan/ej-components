@@ -1,3 +1,5 @@
+import './ExpandablePanel.scss';
+
 import * as React from 'react';
 import {Panel, Glyphicon} from 'react-bootstrap';
 

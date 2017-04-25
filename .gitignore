@@ -1,4 +1,5 @@
 /bin
+.coverage
 .idea
 .tscache
 .test

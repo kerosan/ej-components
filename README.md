@@ -27,10 +27,6 @@
         <span>Текст на кнопке</span>
     </Button>
 
-Подключение CSS-стилей в проекте:
-
-    @todo
-
 Свойства:
 
 * className: string - дополнительный CSS-класс;
@@ -60,10 +56,6 @@ CSS-классы:
               disabled={true}
               inline={true}
               clickCapture={true} />
-
-Подключение CSS-стилей в проекте:
-
-    @todo
 
 Свойства:
 
@@ -103,10 +95,6 @@ CSS-классы:
         );
     ...
     <ExpandablePanel header={header} defaultExpanded={true} />
-    
-Подключение CSS-стилей в проекте:
-
-    @todo
 
 Свойства:
 
@@ -138,10 +126,6 @@ CSS-классы:
    					 className={'some-css-class'}
    					 userId={5} />
    					 
-Подключение CSS-стилей в проекте:
-
-    @todo
-    
 Свойства:
 
 * size: UserpicSize - обязательное поле! Размер аватарки. Допустимые значения: 40x40, 50x50, 80x80, 150x150, 200x200;
