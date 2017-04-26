@@ -1,7 +1,30 @@
+@import "vars";
+@import "mixin";
 .ej-components__expandable-panel {
-  .ej-components__expandable-panel-header {
-    .ej-components__expandable-panel-header-icon {
-
+  .panel {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    .panel-heading {
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      border-radius: 0;
+      border-bottom: $borderGrey;
+      padding-top: 15px;
+      .ej-components__expandable-panel-header {
+        position: relative;
+        a {}
+        .ej-components__expandable-panel-header-icon {
+          position: absolute;
+          top: -2px;
+          right: -15px;
+          font-size: 17px;
+        }
+      }
+    }
+    .panel-body {
+      border-top: none !important;
     }
   }
 }

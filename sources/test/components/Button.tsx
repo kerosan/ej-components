@@ -20,7 +20,7 @@ describe('Button', () => {
 				children: null,
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	it('Advanced usage', () => {
@@ -39,7 +39,7 @@ describe('Button', () => {
 				],
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	it('Check onClick event', () => {
@@ -56,7 +56,7 @@ describe('Button', () => {
 
 		(tree.props.onClick as any)();
 
-		assert.equal(actual, true);
+		expect(actual).toBe(true);
 	});
 
 	it('Skip onClick event if disabled', () => {
@@ -73,6 +73,6 @@ describe('Button', () => {
 
 		(tree.props.onClick as any)();
 
-		assert.equal(actual, false);
+		expect(actual).toBe(false);
 	});
 });

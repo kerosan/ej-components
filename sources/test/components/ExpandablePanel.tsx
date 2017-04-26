@@ -87,7 +87,7 @@ describe('ExpandablePanel', () => {
 				],
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	it('Advanced usage', () => {
@@ -176,7 +176,7 @@ describe('ExpandablePanel', () => {
 				],
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	xit('Check expand/collapse', () => {

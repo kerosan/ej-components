@@ -6,6 +6,7 @@ module.exports = {
 			'--coverage',
 			'--silent',
 			'--env=jsdom',
+			'--expand',
 			'--coverageDirectory=.coverage',
 		],
 	},
