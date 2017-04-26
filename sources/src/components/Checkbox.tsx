@@ -76,7 +76,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 			<span className={spanClassNames.join(' ')} >
 				<label className={labelClassNames.join(' ')} onClick={this.onClick}>
 					{spanElement}
-					<span>{this.props.label ? this.props.label : this.props.children}</span>
+					<span className='ej-components__checkbox-label'>{this.props.label ? this.props.label : this.props.children}</span>
 				</label>
 			</span>
 		);
@@ -91,13 +91,13 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 			return;
 		}
 
+		if (this.props.onChange) {
+			this.props.onChange(!this.state.checked, this.props.name);
+		}
+
 		this.setState({
 			...this.state,
 			checked: !this.state.checked,
 		});
-
-		if (this.props.onChange) {
-			this.props.onChange(this.state.checked, this.props.name);
-		}
 	}
 }

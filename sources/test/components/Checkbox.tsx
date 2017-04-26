@@ -35,7 +35,9 @@ describe('Checkbox', () => {
 							},
 							{
 								type: 'span',
-								props: {},
+								props: {
+									'className': 'ej-components__checkbox-label',
+								},
 								children: null,
 							}
 						]
@@ -43,7 +45,7 @@ describe('Checkbox', () => {
 				],
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	it('Advanced usage', () => {
@@ -79,7 +81,9 @@ describe('Checkbox', () => {
 							},
 							{
 								type: 'span',
-								props: {},
+								props: {
+									'className': 'ej-components__checkbox-label',
+								},
 								children: [
 									'Some text',
 								],
@@ -89,7 +93,7 @@ describe('Checkbox', () => {
 				],
 			};
 
-		assert.equal(JSON.stringify(actual, null, 4), JSON.stringify(expected, null, 4));
+		expect(JSON.stringify(actual, null, 4)).toBe(JSON.stringify(expected, null, 4));
 	});
 
 	it('Check onChange event', () => {
@@ -110,22 +114,22 @@ describe('Checkbox', () => {
 
 		let tree: renderer.ReactTestRendererJSON = component.toJSON();
 		actualIconClassName = ((tree.children[0] as R).children[0] as R).props.className;
-		assert.equal(actualIconClassName, expectedUncheckedIconClassName, 'Wrong class name for unchecked icon');
+		expect(actualIconClassName).toBe(expectedUncheckedIconClassName);
 
 		((tree.children[0] as R).props.onClick as any)();
-		assert.equal(actual, true, 'Wrong value received in change event');
-		assert.equal(actualName, expectedName, 'Wrong name');
+		expect(actual).toBe(true);
+		expect(actualName).toBe(expectedName);
 
 		tree = component.toJSON();
 		actualIconClassName = ((tree.children[0] as R).children[0] as R).props.className;
-		assert.equal(actualIconClassName, expectedCheckedIconClassName, 'Wrong class name for checked icon');
+		expect(actualIconClassName).toBe(expectedCheckedIconClassName);
 
 		((tree.children[0] as R).props.onClick as any)();
-		assert.equal(actual, false, 'Wrong value received in change event');
+		expect(actual).toBe(false);
 
 		tree = component.toJSON();
 		actualIconClassName = ((tree.children[0] as R).children[0] as R).props.className;
-		assert.equal(actualIconClassName, expectedUncheckedIconClassName, 'Wrong class name for unchecked icon');
+		expect(actualIconClassName).toBe(expectedUncheckedIconClassName);
 	});
 
 	it('Skip onChange event if disabled', () => {
@@ -142,13 +146,13 @@ describe('Checkbox', () => {
 
 		let tree: renderer.ReactTestRendererJSON = component.toJSON();
 		actualIconClassName = ((tree.children[0] as R).children[0] as R).props.className;
-		assert.equal(actualIconClassName, expectedCheckedIconClassName, 'Wrong class name for checked icon');
+		expect(actualIconClassName).toBe(expectedCheckedIconClassName);
 
 		((tree.children[0] as R).props.onClick as any)();
-		assert.equal(actual, false, 'onChange event fired');
+		expect(actual).toBe(false);
 
 		tree = component.toJSON();
 		actualIconClassName = ((tree.children[0] as R).children[0] as R).props.className;
-		assert.equal(actualIconClassName, expectedCheckedIconClassName, 'Wrong class name for checked icon');
+		expect(actualIconClassName).toBe(expectedCheckedIconClassName);
 	});
 });
