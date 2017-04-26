@@ -1,0 +1,440 @@
+//@import "fonts";
+@import "vars";
+/* Text styles */
+
+@mixin tnr14 {
+	font-family: Times New Roman;
+	font-size: 14pt;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.21;
+	letter-spacing: 1.4pt;
+	text-align: center;
+	color: $ej-black;
+}
+
+@mixin tnr10 {
+	font-family: Times New Roman;
+	font-size: 10pt;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2;
+	text-align: right;
+	color: $ej-black;
+}
+
+@mixin tnr9 {
+	font-family: Times New Roman;
+	font-size: 9pt;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.79;
+	letter-spacing: 0.7pt;
+	text-align: center;
+	color: $ej-black;
+}
+
+@mixin ejDropGroup($width: 100px, $height: 70px) {
+	float: left;
+	width: $width;
+	height: $height;
+	line-height: $height;
+	.input-group {
+		width: $width;
+		.input-group-addon {
+			background-color: transparent;
+			border: none;
+		}
+	}
+}
+
+@mixin ejTextInput($width:100px) {
+	.input-group-addon {
+		background-color: transparent;
+		border: none;
+	}
+	.form-control {
+		width: $width;
+	}
+}
+
+@mixin ejBadge($text: $ej-white, $bg: $ej-grey-disabled) {
+	background-color: $bg;
+	position: relative;
+	font-size: 12px;
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-weight: $font-light;
+	color: $text;
+	line-height: 1;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: center;
+	border-radius: 10px;
+}
+
+@mixin ejLink {
+	font-weight: $font-light;
+	cursor: pointer;
+	font-size: 12px;
+	color: $ej-blue;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin ejLinkMD {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: $font-medium;
+	color: $ej-grey-darken;
+	text-decoration: none;
+	&:hover {
+		color: $ej-blue;
+		text-decoration: underline;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin ejLinkLG {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: $font-medium;
+	color: $ej-grey-darken;
+	text-decoration: none;
+	line-height: 60px;
+	display: inline-block;
+	height: 60px;
+	transition: border-bottom-width .2s;
+	&:hover {
+		color: $ej-grey-darken;
+		border-bottom-width: 5px !important;
+		border-bottom: solid $ej-orange !important;
+		text-decoration: none;
+		transition: border-bottom-width .1s;
+	}
+	&:focus {
+		color: $ej-grey-darken;
+		text-decoration: none;
+		outline: none;
+	}
+}
+
+@mixin ejButton($width: auto) {
+	outline: none;
+	min-width: 120px !important;
+	width: $width !important;
+	height: 40px;
+	padding: 0px 10px;
+	line-height: 40px;
+	text-transform: uppercase;
+	background-color: $ej-blue !important;
+	border-color: $ej-blue !important;
+	box-shadow: none !important;
+	&:hover {
+		background-color: transparent !important;
+		color: $ej-blue !important;
+		border-color: $ej-blue !important;
+	}
+	&:active {
+		outline: none !important;
+		box-shadow: none !important;
+		background-color: transparent !important;
+		color: darken($ej-blue, 10%) !important;
+		border-color: darken($ej-blue, 10%) !important;
+	}
+	&:focus {
+		background-color: $ej-blue !important;
+		border-color: $ej-blue !important;
+		outline: none;
+	}
+	&:focus:hover {
+		background-color: transparent;
+		color: $ej-blue !important;
+		border-color: $ej-blue !important;
+		box-shadow: none;
+		outline: none;
+	}
+	&.btn-block {
+		display: block;
+		width: 100%;
+	}
+	&.disabled {
+		&:hover {
+			background-color: $ej-grey-light !important;
+			color: $ej-white !important;
+			border-color: $ej-grey-light !important;
+		}
+	}
+}
+
+@mixin ejDropMenu {
+	position: relative;
+	text-align: left;
+	padding: 0px !important;
+
+	a.dropdown-toggle {
+		position: relative;
+	}
+	a.btn:active, a.btn:focus, a.btn:hover {
+		z-index: auto;
+	}
+	a.dropdown-toggle::before {
+		content: '';
+		display: inline-block;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #CCC;
+		border-bottom-color: rgba(0, 0, 0, 0.2);
+		position: absolute;
+		bottom: 5px;
+		right: 10px;
+		z-index: 100010 !important;
+		display: none;
+	}
+	a.dropdown-toggle::after {
+		content: '';
+		display: inline-block;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 9px solid white;
+		position: absolute;
+		bottom: 4px;
+		right: 11px;
+		z-index: 1000100 !important;
+		display: none;
+	}
+	&.open > a.dropdown-toggle::before,
+	&.open > a.dropdown-toggle::after {
+		display: block;
+	}
+
+	.caret.caret {
+		margin-right: 16px !important;
+		margin-left: 0px;
+	}
+
+	.glyphicon.glyphicon-option-vertical {
+		left: -12px;
+		height: 15px;
+		line-height: 10px;
+	}
+
+	.dropdown-menu {
+		top: 35px;
+		right: 0;
+		& > li {
+			&:hover {
+				background-color: $ej-blue-lightest !important;
+			}
+		}
+	}
+}
+
+@mixin ejDropMenuScroll {
+
+	position: relative;
+	text-align: left;
+	padding: 0px;
+
+	a.dropdown-toggle {
+		position: relative;
+	}
+	a.btn:active, a.btn:focus, a.btn:hover {
+		z-index: auto;
+	}
+	a.dropdown-toggle::before {
+		content: '';
+		display: inline-block;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #CCC;
+		border-bottom-color: rgba(0, 0, 0, 0.2);
+		position: absolute;
+		bottom: 5px;
+		right: 10px;
+		z-index: 100010 !important;
+		display: none;
+	}
+	a.dropdown-toggle::after {
+		content: '';
+		display: inline-block;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 9px solid white;
+		position: absolute;
+		bottom: 4px;
+		right: 11px;
+		z-index: 1000100 !important;
+		display: none;
+	}
+	&.open > a.dropdown-toggle::before,
+	&.open > a.dropdown-toggle::after {
+		display: block;
+	}
+
+	.caret.caret {
+		margin-right: 16px !important;
+		margin-left: 0px;
+	}
+
+	.glyphicon.glyphicon-option-vertical {
+		left: -12px;
+		height: 15px;
+		line-height: 10px;
+	}
+
+	.dropdown-menu {
+		& > li {
+			&:hover {
+				background-color: $ej-blue-lightest !important;
+			}
+		}
+	}
+	.dropdown-menu {
+		max-height: 195px;
+		overflow-y: auto;
+	}
+	.caret.caret {
+		margin-right: 16px !important;
+		margin-left: -5px;
+	}
+
+}
+
+@mixin ejBorderGradient {
+	-moz-border-image: -moz-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
+	-ms-border-image: -ms-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
+	-o-border-image: -o-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
+	-webkit-border-image: -webkit-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
+	border-image: linear-gradient(to bottom, $ej-white 0%, $ej-grey-darken 100%);
+
+	border-image-slice: 1;
+
+	border-width: 1px;
+	border-style: solid;
+	padding: 5px;
+	background-color: #fff;
+}
+
+@mixin ejMessageForm {
+	margin-top: 15px;
+	padding-right: 0px;
+	.ejTextAreaWrapper {
+		line-height: normal !important;
+		padding-right: 10px;
+		padding-left: 35px;
+		.ejSimpleBoxArrow {
+			height: 15px;
+			position: absolute;
+			top: 0px;
+			width: 15px;
+			left: 20px;
+			margin: 0px;
+		}
+		.ejSimpleBoxArrow .ejArrowInner, .ejSimpleBoxArrow .ejArrowOuter {
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			position: absolute;
+		}
+		.ejSimpleBoxArrow .ejArrowInner {
+			border: 7px solid #fff;
+			left: 2px;
+			top: 1px;
+			z-index: 1;
+		}
+		.ejSimpleBoxArrow .ejArrowOuter {
+			border: 7px solid $dropdown-border;
+			left: 0px;
+			top: 0px;
+		}
+		.ejSimpleBoxArrow .ejArrowInner, .ejSimpleBoxArrow .ejArrowOuter {
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			position: absolute;
+		}
+		textarea {
+			width: 100%;
+			height: 50px;
+			max-height: 145px;
+			min-height: 50px;
+			line-height: normal;
+			border: $borderGrey;
+			padding: 10px;
+			outline: none;
+			margin-left: -2px;
+			&:focus {
+				border: {
+					color: $ej-blue;
+					radius: 0px;
+				}
+				& + .ejSimpleBoxArrow > .ejArrowOuter {
+					border-color: $ej-blue;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+				}
+				& + .ejSimpleBoxArrow > .ejArrowInner {
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+				}
+			}
+		}
+	}
+}
+
+@mixin ejModalWindow($width: 690px) {
+	.modal-dialog {
+		width: $width;
+		.modal-content {
+			border-radius: 0;
+			.modal-header {
+				padding: 0 15px;
+				height: 70px;
+				line-height: 70px;
+				border-bottom: 0;
+				.ejTitle {
+					font-weight: $font-thin;
+					font-size: 20px;
+					color: $ej-grey-darken;
+					//border-bottom: $borderGrey;
+				}
+				.ejModalClose {
+					cursor: pointer;
+					position: absolute;
+					right: 15px;
+					top: 0px;
+
+				}
+			}
+			.modal-body {
+				padding: 10px 60px 40px;
+			}
+			.modal-footer {
+				background-color: $ej-blue-lightest;
+			}
+
+		}
+	}
+}
+
+@mixin ejPanel($width: 100%) {
+	background-color: $ej-white;
+	border-bottom: $borderGrey;
+}
+
+@mixin ejNoUserSelect {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}

@@ -1,0 +1,124 @@
+$pixel: 1px;
+$ej-body-background: #f8f9f9;
+$ej-file-drop-area: #fafbfc;
+
+$ej-blue-lightest: #f5f8fa;
+$ej-blue-lighten: #e1e3e4;
+$ej-blue-light: #e1e8ed;
+$ej-blue: #3696e0;
+
+$ej-grey-light: #b4bab9;
+$ej-grey-tip: #a2a2a2;
+$ej-grey: #999999;
+$ej-grey-dark: #6a6a6a;
+$ej-grey-darken: #262626;
+$ej-grey-dummy: #333333;
+
+$ej-orange: #ff6f42;
+$ej-white: #ffffff;
+$ej-black: #000000;
+$ej-disabled: #d2d3d3;
+
+$ej-color-danger: #fe0202;
+$ej-red: #ff0202;
+$ej-green: #32bf0c;
+$ej-badge: #df6c4f;
+$ej-color-meet: #ff5f5f;
+$ej-color-ease: #4dc82c;
+$ej-color-event: $ej-blue;
+$ej-color-other: #f1c500;
+$ej-color-all: $ej-blue-lighten;
+$ejMaster: #e3b602;
+$ejSlave: #dcdcdc;
+
+$ej-calendar-border: #c6c6c6;
+$ej-grey-disabled: #b4bab9;
+
+$ej-event-grey: #f0f1f1;
+
+$ej-left-item-border: 14px;
+$test: rgba(#c3c3c3, .6);
+
+//////////bootstrap//////////
+$body-bg: $ej-body-background;
+$link-color: $ej-grey;
+$link-hover-color: $ej-blue;
+$dropdown-border: #cdcdcd;
+$nav-tabs-border-color: #d5d9d8;
+
+$brand-primary: $ej-blue;
+//$ej-tab-border: $nav-tabs-border-color;
+$breadcrumb-color: #31313c;
+$breadcrumb-active-color: $breadcrumb-color;
+
+$state-danger-text: $ej-red;
+$state-success-text: $ej-green;
+$font-size-base: 12px;
+
+//$input-height-base : 40px;
+/////////////////////////////
+
+//size
+$screen-sm-min: 768px;
+//$screen-sm-min: 1024px;
+//$screen-md-min: 1024px;
+$screen-md-min: 768px;
+$screen-lg-min: 1240px;
+//$default-min-height: 300px;
+//$default-tab-height: 400px;
+//$default-header-height: 60px;
+//$homework_task_height: 320px !default;
+$gutter: 20px;
+$toolbar-height: 60px;
+
+$gif-progressbar: "../images/progress.gif";
+
+$grid-gutter-width: 40px !default;
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet: (720px + $grid-gutter-width) !default;
+//** For `$screen-sm-min` and up.
+$container-sm: $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop: (940px + $grid-gutter-width) !default;
+//** For `$screen-md-min` and up.
+$container-md: $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop: (1140px + $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-lg: $container-large-desktop !default;
+
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+$thinkBorder: $pixel solid $dropdown-border;
+$borderWhite: $pixel solid $ej-white;
+$borderGrey: $pixel solid $dropdown-border;
+$borderBlue: $pixel solid $ej-blue;
+
+//$print_width: 595px * 1.33;
+//$print_height: 842px * 1.33;
+//$print_padding: 30px * 1.33 55px * 1.33 30px * 1.33 30px * 1.33;
+//$print_width: 595px;
+//$print_height: 842px;
+//$print_padding: 30px 55px 30px 30px;
+$print_width: 210mm;
+$print_height: 297mm;
+$print_padding_left: 10mm 20mm 10mm 10mm;
+$print_padding_right: 10mm 10mm 10mm 20mm;
+
+//$font-ultra-light: 100;
+$font-thin: 200;
+$font-light: 300;
+$font-regular: 400;
+//$font-regular-plus: 500;
+$font-medium: 600;
+
+$font-bold: 800;
+//$font-heavy: 800;
+$font-black: 900;
