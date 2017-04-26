@@ -40,55 +40,17 @@
 	border-radius: 10px;
 }
 
-@mixin ej-components__Link {
-	font-weight: $font-light;
+@mixin ej-components__Link($fz: 12px, $fw: $font-light, $color: $ej-blue) {
+	font-weight: $fw;
 	cursor: pointer;
-	font-size: 12px;
-	color: $ej-blue;
-	text-decoration: none;
-	&:hover {
-		text-decoration: underline;
-	}
-	&:focus {
-		outline: none;
-	}
-}
-
-@mixin ej-components__LinkMD {
-	cursor: pointer;
-	font-size: 14px;
-	font-weight: $font-medium;
-	color: $ej-grey-darken;
+	font-size: $fz;
+	color: $color;
 	text-decoration: none;
 	&:hover {
 		color: $ej-blue;
 		text-decoration: underline;
 	}
 	&:focus {
-		outline: none;
-	}
-}
-
-@mixin ej-components__LinkLG {
-	cursor: pointer;
-	font-size: 14px;
-	font-weight: $font-medium;
-	color: $ej-grey-darken;
-	text-decoration: none;
-	line-height: 60px;
-	display: inline-block;
-	height: 60px;
-	transition: border-bottom-width .2s;
-	&:hover {
-		color: $ej-grey-darken;
-		border-bottom-width: 5px !important;
-		border-bottom: solid $ej-orange !important;
-		text-decoration: none;
-		transition: border-bottom-width .1s;
-	}
-	&:focus {
-		color: $ej-grey-darken;
-		text-decoration: none;
 		outline: none;
 	}
 }
@@ -369,7 +331,6 @@
 					font-weight: $font-thin;
 					font-size: 20px;
 					color: $ej-grey-darken;
-					//border-bottom: $borderGrey;
 				}
 				.ejModalClose {
 					cursor: pointer;
