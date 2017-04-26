@@ -24,7 +24,7 @@ describe('Userpic', () => {
 						type: 'img',
 						props: {
 							alt: '',
-							src: '/path/to/image/40x40.png',
+							src: '/chat/static/userpic/photo40x40.png',
 						},
 						children: null,
 					}
