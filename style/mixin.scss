@@ -1,6 +1,6 @@
 @import "vars";
 
-@mixin ejDropGroup($width: 100px, $height: 70px) {
+@mixin ej-components__DropGroup($width: 100px, $height: 70px) {
 	float: left;
 	width: $width;
 	height: $height;
@@ -14,7 +14,7 @@
 	}
 }
 
-@mixin ejTextInput($width:100px) {
+@mixin ej-components__TextInput($width:100px) {
 	.input-group-addon {
 		background-color: transparent;
 		border: none;
@@ -24,7 +24,7 @@
 	}
 }
 
-@mixin ejBadge($text: $ej-white, $bg: $ej-grey-disabled) {
+@mixin ej-components__Badge($text: $ej-white, $bg: $ej-grey-disabled) {
 	background-color: $bg;
 	position: relative;
 	font-size: 12px;
@@ -40,7 +40,7 @@
 	border-radius: 10px;
 }
 
-@mixin ejLink {
+@mixin ej-components__Link {
 	font-weight: $font-light;
 	cursor: pointer;
 	font-size: 12px;
@@ -54,7 +54,7 @@
 	}
 }
 
-@mixin ejLinkMD {
+@mixin ej-components__LinkMD {
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: $font-medium;
@@ -69,7 +69,7 @@
 	}
 }
 
-@mixin ejLinkLG {
+@mixin ej-components__LinkLG {
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: $font-medium;
@@ -93,7 +93,7 @@
 	}
 }
 
-@mixin ejButton($width: auto) {
+@mixin ej-components__Button($width: auto) {
 	outline: none;
 	min-width: 120px !important;
 	width: $width !important;
@@ -141,7 +141,7 @@
 	}
 }
 
-@mixin ejDropMenu {
+@mixin ej-components__DropMenu {
 	position: relative;
 	text-align: left;
 	padding: 0px !important;
@@ -204,7 +204,7 @@
 	}
 }
 
-@mixin ejDropMenuScroll {
+@mixin ej-components__DropMenuScroll {
 
 	position: relative;
 	text-align: left;
@@ -275,7 +275,7 @@
 
 }
 
-@mixin ejBorderGradient {
+@mixin ej-components__BorderGradient {
 	-moz-border-image: -moz-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
 	-ms-border-image: -ms-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
 	-o-border-image: -o-linear-gradient(top, $ej-white 0%, $ej-grey-darken 100%);
@@ -290,7 +290,7 @@
 	background-color: #fff;
 }
 
-@mixin ejMessageForm {
+@mixin ej-components__MessageForm {
 	margin-top: 15px;
 	padding-right: 0px;
 	.ejTextAreaWrapper {
@@ -355,7 +355,7 @@
 	}
 }
 
-@mixin ejModalWindow($width: 690px) {
+@mixin ej-components__ModalWindow($width: 690px) {
 	.modal-dialog {
 		width: $width;
 		.modal-content {
@@ -390,12 +390,12 @@
 	}
 }
 
-@mixin ejPanel($width: 100%) {
+@mixin ej-components__Panel($width: 100%) {
 	background-color: $ej-white;
 	border-bottom: $borderGrey;
 }
 
-@mixin ejNoUserSelect {
+@mixin ej-components__NoUserSelect {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
