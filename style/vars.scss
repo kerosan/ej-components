@@ -55,19 +55,11 @@ $state-danger-text: $ej-red;
 $state-success-text: $ej-green;
 $font-size-base: 12px;
 
-//$input-height-base : 40px;
-/////////////////////////////
-
 //size
 $screen-sm-min: 768px;
-//$screen-sm-min: 1024px;
-//$screen-md-min: 1024px;
 $screen-md-min: 768px;
 $screen-lg-min: 1240px;
-//$default-min-height: 300px;
-//$default-tab-height: 400px;
-//$default-header-height: 60px;
-//$homework_task_height: 320px !default;
+
 $gutter: 20px;
 $toolbar-height: 60px;
 
@@ -75,8 +67,7 @@ $gif-progressbar: "../images/progress.gif";
 
 $grid-gutter-width: 40px !default;
 
-//== Container sizes
-//
+
 //## Define the maximum width of `.container` for different screen sizes.
 
 // Small screen / tablet
@@ -101,24 +92,15 @@ $borderWhite: $pixel solid $ej-white;
 $borderGrey: $pixel solid $dropdown-border;
 $borderBlue: $pixel solid $ej-blue;
 
-//$print_width: 595px * 1.33;
-//$print_height: 842px * 1.33;
-//$print_padding: 30px * 1.33 55px * 1.33 30px * 1.33 30px * 1.33;
-//$print_width: 595px;
-//$print_height: 842px;
-//$print_padding: 30px 55px 30px 30px;
 $print_width: 210mm;
 $print_height: 297mm;
 $print_padding_left: 10mm 20mm 10mm 10mm;
 $print_padding_right: 10mm 10mm 10mm 20mm;
 
-//$font-ultra-light: 100;
-$font-thin: 200;
+$font-thin: 100;
 $font-light: 300;
 $font-regular: 400;
-//$font-regular-plus: 500;
-$font-medium: 600;
+$font-medium: 500;
 
-$font-bold: 800;
-//$font-heavy: 800;
+$font-bold: 700;
 $font-black: 900;
