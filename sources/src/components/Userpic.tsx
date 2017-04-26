@@ -33,7 +33,7 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 		let href: string = this.props.href || 'javascript:void(0);',
 			target: string = this.props.target || '_blank',
 			alt: string = this.props.alt || '',
-			src: string = this.props.src || '/path/to/image/' + this.props.size + '.png',
+			src: string = this.props.src || '/chat/static/userpic/photo' + this.props.size + '.png',
 			classNames: string[] = [
 				'ej-components__userpic-' + this.props.size,
 			];
