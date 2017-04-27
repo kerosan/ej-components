@@ -6,6 +6,7 @@ import {Panel, Glyphicon} from 'react-bootstrap';
 export interface IExpandablePanelProps {
 	header?: JSX.Element;
 	defaultExpanded?: boolean;
+	onExpandToggle?: (expanded: boolean) => void;
 }
 
 export interface IExpandablePanelState {
@@ -54,6 +55,10 @@ export class ExpandablePanel extends React.Component<IExpandablePanelProps, IExp
 	}
 
 	private onClick(): void {
+		if (this.props.onExpandToggle) {
+			this.props.onExpandToggle(!this.state.expanded);
+		}
+
 		this.setState({
 			...this.state,
 			expanded: !this.state.expanded,
