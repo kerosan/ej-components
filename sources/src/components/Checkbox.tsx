@@ -40,7 +40,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 		}
 	}
 
-	protected componentWillReceiveProps(nextProps: ICheckboxProps): void {
+	public componentWillReceiveProps(nextProps: ICheckboxProps): void {
 		if (nextProps.checked !== undefined && this.state.checked !== nextProps.checked) {
 			this.setState({
 				...this.state,
