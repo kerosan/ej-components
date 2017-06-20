@@ -152,3 +152,32 @@ CSS-классы:
 
 * Подправить пути к аватаркам по умолчанию;
 * Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
+
+### Preloader ###
+Прелоадер
+Простое использование:
+
+    <Preloader />
+
+Расширенное использование:
+
+    <Preloader inline style={{top:'10px', left:'10px'}} className={'some-css-class'} />
+
+или
+
+    <Preloader style={{top:'10px', left:'10px'}} className={'some-css-class'} />
+
+Свойства:
+
+* className: string - дополнительный CSS-класс;
+* style: {} - стили в js нотации;
+* inline: boolean - Если inline === false, то прелоадер рендерится как модальное окно, иначе, как инлайн-блок;
+
+События:
+
+* нет событий
+
+CSS-классы:
+
+* ej-components__preloader
+* ej-components__preloaderGif

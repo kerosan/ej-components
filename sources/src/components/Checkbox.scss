@@ -1,9 +1,8 @@
-@import 'vars';
 .ej-components__checkbox {
   margin-bottom: 0;
   .checkbox-inline {
     line-height: 20px !important;
-    padding-top: 0px !important;
+    padding-top: 0 !important;
     padding-left: 15px;
     padding-right: 5px;
   }
@@ -11,7 +10,7 @@
     display: none;
   }
   >label {
-    font-weight: $font-light;
+    font-weight: 300;
     -webkit-user-select: none;
     /* Chrome all / Safari all */
     -moz-user-select: none;
@@ -30,17 +29,17 @@
       display: inline-block;
       cursor: pointer;
       font-size: 10px;
-      color: $ej-white;
+      color: #ffffff;
       width: 16px;
       height: 16px;
     }
     >.ej-components__checkbox-icon__checked {
-      background-color: $ej-blue !important;
-      border: 1px solid $ej-blue;
+      background-color: #3696e0 !important;
+      border: 1px solid #3696e0;
     }
     >.ej-components__checkbox-icon__unchecked {
       background-color: transparent !important;
-      border: 1px solid $ej-grey;
+      border: 1px solid #999999;
     }
     >.ej-components__checkbox-label {
       font-size: 12px;
@@ -48,12 +47,12 @@
     &.disabled {
       background-color: transparent !important;
       .glyphicon {
-        color: $ej-blue-lightest;
-        background-color: $ej-grey-disabled !important;
-        border-color: $ej-grey-disabled !important;
+        color: #f5f8fa;
+        background-color: #b4bab9 !important;
+        border-color: #b4bab9 !important;
       }
       .ej-components__checkbox-label {
-        color: $ej-grey-disabled;
+        color: #b4bab9;
       }
     }
   }
