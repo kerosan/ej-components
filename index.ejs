@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport'
+		  content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+	<title><%= htmlWebpackPlugin.options.title %></title>
+	<style>
+		body {
+			margin: 20px !important;
+		}
+
+		code {
+			padding: 20px !important;
+			display: inline-block;
+			white-space: pre;
+		}
+
+		.ej-component {
+			display: block;
+			/*margin: 20px;*/
+		}
+	</style>
+</head>
+<body>
+<h1>EJ Components</h1>
+<div>
+	<code><%- `<Button text='Button' onClick={() => {alert('on click')}} />` %></code>
+	<div id='Button' class="ej-component"></div>
+	<code><%-
+`<div className='btn-toolbar'>
+  <Button text='Button' onClick={() => {alert('on click')}} />
+  <Button text='Button' disabled onClick={() => {alert('on click')}} />
+</div>`
+%></code>
+	<div id='ButtonToolbar' class="ej-component"></div>
+</div>
+</body>
+</html>

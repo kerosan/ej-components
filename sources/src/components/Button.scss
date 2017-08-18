@@ -1,3 +1,52 @@
-.ej-components__button {
+@import "vars";
+@import "mixin";
 
+.ej-components__button {
+	margin: 10px;
+	padding: 12px;
+	font-weight: $font-regular;
+	color: #ffffff;
+	background-color: #3696e0;
+	width: 120px;
+	min-width: 120px;
+	height: 38px;
+	line-height: 12px;
+	border-radius: 2px;
+	border: 1px solid #3696e0;
+	cursor: pointer;
+	text-decoration: none !important;
+	outline: 0;
+	display: inline-block;
+	text-align: center;
+	@include ej-components__NoUserSelect;
+	&.disabled, &:disabled {
+		color: #f3f3f3;
+		background-color: #d6d6d6;
+		border: 1px solid #d6d6d6;
+		&:hover {
+			color: #f3f3f3;
+			background-color: #d6d6d6;
+			border: 1px solid #d6d6d6;
+			cursor: not-allowed;
+		}
+	}
+	&:hover {
+		background-color: transparent;
+	}
+	&:active {
+		color: #00abc0;
+		border: 1px solid #00abc0;
+	}
+
+}
+
+.btn-toolbar {
+	margin-left: 0 !important;
+	> .ej-components__button {
+		&:first-child {
+			margin-left: 10px;
+		}
+		margin-left: 5px;
+		float: left;
+	}
 }

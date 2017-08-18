@@ -10,15 +10,24 @@
     "array-type": [
       false
     ],
+    "arrow-parens": false,
+    "ban-types": [
+      true,
+      [
+        "object",
+        "user Object instead"
+      ]
+    ],
     "forin": false,
     "import-spacing": false,
-    // enable tslint-react rules here
-    "ban-types": false,
     "jsx-alignment": false,
     "jsx-no-lambda": false,
-    "jsx-no-multiline-js":false,
-    "jsx-no-string-ref": false,
+    "jsx-no-multiline-js": false,
+    "jsx-boolean-value": false,
+    "jsx-wrap-multiline": false,
     "no-reference": false,
+    "no-var-requires": false,
+    "no-duplicate-imports": false,
     "class-name": false,
     "quotemark": [
       false,
@@ -34,10 +43,15 @@
       false,
       "tabs"
     ],
+    "prefer-conditional-expression": false,
+    "no-object-literal-type-assertion": false,
+    "semicolon": false,
     "trailing-comma": [
       false
     ],
-    "max-classes-per-file": [false],
+    "max-classes-per-file": [
+      false
+    ],
     "max-line-length": [
       true,
       200
@@ -45,11 +59,13 @@
     "member-ordering": [
       false
     ],
-    "no-console": [false],
-    "no-var-keyword": false,
+    "no-console": false,
+    "no-var-keyword": true,
     "no-string-literal": false,
     "no-trailing-whitespace": false,
-    "no-consecutive-blank-lines": [false],
+    "no-consecutive-blank-lines": [
+      false
+    ],
     "object-literal-shorthand": false,
     "one-variable-per-declaration": [
       false
@@ -71,7 +87,7 @@
       "allow-leading-underscore",
       "allow-pascal-case",
       "allow-trailing-underscore",
-      // "ban-keywords",
+      "ban-keywords",
       "check-format"
     ]
   }

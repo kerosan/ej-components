@@ -22,7 +22,7 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__button', 'btn btn-primary'];
+		let classNames: string[] = ['ej-components__button'];
 
 		if (this.props.disabled) {
 			classNames.push('disabled');

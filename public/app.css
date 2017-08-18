@@ -1,0 +1,60 @@
+.ej-components__button {
+  margin: 10px;
+  padding: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #3696e0;
+  width: 120px;
+  min-width: 120px;
+  height: 38px;
+  line-height: 12px;
+  border-radius: 2px;
+  border: 1px solid #3696e0;
+  cursor: pointer;
+  text-decoration: none !important;
+  outline: 0;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.ej-components__button.disabled,
+.ej-components__button:disabled {
+  color: #f3f3f3;
+  background-color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+}
+
+.ej-components__button.disabled:hover,
+.ej-components__button:disabled:hover {
+  color: #f3f3f3;
+  background-color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+  cursor: not-allowed;
+}
+
+.ej-components__button:hover {
+  background-color: transparent;
+}
+
+.ej-components__button:active {
+  color: #00abc0;
+  border: 1px solid #00abc0;
+}
+
+.btn-toolbar {
+  margin-left: 0 !important;
+}
+
+.btn-toolbar > .ej-components__button {
+  margin-left: 5px;
+  float: left;
+}
+
+.btn-toolbar > .ej-components__button:first-child {
+  margin-left: 10px;
+}
+
