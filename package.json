@@ -25,12 +25,10 @@
     "@types/react": "^16.0.2",
     "@types/react-dom": "^15.5.3",
     "@types/react-test-renderer": "^15.5.3",
-    "awesome-typescript-loader": "^3.2.3",
     "bootstrap-loader": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
     "chai": "^3.5.0",
     "css-loader": "^0.28.5",
-    "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
@@ -40,7 +38,6 @@
     "grunt-run": "^0.6.0",
     "grunt-ts": "^6.0.0-beta.15",
     "grunt-tslint": "^5.0.1",
-    "html-loader": "^0.5.1",
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
     "identity-obj-proxy": "^3.0.0",
@@ -69,6 +66,7 @@
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     },
+    "mapCoverage": true,
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },

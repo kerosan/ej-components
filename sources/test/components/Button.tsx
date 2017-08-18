@@ -7,7 +7,7 @@ import {Button} from '../../src/components/Button';
 describe('Button', () => {
 
 	it('Simple usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Button />
 		);
 
@@ -15,7 +15,7 @@ describe('Button', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'a',
 				props: {
-					className: 'ej-components__button btn btn-primary',
+					className: 'ej-components__button',
 				},
 				children: null,
 			};
@@ -24,7 +24,7 @@ describe('Button', () => {
 	});
 
 	it('Advanced usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Button text={"Some text"} disabled={true} className={'my-class'} />
 		);
 
@@ -32,7 +32,7 @@ describe('Button', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'a',
 				props: {
-					className: 'ej-components__button btn btn-primary disabled my-class',
+					className: 'ej-components__button disabled my-class',
 				},
 				children: [
 					'Some text'
@@ -48,7 +48,7 @@ describe('Button', () => {
 		const onClick: () => void = () => {
 				actual = true;
 			},
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<Button onClick={onClick} />
 			);
 
@@ -65,7 +65,7 @@ describe('Button', () => {
 		const onClick: () => void = () => {
 				actual = true;
 			},
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<Button onClick={onClick} disabled={true} />
 			);
 

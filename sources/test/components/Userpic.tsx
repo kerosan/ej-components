@@ -7,7 +7,7 @@ import {Userpic} from '../../src/components/Userpic';
 describe('Userpic', () => {
 
 	it('Simple usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Userpic size={'40x40'} />
 		);
 
@@ -35,7 +35,7 @@ describe('Userpic', () => {
 	});
 
 	it('Advanced usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Userpic size={'40x40'}
 					 href={'http://example.com/'}
 					 target={'_self'}
@@ -74,7 +74,7 @@ describe('Userpic', () => {
 		const onClick: (userId: number) => void = (userId: number) => {
 				actualUserId = userId;
 			},
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<Userpic size={'40x40'} userId={expectedUserId} onClick={onClick} />
 			);
 
