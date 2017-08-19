@@ -12,7 +12,8 @@
   },
   "repository": "http://diary-gitlab.abatapka.net/EJ/libs/components.git",
   "scripts": {
-    "build": "webpack -p",
+    "build": "grunt build",
+    "build:dev": "webpack -p",
     "start": "webpack -w -d",
     "start:dev": "webpack-dev-server -w -d",
     "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
