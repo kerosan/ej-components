@@ -26,15 +26,24 @@
 <body>
 <h1>EJ Components</h1>
 <div>
-	<code><%- `<Button text='Button' onClick={() => {alert('on click')}} />` %></code>
+	<code><%- `<Button text='Button' onClick={() => alert('on click 0')} />` %></code>
 	<div id='Button' class="ej-component"></div>
 	<code><%-
 `<div className='btn-toolbar'>
-  <Button text='Button' onClick={() => {alert('on click')}} />
-  <Button text='Button' disabled onClick={() => {alert('on click')}} />
+  <Button text='Button' onClick={() => alert('on click 1')} />
+  <Button text='Button' disabled onClick={() => alert('on click 2')} />
 </div>`
 %></code>
 	<div id='ButtonToolbar' class="ej-component"></div>
+	<code><%- `<Checkbox checked />` %></code>
+	<code><%- `<Checkbox disbled />` %></code>
+	<code><%- `<Checkbox label={'Checkbox'} />` %></code>
+	<div id='Checkbox' class="ej-component"></div>
+
+	<code><%- `<RadioButton checked />` %></code>
+	<code><%- `<RadioButton disbled />` %></code>
+	<code><%- `<RadioButton label={'RadioButton'} />` %></code>
+	<div id='RadioButton' class="ej-component"></div>
 </div>
 </body>
 </html>

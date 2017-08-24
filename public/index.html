@@ -22,17 +22,26 @@
 			/*margin: 20px;*/
 		}
 	</style>
-<link href="./app.css?de0d916333a01e0e7a90" rel="stylesheet"><link href="./bootstrap.css?de0d916333a01e0e7a90" rel="stylesheet"></head>
+<link href="./app.css" rel="stylesheet"><link href="./bootstrap.css" rel="stylesheet"></head>
 <body>
 <h1>EJ Components</h1>
 <div>
-	<code>&lt;Button text=&#39;Button&#39; onClick={() =&gt; {alert(&#39;on click&#39;)}} /&gt;</code>
+	<code>&lt;Button text=&#39;Button&#39; onClick={() =&gt; alert(&#39;on click 0&#39;)} /&gt;</code>
 	<div id='Button' class="ej-component"></div>
 	<code>&lt;div className=&#39;btn-toolbar&#39;&gt;
-  &lt;Button text=&#39;Button&#39; onClick={() =&gt; {alert(&#39;on click&#39;)}} /&gt;
-  &lt;Button text=&#39;Button&#39; disabled onClick={() =&gt; {alert(&#39;on click&#39;)}} /&gt;
+  &lt;Button text=&#39;Button&#39; onClick={() =&gt; alert(&#39;on click 1&#39;)} /&gt;
+  &lt;Button text=&#39;Button&#39; disabled onClick={() =&gt; alert(&#39;on click 2&#39;)} /&gt;
 &lt;/div&gt;</code>
 	<div id='ButtonToolbar' class="ej-component"></div>
+	<code>&lt;Checkbox checked /&gt;</code>
+	<code>&lt;Checkbox disbled /&gt;</code>
+	<code>&lt;Checkbox label={&#39;Checkbox&#39;} /&gt;</code>
+	<div id='Checkbox' class="ej-component"></div>
+
+	<code>&lt;RadioButton checked /&gt;</code>
+	<code>&lt;RadioButton disbled /&gt;</code>
+	<code>&lt;RadioButton label={&#39;RadioButton&#39;} /&gt;</code>
+	<div id='RadioButton' class="ej-component"></div>
 </div>
-<script type="text/javascript" src="./app.js?de0d916333a01e0e7a90"></script><script type="text/javascript" src="./bootstrap.js?de0d916333a01e0e7a90"></script></body>
+<script type="text/javascript" src="./app.js"></script><script type="text/javascript" src="./bootstrap.js"></script></body>
 </html>

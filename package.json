@@ -14,8 +14,8 @@
   "scripts": {
     "build": "grunt build",
     "build:dev": "webpack -p",
-    "start": "webpack -w -d",
-    "start:dev": "webpack-dev-server -w -d",
+    "start": "webpack -w",
+    "start:dev": "webpack-dev-server --inline",
     "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
   "author": "",
@@ -26,10 +26,12 @@
     "@types/react": "^16.0.2",
     "@types/react-dom": "^15.5.3",
     "@types/react-test-renderer": "^15.5.3",
+    "awesome-typescript-loader": "^3.2.3",
     "bootstrap-loader": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
     "chai": "^3.5.0",
     "css-loader": "^0.28.5",
+    "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",

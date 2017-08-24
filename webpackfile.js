@@ -15,20 +15,21 @@ module.exports = {
         filename: '[name].js',
         publicPath: './',
     },
-    devtool: 'source-map',
+    devtool: 'eval',
     devServer: {
         compress: true,
-        inline: true,
-        // host: 'localhost',
+        inline: false,
+        host: 'localhost',
+        hot: true,
         port: 8080,
         contentBase: "./public",
         overlay: true,
-        // watchContentBase: true
+        watchContentBase: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             inject: 'body',
-            hash: true,
+            // hash: true,
             title: 'EJ Components',
             template: path.resolve(__dirname, './index.ejs'),
             filename: 'index.html',
@@ -47,14 +48,12 @@ module.exports = {
         new TsConfigPathsPlugin(),
         new ExtractTextPlugin({
             filename: '[name].css',
-            allChunks: true,
-            ignoreOrder: true,
-            disable: false,
+            allChunks: true
         }),
     ],
-    performance: {
-        hints: false
-    },
+    // performance: {
+        // hints: false
+    // },
     resolve: {
         modules: [
             'node_modules'
@@ -80,9 +79,8 @@ module.exports = {
                 exclude: /(node_modules)/,
                 use: [
                     {
-                        loader: 'ts-loader?' + JSON.stringify({
+                        loader: 'awesome-typescript-loader?' + JSON.stringify({
                             transpileOnly: true,
-                            declaration: true,
                         })
                     }
                 ]
