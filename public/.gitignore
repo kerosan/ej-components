@@ -1,0 +1,5 @@
+resources/*
+bootstrap.*
+*.js
+*.html
+*.map

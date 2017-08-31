@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const path = require('path');
 module.exports = {
     entry: {
-        app: './sources/src/app',
+        components: './sources/src/app',
         bootstrap: 'bootstrap-loader/extractStyles',
         // template: './index.ejs'
     },
@@ -116,11 +116,11 @@ module.exports = {
             },
             {
                 test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.otf($|\?)|\.eot($|\?)|\.svg($|\?)/,
-                use: ['url-loader?name=./resources/fonts/[name].[hash].[ext]&limit=100']
+                use: ['url-loader?name=./resources/fonts/[name].[ext]&limit=100']
             },
             {
                 test: /\.(jpeg|jpg|png|gif)$/i,
-                use: ['url-loader?name=./resources/images/[name].[hash].[ext]&limit=100']
+                use: ['url-loader?name=./resources/images/[name].[ext]&limit=100']
             }
         ]
     }
