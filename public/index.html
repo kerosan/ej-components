@@ -13,35 +13,85 @@
 
 		code {
 			padding: 20px !important;
+			margin-bottom: 5px;
 			display: inline-block;
 			white-space: pre;
 		}
 
 		.ej-component {
 			display: block;
-			/*margin: 20px;*/
+			padding: 20px;
+			border: 1px dashed grey;
 		}
 	</style>
 <link href="./components.css" rel="stylesheet"><link href="./bootstrap.css" rel="stylesheet"></head>
 <body>
 <h1>EJ Components</h1>
 <div>
+	<h1>Заголовок</h1>
+	<hr>
+	<code>&lt;Title bold&gt;{`Заголовок 1`}&lt;/Title&gt;</code><br>
+	<code>&lt;Title text=&#39;Заголовок 2&#39;/&gt;</code><br>
+	<code>&lt;Title small&gt;{`Заголовок 3`}&lt;/Title&gt;</code><br>
+	<code>&lt;Title small grey&gt;{`Заголовок 4`}&lt;/Title&gt;</code><br>
+	<code>&lt;Title small grey inline&gt;{`Заголовок 5`}&lt;/Title&gt;
+&lt;Title small grey inline&gt;{`Заголовок 6`}&lt;/Title&gt;</code><br>
+
+	<div id="Title" class="ej-component"></div>
+	<hr>
+
+
+	<h1>Текст</h1>
+	<hr>
+	<code>&lt;Snippet&gt;{`Текст вариант 1`}&lt;/Snippet&gt;</code><br>
+	<code>&lt;Snippet grey text=&#39;Текст вариант 2&#39;/&gt;</code><br>
+	<code>&lt;Snippet red&gt;{`Текст ошибки`}&lt;/Snippet&gt;</code><br>
+
+	<div id="Snippet" class="ej-component"></div>
+	<hr>
+
+
+	<h1 id="LinkTitle">Ссылка</h1>
+	<hr>
+	<code>&lt;Link href=&#39;#LinkTitle&#39;&gt;{`Ссылка 1`}&lt;/Link&gt;</code><br>
+	<code>&lt;Link text=&#39;Ссылка 2&#39; onClick={() =&gt; alert(&quot;Link 2 click&quot;)}/&gt;</code><br>
+
+	<div id="Link" class="ej-component"></div>
+	<hr>
+
+
+	<h1>Кнопка</h1>
+	<hr>
 	<code>&lt;Button text=&#39;Button&#39; onClick={() =&gt; alert(&#39;on click 0&#39;)} /&gt;</code>
 	<div id='Button' class="ej-component"></div>
 	<code>&lt;div className=&#39;btn-toolbar&#39;&gt;
   &lt;Button text=&#39;Button&#39; onClick={() =&gt; alert(&#39;on click 1&#39;)} /&gt;
   &lt;Button text=&#39;Button&#39; disabled onClick={() =&gt; alert(&#39;on click 2&#39;)} /&gt;
 &lt;/div&gt;</code>
+
 	<div id='ButtonToolbar' class="ej-component"></div>
+	<hr>
+
+
+	<h1>Checkbox</h1>
+	<hr>
 	<code>&lt;Checkbox checked /&gt;</code>
 	<code>&lt;Checkbox disbled /&gt;</code>
 	<code>&lt;Checkbox label={&#39;Checkbox&#39;} /&gt;</code>
-	<div id='Checkbox' class="ej-component"></div>
 
+	<div id='Checkbox' class="ej-component"></div>
+	<hr>
+
+
+	<h1>RadioButton</h1>
+	<hr>
 	<code>&lt;RadioButton checked /&gt;</code>
 	<code>&lt;RadioButton disbled /&gt;</code>
 	<code>&lt;RadioButton label={&#39;RadioButton&#39;} /&gt;</code>
+
 	<div id='RadioButton' class="ej-component"></div>
+	<hr>
+
 </div>
 <script type="text/javascript" src="./components.js"></script><script type="text/javascript" src="./bootstrap.js"></script></body>
 </html>

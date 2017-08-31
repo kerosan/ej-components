@@ -1,0 +1,18 @@
+@import "vars";
+
+.ej-components__Snippet {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+
+	&.grey {
+		color: #999999;
+	}
+	&.red {
+		color: #ff0202;
+	}
+	&.black {
+		color: #262626;
+	}
+}

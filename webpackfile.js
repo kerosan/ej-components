@@ -6,9 +6,8 @@ const webpack = require('webpack');
 const path = require('path');
 module.exports = {
     entry: {
-        components: './sources/src/app',
+        components: './sources/src/components',
         bootstrap: 'bootstrap-loader/extractStyles',
-        // template: './index.ejs'
     },
     output: {
         path: path.join(__dirname, './public'),
@@ -41,9 +40,6 @@ module.exports = {
         new webpack.DefinePlugin({
             __DEV__: 'true'
         }),
-        // new webpack.ProvidePlugin({
-        //     _: 'lodash'
-        // }),
         new CheckerPlugin(),
         new TsConfigPathsPlugin(),
         new ExtractTextPlugin({
@@ -51,9 +47,6 @@ module.exports = {
             allChunks: true
         }),
     ],
-    // performance: {
-        // hints: false
-    // },
     resolve: {
         modules: [
             'node_modules'
@@ -62,18 +55,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.ejs$/,
-            //     use: {
-            //         loader: 'ejs-loader'
-            //     }
-            // },
-            // {
-            //     test: /\.html$/,
-            //     use: {
-            //         loader: 'html-loader'
-            //     }
-            // },
             {
                 test: /\.tsx?$/,
                 exclude: /(node_modules)/,

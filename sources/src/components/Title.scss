@@ -1,0 +1,28 @@
+@import "vars";
+
+.ej-components__Title {
+	font-family: Roboto, Arial, sans-serif;
+	line-height: 50px;
+	&.bold {
+		font-weight: $font-medium;
+	}
+	&.normal {
+		font-weight: $font-light;
+	}
+	&.grey {
+		color: #999999;
+	}
+	&.black {
+		color: #262626;
+	}
+	&.small {
+		font-size: 14px;
+	}
+	&.large {
+		font-size: 20px;
+	}
+}
+
+span.ej-components__Title {
+	margin-right: 5px;
+}
