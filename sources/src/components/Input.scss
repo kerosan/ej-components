@@ -1,0 +1,70 @@
+@import "vars";
+
+.ej-components__Input {
+	display: inline-block;
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+	height: 50px;
+	color: #262626;
+	margin: 5px 10px;
+	input {
+		outline: none;
+		min-width: 300px;
+		height: 22px;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-top-width: 0;
+		border-bottom-width: 1px;
+		border-color: #999999;
+		margin-bottom: 5px;
+		padding: 0;
+		&:focus {
+			border-color: #3696e0;
+		}
+
+		&::-webkit-input-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&::-moz-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&:-ms-input-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&:-moz-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&::placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+	}
+	& > div {
+		max-width: 295px;
+		font-size: 10px;
+		font-weight: $font-light;
+	}
+
+	&.validationWarning {
+		& > input {
+			border-color: #f29e00;
+		}
+		& > div {
+			color: #f29e00;
+		}
+	}
+	&.validationError {
+		& > input {
+			border-color: #d51717;
+		}
+		& > div {
+			color: #d51717;
+		}
+	}
+}

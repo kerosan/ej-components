@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export interface ISnippetProps {
 	text?: string;
-	red?: boolean;
+	bold?: boolean;
 	grey?: boolean;
 	className?: string;
 }
@@ -28,14 +28,14 @@ export class Snippet extends React.Component<ISnippetProps, ISnippetStates> {
 		} else {
 			this._snippet = this.props.children.toString();
 		}
-		if (this.props.red) {
-			classNames.push('red');
-		} else if (this.props.grey) {
+		if (this.props.grey) {
 			classNames.push('grey');
 		} else {
 			classNames.push('black');
 		}
-
+		if (this.props.bold) {
+			classNames.push('bold');
+		}
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}

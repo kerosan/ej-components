@@ -23,6 +23,11 @@
 			padding: 20px;
 			border: 1px dashed grey;
 		}
+
+		textarea {
+			width: 300px;
+			height: 68px;
+		}
 	</style>
 </head>
 <body>
@@ -45,7 +50,7 @@
 	<hr>
 	<code><%- `<Snippet>{\`Текст вариант 1\`}</Snippet>` %></code><br>
 	<code><%- `<Snippet grey text='Текст вариант 2'/>` %></code><br>
-	<code><%- `<Snippet red>{\`Текст ошибки\`}</Snippet>` %></code><br>
+	<code><%- `<Snippet bold>{\`Текст вариант 3\`}</Snippet>` %></code><br>
 
 	<div id="Snippet" class="ej-component"></div>
 	<hr>
@@ -92,6 +97,27 @@
 	<code><%- `<RadioButton label={'RadioButton'} />` %></code>
 
 	<div id='RadioButton' class="ej-component"></div>
+	<hr>
+
+
+	<h1>Input</h1>
+	<hr>
+	<code><%- `<Input placeholder='Стандартное поле' onChange={() => console.log("input changed")} />` %></code><br>
+	<code><%- `<Input placeholder='Стандартное поле' value='Активное поле'/>` %></code><br>
+	<code><%- `<Input placeholder='Стандартное поле' warning message='Предупреждение выделяется оранжевым цветом, занимает не более двух строк.'/>` %></code><br>
+	<code><%- `<Input placeholder='Стандартное поле' error message='Сообщение об ошибке выделяется красным цветом, занимает не более двух строк.'/>` %></code><br>
+
+	<div id='Input' class="ej-component"></div>
+	<hr>
+
+
+	<h1>TextArea</h1>
+	<hr>
+	<code><%- `<TextArea placeholder='Стандартное поле' onChange={() => console.log('textarea 1 changed')}/>` %></code><br>
+	<code><%- `<TextArea value='Активное поле' onChange={() => console.log('textarea 2 changed')}/>` %></code><br>
+	<code><%- `<TextArea placeholder='Обязательное поле' onChange={() => console.log('textarea 3 changed')}/>` %></code><br>
+
+	<div id='TextArea' class="ej-component"></div>
 	<hr>
 
 </div>
