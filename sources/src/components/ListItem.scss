@@ -1,0 +1,14 @@
+@import "vars";
+
+li.ej-components__ListItem {
+	width: 300px;
+	height: 33px;
+	padding: 8px 10px;
+	display: inline-block;
+	border-bottom: 1px solid #d6d6d6;
+	background-color: transparent;
+	cursor: default;
+	&:hover, &.selected {
+		background-color: #f5f8fa;
+	}
+}

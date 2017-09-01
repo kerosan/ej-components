@@ -14,8 +14,6 @@ export interface ISnippetStates {
 
 export class Snippet extends React.Component<ISnippetProps, ISnippetStates> {
 
-	private _snippet: string = '';
-
 	constructor(props: ISnippetProps) {
 		super(props);
 	}
@@ -23,11 +21,7 @@ export class Snippet extends React.Component<ISnippetProps, ISnippetStates> {
 	public render(): any {
 		let classNames: string[] = ['ej-components__Snippet'];
 
-		if (this.props.text) {
-			this._snippet = this.props.text;
-		} else {
-			this._snippet = this.props.children.toString();
-		}
+
 		if (this.props.grey) {
 			classNames.push('grey');
 		} else {
@@ -39,6 +33,10 @@ export class Snippet extends React.Component<ISnippetProps, ISnippetStates> {
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
-		return <span className={classNames.join(' ')}>{this._snippet}</span>
+		return (
+			<span className={classNames.join(' ')}>
+				{(this.props.text ? this.props.text : this.props.children)}
+			</span>
+		);
 	}
 }

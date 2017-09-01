@@ -16,7 +16,7 @@ export interface ITitleStates {
 
 export class Title extends React.Component<ITitleProps, ITitleStates> {
 
-	private _text: string = '';
+	// private _text: string = '';
 
 	constructor(props: ITitleProps) {
 		super(props);
@@ -25,11 +25,11 @@ export class Title extends React.Component<ITitleProps, ITitleStates> {
 	public render(): any {
 		let tag: JSX.Element, classNames: string[] = ['ej-components__Title'];
 
-		if (this.props.text) {
-			this._text = this.props.text;
-		} else {
-			this._text = this.props.children.toString();
-		}
+		// if (this.props.text) {
+		// 	this._text = this.props.text;
+		// } else {
+		// 	this._text = this.props.children.toString();
+		// }
 
 		if (this.props.bold) {
 			classNames.push('bold');
@@ -53,9 +53,13 @@ export class Title extends React.Component<ITitleProps, ITitleStates> {
 			classNames.push(this.props.className);
 		}
 		if (this.props.inline) {
-			tag = <span className={classNames.join(' ')}>{this._text}</span>
+			tag = <span className={classNames.join(' ')}>
+				{(this.props.text ? this.props.text : this.props.children)}
+			</span>;
 		} else {
-			tag = <div className={classNames.join(' ')}>{this._text}</div>
+			tag = <div className={classNames.join(' ')}>
+				{(this.props.text ? this.props.text : this.props.children)}
+			</div>;
 		}
 
 		return tag;

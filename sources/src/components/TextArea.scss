@@ -1,7 +1,7 @@
 @import "vars";
 
 textarea.ej-components__TextArea {
-	//display: inline-block;
+	display: inline-block;
 	font-family: Roboto, Arial, sans-serif;
 	font-size: 12px;
 	line-height: 18px;
@@ -43,5 +43,4 @@ textarea.ej-components__TextArea {
 	&.required {
 		border-color: #d51717;
 	}
-
 }

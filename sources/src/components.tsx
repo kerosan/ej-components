@@ -8,6 +8,8 @@ import { Snippet } from './components/Snippet';
 import { Link } from './components/Link';
 import { Input } from './components/Input';
 import { TextArea } from "./components/TextArea";
+import { List } from "./components/List";
+import { ListItem } from "./components/ListItem";
 
 const titles = (
 	<div>
@@ -76,6 +78,20 @@ const textareas = (
 	</div>
 );
 
+const list = (
+	<div>
+		<List>
+			<ListItem text='Строка в списке'/>
+			<ListItem selected text='Строка в списке'/>
+			<ListItem text='Строка в списке'/>
+			<ListItem text='Строка в списке'/>
+			<ListItem text='Строка в списке'/>
+			<ListItem text='Строка в списке'/>
+			<ListItem text='Строка в списке'/>
+		</List>
+	</div>
+);
+
 
 window.addEventListener('load', (e) => {
 	ReactDOM.render(titles, document.getElementById('Title'));
@@ -87,4 +103,5 @@ window.addEventListener('load', (e) => {
 	ReactDOM.render(radiobutton, document.getElementById('RadioButton'));
 	ReactDOM.render(inputs, document.getElementById('Input'));
 	ReactDOM.render(textareas, document.getElementById('TextArea'));
+	ReactDOM.render(list, document.getElementById('List'));
 });
