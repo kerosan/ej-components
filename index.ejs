@@ -160,10 +160,10 @@
 	<code><%- `<List/>` %></code>
 	<div id='List3' class="ej-component"></div>
 
-	<code><%- `<List items={[]}/>` %></code>
+	<code><%- `<List items='{[]}/'>` %></code>
 	<div id='List4' class="ej-component"></div>
 
-	<code><%- `<List items={[
+	<code><%- `<List items='{['
 	{text: 'String 11'},
 	{text: 'String 12'},
 	{text: 'String 13'},
@@ -172,7 +172,7 @@
 ]}/>` %></code>
 	<div id='List5' class="ej-component"></div>
 
-	<code><%- `<List items={[
+	<code><%- `<List items='{['
   {text: 'String 21'},
   {text: 'String 22'},
   {text: 'String 23'},
@@ -183,6 +183,28 @@
 
 	<div id='List6' class="ej-component"></div>
 	<hr>
+
+	<h1>Alert</h1>
+	<hr>
+	<code><%- `<Alert bsStyle='danger'>
+  <strong>{"Error!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>` %></code>
+	<hr>
+
+	<div id='Alert1' class="ej-component"></div>
+	<code><%- `<Alert bsStyle='warning'>
+  <strong>{"Warning!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>` %></code>
+	<hr>
+
+	<div id='Alert2' class="ej-component"></div>
+	<code><%- `<Alert bsStyle='success' onDismiss={() => alert('dismiss')}>
+  <strong>{"Success!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>` %></code>
+	<hr>
+
+	<div id='Alert3' class="ej-component"></div>
+
 
 </div>
 </body>

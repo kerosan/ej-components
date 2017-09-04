@@ -158,10 +158,10 @@
 	<code>&lt;List/&gt;</code>
 	<div id='List3' class="ej-component"></div>
 
-	<code>&lt;List items={[]}/&gt;</code>
+	<code>&lt;List items=&#39;{[]}/&#39;&gt;</code>
 	<div id='List4' class="ej-component"></div>
 
-	<code>&lt;List items={[
+	<code>&lt;List items=&#39;{[&#39;
 	{text: &#39;String 11&#39;},
 	{text: &#39;String 12&#39;},
 	{text: &#39;String 13&#39;},
@@ -170,7 +170,7 @@
 ]}/&gt;</code>
 	<div id='List5' class="ej-component"></div>
 
-	<code>&lt;List items={[
+	<code>&lt;List items=&#39;{[&#39;
   {text: &#39;String 21&#39;},
   {text: &#39;String 22&#39;},
   {text: &#39;String 23&#39;},
@@ -181,6 +181,28 @@
 
 	<div id='List6' class="ej-component"></div>
 	<hr>
+
+	<h1>Alert</h1>
+	<hr>
+	<code>&lt;Alert bsStyle=&#39;danger&#39;&gt;
+  &lt;strong&gt;{&quot;Error!&quot;}&lt;/strong&gt; Поле сообщения со &lt;a href=&#39;javascript://&#39;&gt;ссылкой&lt;/a&gt;
+&lt;/Alert&gt;</code>
+	<hr>
+
+	<div id='Alert1' class="ej-component"></div>
+	<code>&lt;Alert bsStyle=&#39;warning&#39;&gt;
+  &lt;strong&gt;{&quot;Warning!&quot;}&lt;/strong&gt; Поле сообщения со &lt;a href=&#39;javascript://&#39;&gt;ссылкой&lt;/a&gt;
+&lt;/Alert&gt;</code>
+	<hr>
+
+	<div id='Alert2' class="ej-component"></div>
+	<code>&lt;Alert bsStyle=&#39;success&#39; onDismiss={() =&gt; alert(&#39;dismiss&#39;)}&gt;
+  &lt;strong&gt;{&quot;Success!&quot;}&lt;/strong&gt; Поле сообщения со &lt;a href=&#39;javascript://&#39;&gt;ссылкой&lt;/a&gt;
+&lt;/Alert&gt;</code>
+	<hr>
+
+	<div id='Alert3' class="ej-component"></div>
+
 
 </div>
 <script type="text/javascript" src="./components.js"></script><script type="text/javascript" src="./bootstrap.js"></script></body>

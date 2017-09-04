@@ -1,0 +1,61 @@
+@import "vars";
+
+.ej-components__Alert {
+	line-height: 20px;
+	margin: 10px !important;
+	padding: 21px 15px;
+	font-size: 14px;
+	font-weight: $font-light;
+	text-align: center;
+	min-height: 38px;
+	min-width: 120px;
+	strong {
+		font-weight: $font-medium;
+	}
+
+	&.alert-danger {
+		border: 1px solid #ebccd1;
+		strong {
+			color: #a94442;
+		}
+		a {
+			cursor: pointer;
+			color: #843534;
+			font-weight: $font-medium;
+		}
+	}
+	&.alert-warning {
+		border: 1px solid #faebcc;
+		strong {
+			color: #8a6d3b;
+		}
+		a {
+			cursor: pointer;
+			color: #66512c;
+			font-weight: $font-medium;
+		}
+	}
+	&.alert-success {
+		border: 1px solid #d6e9c6;
+		strong {
+			color: #3c763d;
+		}
+		a {
+			cursor: pointer;
+			color: #2b542c;
+			font-weight: $font-medium;
+		}
+	}
+	&.alert-info {
+		border: 1px solid #bce8f1;
+		background-color: #d9edf7;
+		strong {
+			color: #31708f;
+		}
+		a {
+			cursor: pointer;
+			color: #295975;
+			font-weight: $font-medium;
+		}
+	}
+}

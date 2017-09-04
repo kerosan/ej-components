@@ -2,7 +2,10 @@
 @import '~gemini-scrollbar/gemini-scrollbar.css';
 
 .ej-components__List {
+	width: auto !important;
+
 	&.no_scroll {
+		margin: 0 10px;
 		ul {
 			min-height: 34px;
 			max-height: 166px;

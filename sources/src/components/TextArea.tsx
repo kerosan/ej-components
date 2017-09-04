@@ -41,7 +41,7 @@ export class TextArea extends React.Component<ITextAreaProps, ITextAreaStates> {
 			classNames.push('required');
 		}
 
-		return <textarea className={classNames.join(' ')} value={this.state.value} placeholder={this._placeholder} onChange={this.onChange}/>;
+		return <div className={classNames.join(' ')}><textarea  value={this.state.value} placeholder={this._placeholder} onChange={this.onChange}/></div>;
 	}
 
 	private onChange(e): void {

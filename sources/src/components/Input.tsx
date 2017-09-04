@@ -50,10 +50,10 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		if (this.props.warning) {
 			classNames.push('validationWarning');
 		}
-		return <span className={classNames.join(' ')}>
+		return <div className={classNames.join(' ')}>
 			<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
 			<div>{this.props.message}</div>
-		</span>;
+		</div>;
 	}
 
 	private onChange(e): void {

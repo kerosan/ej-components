@@ -10,6 +10,7 @@ import { Input } from './components/Input';
 import { TextArea } from "./components/TextArea";
 import { List } from "./components/List";
 import { ListItem } from "./components/ListItem";
+import { Alert } from "./components/Alert";
 import { Glyphicon } from "react-bootstrap";
 
 const titles = (
@@ -108,7 +109,7 @@ const list2 = (
 	</List>
 );
 const list3 = (
-	<List emptyTitle="Список пуст"/>
+	<List emptyTitle='Список пуст'/>
 );
 const list4 = (
 	<List items={[]}/>
@@ -133,6 +134,23 @@ const list6 = (
 	]}/>
 );
 
+const alert1 = (
+	<Alert bsStyle='danger'>
+		<strong>{"Error!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+	</Alert>
+);
+
+const alert2 = (
+	<Alert bsStyle='warning'>
+		<strong>{"Warning!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+	</Alert>
+);
+
+const alert3 = (
+	<Alert bsStyle='success' onDismiss={() => alert('dismiss')}>
+		<strong>{"Success!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+	</Alert>
+);
 
 
 window.addEventListener('load', (e) => {
@@ -153,4 +171,7 @@ window.addEventListener('load', (e) => {
 	ReactDOM.render(list4, document.getElementById('List4'));
 	ReactDOM.render(list5, document.getElementById('List5'));
 	ReactDOM.render(list6, document.getElementById('List6'));
+	ReactDOM.render(alert1, document.getElementById('Alert1'));
+	ReactDOM.render(alert2, document.getElementById('Alert2'));
+	ReactDOM.render(alert3, document.getElementById('Alert3'));
 });
