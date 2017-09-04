@@ -1,0 +1,79 @@
+@import 'vars';
+@import 'mixin';
+
+.ej-components__CheckPanel {
+	margin-bottom: 0;
+	.checkbox-inline {
+		line-height: 20px !important;
+		padding-top: 0px !important;
+		padding-left: 15px;
+		padding-right: 5px;
+	}
+	&:active {
+		& > label {
+			& > .ej-components__CheckPanel-icon__unchecked,
+			& > .ej-components__CheckPanel-icon__checked {
+				//background-color: #00abc0 !important;
+				border: 2px solid #00abc0;
+				.glyphicon {
+					color: #ffffff !important; //$ej-blue-lightest;
+					background-color: #00abc0 !important; //$ej-grey-disabled !important;
+					border-color: /*$ej-grey-disabled*/
+							#00abc0 !important;
+				}
+			}
+			& > .ej-components__CheckPanel-icon__checked {
+				background-color: #00abc0 !important;
+			}
+		}
+	}
+	& > label {
+		font-weight: $font-light;
+		@include ej-components__NoUserSelect;
+		cursor: pointer;
+		font-size: 10px;
+		margin-bottom: 0;
+		& > .ej-components__CheckPanel-icon__checked,
+		& > .ej-components__CheckPanel-icon__unchecked {
+			margin: 10px;
+			padding: 3px;
+			vertical-align: middle;
+			display: inline-block;
+			cursor: pointer;
+			font-size: 11px;
+			color: $ej-white;
+			width: 22px;
+			height: 22px;
+
+		}
+		& > .ej-components__CheckPanel-icon__checked {
+			background-color: $ej-blue !important;
+			border: 2px solid $ej-blue;
+			top: 0px;
+
+		}
+		& > .ej-components__CheckPanel-icon__unchecked {
+			background-color: transparent !important;
+			border: 2px solid $ej-grey;
+		}
+		& > .ej-components__CheckPanel-label {
+			font-size: 12px;
+		}
+		&.disabled {
+			background-color: transparent !important;
+			& > .ej-components__CheckPanel-icon__checked,
+			& > .ej-components__CheckPanel-icon__unchecked {
+				border: 2px solid #d6d6d6 !important;
+			}
+			.glyphicon {
+				color: #f3f3f3 !important; //$ej-blue-lightest;
+				background-color: #d6d6d6 !important; //$ej-grey-disabled !important;
+				border-color: /*$ej-grey-disabled*/
+						#d6d6d6 !important;
+			}
+			.ej-components__CheckPanel-label {
+				color: $ej-grey-disabled;
+			}
+		}
+	}
+}

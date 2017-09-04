@@ -12,6 +12,7 @@ import { List } from "./components/List";
 import { ListItem } from "./components/ListItem";
 import { Alert } from "./components/Alert";
 import { Glyphicon } from "react-bootstrap";
+import { CheckPanel } from "./components/CheckPanel";
 
 const titles = (
 	<div>
@@ -153,6 +154,13 @@ const alert3 = (
 );
 
 
+const cbPanel1 = (
+	<CheckPanel>
+		<strong>{"Success!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+	</CheckPanel>
+);
+
+
 window.addEventListener('load', (e) => {
 	ReactDOM.render(titles, document.getElementById('Title'));
 	ReactDOM.render(snippets, document.getElementById('Snippet'));
@@ -174,4 +182,5 @@ window.addEventListener('load', (e) => {
 	ReactDOM.render(alert1, document.getElementById('Alert1'));
 	ReactDOM.render(alert2, document.getElementById('Alert2'));
 	ReactDOM.render(alert3, document.getElementById('Alert3'));
+	ReactDOM.render(cbPanel1, document.getElementById('CbPanel1'));
 });
