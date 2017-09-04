@@ -77,6 +77,18 @@
 	<div id='ButtonToolbar' class="ej-component"></div>
 	<hr>
 
+	<code>&lt;Button text=&#39;Button&#39; rounded onClick={() =&gt; alert(&#39;on click 3&#39;)} /&gt;</code>
+	<div id='ButtonRounded' class="ej-component"></div>
+	<hr>
+
+
+	<code>&lt;div&gt;
+  &lt;Button inverted onClick={() =&gt; alert(&#39;on click PREV&#39;)}&gt;&lt;Glyphicon glyph=&#39;chevron-left&#39;/&gt;{&#39;Button&#39;}&lt;/Button&gt;
+  &lt;Button inverted onClick={() =&gt; alert(&#39;on click NEXT&#39;)}&gt;{&#39;Button&#39;}&lt;Glyphicon glyph=&#39;chevron-right&#39;/&gt;&lt;/Button&gt;
+&lt;/div&gt;</code>
+	<div id='ButtonInverted' class="ej-component"></div>
+	<hr>
+
 
 	<h1>Checkbox</h1>
 	<hr>
@@ -113,7 +125,7 @@
 	<hr>
 	<code>&lt;TextArea placeholder=&#39;Стандартное поле&#39; onChange={() =&gt; console.log(&#39;textarea 1 changed&#39;)}/&gt;</code><br>
 	<code>&lt;TextArea value=&#39;Активное поле&#39; onChange={() =&gt; console.log(&#39;textarea 2 changed&#39;)}/&gt;</code><br>
-	<code>&lt;TextArea placeholder=&#39;Обязательное поле&#39; onChange={() =&gt; console.log(&#39;textarea 3 changed&#39;)}/&gt;</code><br>
+	<code>&lt;TextArea required placeholder=&#39;Обязательное поле&#39; onChange={() =&gt; console.log(&#39;textarea 3 changed&#39;)}/&gt;</code><br>
 
 	<div id='TextArea' class="ej-component"></div>
 	<hr>

@@ -10,6 +10,7 @@ import { Input } from './components/Input';
 import { TextArea } from "./components/TextArea";
 import { List } from "./components/List";
 import { ListItem } from "./components/ListItem";
+import { Glyphicon } from "react-bootstrap";
 
 const titles = (
 	<div>
@@ -44,6 +45,14 @@ const btnToolbar = (
 	<div className='btn-toolbar'>
 		<Button text='Button' onClick={() => alert('on click 1')}/>
 		<Button text='Button' disabled onClick={() => alert('on click 2')}/>
+	</div>
+);
+const btnRounded = (
+	<Button text='Button' rounded onClick={() => alert('on click 3')}/>
+);
+const btnInverted = (<div>
+		<Button inverted onClick={() => alert('on click PREV')}><Glyphicon glyph='chevron-left'/>{'Button'}</Button>
+		<Button inverted onClick={() => alert('on click NEXT')}>{'Button'}<Glyphicon glyph='chevron-right'/></Button>
 	</div>
 );
 const checkbox = (
@@ -99,6 +108,8 @@ window.addEventListener('load', (e) => {
 	ReactDOM.render(links, document.getElementById('Link'));
 	ReactDOM.render(btn, document.getElementById('Button'));
 	ReactDOM.render(btnToolbar, document.getElementById('ButtonToolbar'));
+	ReactDOM.render(btnRounded, document.getElementById('ButtonRounded'));
+	ReactDOM.render(btnInverted, document.getElementById('ButtonInverted'));
 	ReactDOM.render(checkbox, document.getElementById('Checkbox'));
 	ReactDOM.render(radiobutton, document.getElementById('RadioButton'));
 	ReactDOM.render(inputs, document.getElementById('Input'));
