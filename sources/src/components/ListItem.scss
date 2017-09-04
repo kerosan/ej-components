@@ -11,4 +11,8 @@ li.ej-components__ListItem {
 	&:hover, &.selected {
 		background-color: #f5f8fa;
 	}
+	&.empty {
+		margin: 10px;
+		border-top: 1px solid #d6d6d6;
+	}
 }

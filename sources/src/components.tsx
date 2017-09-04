@@ -87,19 +87,52 @@ const textareas = (
 	</div>
 );
 
-const list = (
-	<div>
-		<List>
-			<ListItem text='Строка в списке'/>
-			<ListItem selected text='Строка в списке'/>
-			<ListItem text='Строка в списке'/>
-			<ListItem text='Строка в списке'/>
-			<ListItem text='Строка в списке'/>
-			<ListItem text='Строка в списке'/>
-			<ListItem text='Строка в списке'/>
-		</List>
-	</div>
+const list1 = (
+	<List>
+		<ListItem text='Строка в списке'/>
+		<ListItem selected text='Строка в списке'/>
+		<ListItem text='Строка в списке'/>
+		<ListItem><Glyphicon glyph='star'/>{'Строка в списке с иконкой'}</ListItem>
+		<ListItem text='Строка в списке'/>
+	</List>
 );
+const list2 = (
+	<List>
+		<ListItem text='Строка в списке'/>
+		<ListItem selected text='Строка в списке'/>
+		<ListItem text='Строка в списке'/>
+		<ListItem text='Строка в списке'/>
+		<ListItem text='Строка в списке'/>
+		<ListItem><Glyphicon glyph='star'/>{'Строка в списке с иконкой'}</ListItem>
+		<ListItem text='Строка в списке'/>
+	</List>
+);
+const list3 = (
+	<List/>
+);
+const list4 = (
+	<List items={[]}/>
+);
+const list5 = (
+	<List items={[
+		{text: 'String 11'},
+		{text: 'String 12'},
+		{text: 'String 13'},
+		{text: 'String 14'},
+		{text: 'String 15'},
+	]}/>
+);
+const list6 = (
+	<List items={[
+		{text: 'String 21'},
+		{text: 'String 22'},
+		{text: 'String 23'},
+		{text: 'String 24'},
+		{text: 'String 25'},
+		{text: 'String 26'},
+	]}/>
+);
+
 
 
 window.addEventListener('load', (e) => {
@@ -114,5 +147,10 @@ window.addEventListener('load', (e) => {
 	ReactDOM.render(radiobutton, document.getElementById('RadioButton'));
 	ReactDOM.render(inputs, document.getElementById('Input'));
 	ReactDOM.render(textareas, document.getElementById('TextArea'));
-	ReactDOM.render(list, document.getElementById('List'));
+	ReactDOM.render(list1, document.getElementById('List1'));
+	ReactDOM.render(list2, document.getElementById('List2'));
+	ReactDOM.render(list3, document.getElementById('List3'));
+	ReactDOM.render(list4, document.getElementById('List4'));
+	ReactDOM.render(list5, document.getElementById('List5'));
+	ReactDOM.render(list6, document.getElementById('List6'));
 });

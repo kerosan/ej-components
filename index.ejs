@@ -135,17 +135,53 @@
 
 	<h1>List</h1>
 	<hr>
-	<code><%- `<List >
-  <ListItem>{"Строка в списке"}</ListItem>
-  <ListItem selected text="Строка в списке"/>
-  <ListItem>{"Строка в списке"}</ListItem>
-  <ListItem>{"Строка в списке"}</ListItem>
-  <ListItem>{"Строка в списке"}</ListItem>
-  <ListItem>{"Строка в списке"}</ListItem>
-  <ListItem>{"Строка в списке"}</ListItem>
-</List>` %></code><br>
 
-	<div id='List' class="ej-component"></div>
+	<code><%- `
+<List>
+	<ListItem text='Строка в списке'/>
+	<ListItem selected text='Строка в списке'/>
+	<ListItem text='Строка в списке'/>
+	<ListItem><Glyphicon glyph='star'/>{'Строка в списке с иконкой'}</ListItem>
+	<ListItem text='Строка в списке'/>
+</List>` %></code>
+	<div id='List1' class="ej-component"></div>
+
+	<code><%- `<List>
+	<ListItem text='Строка в списке'/>
+	<ListItem selected text='Строка в списке'/>
+	<ListItem text='Строка в списке'/>
+	<ListItem text='Строка в списке'/>
+	<ListItem text='Строка в списке'/>
+	<ListItem><Glyphicon glyph='star'/>{'Строка в списке с иконкой'}</ListItem>
+	<ListItem text='Строка в списке'/>
+</List>` %></code>
+	<div id='List2' class="ej-component"></div>
+
+	<code><%- `<List/>` %></code>
+	<div id='List3' class="ej-component"></div>
+
+	<code><%- `<List items={[]}/>` %></code>
+	<div id='List4' class="ej-component"></div>
+
+	<code><%- `<List items={[
+	{text: 'String 11'},
+	{text: 'String 12'},
+	{text: 'String 13'},
+	{text: 'String 14'},
+	{text: 'String 15'},
+]}/>` %></code>
+	<div id='List5' class="ej-component"></div>
+
+	<code><%- `<List items={[
+  {text: 'String 21'},
+  {text: 'String 22'},
+  {text: 'String 23'},
+  {text: 'String 24'},
+  {text: 'String 25'},
+  {text: 'String 26'},
+]} />` %></code>
+
+	<div id='List6' class="ej-component"></div>
 	<hr>
 
 </div>

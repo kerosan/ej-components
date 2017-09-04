@@ -1,15 +1,19 @@
 import './List.scss';
 
 import * as React from 'react';
-import { ListItem } from './ListItem';
+import { IListItemProps, ListItem } from './ListItem';
+import * as  GeminiScrollbar from "react-gemini-scrollbar";
 
 export interface IListProps {
-	items?: ListItem[];
+	items?: IListItemProps[];
 	className?: string;
+	emptyTitle?: string;
 }
 
 export interface IListStates {
 }
+
+const NUMBER_OF_LIST_ITEMS_WITH_SCROLL = 5;
 
 export class List extends React.Component<IListProps, IListStates> {
 
@@ -19,15 +23,42 @@ export class List extends React.Component<IListProps, IListStates> {
 
 	public render(): any {
 		let classNames: string[] = ['ej-components__List'];
-
+		console.log(this.props.children);
+		let items: JSX.Element[];
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
+		if (!this.props.children) {
+			if (this.props.items === undefined || this.props.items.length === 0) {
+				return <div className={[...classNames, 'no_scroll'].join(' ')}>
+					<ul><ListItem empty text={this.props.emptyTitle || "Список пуст"}/></ul>
+				</div>;
+			}
+			items = this.props.items.map((props: IListItemProps, key) => {
+				return <ListItem key={key} {...props}/>;
+			});
+			if (this.props.items.length <= NUMBER_OF_LIST_ITEMS_WITH_SCROLL) {
+				return <div className={[...classNames, 'no_scroll'].join(' ')}>
+					<ul>{items}</ul>
+				</div>;
+			}
+		} else {
+			if (this.props.children === undefined || this.props.children['length'] === 0) {
+				return <ul><ListItem empty text={this.props.emptyTitle || "Empty list"}/></ul>;
+			}
+			if (this.props.children['length'] <= NUMBER_OF_LIST_ITEMS_WITH_SCROLL) {
+				return <div className={[...classNames, 'no_scroll'].join(' ')}>
+					<ul>{this.props.children}</ul>
+				</div>;
+			}
+		}
 
 		return (
-			<ul className={classNames.join(' ')}>
-				{(this.props.items ? this.props.items : this.props.children)}
-			</ul>
+			<GeminiScrollbar forceGemini className={classNames.join(' ')} style={{width: 300, maxHeight: 166, minHeight: 33}}>
+				<ul>
+					{(items ? items : this.props.children)}
+				</ul>
+			</GeminiScrollbar>
 		);
 	}
 }

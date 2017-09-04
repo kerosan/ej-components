@@ -8,6 +8,7 @@
     "@types/react-bootstrap": "^0.0.47",
     "@types/react-widgets": "^3.2.31",
     "moment": "^2.17.1",
+    "react-gemini-scrollbar": "^2.3.2",
     "react-widgets": "^3.4.5"
   },
   "repository": "http://diary-gitlab.abatapka.net/EJ/libs/components.git",

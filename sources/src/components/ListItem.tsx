@@ -3,9 +3,10 @@ import './ListItem.scss';
 import * as React from 'react';
 
 export interface IListItemProps {
-	text?: string;
+	text?: string | JSX.Element;
 	// href?: string;
 	selected?: boolean;
+	empty?: boolean;
 	disabled?: boolean;
 	className?: string;
 
@@ -31,6 +32,9 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 		}
 		if (this.props.disabled) {
 			classNames.push('disabled');
+		}
+		if (this.props.empty) {
+			classNames.push('empty');
 		}
 
 		if (this.props.className) {
