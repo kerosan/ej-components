@@ -3,7 +3,7 @@
 .ej-components__Alert {
 	line-height: 20px;
 	margin: 10px !important;
-	padding: 21px 15px;
+	padding: 21px 15px !important;
 	font-size: 14px;
 	font-weight: $font-light;
 	text-align: center;
@@ -12,7 +12,9 @@
 	strong {
 		font-weight: $font-medium;
 	}
-
+	.close {
+		right: 0 !important;
+	}
 	&.alert-danger {
 		border: 1px solid #ebccd1;
 		strong {
