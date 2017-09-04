@@ -108,7 +108,7 @@ const list2 = (
 	</List>
 );
 const list3 = (
-	<List/>
+	<List emptyTitle="Список пуст"/>
 );
 const list4 = (
 	<List items={[]}/>

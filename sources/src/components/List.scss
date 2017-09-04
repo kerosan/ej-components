@@ -6,7 +6,7 @@
 		ul {
 			min-height: 34px;
 			max-height: 166px;
-			width: 300px;
+			min-width: 300px;
 		}
 	}
 	margin: 10px;
@@ -19,14 +19,9 @@
 		}
 	}
 	ul {
-		//min-height: 34px;
-		//max-height: 166px;
-		//width: 300px;
 		margin: 0px;
 		border-top: 1px solid #d6d6d6;
 		border-bottom: 1px solid #d6d6d6;
-		//overflow-y: auto;
-		//overflow-x: hidden;
 		padding: 0;
 		&:last-child {
 			border: 0;

@@ -31,7 +31,7 @@ export class List extends React.Component<IListProps, IListStates> {
 		if (!this.props.children) {
 			if (this.props.items === undefined || this.props.items.length === 0) {
 				return <div className={[...classNames, 'no_scroll'].join(' ')}>
-					<ul><ListItem empty text={this.props.emptyTitle || "Список пуст"}/></ul>
+					<ul><ListItem empty text={this.props.emptyTitle || "Empty list"}/></ul>
 				</div>;
 			}
 			items = this.props.items.map((props: IListItemProps, key) => {
@@ -54,7 +54,7 @@ export class List extends React.Component<IListProps, IListStates> {
 		}
 
 		return (
-			<GeminiScrollbar forceGemini className={classNames.join(' ')} style={{width: 300, maxHeight: 166, minHeight: 33}}>
+			<GeminiScrollbar forceGemini className={classNames.join(' ')} style={{width: '100%', minWidth: 300, maxHeight: 166, minHeight: 33}}>
 				<ul>
 					{(items ? items : this.props.children)}
 				</ul>
