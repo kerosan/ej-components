@@ -23,6 +23,7 @@ module.exports = function (grunt) {
         'clean:build',
         'tslint:default',
         'ts:build',
+        'sass',
         'run:jest',
     ]);
 };
