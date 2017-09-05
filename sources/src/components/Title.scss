@@ -1,6 +1,6 @@
 @import "vars";
 
-.ej-components__Title {
+.ej-components__title {
 	font-family: Roboto, Arial, sans-serif;
 	line-height: 50px;
 	&.bold {
@@ -21,8 +21,4 @@
 	&.large {
 		font-size: 20px;
 	}
-}
-
-span.ej-components__Title {
-	margin-right: 5px;
 }

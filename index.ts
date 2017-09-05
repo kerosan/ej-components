@@ -9,7 +9,7 @@ export * from './sources/src/components/Link';
 export * from './sources/src/components/List';
 export * from './sources/src/components/ListItem';
 export * from './sources/src/components/RadioButton';
-export * from './sources/src/components/Snippet';
+export * from './sources/src/components/Text';
 export * from './sources/src/components/TextArea';
 export * from './sources/src/components/Title';
 export * from './sources/src/types/index';

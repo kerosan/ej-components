@@ -12,30 +12,40 @@
     
 ## Компоненты ##
 ### Button ###
+ 
 Кнопка  
 Простое использование:
 
-    <Button />
-    
+```typescript jsx
+<Button />;
+```
+
 Расширенное использование:
 
-    <Button text={"Текст на кнопке"} disabled={true} className={'some-css-class'} />
+```typescript jsx
+<Button text={"Текст на кнопке"} disabled={true} className={'some-css-class'} />
+```
 
 или
-
-    <Button disabled={true} className={'some-css-class'} >
-        <span>Текст на кнопке</span>
-    </Button>
-
+```typescript jsx
+<Button disabled={true} className={'some-css-class'} >
+  <span>Текст на кнопке</span>
+</Button>
+```
 Свойства:
 
-* className: string - дополнительный CSS-класс;
-* disabled: boolean - кнопка активна / не активна;
-* text: string - текст на кнопке;
+| имя       | тип     | значение по умолчанию | описание                    |
+|-----------|---------|-----------------------|-----------------------------|
+| className | string  | ej-components__button | дополнительный CSS-класс    |
+| disabled  | boolean | false                 | кнопка активна / не активна |
+| text      | string  |                       | текст на кнопке             |
 
 События:
 
-* onClick(): void - срабатывает по клику по кнопке. Не срабатывает если кнопка не активна;
+| имя     | тип             | описание                                                              |
+|---------|-----------------|-----------------------------------------------------------------------|
+| onClick | (event) => void | срабатывает по клику по кнопке. Не срабатывает если кнопка не активна |
+
 
 CSS-классы:
 
@@ -44,11 +54,11 @@ CSS-классы:
 ### Checkbox ###
 Галочка  
 Простое использование:
-
+```typescript jsx
     <Checkbox />
-    
+```
 Расширенное использование:
-
+```typescript jsx
     <Checkbox name={'checkbox-name'}
               label={'Текст'}
               className={'some-css-class'}
@@ -56,21 +66,27 @@ CSS-классы:
               disabled={true}
               inline={true}
               clickCapture={true} />
-
+```
 Свойства:
 
-* checked: boolean - включена галочка или нет;
-* className: string - дополнительный CSS-класс;
-* clickCapture: boolean - прекращать или нет дальнейшую передачу текущего события;
-* disabled: boolean - галочка активна / не активна;
-* inline: boolean - добаляет CSS-класс "inline" (@todo уточнить подробности у Коли);
-* label: string - текст рядом с галочкой;
-* name: string - имя галочки;
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена галочка или нет                                |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | галочка активна / не активна                            |
+| label        | string  |                       | текст рядом с галочкой                                  |
+| name         | string  |                       | имя галочки                                             |
 
 События:
 
-* onChange(checked: boolean, name?: string): void - срабатывает при измении состояния галочки.
-Не срабатывает если галочка не активна. Параметры:
+| имя      | тип                                       | описание                                                              |
+|----------|-------------------------------------------|-----------------------------------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. Не срабатывает если галочка не активна. |
+
+Параметры:
+
     * checked: boolean - включена галочка или нет;
     * name: string - имя галочки, если имя было передано, если нет то undefined;
     
@@ -152,6 +168,35 @@ CSS-классы:
 
 * Подправить пути к аватаркам по умолчанию;
 * Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
+
+### Text ###
+текст в тэге ``<span>`` 
+
+Простое использование:
+```typescript jsx
+<Text>{`пример текста`}</Text>
+```    
+Расширенное использование:
+```typescript jsx
+<Text text={"пример текст"} type={`secondary`} className={'some-css-class'} />
+```
+или
+```typescript jsx
+<Text type={`label`} className={'some-css-class'} >
+  <span>пример текстa с разметкой</span>
+</Text>
+```
+Свойства:
+
+| props | тип | значение по умолчанию | описание |
+|-------|-----|-----------------------|----------|
+| className | string | | дополнительный CSS-класс |
+| text | string, JSX.Element | | текст или JSX разметка |
+| type | "primary", "secondary", "label" | "primary" | тип стилизации текста |
+
+CSS-классы:
+
+* ej-components__text
 
 ## Cборка ##
 $ grunt build

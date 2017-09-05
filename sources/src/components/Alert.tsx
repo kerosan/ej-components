@@ -7,7 +7,7 @@ export interface IAlertProps {
 
 	className?: string;
 	bsStyle?: "success" | "warning" | "danger" | "info";
-	onDismiss?: Function;
+	onClose?: () => void;
 	onClick?: () => void;
 }
 
@@ -23,15 +23,15 @@ export class Alert extends React.Component<IAlertProps, IAlertStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__Alert'];
+		let classNames: string[] = ['ej-components__alert'];
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
 
 		return (
-			<BSAlert bsStyle={this.props.bsStyle} className={classNames.join(' ')}
-					 onDismiss={this.props.onDismiss}
+			<BSAlert bsStyle={this.props.bsStyle || 'info'} className={classNames.join(' ')}
+					 onDismiss={this.props.onClose}
 					 onClick={this.onClick}>
 				{this.props.children}
 			</BSAlert>

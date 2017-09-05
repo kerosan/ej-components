@@ -50,7 +50,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
 	}
 
 	public render(): JSX.Element {
-		let spanClassNames: string[] = ['ej-components__checkbox', /*'form-group'*/],
+		let spanClassNames: string[] = ['ej-components__checkbox'],
 			labelClassNames: string[] = [],
 			spanElement: JSX.Element;
 

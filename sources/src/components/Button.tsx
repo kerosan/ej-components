@@ -3,7 +3,7 @@ import './Button.scss';
 import * as React from 'react';
 
 export interface IButtonProps {
-	text?: string;
+	text?: string | JSX.Element;
 	disabled?: boolean;
 	className?: string;
 	rounded?: boolean;

@@ -3,11 +3,8 @@ import './Title.scss';
 import * as React from 'react';
 
 export interface ITitleProps {
-	text?: string;
-	bold?: boolean;
-	small?: boolean;
-	grey?: boolean;
-	inline?: boolean;
+	text?: string | JSX.Element;
+	type?: "h1" | "h2" | "h3" | "h4";
 	className?: string;
 }
 
@@ -16,52 +13,43 @@ export interface ITitleStates {
 
 export class Title extends React.Component<ITitleProps, ITitleStates> {
 
-	// private _text: string = '';
-
 	constructor(props: ITitleProps) {
 		super(props);
 	}
 
 	public render(): any {
-		let tag: JSX.Element, classNames: string[] = ['ej-components__Title'];
+		let classNames: string[] = ['ej-components__title'];
 
-		// if (this.props.text) {
-		// 	this._text = this.props.text;
-		// } else {
-		// 	this._text = this.props.children.toString();
-		// }
-
-		if (this.props.bold) {
-			classNames.push('bold');
-		} else {
-			classNames.push('normal');
-		}
-
-		if (this.props.small) {
-			classNames.push('small');
-		} else {
-			classNames.push('large');
-		}
-
-		if (this.props.small && this.props.grey) {
-			classNames.push('grey');
-		} else {
-			classNames.push('black');
+		switch (this.props.type) {
+			case 'h1':
+				classNames.push('bold');
+				classNames.push('large');
+				break;
+			case 'h2':
+				classNames.push('normal');
+				classNames.push('large');
+				break;
+			case 'h3':
+				classNames.push('small');
+				break;
+			case 'h4':
+				classNames.push('small');
+				classNames.push('grey');
+				break;
+			default:
+				classNames.push('bold');
+				classNames.push('large');
+				break;
 		}
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
-		if (this.props.inline) {
-			tag = <span className={classNames.join(' ')}>
-				{(this.props.text ? this.props.text : this.props.children)}
-			</span>;
-		} else {
-			tag = <div className={classNames.join(' ')}>
-				{(this.props.text ? this.props.text : this.props.children)}
-			</div>;
-		}
 
-		return tag;
+		return (
+			<div className={classNames.join(' ')}>
+				{(this.props.text ? this.props.text : this.props.children)}
+			</div>
+		);
 	}
 }

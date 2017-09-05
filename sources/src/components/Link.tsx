@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export interface ILinkProps {
 	text?: string;
-	bold?: boolean;
+	type?: "primary" | "bold";
 	href?: string;
 	className?: string;
 
@@ -16,8 +16,7 @@ export interface ILinkStates {
 
 export class Link extends React.Component<ILinkProps, ILinkStates> {
 
-	// private _text: string = '';
-	private _href: string = 'javascript://';
+	private _href: string = "javascript://";
 
 	constructor(props: ILinkProps) {
 		super(props);
@@ -26,14 +25,15 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__Link'];
+		let classNames: string[] = ['ej-components__link'];
 
-		if (this.props.bold) {
+		if (this.props.type === "bold") {
 			classNames.push('bold');
 		}
-		if (this.props.href) {
+		if (this.props.onClick) {
+			this._href = "javascript://";
+		} else if (this.props.href) {
 			this._href = this.props.href;
-			this.onClick = () => void(0);
 		}
 
 		if (this.props.className) {
