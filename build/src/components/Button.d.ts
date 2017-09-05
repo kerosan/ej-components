@@ -4,6 +4,8 @@ export interface IButtonProps {
     text?: string;
     disabled?: boolean;
     className?: string;
+    rounded?: boolean;
+    inverted?: boolean;
     onClick?: () => void;
 }
 export interface IButtonStates {

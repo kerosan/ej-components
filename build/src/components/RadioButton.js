@@ -18,54 +18,52 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./Checkbox.scss");
+require("./RadioButton.scss");
 var React = require("react");
-var Checkbox = (function (_super) {
-    __extends(Checkbox, _super);
-    function Checkbox(props) {
+var Checkbox_1 = require("./Checkbox");
+var RadioButton = (function (_super) {
+    __extends(RadioButton, _super);
+    function RadioButton(props) {
         var _this = _super.call(this, props) || this;
         _this.state = _this.getInitState();
         _this.onClick = _this.onClick.bind(_this);
         return _this;
     }
-    Checkbox.prototype.getInitState = function () {
+    RadioButton.prototype.getInitState = function () {
         return {
             checked: !!this.props.checked,
         };
     };
-    Checkbox.prototype.componentWillUpdate = function (nextProps, nextState) {
+    RadioButton.prototype.componentWillUpdate = function (nextProps, nextState) {
         if (this.props.checked !== nextProps.checked) {
             nextState.checked = nextProps.checked;
         }
     };
-    Checkbox.prototype.componentWillReceiveProps = function (nextProps) {
+    RadioButton.prototype.componentWillReceiveProps = function (nextProps) {
         if (nextProps.checked !== undefined && this.state.checked !== nextProps.checked) {
             this.setState(__assign({}, this.state, { checked: nextProps.checked }));
         }
     };
-    Checkbox.prototype.render = function () {
-        var spanClassNames = ['ej-components__checkbox',], labelClassNames = [], spanElement;
+    RadioButton.prototype.render = function () {
+        var spanClassNames = ['ej-components__radiobutton',], labelClassNames = [], spanElement;
         if (this.props.className) {
             spanClassNames.push(this.props.className);
-        }
-        if (this.props.inline) {
-            labelClassNames.push('checkbox-inline');
         }
         if (this.props.disabled) {
             labelClassNames.push('disabled');
         }
         if (this.state.checked) {
-            spanElement = React.createElement("span", { className: 'glyphicon glyphicon-ok ej-components__checkbox-icon__checked' });
+            spanElement = React.createElement("span", { className: 'glyphicon glyphicon-ok ej-components__radiobutton-icon__checked' });
         }
         else {
-            spanElement = React.createElement("span", { className: 'ej-components__checkbox-icon__unchecked' });
+            spanElement = React.createElement("span", { className: 'ej-components__radiobutton-icon__unchecked' });
         }
         return (React.createElement("span", { className: spanClassNames.join(' ') },
             React.createElement("label", { className: labelClassNames.join(' '), onClick: this.onClick },
                 spanElement,
-                React.createElement("span", { className: 'ej-components__checkbox-label' }, this.props.label ? this.props.label : this.props.children))));
+                React.createElement("span", { className: 'ej-components__radiobutton-label' }, this.props.label ? this.props.label : this.props.children))));
     };
-    Checkbox.prototype.onClick = function (e) {
+    RadioButton.prototype.onClick = function (e) {
         if (this.props.clickCapture) {
             e.stopPropagation();
         }
@@ -77,6 +75,6 @@ var Checkbox = (function (_super) {
         }
         this.setState(__assign({}, this.state, { checked: !this.state.checked }));
     };
-    return Checkbox;
-}(React.Component));
-exports.Checkbox = Checkbox;
+    return RadioButton;
+}(Checkbox_1.Checkbox));
+exports.RadioButton = RadioButton;

@@ -10,36 +10,36 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./Button.scss");
+require("./ListItem.scss");
 var React = require("react");
-var Button = (function (_super) {
-    __extends(Button, _super);
-    function Button(props) {
+var ListItem = (function (_super) {
+    __extends(ListItem, _super);
+    function ListItem(props) {
         var _this = _super.call(this, props) || this;
         _this.onClick = _this.onClick.bind(_this);
         return _this;
     }
-    Button.prototype.render = function () {
-        var classNames = ['ej-components__button'];
+    ListItem.prototype.render = function () {
+        var classNames = ['ej-components__ListItem'];
+        if (this.props.selected) {
+            classNames.push('selected');
+        }
         if (this.props.disabled) {
             classNames.push('disabled');
         }
-        if (this.props.rounded) {
-            classNames.push('rounded');
-        }
-        else if (this.props.inverted) {
-            classNames.push('inverted');
+        if (this.props.empty) {
+            classNames.push('empty');
         }
         if (this.props.className) {
             classNames.push(this.props.className);
         }
-        return (React.createElement("a", { className: classNames.join(' '), onClick: this.onClick }, (this.props.text ? this.props.text : this.props.children)));
+        return (React.createElement("li", { className: classNames.join(' ') }, (this.props.text ? this.props.text : this.props.children)));
     };
-    Button.prototype.onClick = function () {
+    ListItem.prototype.onClick = function () {
         if (this.props.onClick && !this.props.disabled) {
             this.props.onClick();
         }
     };
-    return Button;
+    return ListItem;
 }(React.Component));
-exports.Button = Button;
+exports.ListItem = ListItem;

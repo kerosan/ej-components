@@ -14,9 +14,7 @@
   "repository": "http://diary-gitlab.abatapka.net/EJ/libs/components.git",
   "scripts": {
     "build": "grunt build",
-    "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage",
-    "webpack": "webpack -w",
-    "webpack:dev": "webpack-dev-server -w"
+    "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
   "author": "",
   "license": "UNLICENSED",
@@ -26,14 +24,8 @@
     "@types/react": "^16.0.2",
     "@types/react-dom": "^15.5.3",
     "@types/react-test-renderer": "^15.5.3",
-    "awesome-typescript-loader": "^3.2.3",
-    "bootstrap-loader": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
     "chai": "^3.5.0",
-    "css-loader": "^0.28.5",
-    "ejs-loader": "^0.3.0",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-mocha-test": "^0.13.2",
@@ -41,8 +33,6 @@
     "grunt-run": "^0.6.0",
     "grunt-ts": "^6.0.0-beta.15",
     "grunt-tslint": "^5.0.1",
-    "html-webpack-harddisk-plugin": "^0.1.0",
-    "html-webpack-plugin": "^2.30.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "load-grunt-config": "^0.19.2",
@@ -52,18 +42,11 @@
     "react-dom": "^15.6.1",
     "react-router": "^4.1.2",
     "react-test-renderer": "^15.5.4",
-    "resolve-url-loader": "^2.1.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
     "time-grunt": "^1.4.0",
     "ts-jest": "^19.0.11",
-    "ts-loader": "^2.3.3",
     "tslint": "^5.6.0",
     "tslint-react": "^3.2.0",
-    "typescript": "^2.5.0",
-    "url-loader": "^0.5.9",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "typescript": "^2.5.0"
   },
   "jest": {
     "moduleNameMapper": {

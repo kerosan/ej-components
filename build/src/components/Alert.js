@@ -10,36 +10,28 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./Button.scss");
+require("./Alert.scss");
 var React = require("react");
-var Button = (function (_super) {
-    __extends(Button, _super);
-    function Button(props) {
+var react_bootstrap_1 = require("react-bootstrap");
+var Alert = (function (_super) {
+    __extends(Alert, _super);
+    function Alert(props) {
         var _this = _super.call(this, props) || this;
         _this.onClick = _this.onClick.bind(_this);
         return _this;
     }
-    Button.prototype.render = function () {
-        var classNames = ['ej-components__button'];
-        if (this.props.disabled) {
-            classNames.push('disabled');
-        }
-        if (this.props.rounded) {
-            classNames.push('rounded');
-        }
-        else if (this.props.inverted) {
-            classNames.push('inverted');
-        }
+    Alert.prototype.render = function () {
+        var classNames = ['ej-components__Alert'];
         if (this.props.className) {
             classNames.push(this.props.className);
         }
-        return (React.createElement("a", { className: classNames.join(' '), onClick: this.onClick }, (this.props.text ? this.props.text : this.props.children)));
+        return (React.createElement(react_bootstrap_1.Alert, { bsStyle: this.props.bsStyle, className: classNames.join(' '), onDismiss: this.props.onDismiss, onClick: this.onClick }, this.props.children));
     };
-    Button.prototype.onClick = function () {
-        if (this.props.onClick && !this.props.disabled) {
+    Alert.prototype.onClick = function () {
+        if (this.props.onClick) {
             this.props.onClick();
         }
     };
-    return Button;
+    return Alert;
 }(React.Component));
-exports.Button = Button;
+exports.Alert = Alert;

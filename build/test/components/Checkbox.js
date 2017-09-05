@@ -9,7 +9,7 @@ describe('Checkbox', function () {
         var actual = component.toJSON(), expected = {
             type: 'span',
             props: {
-                className: 'ej-components__checkbox form-group',
+                className: 'ej-components__checkbox',
             },
             children: [
                 {
@@ -43,7 +43,7 @@ describe('Checkbox', function () {
         var actual = component.toJSON(), expected = {
             type: 'span',
             props: {
-                className: 'ej-components__checkbox form-group my-class',
+                className: 'ej-components__checkbox my-class',
             },
             children: [
                 {

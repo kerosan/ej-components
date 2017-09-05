@@ -67,16 +67,21 @@ export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelSta
 		}
 
 		if (this.state.checked) {
+			labelClassNames.push('checked');
 			spanElement = <span className='glyphicon glyphicon-ok ej-components__CheckPanel-icon__checked' />;
 		} else {
 			spanElement = <span className='ej-components__CheckPanel-icon__unchecked' />;
+			let index = labelClassNames.indexOf('checked');
+			if (index > -1) {
+				labelClassNames.splice(index, 1);
+			}
 		}
 
 		return (
 			<div className={spanClassNames.join(' ')} >
 				<label className={labelClassNames.join(' ')} onClick={this.onClick}>
 					{spanElement}
-					<span className='ej-components__CheckPanel-label'>{this.props.label ? this.props.label : this.props.children}</span>
+					<div className='ej-components__CheckPanel-label'>{this.props.label ? this.props.label : this.props.children}</div>
 				</label>
 			</div>
 		);

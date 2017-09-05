@@ -10,36 +10,35 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./Button.scss");
+require("./Link.scss");
 var React = require("react");
-var Button = (function (_super) {
-    __extends(Button, _super);
-    function Button(props) {
+var Link = (function (_super) {
+    __extends(Link, _super);
+    function Link(props) {
         var _this = _super.call(this, props) || this;
+        _this._href = 'javascript://';
         _this.onClick = _this.onClick.bind(_this);
         return _this;
     }
-    Button.prototype.render = function () {
-        var classNames = ['ej-components__button'];
-        if (this.props.disabled) {
-            classNames.push('disabled');
+    Link.prototype.render = function () {
+        var classNames = ['ej-components__Link'];
+        if (this.props.bold) {
+            classNames.push('bold');
         }
-        if (this.props.rounded) {
-            classNames.push('rounded');
-        }
-        else if (this.props.inverted) {
-            classNames.push('inverted');
+        if (this.props.href) {
+            this._href = this.props.href;
+            this.onClick = function () { return void (0); };
         }
         if (this.props.className) {
             classNames.push(this.props.className);
         }
-        return (React.createElement("a", { className: classNames.join(' '), onClick: this.onClick }, (this.props.text ? this.props.text : this.props.children)));
+        return (React.createElement("a", { href: this._href, className: classNames.join(' '), onClick: this.onClick }, (this.props.text ? this.props.text : this.props.children)));
     };
-    Button.prototype.onClick = function () {
-        if (this.props.onClick && !this.props.disabled) {
+    Link.prototype.onClick = function () {
+        if (this.props.onClick) {
             this.props.onClick();
         }
     };
-    return Button;
+    return Link;
 }(React.Component));
-exports.Button = Button;
+exports.Link = Link;

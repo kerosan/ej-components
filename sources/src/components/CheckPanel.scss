@@ -2,7 +2,8 @@
 @import 'mixin';
 
 .ej-components__CheckPanel {
-	margin-bottom: 0;
+	margin: 0 10px;
+	display: inline-block;
 	.checkbox-inline {
 		line-height: 20px !important;
 		padding-top: 0px !important;
@@ -14,12 +15,11 @@
 			& > .ej-components__CheckPanel-icon__unchecked,
 			& > .ej-components__CheckPanel-icon__checked {
 				//background-color: #00abc0 !important;
-				border: 2px solid #00abc0;
+				border: 1px solid #00abc0;
 				.glyphicon {
-					color: #ffffff !important; //$ej-blue-lightest;
-					background-color: #00abc0 !important; //$ej-grey-disabled !important;
-					border-color: /*$ej-grey-disabled*/
-							#00abc0 !important;
+					color: #ffffff !important;
+					background-color: #00abc0 !important;
+					border-color: #00abc0 !important;
 				}
 			}
 			& > .ej-components__CheckPanel-icon__checked {
@@ -28,48 +28,73 @@
 		}
 	}
 	& > label {
+		position: relative;
 		font-weight: $font-light;
 		@include ej-components__NoUserSelect;
 		cursor: pointer;
-		font-size: 10px;
-		margin-bottom: 0;
+		font-size: 20px;
+		margin: 10px 0;
+		border: 1px solid #999999;
+		min-width: 180px;
+		min-height: 180px;
+		padding: 20px 0;
+		&.checked {
+			border: 1px solid $ej-blue;
+		}
+		&:active {
+			border: 1px solid #00abc0;
+		}
+		&:hover {
+			border: 1px solid $ej-blue;
+			& > .ej-components__CheckPanel-icon__checked,
+			& > .ej-components__CheckPanel-icon__unchecked {
+				border: 1px solid $ej-blue;
+			}
+			&:active {
+				border: 1px solid #00abc0;
+				& > .ej-components__CheckPanel-icon__checked,
+				& > .ej-components__CheckPanel-icon__unchecked {
+					border: 1px solid #00abc0;
+				}
+			}
+		}
 		& > .ej-components__CheckPanel-icon__checked,
 		& > .ej-components__CheckPanel-icon__unchecked {
 			margin: 10px;
-			padding: 3px;
+			padding: 4px;
 			vertical-align: middle;
 			display: inline-block;
 			cursor: pointer;
-			font-size: 11px;
+			font-size: 20px;
 			color: $ej-white;
-			width: 22px;
-			height: 22px;
-
+			width: 32px;
+			height: 32px;
+			top: -11px;
+			position: absolute;
+			left: -11px;
+			border-width: 1px !important;
 		}
 		& > .ej-components__CheckPanel-icon__checked {
 			background-color: $ej-blue !important;
-			border: 2px solid $ej-blue;
-			top: 0px;
-
+			border: 1px solid $ej-blue;
 		}
 		& > .ej-components__CheckPanel-icon__unchecked {
-			background-color: transparent !important;
+			background-color: #ffffff !important;
 			border: 2px solid $ej-grey;
 		}
 		& > .ej-components__CheckPanel-label {
 			font-size: 12px;
 		}
 		&.disabled {
-			background-color: transparent !important;
+			background-color: #ffffff !important;
 			& > .ej-components__CheckPanel-icon__checked,
 			& > .ej-components__CheckPanel-icon__unchecked {
 				border: 2px solid #d6d6d6 !important;
 			}
 			.glyphicon {
-				color: #f3f3f3 !important; //$ej-blue-lightest;
-				background-color: #d6d6d6 !important; //$ej-grey-disabled !important;
-				border-color: /*$ej-grey-disabled*/
-						#d6d6d6 !important;
+				color: #f3f3f3 !important;
+				background-color: #d6d6d6 !important;
+				border-color: #d6d6d6 !important;
 			}
 			.ej-components__CheckPanel-label {
 				color: $ej-grey-disabled;

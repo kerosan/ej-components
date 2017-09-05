@@ -17,7 +17,7 @@ describe('Checkbox', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'span',
 				props: {
-					className: 'ej-components__checkbox form-group',
+					className: 'ej-components__checkbox',
 				},
 				children: [
 					{
@@ -63,7 +63,7 @@ describe('Checkbox', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'span',
 				props: {
-					className: 'ej-components__checkbox form-group my-class',
+					className: 'ej-components__checkbox my-class',
 				},
 				children: [
 					{
