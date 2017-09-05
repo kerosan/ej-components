@@ -1,6 +1,6 @@
 {
   "name": "@ej/components",
-  "main": "index.ts",
+  "main": "build/index.js",
   "version": "0.2.10-0",
   "description": "EJ Client components",
   "dependencies": {

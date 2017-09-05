@@ -3,8 +3,9 @@ module.exports = {
 		files: [
 			{
 				src: [
-					'sources/**/*.ts',
-					'sources/**/*.tsx',
+				    './index.ts',
+					'./sources/src/**/*.ts',
+					'./sources/src/**/*.tsx',
 				],
 				dest: 'build'
 			},
