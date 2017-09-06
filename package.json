@@ -2,7 +2,7 @@
   "name": "@ej/components",
   "main": "sources/src/components/",
   "types": "index.d.ts",
-  "version": "0.2.10-2",
+  "version": "0.2.10-3",
   "description": "EJ Client components",
   "dependencies": {
     "@types/node": "^7.0.42",
