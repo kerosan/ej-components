@@ -16,20 +16,20 @@
 Панель оповещения  
 Простое использование:
 
-```tsx
+```
 <Alert>Поле c сообщением</Alert>
 ```
 
 Расширенное использование:
 
-```tsx
+```
 <Alert bsStyle='warning'>
   <strong>{"Warning!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
 </Alert>
 ```
 
 или
-```tsx
+```
 <Alert bsStyle='danger'>
   <strong>{"Error!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
 </Alert>
@@ -58,18 +58,18 @@ CSS-классы:
 Кнопка  
 Простое использование:
 
-```tsx
+```
 <Button />;
 ```
 
 Расширенное использование:
 
-```tsx
+```
 <Button text={"Текст на кнопке"} disabled={true} className={'some-css-class'} />
 ```
 
 или
-```tsx
+```
 <Button disabled={true} className={'some-css-class'} >
   <span>Текст на кнопке</span>
 </Button>
@@ -96,18 +96,18 @@ CSS-классы:
 ### Checkbox ###
 Галочка  
 Простое использование:
-```tsx
-    <Checkbox />
+```
+<Checkbox />
 ```
 Расширенное использование:
-```tsx
-    <Checkbox name={'checkbox-name'}
-              label={'Текст'}
-              className={'some-css-class'}
-              checked={true}
-              disabled={true}
-              inline={true}
-              clickCapture={true} />
+```
+<Checkbox name={'checkbox-name'}
+  label={'Текст'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={true}
+  inline={true}
+  clickCapture={true} />
 ```
 Свойства:
 
@@ -141,19 +141,19 @@ CSS-классы:
 ### ExpandablePanel ###
 Раскрывающаяся панель  
 Простое использование:
-
-    <ExpandablePanel />
-    
+```
+<ExpandablePanel />
+```
 Расширенное использование:
-
-    const header: JSX.Element = (
-            <span>
-                Текст в заголовке
-            </span>
-        );
-    ...
-    <ExpandablePanel header={header} defaultExpanded={true} />
-
+```
+const header: JSX.Element = (
+  <span>
+    Текст в заголовке
+  </span>
+);
+...
+<ExpandablePanel header={header} defaultExpanded={true} />
+```
 Свойства:
 
 * header: JSX.Element - содержимое заголовка панели;
@@ -171,19 +171,19 @@ CSS-классы:
 ### Userpic ###
 Аватарка пользователя  
 Простое использовани:
-```tsx
+```
 <Userpic size={'40x40'} />
 ```
 Расширенное использование:
-   
-   			<Userpic size={'40x40'}
-   					 href={'http://example.com/'}
-   					 target={'_self'}
-   					 alt={'Всплавающая подсказка'}
-   					 src={'/path/to/my/image.png'}
-   					 className={'some-css-class'}
-   					 userId={5} />
-   					 
+```
+<Userpic size={'40x40'}
+  href={'http://example.com/'}
+  target={'_self'}
+  alt={'Всплавающая подсказка'}
+  src={'/path/to/my/image.png'}
+  className={'some-css-class'}
+  userId={5} />
+```
 Свойства:
 
 * size: UserpicSize - обязательное поле! Размер аватарки. Допустимые значения: 40x40, 50x50, 80x80, 150x150, 200x200;
@@ -215,15 +215,15 @@ CSS-классы:
 текст в тэге `<span>`
 
 Простое использование:
-```tsx
+```
 <Text>{`пример текста`}</Text>
 ```    
 Расширенное использование:
-```tsx
+```
 <Text text={"пример текст"} type={`secondary`} className={'some-css-class'} />
 ```
 или
-```tsx
+```
 <Text type={`label`} className={'some-css-class'} >
   <span>пример текстa с разметкой</span>
 </Text>
