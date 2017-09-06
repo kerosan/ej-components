@@ -12,6 +12,11 @@
   "scripts": {
     "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
+  "files": [
+    "sources/src/component",
+    "index.d.ts"
+  ],
+
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
@@ -23,7 +28,6 @@
     "@types/react-dom": "^15.5.3",
     "@types/react-test-renderer": "^15.5.3",
     "@types/react-widgets": "^3.2.31",
-    "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-notify": "^0.4.5",
