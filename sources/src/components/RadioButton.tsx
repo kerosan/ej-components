@@ -10,7 +10,7 @@ export interface IRadioButtonState extends ICheckboxState {
 	checked?: boolean;
 }
 
-export class RadioButton extends Checkbox/*<ICheckboxProps, ICheckboxState>*/ {
+export class RadioButton extends Checkbox {
 
 	constructor(props: IRadioButtonProps) {
 		super(props);
@@ -42,7 +42,7 @@ export class RadioButton extends Checkbox/*<ICheckboxProps, ICheckboxState>*/ {
 	}
 
 	public render(): JSX.Element {
-		let spanClassNames: string[] = ['ej-components__radiobutton', /*'form-group'*/],
+		let spanClassNames: string[] = ['ej-components__radiobutton'],
 			labelClassNames: string[] = [],
 			spanElement: JSX.Element;
 
