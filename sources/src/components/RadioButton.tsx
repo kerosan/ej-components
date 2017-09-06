@@ -50,10 +50,6 @@ export class RadioButton extends Checkbox/*<ICheckboxProps, ICheckboxState>*/ {
 			spanClassNames.push(this.props.className);
 		}
 
-		// if (this.props.inline) {
-		// 	labelClassNames.push('checkbox-inline');
-		// }
-
 		if (this.props.disabled) {
 			labelClassNames.push('disabled');
 		}
