@@ -8,7 +8,7 @@ export {LinkTarget, UserpicSize};
 
 export interface IUserpicProps {
 	alt?: string;
-	size?: UserpicSize;
+	size: UserpicSize;
 	userId?: number;
 	className?: string;
 	href?: string;
@@ -37,10 +37,6 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 			classNames: string[] = [
 				'ej-components__userpic-' + this.props.size,
 			];
-
-		if (!this.props.size) {
-			throw new Error('The "size" is mandatory property!');
-		}
 
 		if (this.props.className) {
 			classNames.push(this.props.className);

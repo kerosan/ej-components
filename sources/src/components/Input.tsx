@@ -11,7 +11,7 @@ export interface IInputProps {
 	error?: boolean;
 	warning?: boolean;
 
-	onChange?: () => void;
+	onChange?: (event) => void;
 }
 
 export interface IInputStates {
@@ -44,11 +44,11 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		}
 
 		if (this.props.error) {
-			classNames.push('validationError');
+			classNames.push('ej-components__input-validation-error');
 		}
 
 		if (this.props.warning) {
-			classNames.push('validationWarning');
+			classNames.push('ej-components__input-validation-warning');
 		}
 		return <div className={classNames.join(' ')}>
 			<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
@@ -56,10 +56,10 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		</div>;
 	}
 
-	private onChange(e): void {
-		this.setState({value: e.target.value});
+	private onChange(event): void {
+		this.setState({value: event.target.value});
 		if (this.props.onChange) {
-			this.props.onChange();
+			this.props.onChange(event);
 		}
 	}
 }

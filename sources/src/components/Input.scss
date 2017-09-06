@@ -1,7 +1,6 @@
 @import "vars";
 
 .ej-components__input {
-	//display: inline-block;
 	font-family: Roboto, Arial, sans-serif;
 	font-size: 12px;
 	line-height: normal;
@@ -9,7 +8,6 @@
 	height: 50px;
 	color: #262626;
 	margin: 0px 10px;
-	//width: 100%;
 	input {
 		display: inline-block;
 		outline: none;
@@ -56,7 +54,7 @@
 		margin-bottom: 5px;
 	}
 
-	&.validationWarning {
+	&.ej-components__input-validation-warning {
 		& > input {
 			border-color: #f29e00;
 		}
@@ -64,7 +62,7 @@
 			color: #f29e00;
 		}
 	}
-	&.validationError {
+	&.ej-components__input-validation-error {
 		& > input {
 			border-color: #d51717;
 		}

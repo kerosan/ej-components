@@ -1,11 +1,13 @@
 import './Link.scss';
 
 import * as React from 'react';
+import { LinkTarget } from '../types/index';
 
 export interface ILinkProps {
 	text?: string;
 	type?: "default" | "primary";
 	href?: string;
+	target?: LinkTarget;
 	className?: string;
 
 	onClick?: () => void;
@@ -25,7 +27,8 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__link'];
+		let classNames: string[] = ['ej-components__link'],
+			target = "_self";
 
 		if (this.props.type === "primary") {
 			classNames.push('bold');
@@ -39,8 +42,11 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
+		if (this.props.onClick) {
+			target = null;
+		}
 		return (
-			<a href={this._href} className={classNames.join(' ')} onClick={this.onClick}>
+			<a href={this._href} target={target} className={classNames.join(' ')} onClick={this.onClick}>
 				{(this.props.text ? this.props.text : this.props.children)}
 			</a>
 		);
