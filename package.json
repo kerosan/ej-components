@@ -13,7 +13,6 @@
   },
   "repository": "http://diary-gitlab.abatapka.net/EJ/libs/components.git",
   "scripts": {
-    "build": "grunt build",
     "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
   "author": "",

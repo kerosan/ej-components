@@ -30,7 +30,7 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 	}
 
 	public render(): JSX.Element {
-		let href: string = this.props.href || 'javascript:void(0);',
+		let href: string = this.props.href || 'javascript://',
 			target: string = this.props.target || '_blank',
 			alt: string = this.props.alt || '',
 			src: string = this.props.src || '/chat/static/userpic/photo' + this.props.size + '.png',

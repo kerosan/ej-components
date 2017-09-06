@@ -18,12 +18,4 @@ module.exports = function (grunt) {
 		'ts:test',
 		'run:jest',
 	]);
-
-    grunt.registerTask('build', [
-        'clean:build',
-        'tslint:default',
-        'ts:build',
-        'sass',
-        'run:jest',
-    ]);
 };

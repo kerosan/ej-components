@@ -8,6 +8,7 @@ export interface IListProps {
 	items?: IListItemProps[];
 	className?: string;
 	emptyTitle?: string;
+	selectedIndex?: number;
 }
 
 export interface IListStates {
@@ -22,9 +23,9 @@ export class List extends React.Component<IListProps, IListStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__List'];
+		let classNames: string[] = ['ej-components__list'];
 		console.log(this.props.children);
-		let items: JSX.Element[];
+		let items: any[];
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
@@ -43,6 +44,18 @@ export class List extends React.Component<IListProps, IListStates> {
 				</div>;
 			}
 		} else {
+			// for (let child in this.props.children()) {
+			// 	items.push(child);
+			// }
+			if (this.props.selectedIndex) {
+				items = (this.props.children as any[]).map((item, key) => {
+					if (this.props.selectedIndex === key) {
+						console.log(item);
+						item.get('props').selected = true;
+					}
+					return item;
+				});
+			}
 			if (this.props.children === undefined || this.props.children['length'] === 0) {
 				return <ul><ListItem empty text={this.props.emptyTitle || "Empty list"}/></ul>;
 			}

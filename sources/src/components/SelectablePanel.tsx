@@ -1,8 +1,8 @@
-import './CheckPanel.scss';
+import './SelectablePanel.scss';
 
 import * as React from 'react';
 
-export interface ICheckPanelProps {
+export interface ISelectablePanelProps {
 	name?: string;
 	label?: string | JSX.Element;
 	checked?: boolean;
@@ -14,13 +14,13 @@ export interface ICheckPanelProps {
 	onChange?: (checked: boolean, name?: string) => void;
 }
 
-export interface ICheckPanelState {
+export interface ISelectablePanelState {
 	checked?: boolean;
 }
 
-export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelState> {
+export class SelectablePanel extends React.Component<ISelectablePanelProps, ISelectablePanelState> {
 
-	constructor(props: ICheckPanelProps) {
+	constructor(props: ISelectablePanelProps) {
 		super(props);
 
 		this.state = this.getInitState();
@@ -28,19 +28,19 @@ export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelSta
 		this.onClick = this.onClick.bind(this);
 	}
 
-	protected getInitState(): ICheckPanelState {
+	protected getInitState(): ISelectablePanelState {
 		return {
 			checked: !!this.props.checked,
 		};
 	}
 
-	public componentWillUpdate(nextProps: ICheckPanelProps, nextState: ICheckPanelState): void {
+	public componentWillUpdate(nextProps: ISelectablePanelProps, nextState: ISelectablePanelState): void {
 		if (this.props.checked !== nextProps.checked) {
 			nextState.checked = nextProps.checked;
 		}
 	}
 
-	public componentWillReceiveProps(nextProps: ICheckPanelProps): void {
+	public componentWillReceiveProps(nextProps: ISelectablePanelProps): void {
 		if (nextProps.checked !== undefined && this.state.checked !== nextProps.checked) {
 			this.setState({
 				...this.state,
@@ -50,7 +50,7 @@ export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelSta
 	}
 
 	public render(): JSX.Element {
-		let spanClassNames: string[] = ['ej-components__CheckPanel', /*'form-group'*/],
+		let spanClassNames: string[] = ['ej-components__selectable-panel'],
 			labelClassNames: string[] = [],
 			spanElement: JSX.Element;
 
@@ -68,9 +68,9 @@ export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelSta
 
 		if (this.state.checked) {
 			labelClassNames.push('checked');
-			spanElement = <span className='glyphicon glyphicon-ok ej-components__CheckPanel-icon__checked' />;
+			spanElement = <span className='glyphicon glyphicon-ok ej-components__selectable-panel-icon__checked' />;
 		} else {
-			spanElement = <span className='ej-components__CheckPanel-icon__unchecked' />;
+			spanElement = <span className='ej-components__selectable-panel-icon__unchecked' />;
 			let index = labelClassNames.indexOf('checked');
 			if (index > -1) {
 				labelClassNames.splice(index, 1);
@@ -81,7 +81,7 @@ export class CheckPanel extends React.Component<ICheckPanelProps, ICheckPanelSta
 			<div className={spanClassNames.join(' ')} >
 				<label className={labelClassNames.join(' ')} onClick={this.onClick}>
 					{spanElement}
-					<div className='ej-components__CheckPanel-label'>{this.props.label ? this.props.label : this.props.children}</div>
+					<div className='ej-components__selectable-panel-label'>{this.props.label ? this.props.label : this.props.children}</div>
 				</label>
 			</div>
 		);

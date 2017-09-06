@@ -31,7 +31,7 @@ export class TextArea extends React.Component<ITextAreaProps, ITextAreaStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__TextArea'];
+		let classNames: string[] = ['ej-components__textarea'];
 
 		if (this.props.className) {
 			classNames.push(this.props.className);

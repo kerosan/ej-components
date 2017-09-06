@@ -25,7 +25,7 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__ListItem'];
+		let classNames: string[] = ['ej-components__list-item'];
 
 		if (this.props.selected) {
 			classNames.push('selected');

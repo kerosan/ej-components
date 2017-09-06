@@ -1,7 +1,7 @@
 @import 'vars';
 @import 'mixin';
 
-.ej-components__CheckPanel {
+.ej-components__selectable-panel {
 	margin: 0 10px;
 	display: inline-block;
 	.checkbox-inline {
@@ -12,8 +12,8 @@
 	}
 	&:active {
 		& > label {
-			& > .ej-components__CheckPanel-icon__unchecked,
-			& > .ej-components__CheckPanel-icon__checked {
+			& > .ej-components__selectable-panel-icon__unchecked,
+			& > .ej-components__selectable-panel-icon__checked {
 				border: 1px solid #00abc0;
 				.glyphicon {
 					color: #ffffff !important;
@@ -21,7 +21,7 @@
 					border-color: #00abc0 !important;
 				}
 			}
-			& > .ej-components__CheckPanel-icon__checked {
+			& > .ej-components__selectable-panel-icon__checked {
 				background-color: #00abc0 !important;
 			}
 		}
@@ -45,20 +45,20 @@
 		}
 		&:hover {
 			border: 1px solid $ej-blue;
-			& > .ej-components__CheckPanel-icon__checked,
-			& > .ej-components__CheckPanel-icon__unchecked {
+			& > .ej-components__selectable-panel-icon__checked,
+			& > .ej-components__selectable-panel-icon__unchecked {
 				border: 1px solid $ej-blue;
 			}
 			&:active {
 				border: 1px solid #00abc0;
-				& > .ej-components__CheckPanel-icon__checked,
-				& > .ej-components__CheckPanel-icon__unchecked {
+				& > .ej-components__selectable-panel-icon__checked,
+				& > .ej-components__selectable-panel-icon__unchecked {
 					border: 1px solid #00abc0;
 				}
 			}
 		}
-		& > .ej-components__CheckPanel-icon__checked,
-		& > .ej-components__CheckPanel-icon__unchecked {
+		& > .ej-components__selectable-panel-icon__checked,
+		& > .ej-components__selectable-panel-icon__unchecked {
 			margin: 10px;
 			padding: 4px;
 			vertical-align: middle;
@@ -73,21 +73,21 @@
 			left: -11px;
 			border-width: 1px !important;
 		}
-		& > .ej-components__CheckPanel-icon__checked {
+		& > .ej-components__selectable-panel-icon__checked {
 			background-color: $ej-blue !important;
 			border: 1px solid $ej-blue;
 		}
-		& > .ej-components__CheckPanel-icon__unchecked {
+		& > .ej-components__selectable-panel-icon__unchecked {
 			background-color: #ffffff !important;
 			border: 2px solid $ej-grey;
 		}
-		& > .ej-components__CheckPanel-label {
+		& > .ej-components__selectable-panel-label {
 			font-size: 12px;
 		}
 		&.disabled {
 			background-color: #ffffff !important;
-			& > .ej-components__CheckPanel-icon__checked,
-			& > .ej-components__CheckPanel-icon__unchecked {
+			& > .ej-components__selectable-panel-icon__checked,
+			& > .ej-components__selectable-panel-icon__unchecked {
 				border: 2px solid #d6d6d6 !important;
 			}
 			.glyphicon {
@@ -95,7 +95,7 @@
 				background-color: #d6d6d6 !important;
 				border-color: #d6d6d6 !important;
 			}
-			.ej-components__CheckPanel-label {
+			.ej-components__selectable-panel-label {
 				color: $ej-grey-disabled;
 			}
 		}

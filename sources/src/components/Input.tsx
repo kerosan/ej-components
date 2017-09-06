@@ -37,7 +37,7 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__Input'];
+		let classNames: string[] = ['ej-components__input'];
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
