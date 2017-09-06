@@ -322,7 +322,7 @@ CSS-классы:
 ```
 Расширенное использование:
 ```
-<RadioButton name={'checkbox-name'}
+<RadioButton name={'radio-btn-name'}
   label={'Текст'}
   className={'some-css-class'}
   checked={true}
