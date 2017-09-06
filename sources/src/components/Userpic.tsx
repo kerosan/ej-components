@@ -2,13 +2,13 @@ import './Userpic.scss';
 
 import * as React from 'react';
 
-import {LinkTarget, UserpicSize} from '../types/index';
+import { LinkTarget, UserpicSize } from '../types/index';
 
-export {LinkTarget, UserpicSize};
+export { LinkTarget, UserpicSize };
 
 export interface IUserpicProps {
 	alt?: string;
-	size: UserpicSize;
+	size?: UserpicSize;
 	userId?: number;
 	className?: string;
 	href?: string;
@@ -38,13 +38,17 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 				'ej-components__userpic-' + this.props.size,
 			];
 
+		if (!this.props.size) {
+			throw new Error('The "size" is mandatory property!');
+		}
+
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
-		
+
 		return (
 			<a href={href} target={target} className={classNames.join(' ')} onClick={this.onClick}>
-				<img alt={alt} src={src} />
+				<img alt={alt} src={src}/>
 			</a>
 		);
 	}

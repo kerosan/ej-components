@@ -15,7 +15,7 @@ describe('Userpic', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'a',
 				props: {
-					href: 'javascript:void(0);',
+					href: 'javascript://',
 					target: '_blank',
 					className: 'ej-components__userpic-40x40',
 				},
