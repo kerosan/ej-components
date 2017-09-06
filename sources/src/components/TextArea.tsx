@@ -38,7 +38,7 @@ export class TextArea extends React.Component<ITextAreaProps, ITextAreaStates> {
 		}
 
 		if (this.props.required) {
-			classNames.push('required');
+			classNames.push('ej-components__textarea-required');
 		}
 
 		return <div className={classNames.join(' ')}><textarea  value={this.state.value} placeholder={this._placeholder} onChange={this.onChange}/></div>;

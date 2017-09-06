@@ -18,7 +18,9 @@
 Простое использование:
 
 ```
-<Alert>Поле c сообщением</Alert>
+<Alert>
+  Поле c сообщением
+</Alert>
 ```
 
 Расширенное использование:
@@ -53,7 +55,7 @@
 
 CSS-классы:
 
-* ej-components__alert
+* .ej-components__alert
 
 ### Button ###
  
@@ -79,23 +81,24 @@ CSS-классы:
 ```
 Свойства:
 
-| имя       | тип                 | значение по умолчанию | описание                    |
-|-----------|---------------------|-----------------------|-----------------------------|
-| className | string              |                       | дополнительный CSS-класс    |
-| disabled  | boolean             | false                 | кнопка активна / не активна |
-| text      | string, JSX.Element |                       | текст на кнопке             |
+| имя       | тип                               | значение по умолчанию | описание                    |
+|-----------|-----------------------------------|-----------------------|-----------------------------|
+| className | string                            |                       | дополнительный CSS-класс    |
+| disabled  | boolean                           | false                 | кнопка активна / не активна |
+| text      | string, JSX.Element               |                       | текст на кнопке             |
+| type      | "default", "primary", "secondary" | "default"             | текст на кнопке             |
 
 События:
 
 | имя     | тип             | описание                              |
 |---------|-----------------|---------------------------------------|
 | onClick | (event) => void | срабатывает по клику по кнопке.       |
-|         |                 | Не срабатывает если кнопка не активна |
+|         |                 | Не срабатывает если disabled={true}   |
 
 
 CSS-классы:
 
-* ej-components__button
+* .ej-components__button
 
 ### Checkbox ###
 Галочка
@@ -131,7 +134,7 @@ CSS-классы:
 | имя      | тип                                       | описание                                                              |
 |----------|-------------------------------------------|--------------------------------------------|
 | onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
-|          |                                           | Не срабатывает если галочка не активна.    |
+|          |                                           | Не срабатывает если disabled={true}        |
 
 Параметры:
 
@@ -140,9 +143,9 @@ CSS-классы:
     
 CSS-классы:
 
-* ej-components__checkbox
-    * ej-components__checkbox-icon__checked - класс иконки включенной галочки;
-    * ej-components__checkbox-icon__unchecked - класс иконки выключенной галочки;
+* .ej-components__checkbox
+    * .ej-components__checkbox-icon__checked - класс иконки включенной галочки;
+    * .ej-components__checkbox-icon__unchecked - класс иконки выключенной галочки;
 
 ### ExpandablePanel ###
 Раскрывающаяся панель  
@@ -172,14 +175,14 @@ const header: JSX.Element = (
 
 CSS-классы:  
 
-* ej-components__expandable-panel
-    * ej-components__expandable-panel-header - класс заголовка панели;
-        * ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
+* .ej-components__expandable-panel
+    * .ej-components__expandable-panel-header - класс заголовка панели;
+        * .ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
 
 ### Input ###
 Поле ввода `<input>`
 
-Простое использовани:
+Простое использование:
 ```
 <Input placeholder='Поле ввода' value='значение'/>
 ```
@@ -212,17 +215,20 @@ CSS-классы:
    * .ej-components__input-validation-error - окрашивает рамку в красный цвет
    * .ej-components__input-validation-warning - окрашивает рамку в оранжевый цвет
 
-
 ### Link ###
 Ссылка `<a>`
 
-Простое использовани:
+Простое использование:
 ```
-<Link>Ссылка</Link>
+<Link>
+  Ссылка
+</Link>
 ```
 Расширенное использование:
 ```
-<Link type="primary" href="http://google.com">Ссылка</Link>
+<Link type="primary" href="http://google.com">
+  Ссылка
+</Link>
 ```
 Свойства:
 
@@ -238,16 +244,269 @@ CSS-классы:
 
 | имя     | тип        | описание                                               |
 |---------|------------|--------------------------------------------------------|
-| onClick | () => void | обработчик нажатия, если объявлен то href игнорируется |
+| onClick | () => void | обработчик клика, если объявлен то href игнорируется |
 
 CSS-классы:  
 
 * .ej-components__link
 
+### List ###
+Список `<ul>`
+
+Простое использование:
+```
+<List>
+  <ListItem>Элемент списка</ListItem>
+</List>
+```
+
+Свойства:
+
+| имя        | тип         | значение по умолчанию | описание                 |
+|------------|-------------|-----------------------|--------------------------|
+| className  | string      |                       | дополнительный CSS-класс |
+| emptyTitle | string      | "Empty list"          | заголовок пустого списка |
+| items      | ListItem[]  |                       | массив элементов списка  |
+
+CSS-классы:
+
+* .ej-components__list
+
+### ListItem ###
+Элемент списка `<li>`
+
+Простое использование:
+```
+<ListItem>
+  Элемент списка
+</ListItem>
+```
+Расширенное использование:
+```
+<ListItem 
+  selected={true}
+  disabled={false}
+  text="Строка 1"
+  onClick={() => console.log('Выбрана строка 1')}
+/>
+```
+Свойства:
+
+| имя        | тип                 | значение по умолчанию | описание                       |
+|------------|---------------------|-----------------------|--------------------------------|
+| className  | string              |                       | дополнительный CSS-класс       |
+| empty      | boolean             | false                 | заголовок пустого списка       |
+| text       | string, JSX.Element |                       | текст или разметка строки      |
+| selected   | boolean             | false                 | помечает строку как выделенную |
+| disabled   | boolean             | false                 | "отключает" элемент списка     |
+
+События:
+
+| имя     | тип        | описание         |
+|---------|------------|------------------|
+| onClick | () => void | обработчик клика |
+
+CSS-классы:
+
+* .ej-components__list-item
+
+### RadioButton ###
+Радио-кнопка
+
+Простое использование:
+```
+<RadioButton />
+```
+Расширенное использование:
+```
+<RadioButton name={'checkbox-name'}
+  label={'Текст'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={true}
+  inline={true}
+  clickCapture={true} />
+```
+Свойства:
+
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена радио-кнопка или нет                           |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | радио-кнопка активна / не активна                       |
+| label        | string  |                       | текст рядом с радио-кнопкой                             |
+| name         | string  |                       | имя радио-кнопки                                        |
+
+События:
+
+| имя      | тип                                       | описание                                        |
+|----------|-------------------------------------------|-------------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния радио-кнопки. |
+|          |                                           | Не срабатывает если disabled={true}             |
+
+Параметры:
+
+    * checked: boolean - включена радио-кнопка или нет;
+    * name: string - имя радио-кнопки, если имя было передано, если нет то undefined;
+    
+CSS-классы:
+
+* .ej-components__radiobutton
+    * .ej-components__radiobutton-icon__checked - класс иконки включенной радио-кнопки;
+    * .ej-components__radiobutton-icon__unchecked - класс иконки выключенной радио-кнопки;
+
+### SelectablePanel ###
+Панель с галочкой
+
+Простое использование:
+```
+<SelectablePanel>
+  <div>контент</div>
+</SelectablePanel>
+
+```
+Расширенное использование:
+```
+<SelectablePanel name={'checkbox-name'}
+  label={'Текст'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={false}
+  clickCapture={true} />
+```
+Свойства:
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена галочка или нет                                |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | галочка активна / не активна                            |
+| label        | string  |                       | текст рядом с галочкой                                  |
+| name         | string  |                       | имя галочки                                             |
+
+События:
+
+| имя      | тип                                       | описание                                                              |
+|----------|-------------------------------------------|--------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
+|          |                                           | Не срабатывает если disabled={true}        |
+
+Параметры:
+
+    * checked: boolean - включена галочка или нет;
+    * name: string - имя галочки, если имя было передано, если нет то undefined;
+    
+CSS-классы:
+
+* .ej-components__selectable-panel
+    * .ej-components__selectable-panel-icon__checked - класс иконки включенной галочкой;
+    * .ej-components__selectable-panel-icon__unchecked - класс иконки выключенной галочкой;
+
+### Text ###
+текст в тэге `<span>`
+
+Простое использование:
+```
+<Text>{`пример текста`}</Text>
+```    
+Расширенное использование:
+```
+<Text text={"пример текст"} type={`label`} className={'some-css-class'} />
+```
+или
+```
+<Text type={`label`} className={'some-css-class'} >
+  <span>пример текстa с разметкой</span>
+</Text>
+```
+Свойства:
+
+| props     | тип                             | значение по умолчанию | описание                 |
+|-----------|---------------------------------|-----------------------|--------------------------|
+| className | string                          |                       | дополнительный CSS-класс |
+| text      | string, JSX.Element             |                       | текст или JSX разметка   |
+| type      | "default", "primary", "label"   | "default"             | тип стилизации текста    |
+
+CSS-классы:
+
+* .ej-components__text
+
+### TextArea ###
+Поле ввода `<textarea>`
+
+Простое использование:
+```
+<TextArea placeholder='Поле ввода' value='значение'/>
+```
+Расширенное использование:
+```
+<TextArea placeholder='Стандартное поле' warning message='Предупреждение.'/>
+```
+Свойства:
+
+| имя          | тип     | значение по умолчанию | описание                                           |
+|--------------|---------|-----------------------|----------------------------------------------------|
+| className    | string  |                       | дополнительный CSS-класс                           |
+| error        | boolean | false                 | ошибка валидации                                   |
+| message      | string  |                       | текст сообщения ошибки/предупреждения валидации    |
+| placeholder  | string  |                       | текст приглашения при незаполненном поле           |
+| type         | string  | "text"                | тип поля ввода `<input>`: text, password, email... |
+| value        | string  |                       | значение записанное в поле ввода                   |
+| warning      | boolean | false                 | предупреждение валидации                           |
+
+
+События:
+
+| имя      | тип             | описание                                    |
+|----------|-----------------|---------------------------------------------|
+| onChange | (event) => void | срабатывает при измении текста в поле ввода |
+
+CSS-классы:
+
+* .ej-components__textarea
+* .ej-components__textarea-required - окрашивает рамку в красный цвет
+
+### Title ###
+Заголовок
+
+Простое использование:
+```
+<Title>{`пример текста`}</Title>
+```    
+Расширенное использование:
+```
+<Title text={"пример текст"} className={'some-css-class'} />
+```
+или
+```
+<Title type={`h2`} className={'some-css-class'} >
+  <span>пример заголовка с разметкой</span>
+</Title>
+```
+Свойства:
+
+| props     | тип                             | значение по умолчанию | описание                 |
+|-----------|---------------------------------|-----------------------|--------------------------|
+| className | string                          |                       | дополнительный CSS-класс |
+| text      | string, JSX.Element             |                       | текст или JSX разметка   |
+| type      | "h1", "h2", "h3", "h4"          | "h1"                  | тип стилизации заголовка |
+
+CSS-классы:
+
+* .ej-components__title
+* .ej-components__title_large
+* .ej-components__title_small
+* .ej-components__title_bold
+* .ej-components__title_grey
+
+
 ### Userpic ###
 Аватарка пользователя
 
-Простое использовани:
+Простое использование:
 ```
 <Userpic size={'40x40'} />
 ```
@@ -277,44 +536,15 @@ CSS-классы:
 
 * onClick: (userId: number) => void - срабатывает по клику по аватарке;
 
-CSS-классы:  
-
-* ej-components__userpic-40x40
-* ej-components__userpic-50x50
-* ej-components__userpic-80x80
-* ej-components__userpic-150x150
-* ej-components__userpic-200x200
-
-Недоработки:
-
-* Подправить пути к аватаркам по умолчанию;
-* Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
-
-### Text ###
-текст в тэге `<span>`
-
-Простое использование:
-```
-<Text>{`пример текста`}</Text>
-```    
-Расширенное использование:
-```
-<Text text={"пример текст"} type={`secondary`} className={'some-css-class'} />
-```
-или
-```
-<Text type={`label`} className={'some-css-class'} >
-  <span>пример текстa с разметкой</span>
-</Text>
-```
-Свойства:
-
-| props     | тип                             | значение по умолчанию | описание                 |
-|-----------|---------------------------------|-----------------------|--------------------------|
-| className | string                          |                       | дополнительный CSS-класс |
-| text      | string, JSX.Element             |                       | текст или JSX разметка   |
-| type      | "primary", "secondary", "label" | "primary"             | тип стилизации текста    |
-
 CSS-классы:
 
-* ej-components__text
+* .ej-components__userpic-40x40
+* .ej-components__userpic-50x50
+* .ej-components__userpic-80x80
+* .ej-components__userpic-150x150
+* .ej-components__userpic-200x200
+
+Недоработки:
+------------
+* Подправить пути к аватаркам по умолчанию;
+* Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;

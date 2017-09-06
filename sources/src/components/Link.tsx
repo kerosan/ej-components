@@ -28,7 +28,7 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 
 	public render(): any {
 		let classNames: string[] = ['ej-components__link'],
-			target = "_self";
+			target = this.props.target || "_self";
 
 		if (this.props.type === "primary") {
 			classNames.push('bold');

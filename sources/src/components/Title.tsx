@@ -22,23 +22,23 @@ export class Title extends React.Component<ITitleProps, ITitleStates> {
 
 		switch (this.props.type) {
 			case 'h1':
-				classNames.push('bold');
-				classNames.push('large');
+				classNames.push('ej-components__title_bold');
+				classNames.push('ej-components__title_large');
 				break;
 			case 'h2':
-				classNames.push('normal');
-				classNames.push('large');
+				classNames.push('ej-components__title_normal');
+				classNames.push('ej-components__title_large');
 				break;
 			case 'h3':
-				classNames.push('small');
+				classNames.push('ej-components__title_small');
 				break;
 			case 'h4':
-				classNames.push('small');
-				classNames.push('grey');
+				classNames.push('ej-components__title_small');
+				classNames.push('ej-components__title_grey');
 				break;
 			default:
-				classNames.push('bold');
-				classNames.push('large');
+				classNames.push('ej-components__title_bold');
+				classNames.push('ej-components__title_large');
 				break;
 		}
 

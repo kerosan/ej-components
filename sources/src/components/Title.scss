@@ -3,22 +3,22 @@
 .ej-components__title {
 	font-family: Roboto, Arial, sans-serif;
 	line-height: 50px;
-	&.bold {
+	&.ej-components__title_bold {
 		font-weight: $font-medium;
 	}
-	&.normal {
+	&.ej-components__title_normal {
 		font-weight: $font-light;
 	}
-	&.grey {
+	&.ej-components__title_grey {
 		color: #999999;
 	}
-	&.black {
+	&.ej-components__title_black {
 		color: #262626;
 	}
-	&.small {
+	&.ej-components__title_small {
 		font-size: 14px;
 	}
-	&.large {
+	&.ej-components__title_large {
 		font-size: 20px;
 	}
 }
