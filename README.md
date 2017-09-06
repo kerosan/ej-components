@@ -10,6 +10,9 @@
 
     npm i @ej/components --save-dev
     
+Demo
+----
+[Посмотреть demo тут](http://editor.abatapka.net/components/)
 ## Компоненты ##
 ### Alert ###
  
