@@ -1,32 +1,4 @@
 module.exports = {
-	build: {
-		files: [
-			{
-				src: [
-				    './index.ts',
-					'./sources/src/**/*.ts',
-					'./sources/src/**/*.tsx',
-				],
-				dest: 'build'
-			},
-		],
-		options: {
-			// fast: 'never',
-			module: 'commonjs',
-			target: 'es5',
-			jsx: 'react',
-			emitDecoratorMetadata: true,
-			experimentalDecorators: true,
-			comments: false,
-			declaration: true,
-			sourceMap: false,
-            lib: ["es2015", "dom"],
-            types: ["node", "jest"],
-            typeRoots: [
-                "../node_modules/@types"
-            ]
-		},
-	},
     test: {
         files: [
             {

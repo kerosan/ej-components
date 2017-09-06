@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export interface ITextProps {
 	text?: string | JSX.Element;
-	type?: "primary" | "secondary" | "label";
+	type?: "default" | "primary" | "label";
 	className?: string;
 }
 
@@ -22,9 +22,6 @@ export class Text extends React.Component<ITextProps, ITextStates> {
 
 		switch (this.props.type) {
 			case 'primary':
-				classNames.push('black');
-				break;
-			case 'secondary':
 				classNames.push('grey');
 				break;
 			case 'label':

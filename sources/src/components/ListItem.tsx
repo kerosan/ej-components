@@ -1,10 +1,10 @@
 import './ListItem.scss';
 
 import * as React from 'react';
+import { Text } from './Text';
 
 export interface IListItemProps {
 	text?: string | JSX.Element;
-	// href?: string;
 	selected?: boolean;
 	empty?: boolean;
 	disabled?: boolean;

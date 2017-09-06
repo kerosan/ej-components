@@ -8,7 +8,6 @@ export interface IListProps {
 	items?: IListItemProps[];
 	className?: string;
 	emptyTitle?: string;
-	selectedIndex?: number;
 }
 
 export interface IListStates {

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export interface ILinkProps {
 	text?: string;
-	type?: "primary" | "bold";
+	type?: "default" | "primary";
 	href?: string;
 	className?: string;
 
@@ -27,7 +27,7 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 	public render(): any {
 		let classNames: string[] = ['ej-components__link'];
 
-		if (this.props.type === "bold") {
+		if (this.props.type === "primary") {
 			classNames.push('bold');
 		}
 		if (this.props.onClick) {

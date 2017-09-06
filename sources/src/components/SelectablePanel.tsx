@@ -8,7 +8,6 @@ export interface ISelectablePanelProps {
 	checked?: boolean;
 	className?: string;
 	disabled?: boolean;
-	// inline?: boolean;
 	clickCapture?: boolean;
 
 	onChange?: (checked: boolean, name?: string) => void;
@@ -57,10 +56,6 @@ export class SelectablePanel extends React.Component<ISelectablePanelProps, ISel
 		if (this.props.className) {
 			spanClassNames.push(this.props.className);
 		}
-
-		// if (this.props.inline) {
-		// 	labelClassNames.push('CheckPanel-inline');
-		// }
 
 		if (this.props.disabled) {
 			labelClassNames.push('disabled');

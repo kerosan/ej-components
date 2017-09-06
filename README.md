@@ -11,23 +11,65 @@
     npm i @ej/components --save-dev
     
 ## Компоненты ##
+### Alert ###
+ 
+Панель оповещения  
+Простое использование:
+
+```tsx
+<Alert>Поле c сообщением</Alert>
+```
+
+Расширенное использование:
+
+```tsx
+<Alert bsStyle='warning'>
+  <strong>{"Warning!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>
+```
+
+или
+```tsx
+<Alert bsStyle='danger'>
+  <strong>{"Error!"}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>
+```
+Свойства:
+
+| имя       | тип                                    | значение по умолчанию | описание                    |
+|-----------|----------------------------------------|-----------------------|-----------------------------|
+| className | string                                 |                       | дополнительный CSS-класс    |
+| bsStyle   | "success", "warning", "danger", "info" | "info"                | стилизация панели           |
+
+События:
+
+| имя     | тип        | описание                          |
+|---------|------------|-----------------------------------|
+| onClick | () => void | срабатывает по клику по панели.   |
+| onClose | () => void | срабатывает по клику по крестику. |
+
+
+CSS-классы:
+
+* ej-components__alert
+
 ### Button ###
  
 Кнопка  
 Простое использование:
 
-```typescript jsx
+```tsx
 <Button />;
 ```
 
 Расширенное использование:
 
-```typescript jsx
+```tsx
 <Button text={"Текст на кнопке"} disabled={true} className={'some-css-class'} />
 ```
 
 или
-```typescript jsx
+```tsx
 <Button disabled={true} className={'some-css-class'} >
   <span>Текст на кнопке</span>
 </Button>
@@ -54,11 +96,11 @@ CSS-классы:
 ### Checkbox ###
 Галочка  
 Простое использование:
-```typescript jsx
+```tsx
     <Checkbox />
 ```
 Расширенное использование:
-```typescript jsx
+```tsx
     <Checkbox name={'checkbox-name'}
               label={'Текст'}
               className={'some-css-class'}
@@ -129,9 +171,9 @@ CSS-классы:
 ### Userpic ###
 Аватарка пользователя  
 Простое использовани:
-
-    <Userpic size={'40x40'} />
-    
+```tsx
+<Userpic size={'40x40'} />
+```
 Расширенное использование:
    
    			<Userpic size={'40x40'}
@@ -170,18 +212,18 @@ CSS-классы:
 * Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
 
 ### Text ###
-текст в тэге ``<span>`` 
+текст в тэге `<span>`
 
 Простое использование:
-```typescript jsx
+```tsx
 <Text>{`пример текста`}</Text>
 ```    
 Расширенное использование:
-```typescript jsx
+```tsx
 <Text text={"пример текст"} type={`secondary`} className={'some-css-class'} />
 ```
 или
-```typescript jsx
+```tsx
 <Text type={`label`} className={'some-css-class'} >
   <span>пример текстa с разметкой</span>
 </Text>

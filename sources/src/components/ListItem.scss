@@ -9,8 +9,19 @@ li.ej-components__list-item {
 	border-bottom: 1px solid #d6d6d6;
 	background-color: transparent;
 	cursor: default;
+
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+	color: #999999;
 	&:hover, &.selected {
 		background-color: #f5f8fa;
+	}
+	&.disabled {
+		color: #d6d6d6;
+		background-color: transparent;
+		cursor: not-allowed;
 	}
 	&.empty {
 		margin: 10px 0;

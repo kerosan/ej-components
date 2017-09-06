@@ -6,8 +6,7 @@ export interface IButtonProps {
 	text?: string | JSX.Element;
 	disabled?: boolean;
 	className?: string;
-	rounded?: boolean;
-	inverted?: boolean;
+	type?: "default" | "primary" | "secondary";
 
 	onClick?: () => void;
 }
@@ -30,10 +29,15 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 			classNames.push('disabled');
 		}
 
-		if (this.props.rounded) {
-			classNames.push('rounded');
-		} else if (this.props.inverted) {
-			classNames.push('inverted');
+		switch (this.props.type) {
+			case 'primary':
+				classNames.push('rounded');
+				break;
+			case 'secondary':
+				classNames.push('inverted');
+				break;
+			default:
+				break;
 		}
 
 		if (this.props.className) {
