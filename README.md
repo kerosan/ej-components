@@ -139,11 +139,6 @@ CSS-классы:
 | onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
 |          |                                           | Не срабатывает если disabled={true}        |
 
-Параметры:
-
-    * checked: boolean - включена галочка или нет;
-    * name: string - имя галочки, если имя было передано, если нет то undefined;
-    
 CSS-классы:
 
 * `.ej-components__checkbox`
@@ -154,7 +149,9 @@ CSS-классы:
 Раскрывающаяся панель  
 Простое использование:
 ```
-<ExpandablePanel />
+<ExpandablePanel>
+  <div>контент</div>
+</ExpandablePanel>
 ```
 Расширенное использование:
 ```

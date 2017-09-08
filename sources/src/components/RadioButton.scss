@@ -30,6 +30,8 @@
 	}
 	& > label {
 		font-weight: $font-light;
+		position: relative;
+		vertical-align: middle;
 		@include ej-components__no-user-select;
 		cursor: pointer;
 		font-size: 10px;
@@ -58,6 +60,8 @@
 		}
 		& > .ej-components__radiobutton-label {
 			font-size: 12px;
+			position: relative;
+			vertical-align: middle;
 		}
 		&.disabled {
 			background-color: transparent !important;

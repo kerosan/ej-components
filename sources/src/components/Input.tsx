@@ -8,8 +8,7 @@ export interface IInputProps {
 	value?: string;
 	className?: string;
 	message?: string;
-	error?: boolean;
-	warning?: boolean;
+	validation?: "warning" | "error";
 
 	onChange?: (event) => void;
 }
@@ -37,22 +36,28 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__input'];
+		let classNames: string[] = ['ej-components__input'],
+			messageClass: string = '';
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
 
-		if (this.props.error) {
-			classNames.push('ej-components__input-validation-error');
+		switch (this.props.validation) {
+			case "error":
+				classNames.push('ej-components__input-validation-error');
+				break;
+			case "warning":
+				classNames.push('ej-components__input-validation-warning');
+				break;
+			default:
+				messageClass = "hidden";
+				break;
 		}
 
-		if (this.props.warning) {
-			classNames.push('ej-components__input-validation-warning');
-		}
 		return <div className={classNames.join(' ')}>
 			<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
-			<div>{this.props.message}</div>
+			<div className={messageClass}>{this.props.message}</div>
 		</div>;
 	}
 
