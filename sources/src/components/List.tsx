@@ -35,7 +35,7 @@ export class List extends React.Component<IListProps, IListStates> {
 
 		if (this.props.children === undefined || this.props.children['length'] === 0) {
 			return (
-				<div className={[...classNames, 'no_scroll'].join(' ')}>
+				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
 					<ul>
 						<ListItem empty text={this.props.emptyTitle || "Empty list"}/>
 					</ul>
@@ -44,7 +44,7 @@ export class List extends React.Component<IListProps, IListStates> {
 		}
 		if (this.props.children['length'] <= minItemsCount) {
 			return (
-				<div className={[...classNames, 'no_scroll'].join(' ')}>
+				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
 					<ul>{this.props.children}</ul>
 				</div>
 			);

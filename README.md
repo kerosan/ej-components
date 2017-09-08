@@ -207,8 +207,8 @@ CSS-классы:
 
 События:
 
-| имя      | тип        | описание                                    |
-|----------|------------|---------------------------------------------|
+| имя      | тип             | описание                                    |
+|----------|-----------------|---------------------------------------------|
 | onChange | (event) => void | срабатывает при измении текста в поле ввода |
 
 CSS-классы:  
@@ -264,15 +264,17 @@ CSS-классы:
 
 Свойства:
 
-| имя        | тип         | значение по умолчанию | описание                 |
-|------------|-------------|-----------------------|--------------------------|
-| className  | string      |                       | дополнительный CSS-класс |
-| emptyTitle | string      | "Empty list"          | заголовок пустого списка |
-| items      | ListItem[]  |                       | массив элементов списка  |
+| имя           | тип         | значение по умолчанию | описание                                                     |
+|---------------|-------------|-----------------------|--------------------------------------------------------------|
+| className     | string      |                       | дополнительный CSS-класс                                     |
+| emptyTitle    | string      | "Empty list"          | заголовок пустого списка                                     |
+| minItemsCount | ListItem[]  | 5                     | минимальное колличество строк без появления скролла в списке |
 
 CSS-классы:
 
 * `.ej-components__list`
+* `.ej-components__list-no_scroll`
+
 
 ### ListItem ###
 Элемент списка `<li>`
@@ -326,7 +328,6 @@ CSS-классы:
   className={'some-css-class'}
   checked={true}
   disabled={true}
-  inline={true}
   clickCapture={true} />
 ```
 Свойства:
@@ -348,11 +349,6 @@ CSS-классы:
 | onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния радио-кнопки. |
 |          |                                           | Не срабатывает если disabled={true}             |
 
-Параметры:
-
-    * checked: boolean - включена радио-кнопка или нет;
-    * name: string - имя радио-кнопки, если имя было передано, если нет то undefined;
-    
 CSS-классы:
 
 * `.ej-components__radiobutton`
@@ -396,11 +392,6 @@ CSS-классы:
 | onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
 |          |                                           | Не срабатывает если disabled={true}        |
 
-Параметры:
-
-    * checked: boolean - включена галочка или нет;
-    * name: string - имя галочки, если имя было передано, если нет то undefined;
-    
 CSS-классы:
 
 * `.ej-components__selectable-panel`
@@ -408,7 +399,7 @@ CSS-классы:
     * `.ej-components__selectable-panel-icon__unchecked` - класс иконки выключенной галочкой;
 
 ### Text ###
-текст в тэге `<span>`
+текст в теге `<span>`
 
 Простое использование:
 ```
@@ -496,10 +487,10 @@ CSS-классы:
 CSS-классы:
 
 * `.ej-components__title`
-* `.ej-components__title_large`
-* `.ej-components__title_small`
-* `.ej-components__title_bold`
-* `.ej-components__title_grey`
+* `.ej-components__title_h1`
+* `.ej-components__title_h2`
+* `.ej-components__title_h3`
+* `.ej-components__title_h4`
 
 
 ### Userpic ###
