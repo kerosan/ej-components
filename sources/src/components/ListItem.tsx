@@ -19,7 +19,7 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 
 	constructor(props: IListItemProps) {
 		super(props);
-
+		this.state = {selected: !!this.props.selected };
 		this.onClick = this.onClick.bind(this);
 	}
 
@@ -45,6 +45,10 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 				{(this.props.text ? this.props.text : this.props.children)}
 			</li>
 		);
+	}
+
+	public select(): void {
+		this.setState({selected: true});
 	}
 
 	private onClick(): void {

@@ -5,14 +5,14 @@
 	font-size: 12px;
 	line-height: normal;
 	font-weight: $font-light;
-
-	&.grey {
+	&.default {
+		color: #262626;
+	}
+	&.primary {
 		color: #999999;
 	}
-	&.bold {
+	&.label {
 		font-weight: $font-bold;
-	}
-	&.black {
 		color: #262626;
 	}
 }

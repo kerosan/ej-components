@@ -42,15 +42,8 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 			}
 		}
 
-		switch (this.props.type) {
-			case 'primary':
-				classNames.push('primary');
-				break;
-			case 'secondary':
-				classNames.push('secondary');
-				break;
-			default:
-				break;
+		if (this.props.type) {
+			classNames.push(this.props.type);
 		}
 
 		if (this.props.className) {

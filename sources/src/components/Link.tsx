@@ -18,8 +18,6 @@ export interface ILinkStates {
 
 export class Link extends React.Component<ILinkProps, ILinkStates> {
 
-	private _href: string = "javascript://";
-
 	constructor(props: ILinkProps) {
 		super(props);
 
@@ -28,25 +26,27 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 
 	public render(): any {
 		let classNames: string[] = ['ej-components__link'],
-			target = this.props.target || "_self";
+			target: string = this.props.target || "_self",
+			href: string = 'javascript://';
 
-		if (this.props.type === "primary") {
-			classNames.push('bold');
+		if (this.props.type) {
+			classNames.push(this.props.type);
 		}
-		if (this.props.onClick) {
-			this._href = "javascript://";
-		} else if (this.props.href) {
-			this._href = this.props.href;
-		}
+
+
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
+
 		if (this.props.onClick) {
 			target = null;
+		} else if (this.props.href) {
+			href = this.props.href;
 		}
+
 		return (
-			<a href={this._href} target={target} className={classNames.join(' ')} onClick={this.onClick}>
+			<a href={href} target={target} className={classNames.join(' ')} onClick={this.onClick}>
 				{(this.props.text ? this.props.text : this.props.children)}
 			</a>
 		);

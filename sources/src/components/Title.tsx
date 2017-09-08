@@ -20,22 +20,10 @@ export class Title extends React.Component<ITitleProps, ITitleStates> {
 	public render(): any {
 		let classNames: string[] = ['ej-components__title'];
 
-		switch (this.props.type) {
-			case 'h1':
-				classNames.push('ej-components__title_h1');
-				break;
-			case 'h2':
-				classNames.push('ej-components__title_h2');
-				break;
-			case 'h3':
-				classNames.push('ej-components__title_h3');
-				break;
-			case 'h4':
-				classNames.push('ej-components__title_h4');
-				break;
-			default:
-				classNames.push('ej-components__title_h1');
-				break;
+		if (this.props.type) {
+			classNames.push('ej-components__title_' + this.props.type);
+		} else {
+			classNames.push('ej-components__title_h1');
 		}
 
 		if (this.props.className) {

@@ -43,22 +43,18 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 			classNames.push(this.props.className);
 		}
 
-		switch (this.props.validation) {
-			case "error":
-				classNames.push('ej-components__input-validation-error');
-				break;
-			case "warning":
-				classNames.push('ej-components__input-validation-warning');
-				break;
-			default:
-				messageClass = "hidden";
-				break;
+		if (this.props.validation) {
+			classNames.push('ej-components__input-validation-' + this.props.validation);
+		} else {
+			messageClass = "hidden";
 		}
 
-		return <div className={classNames.join(' ')}>
-			<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
-			<div className={messageClass}>{this.props.message}</div>
-		</div>;
+		return (
+			<div className={classNames.join(' ')}>
+				<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
+				<div className={messageClass}>{this.props.message}</div>
+			</div>
+		);
 	}
 
 	private onChange(event): void {

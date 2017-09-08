@@ -4,7 +4,6 @@ import * as React from 'react';
 
 export interface ISelectablePanelProps {
 	name?: string;
-	label?: string | JSX.Element;
 	checked?: boolean;
 	className?: string;
 	disabled?: boolean;
@@ -76,7 +75,7 @@ export class SelectablePanel extends React.Component<ISelectablePanelProps, ISel
 			<div className={spanClassNames.join(' ')} >
 				<label className={labelClassNames.join(' ')} onClick={this.onClick}>
 					{spanElement}
-					<div className='ej-components__selectable-panel-label'>{this.props.label ? this.props.label : this.props.children}</div>
+					<div className='ej-components__selectable-panel-label'>{this.props.children}</div>
 				</label>
 			</div>
 		);

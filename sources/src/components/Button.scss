@@ -1,15 +1,16 @@
 @import "vars";
 @import "mixin";
 
-.ej-components__button {
+.ej-components__button,
+.ej-components__button.default {
 	margin: 10px;
-	padding: 12px;
+	padding: 13px;
 	font-weight: $font-regular;
 	font-size: 12px;
 	text-transform: uppercase;
 	color: #ffffff;
 	background-color: #3696e0;
-	width: 120px;
+	// width: 120px;
 	min-width: 120px;
 	height: 38px;
 	line-height: 12px;
@@ -50,6 +51,8 @@
 		line-height: 18px;
 		top: -2px;
 		width: 29px;
+		height: 17px;
+		// margin: 0 0 0 -10px;
 		&.left {
 			text-align: left;
 		}
@@ -62,9 +65,9 @@
 		border-radius: 20px;
 		min-width: 112px;
 		height: 40px;
-		padding: 11px 18px;
+		padding: 13px 18px;
 		margin: 10px;
-		line-height: 18px;
+		line-height: 14px;
 	}
 
 	&.secondary {

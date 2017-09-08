@@ -4,9 +4,9 @@ import * as React from 'react';
 import { Alert as BSAlert } from "react-bootstrap";
 
 export interface IAlertProps {
-
 	className?: string;
 	bsStyle?: "success" | "warning" | "danger" | "info";
+
 	onClose?: () => void;
 	onClick?: () => void;
 }

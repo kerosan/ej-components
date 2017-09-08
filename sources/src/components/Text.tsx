@@ -20,17 +20,8 @@ export class Text extends React.Component<ITextProps, ITextStates> {
 	public render(): any {
 		let classNames: string[] = ['ej-components__text'];
 
-		switch (this.props.type) {
-			case 'primary':
-				classNames.push('grey');
-				break;
-			case 'label':
-				classNames.push('black');
-				classNames.push('bold');
-				break;
-			default:
-				classNames.push('black');
-				break;
+		if (this.props.type) {
+			classNames.push(this.props.type);
 		}
 		if (this.props.className) {
 			classNames.push(this.props.className);
