@@ -21,7 +21,7 @@
 	display: inline-block;
 	text-align: center;
 	white-space: nowrap;
-	@include ej-components__NoUserSelect;
+	@include ej-components__no-user-select;
 	&.disabled, &:disabled {
 		color: #f3f3f3;
 		cursor: not-allowed;
@@ -31,7 +31,7 @@
 			color: #f3f3f3;
 			background-color: #d6d6d6;
 			border: 1px solid #d6d6d6;
-			//cursor: not-allowed;
+			cursor: not-allowed;
 		}
 	}
 	&:hover {
@@ -49,15 +49,15 @@
 		vertical-align: text-bottom;
 		line-height: 16px;
 		width: 29px;
-	}
-	& > [class*="-left"] {
-		text-align: left;
-	}
-	& > [class*="-right"] {
-		text-align: right;
+		&.left {
+			text-align: left;
+		}
+		&.right {
+			text-align: right;
+		}
 	}
 
-	&.rounded {
+	&.primary {
 		border-radius: 20px;
 		min-width: 112px;
 		height: 40px;
@@ -66,7 +66,7 @@
 		line-height: 18px;
 	}
 
-	&.inverted {
+	&.secondary {
 		color: #3696e0;
 		background-color: transparent;
 		min-width: 112px;
@@ -83,7 +83,7 @@
 				color: #d6d6d6;
 				background-color: transparent;
 				border: 1px solid #d6d6d6;
-				//cursor: not-allowed;
+				cursor: not-allowed;
 			}
 		}
 		&:hover {

@@ -3,22 +3,22 @@
 .ej-components__title {
 	font-family: Roboto, Arial, sans-serif;
 	line-height: 50px;
-	&.ej-components__title_bold {
+	&.ej-components__title_h1 {
 		font-weight: $font-medium;
-	}
-	&.ej-components__title_normal {
-		font-weight: $font-light;
-	}
-	&.ej-components__title_grey {
-		color: #999999;
-	}
-	&.ej-components__title_black {
+		font-size: 20px;
 		color: #262626;
 	}
-	&.ej-components__title_small {
-		font-size: 14px;
-	}
-	&.ej-components__title_large {
+	&.ej-components__title_h2 {
+		font-weight: $font-light;
 		font-size: 20px;
+		color: #262626;
+	}
+	&.ej-components__title_h3 {
+		font-size: 14px;
+		color: #262626;
+	}
+	&.ej-components__title_h4 {
+		font-size: 14px;
+		color: #999999;
 	}
 }

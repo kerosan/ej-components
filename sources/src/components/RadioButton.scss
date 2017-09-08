@@ -7,13 +7,11 @@
 		& > label {
 			& > .ej-components__radiobutton-icon__unchecked,
 			& > .ej-components__radiobutton-icon__checked {
-				//background-color: #00abc0 !important;
 				border: 2px solid #00abc0;
 				.glyphicon {
-					color: #ffffff !important; //$ej-blue-lightest;
-					background-color: #00abc0 !important; //$ej-grey-disabled !important;
-					border-color: /*$ej-grey-disabled*/
-							#00abc0 !important;
+					color: #ffffff !important;
+					background-color: #00abc0 !important;
+					border-color: #00abc0 !important;
 				}
 			}
 			& > .ej-components__radiobutton-icon__checked {
@@ -32,7 +30,7 @@
 	}
 	& > label {
 		font-weight: $font-light;
-		@include ej-components__NoUserSelect;
+		@include ej-components__no-user-select;
 		cursor: pointer;
 		font-size: 10px;
 		margin-bottom: 0;
@@ -44,19 +42,19 @@
 			display: inline-block;
 			cursor: pointer;
 			font-size: 11px;
-			color: $ej-white;
+			color: #ffffff;
 			width: 22px;
 			height: 22px;
 			border-radius: 50%;
 		}
 		& > .ej-components__radiobutton-icon__checked {
-			background-color: $ej-blue !important;
-			border: 2px solid $ej-blue;
+			background-color: #3696e0 !important;
+			border: 2px solid #3696e0;
 			top: 0px;
 		}
 		& > .ej-components__radiobutton-icon__unchecked {
 			background-color: transparent !important;
-			border: 2px solid $ej-grey;
+			border: 2px solid #999999;
 		}
 		& > .ej-components__radiobutton-label {
 			font-size: 12px;
@@ -68,12 +66,12 @@
 				border: 2px solid #d6d6d6 !important;
 			}
 			.glyphicon {
-				color: #f3f3f3 !important; //$ej-blue-lightest;
-				background-color: #d6d6d6 !important; //$ej-grey-disabled !important;
-				border-color: /*$ej-grey-disabled*/ #d6d6d6 !important;
+				color: #f3f3f3 !important;
+				background-color: #d6d6d6 !important;
+				border-color: #d6d6d6 !important;
 			}
 			.ej-components__radiobutton-label {
-				color: $ej-grey-disabled;
+				color: #b4bab9;
 			}
 		}
 	}

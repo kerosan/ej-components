@@ -29,7 +29,7 @@
 	& > label {
 		position: relative;
 		font-weight: $font-light;
-		@include ej-components__NoUserSelect;
+		@include ej-components__no-user-select;
 		cursor: pointer;
 		font-size: 20px;
 		margin: 10px 0;
@@ -38,16 +38,16 @@
 		min-height: 180px;
 		padding: 20px 0;
 		&.checked {
-			border: 1px solid $ej-blue;
+			border: 1px solid #3696e0;
 		}
 		&:active {
 			border: 1px solid #00abc0;
 		}
 		&:hover {
-			border: 1px solid $ej-blue;
+			border: 1px solid #3696e0;
 			& > .ej-components__selectable-panel-icon__checked,
 			& > .ej-components__selectable-panel-icon__unchecked {
-				border: 1px solid $ej-blue;
+				border: 1px solid #3696e0;
 			}
 			&:active {
 				border: 1px solid #00abc0;
@@ -65,7 +65,7 @@
 			display: inline-block;
 			cursor: pointer;
 			font-size: 20px;
-			color: $ej-white;
+			color: #ffffff;
 			width: 32px;
 			height: 32px;
 			top: -11px;
@@ -74,12 +74,12 @@
 			border-width: 1px !important;
 		}
 		& > .ej-components__selectable-panel-icon__checked {
-			background-color: $ej-blue !important;
-			border: 1px solid $ej-blue;
+			background-color: #3696e0 !important;
+			border: 1px solid #3696e0;
 		}
 		& > .ej-components__selectable-panel-icon__unchecked {
 			background-color: #ffffff !important;
-			border: 2px solid $ej-grey;
+			border: 2px solid #999999;
 		}
 		& > .ej-components__selectable-panel-label {
 			font-size: 12px;
@@ -96,7 +96,7 @@
 				border-color: #d6d6d6 !important;
 			}
 			.ej-components__selectable-panel-label {
-				color: $ej-grey-disabled;
+				color: #b4bab9;
 			}
 		}
 	}

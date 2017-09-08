@@ -58,7 +58,7 @@ Demo
 
 CSS-классы:
 
-* .ej-components__alert
+* `.ej-components__alert`
 
 ### Button ###
  
@@ -101,7 +101,7 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__button
+* `.ej-components__button`
 
 ### Checkbox ###
 Галочка
@@ -134,7 +134,7 @@ CSS-классы:
 
 События:
 
-| имя      | тип                                       | описание                                                              |
+| имя      | тип                                       | описание                                   |
 |----------|-------------------------------------------|--------------------------------------------|
 | onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
 |          |                                           | Не срабатывает если disabled={true}        |
@@ -146,9 +146,9 @@ CSS-классы:
     
 CSS-классы:
 
-* .ej-components__checkbox
-    * .ej-components__checkbox-icon__checked - класс иконки включенной галочки;
-    * .ej-components__checkbox-icon__unchecked - класс иконки выключенной галочки;
+* `.ej-components__checkbox`
+    * `.ej-components__checkbox-icon__checked` - класс иконки включенной галочки;
+    * `.ej-components__checkbox-icon__unchecked` - класс иконки выключенной галочки;
 
 ### ExpandablePanel ###
 Раскрывающаяся панель  
@@ -164,7 +164,9 @@ const header: JSX.Element = (
   </span>
 );
 ...
-<ExpandablePanel header={header} defaultExpanded={true} />
+<ExpandablePanel header={header} defaultExpanded={true}>
+  <div>контент</div>
+</ExpandablePanel>
 ```
 Свойства:
 
@@ -178,9 +180,9 @@ const header: JSX.Element = (
 
 CSS-классы:  
 
-* .ej-components__expandable-panel
-    * .ej-components__expandable-panel-header - класс заголовка панели;
-        * .ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
+* `.ej-components__expandable-panel`
+    * `.ej-components__expandable-panel-header` - класс заголовка панели;
+        * `.ej-components__expandable-panel-header-icon` - класс иконки в заголовке панели;
 
 ### Input ###
 Поле ввода `<input>`
@@ -214,9 +216,9 @@ CSS-классы:
 
 CSS-классы:  
 
-* .ej-components__input
-   * .ej-components__input-validation-error - окрашивает рамку в красный цвет
-   * .ej-components__input-validation-warning - окрашивает рамку в оранжевый цвет
+* `.ej-components__input`
+   * `.ej-components__input-validation-error` - окрашивает рамку в красный цвет
+   * `.ej-components__input-validation-warning` - окрашивает рамку в оранжевый цвет
 
 ### Link ###
 Ссылка `<a>`
@@ -251,7 +253,7 @@ CSS-классы:
 
 CSS-классы:  
 
-* .ej-components__link
+* `.ej-components__link`
 
 ### List ###
 Список `<ul>`
@@ -273,7 +275,7 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__list
+* `.ej-components__list`
 
 ### ListItem ###
 Элемент списка `<li>`
@@ -311,7 +313,7 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__list-item
+* `.ej-components__list-item`
 
 ### RadioButton ###
 Радио-кнопка
@@ -356,9 +358,9 @@ CSS-классы:
     
 CSS-классы:
 
-* .ej-components__radiobutton
-    * .ej-components__radiobutton-icon__checked - класс иконки включенной радио-кнопки;
-    * .ej-components__radiobutton-icon__unchecked - класс иконки выключенной радио-кнопки;
+* `.ej-components__radiobutton`
+    * `.ej-components__radiobutton-icon__checked` - класс иконки включенной радио-кнопки;
+    * `.ej-components__radiobutton-icon__unchecked` - класс иконки выключенной радио-кнопки;
 
 ### SelectablePanel ###
 Панель с галочкой
@@ -404,9 +406,9 @@ CSS-классы:
     
 CSS-классы:
 
-* .ej-components__selectable-panel
-    * .ej-components__selectable-panel-icon__checked - класс иконки включенной галочкой;
-    * .ej-components__selectable-panel-icon__unchecked - класс иконки выключенной галочкой;
+* `.ej-components__selectable-panel`
+    * `.ej-components__selectable-panel-icon__checked` - класс иконки включенной галочкой;
+    * `.ej-components__selectable-panel-icon__unchecked` - класс иконки выключенной галочкой;
 
 ### Text ###
 текст в тэге `<span>`
@@ -435,7 +437,7 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__text
+* `.ej-components__text`
 
 ### TextArea ###
 Поле ввода `<textarea>`
@@ -466,8 +468,8 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__textarea
-* .ej-components__textarea-required - окрашивает рамку в красный цвет
+* `.ej-components__textarea`
+* `.ej-components__textarea-required`- окрашивает рамку в красный цвет
 
 ### Title ###
 Заголовок
@@ -496,11 +498,11 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__title
-* .ej-components__title_large
-* .ej-components__title_small
-* .ej-components__title_bold
-* .ej-components__title_grey
+* `.ej-components__title`
+* `.ej-components__title_large`
+* `.ej-components__title_small`
+* `.ej-components__title_bold`
+* `.ej-components__title_grey`
 
 
 ### Userpic ###
@@ -538,11 +540,11 @@ CSS-классы:
 
 CSS-классы:
 
-* .ej-components__userpic-40x40
-* .ej-components__userpic-50x50
-* .ej-components__userpic-80x80
-* .ej-components__userpic-150x150
-* .ej-components__userpic-200x200
+* `.ej-components__userpic-40x40`
+* `.ej-components__userpic-50x50`
+* `.ej-components__userpic-80x80`
+* `.ej-components__userpic-150x150`
+* `.ej-components__userpic-200x200`
 
 Недоработки:
 ------------
