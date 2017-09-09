@@ -2,7 +2,7 @@
   "name": "@ej/components",
   "main": "sources/src/components/",
   "types": "index.d.ts",
-  "version": "0.2.10-7",
+  "version": "0.2.10-8",
   "description": "EJ Client components",
   "dependencies": {
     "react-gemini-scrollbar": "^2.3.2",
