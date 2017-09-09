@@ -24,12 +24,18 @@
 	}
 	ul {
 		margin: 0px;
-		border-top: 1px solid #d6d6d6;
-		border-bottom: 1px solid #d6d6d6;
+		border-top: 1px solid #f4f5f5;
+		border-bottom: 1px solid #f4f5f5;
 		padding: 0;
 		padding-right: 15px;
 		&:last-child {
 			border: 0;
 		}
+		& > li:first-child {
+			border-top: 1px solid #f4f5f5;
+		}
+		//& > li:last-child {
+		//	border-b: 1px solid #d6d6d6;
+		//}
 	}
 }
