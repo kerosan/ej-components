@@ -5,14 +5,15 @@
 	font-size: 12px;
 	line-height: normal;
 	font-weight: $font-light;
-	&.default {
+	&.ej-components__text-default {
 		color: #262626;
 	}
-	&.primary {
+	&.ej-components__text-primary {
 		color: #999999;
 	}
-	&.label {
+	&.ej-components__text-label {
 		font-weight: $font-bold;
 		color: #262626;
+		font-size: 12px;
 	}
 }

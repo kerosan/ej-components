@@ -21,7 +21,9 @@ export class Text extends React.Component<ITextProps, ITextStates> {
 		let classNames: string[] = ['ej-components__text'];
 
 		if (this.props.type) {
-			classNames.push(this.props.type);
+			classNames.push('ej-components__text-' + this.props.type);
+		} else {
+			classNames.push('ej-components__text-default');
 		}
 		if (this.props.className) {
 			classNames.push(this.props.className);

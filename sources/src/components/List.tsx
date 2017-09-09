@@ -54,7 +54,7 @@ export class List extends React.Component<IListProps, IListStates> {
 			classNames.push(this.props.className);
 		}
 
-		if (this.props.children === undefined || this.props.children['length'] === 0) {
+		if (this.props.children === undefined || React.Children.count(this.props.children) === 0) {
 			return (
 				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
 					<ul>
