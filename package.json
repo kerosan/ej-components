@@ -13,7 +13,7 @@
     "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
   "files": [
-    "sources/src/component",
+    "sources/src/components",
     "index.d.ts"
   ],
   "author": "",
