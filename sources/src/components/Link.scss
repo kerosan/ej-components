@@ -6,10 +6,11 @@
 	line-height: normal;
 	font-weight: $font-light;
 	cursor: pointer;
-	&:visited {
+	&:visited, &:focus {
 		color: #3696e0;
+		text-decoration: none;
 	}
-	&:hover {
+	&:hover, &:active {
 		color: #3696e0;
 		text-decoration: underline;
 	}

@@ -5,6 +5,7 @@ import * as React from 'react';
 export interface ITitleProps {
 	text?: string | JSX.Element;
 	type?: "h1" | "h2" | "h3" | "h4";
+	inline?: boolean;
 	className?: string;
 }
 
@@ -24,6 +25,10 @@ export class Title extends React.Component<ITitleProps, ITitleStates> {
 			classNames.push('ej-components__title_' + this.props.type);
 		} else {
 			classNames.push('ej-components__title_h1');
+		}
+
+		if (this.props.inline) {
+			classNames.push('inline');
 		}
 
 		if (this.props.className) {

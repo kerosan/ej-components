@@ -19,7 +19,6 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/chai": "^3.5.1",
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.42",
     "@types/react": "^16.0.2",

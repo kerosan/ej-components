@@ -1,8 +1,8 @@
 import './List.scss';
 
 import * as React from 'react';
-import { ReactChild, ReactElement } from 'react';
-import { ListItem } from './ListItem';
+import { ReactElement } from 'react';
+import { IListItemProps, ListItem } from './ListItem';
 import * as  GeminiScrollbar from "react-gemini-scrollbar";
 
 export interface IListProps {
@@ -13,24 +13,32 @@ export interface IListProps {
 }
 
 export interface IListStates {
+	selectedIndex?: number;
 }
 
 const NUMBER_OF_LIST_ITEMS_WITH_SCROLL = 5;
 
 export class List extends React.Component<IListProps, IListStates> {
 
+	private childrenList = null;
+
 	constructor(props: IListProps) {
 		super(props);
+		this.state = {selectedIndex: this.props.selectedIndex};
 		this.onClick = this.onClick.bind(this);
 	}
 
 	public render(): any {
-		console.log(React.Children.count(this.props.children));
-
-		// let itemList = React.Children.toArray(this.props.children);
-		// console.log(itemList);
-		// console.log(itemList[0]['key']);
-		// (itemList[0] as ReactElement<ListItem>).props.set('selected', true);
+		if (!this.childrenList) {
+			this.childrenList = React.Children.toArray(this.props.children);
+		}
+		let newChildrenList = this.childrenList.map((child: ReactElement<ListItem>, key) => {
+			let newProps: IListItemProps = {...child.props as IListItemProps, index: key};
+			if (this.state.selectedIndex) {
+				newProps.selected = ((key + 1) === this.state.selectedIndex);
+			}
+			return React.cloneElement(child, newProps);
+		});
 
 		let classNames: string[] = ['ej-components__list'],
 			minItemsCount: number = NUMBER_OF_LIST_ITEMS_WITH_SCROLL,
@@ -58,7 +66,7 @@ export class List extends React.Component<IListProps, IListStates> {
 		if (this.props.children['length'] <= minItemsCount) {
 			return (
 				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
-					<ul>{this.props.children}</ul>
+					<ul onClick={this.onClick}>{newChildrenList}</ul>
 				</div>
 			);
 		}
@@ -66,14 +74,21 @@ export class List extends React.Component<IListProps, IListStates> {
 		return (
 			<GeminiScrollbar forceGemini className={classNames.join(' ')} style={{width: '100%', minWidth: 300, maxHeight: maxHeight, minHeight: minHeight}}>
 				<ul onClick={this.onClick}>
-					{this.props.children}
+					{newChildrenList}
 				</ul>
 			</GeminiScrollbar>
 		);
 	}
 
 	public onClick(e): void {
-		console.log(e);
-		console.log(e.target);
+		let item = null;
+		if (e.target.tagName === 'LI') {
+			item = e.target;
+		} else if (e.target.parentElement.tagName === 'LI') {
+			item = e.target.parentElement;
+		}
+		if (item && !item.classList.contains('disabled')) {
+			this.setState({selectedIndex: Number(item.dataset.index) + 1});
+		}
 	}
 }

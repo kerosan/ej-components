@@ -8,8 +8,9 @@ export interface IListItemProps {
 	empty?: boolean;
 	disabled?: boolean;
 	className?: string;
+	index?: number;
 
-	onClick?: () => void;
+	onClick?: (event, selected, index) => void;
 }
 
 export interface IListItemStates {
@@ -19,7 +20,6 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 
 	constructor(props: IListItemProps) {
 		super(props);
-		this.state = {selected: !!this.props.selected };
 		this.onClick = this.onClick.bind(this);
 	}
 
@@ -41,19 +41,15 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 		}
 
 		return (
-			<li className={classNames.join(' ')}>
+			<li className={classNames.join(' ')} data-index={this.props.index} onClick={this.onClick}>
 				{(this.props.text ? this.props.text : this.props.children)}
 			</li>
 		);
 	}
 
-	public select(): void {
-		this.setState({selected: true});
-	}
-
-	private onClick(): void {
+	public onClick(event): void {
 		if (this.props.onClick && !this.props.disabled) {
-			this.props.onClick();
+			this.props.onClick(event, this.props.selected, this.props.index);
 		}
 	}
 }

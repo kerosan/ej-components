@@ -2,38 +2,73 @@
 @import "mixin";
 
 .ej-components__expandable-panel {
+	margin: 10px 0;
+	min-width: 300px;
 	.panel {
 		border: none;
 		border-radius: 0;
 		box-shadow: none;
+
 		.panel-heading {
 			background-color: transparent;
 			background-image: none;
 			border: none;
 			border-radius: 0;
 			border-bottom: 1px solid #cdcdcd;
-			padding-top: 15px;
+			padding: 10px;
+			height: 60px;
 			cursor: pointer;
-			.ej-components__expandable-panel-header {
-				position: relative;
-				a {
-					text-decoration: none;
-					&[aria-expanded=true] {
+			&:hover {
+				border-bottom: 1px solid #3696e0;
+				.ej-components__expandable-panel-header {
+					a {
+						text-decoration: none;
 						.glyphicon {
 							color: #3696e0;
 						}
+					}
+				}
+			}
+
+			&:active {
+				border-bottom: 1px solid #00abc0;
+				.ej-components__expandable-panel-header {
+					a {
+						text-decoration: none;
+						.glyphicon {
+							color: #00abc0;
+						}
+					}
+				}
+			}
+			.ej-components__expandable-panel-header {
+				position: relative;
+				height: 40px;
+				line-height: 40px;
+				font-weight: $font-light;
+				font-size: 14px;
+				color: #262626;
+				small {
+					font-size: 12px;
+					color: #999999;
+				}
+				a {
+					text-decoration: none;
+					.glyphicon {
+						color: #999999;
 					}
 
 				}
 				.ej-components__expandable-panel-header-icon {
 					position: absolute;
-					top: -2px;
-					right: -15px;
+					top: 12px;
+					right: -10px;
 					font-size: 17px;
 				}
 			}
 		}
 		.panel-body {
+			padding: 0;
 			border-top: none !important;
 		}
 	}

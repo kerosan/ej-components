@@ -3,6 +3,9 @@
 .ej-components__title {
 	font-family: Roboto, Arial, sans-serif;
 	line-height: 50px;
+	&.inline {
+		display: inline-block;
+	}
 	&.ej-components__title_h1 {
 		font-weight: $font-medium;
 		font-size: 20px;
