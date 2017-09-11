@@ -8,15 +8,17 @@ import * as  GeminiScrollbar from "react-gemini-scrollbar";
 export interface IListProps {
 	className?: string;
 	emptyTitle?: string;
-	selectedIndex?: number;
+	selectedItem?: string;
 	minItemsCount?: number;
+
+	onChange?: (event: React.MouseEvent<HTMLElement>, selectedItem: string) => void;
 }
 
 export interface IListStates {
-	selectedIndex?: number;
+	selectedItem?: string;
 }
 
-const NUMBER_OF_LIST_ITEMS_WITH_SCROLL = 5;
+const NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL = 5;
 
 export class List extends React.Component<IListProps, IListStates> {
 
@@ -24,7 +26,7 @@ export class List extends React.Component<IListProps, IListStates> {
 
 	constructor(props: IListProps) {
 		super(props);
-		this.state = {selectedIndex: this.props.selectedIndex};
+		this.state = {selectedItem: this.props.selectedItem};
 		this.onClick = this.onClick.bind(this);
 	}
 
@@ -32,20 +34,20 @@ export class List extends React.Component<IListProps, IListStates> {
 		if (!this.childrenList || this.childrenList.length !== React.Children.count(this.props.children)) {
 			this.childrenList = React.Children.toArray(this.props.children);
 		}
-		let newChildrenList = this.childrenList.map((child: ReactElement<ListItem>, key) => {
-			let newProps: IListItemProps = {...child.props as IListItemProps, index: key};
-			if (this.state.selectedIndex) {
-				newProps.selected = ((key + 1) === this.state.selectedIndex);
+		let newChildrenList = this.childrenList.map((child: ReactElement<ListItem>) => {
+			let newProps: IListItemProps = {...child.props as IListItemProps};
+			if (this.state.selectedItem) {
+				newProps.selected = (newProps.name === this.state.selectedItem);
 			}
 			return React.cloneElement(child, newProps);
 		});
 
 		let classNames: string[] = ['ej-components__list'],
-			minItemsCount: number = NUMBER_OF_LIST_ITEMS_WITH_SCROLL,
+			minItemsCount: number = NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL,
 			minHeight: number = 33,
 			maxHeight: number = 166;
 
-		if (this.props.minItemsCount > NUMBER_OF_LIST_ITEMS_WITH_SCROLL) {
+		if (this.props.minItemsCount > NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL) {
 			minItemsCount = this.props.minItemsCount;
 			maxHeight = 1 + minItemsCount * minHeight;
 		}
@@ -80,15 +82,18 @@ export class List extends React.Component<IListProps, IListStates> {
 		);
 	}
 
-	public onClick(e): void {
+	public onClick(event: React.MouseEvent<HTMLElement>): void {
 		let item = null;
-		if (e.target.tagName === 'LI') {
-			item = e.target;
-		} else if (e.target.parentElement.tagName === 'LI') {
-			item = e.target.parentElement;
+		if (event.target['tagName'] === 'LI') {
+			item = event.target;
+		} else if (event.target['parentElement'].tagName === 'LI') {
+			item = event.target['parentElement'];
 		}
 		if (item && !item.classList.contains('disabled')) {
-			this.setState({selectedIndex: Number(item.dataset.index) + 1});
+			this.setState({selectedItem: item.dataset.name});
+		}
+		if (this.props.onChange) {
+			this.props.onChange(event, item.dataset.name);
 		}
 	}
 }
