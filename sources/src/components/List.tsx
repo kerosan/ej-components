@@ -1,7 +1,7 @@
 import './List.scss';
 
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { ReactChild, ReactElement } from 'react';
 import { IListItemProps, ListItem } from './ListItem';
 import * as  GeminiScrollbar from "react-gemini-scrollbar";
 
@@ -22,7 +22,7 @@ const NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL = 5;
 
 export class List extends React.Component<IListProps, IListStates> {
 
-	private childrenList = null;
+	private childrenList: ReactChild[] = null;
 
 	constructor(props: IListProps) {
 		super(props);
@@ -56,7 +56,7 @@ export class List extends React.Component<IListProps, IListStates> {
 			classNames.push(this.props.className);
 		}
 
-		if (this.props.children === undefined || React.Children.count(this.props.children) === 0) {
+		if (React.Children.count(this.props.children) === 0) {
 			return (
 				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
 					<ul>
@@ -65,7 +65,7 @@ export class List extends React.Component<IListProps, IListStates> {
 				</div>
 			);
 		}
-		if (this.props.children['length'] <= minItemsCount) {
+		if (React.Children.count(this.props.children) <= minItemsCount) {
 			return (
 				<div className={[...classNames, 'ej-components__list-no_scroll'].join(' ')}>
 					<ul onClick={this.onClick}>{newChildrenList}</ul>
