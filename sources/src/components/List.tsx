@@ -29,7 +29,7 @@ export class List extends React.Component<IListProps, IListStates> {
 	}
 
 	public render(): any {
-		if (!this.childrenList) {
+		if (!this.childrenList || this.childrenList.length !== React.Children.count(this.props.children)) {
 			this.childrenList = React.Children.toArray(this.props.children);
 		}
 		let newChildrenList = this.childrenList.map((child: ReactElement<ListItem>, key) => {
