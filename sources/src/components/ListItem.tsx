@@ -10,7 +10,7 @@ export interface IListItemProps {
 	className?: string;
 	index?: number;
 
-	onClick?: (event, selected, index) => void;
+	onClick?: (event: React.MouseEvent<HTMLElement>, selected: boolean, index: number) => void;
 }
 
 export interface IListItemStates {
@@ -47,7 +47,7 @@ export class ListItem extends React.Component<IListItemProps, IListItemStates> {
 		);
 	}
 
-	public onClick(event): void {
+	public onClick(event: React.MouseEvent<HTMLElement>): void {
 		if (this.props.onClick && !this.props.disabled) {
 			this.props.onClick(event, this.props.selected, this.props.index);
 		}
