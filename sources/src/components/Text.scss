@@ -1,0 +1,19 @@
+@import "vars";
+
+.ej-components__text {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+	&.ej-components__text-default {
+		color: #262626;
+	}
+	&.ej-components__text-primary {
+		color: #999999;
+	}
+	&.ej-components__text-label {
+		font-weight: $font-bold;
+		color: #262626;
+		font-size: 12px;
+	}
+}

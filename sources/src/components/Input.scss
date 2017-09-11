@@ -1,0 +1,79 @@
+@import "vars";
+
+.ej-components__input {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+	height: 50px;
+	color: #262626;
+	margin: 0px 10px;
+	input {
+		display: inline-block;
+		outline: none;
+		min-width: 300px;
+		width: 100%;
+		height: 32px;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-top-width: 0;
+		border-bottom-width: 1px;
+		border-color: #999999;
+		border-style: solid;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding: 0;
+		font-size: 14px;
+		letter-spacing: 0.1px;
+		&:focus {
+			border-color: #3696e0;
+		}
+
+		&::-webkit-input-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&::-moz-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&:-ms-input-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&:-moz-placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+		&::placeholder {
+			color: #999999;
+			opacity: 1;
+		}
+	}
+	& > div {
+		min-width: 295px;
+		font-size: 10px;
+		font-weight: $font-light;
+		margin-bottom: 5px;
+		letter-spacing: 0.1px;
+		top: -1px;
+		position: relative;
+	}
+
+	&.ej-components__input-validation-warning {
+		& > input {
+			border-color: #f29e00;
+		}
+		& > div {
+			color: #f29e00;
+		}
+	}
+	&.ej-components__input-validation-error {
+		& > input {
+			border-color: #d51717;
+		}
+		& > div {
+			color: #d51717;
+		}
+	}
+}

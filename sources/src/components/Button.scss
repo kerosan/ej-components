@@ -1,3 +1,114 @@
-.ej-components__button {
+@import "vars";
+@import "mixin";
 
+.ej-components__button,
+.ej-components__button.default {
+	margin: 10px;
+	padding: 13px;
+	font-weight: $font-regular;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #ffffff;
+	background-color: #3696e0;
+	// width: 120px;
+	min-width: 120px;
+	height: 38px;
+	line-height: 11px;
+	border-radius: 2px;
+	border: 1px solid #3696e0;
+	cursor: pointer;
+	text-decoration: none !important;
+	outline: 0;
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+	@include ej-components__no-user-select;
+	&.disabled, &:disabled {
+		color: #f3f3f3;
+		cursor: not-allowed;
+		background-color: #d6d6d6;
+		border: 1px solid #d6d6d6;
+		&:hover {
+			color: #f3f3f3;
+			background-color: #d6d6d6;
+			border: 1px solid #d6d6d6;
+			cursor: not-allowed;
+		}
+	}
+	&:hover {
+		background-color: transparent;
+		color: #3696e0;
+	}
+	&:active {
+		color: #00abc0;
+		border: 1px solid #00abc0;
+		background-color: transparent;
+	}
+
+	& > .glyphicon {
+		font-size: 18px;
+		vertical-align: middle;
+		line-height: 17px;
+		top: -2px;
+		width: 29px;
+		height: 17px;
+		// margin: 0 0 0 -10px;
+		&.left {
+			text-align: left;
+		}
+		&.right {
+			text-align: right;
+		}
+	}
+
+	&.primary {
+		border-radius: 20px;
+		min-width: 112px;
+		height: 40px;
+		padding: 13px 18px;
+		margin: 10px;
+		line-height: 13px;
+	}
+
+	&.secondary {
+		color: #3696e0;
+		background-color: transparent;
+		min-width: 112px;
+		height: 40px;
+		padding: 11px 18px;
+		margin: 10px;
+		line-height: 17px;
+
+		&.disabled, &:disabled {
+			color: #d6d6d6;
+			background-color: transparent;
+			border: 1px solid #d6d6d6;
+			&:hover {
+				color: #d6d6d6;
+				background-color: transparent;
+				border: 1px solid #d6d6d6;
+				cursor: not-allowed;
+			}
+		}
+		&:hover {
+			background-color: #3696e0;
+			color: #ffffff;
+		}
+		&:active {
+			color: #ffffff;
+			border: 1px solid #00abc0;
+			background-color: #00abc0;
+		}
+	}
+}
+
+.btn-toolbar {
+	margin-left: 0 !important;
+	> .ej-components__button {
+		&:first-child {
+			margin-left: 10px;
+		}
+		margin-left: 5px;
+		float: left;
+	}
 }

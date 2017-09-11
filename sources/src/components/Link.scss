@@ -1,0 +1,22 @@
+@import "vars";
+
+.ej-components__link {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: $font-light;
+	cursor: pointer;
+	&:visited, &:focus {
+		color: #3696e0;
+		text-decoration: none;
+	}
+	&:hover, &:active {
+		color: #3696e0;
+		text-decoration: underline;
+	}
+	&.primary {
+		font-size: 14px;
+		font-weight: $font-medium;
+		color: #262626;
+	}
+}

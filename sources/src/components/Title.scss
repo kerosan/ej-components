@@ -1,0 +1,27 @@
+@import "vars";
+
+.ej-components__title {
+	font-family: Roboto, Arial, sans-serif;
+	line-height: 50px;
+	&.inline {
+		display: inline-block;
+	}
+	&.ej-components__title_h1 {
+		font-weight: $font-medium;
+		font-size: 20px;
+		color: #262626;
+	}
+	&.ej-components__title_h2 {
+		font-weight: $font-light;
+		font-size: 20px;
+		color: #262626;
+	}
+	&.ej-components__title_h3 {
+		font-size: 14px;
+		color: #262626;
+	}
+	&.ej-components__title_h4 {
+		font-size: 14px;
+		color: #999999;
+	}
+}

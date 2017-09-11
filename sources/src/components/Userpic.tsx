@@ -2,9 +2,9 @@ import './Userpic.scss';
 
 import * as React from 'react';
 
-import {LinkTarget, UserpicSize} from '../types/index';
+import { LinkTarget, UserpicSize } from '../types/index';
 
-export {LinkTarget, UserpicSize};
+export { LinkTarget, UserpicSize };
 
 export interface IUserpicProps {
 	alt?: string;
@@ -30,7 +30,7 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 	}
 
 	public render(): JSX.Element {
-		let href: string = this.props.href || 'javascript:void(0);',
+		let href: string = this.props.href || 'javascript://',
 			target: string = this.props.target || '_blank',
 			alt: string = this.props.alt || '',
 			src: string = this.props.src || '/chat/static/userpic/photo' + this.props.size + '.png',
@@ -45,10 +45,10 @@ export class Userpic extends React.Component<IUserpicProps, IUserpicState> {
 		if (this.props.className) {
 			classNames.push(this.props.className);
 		}
-		
+
 		return (
 			<a href={href} target={target} className={classNames.join(' ')} onClick={this.onClick}>
-				<img alt={alt} src={src} />
+				<img alt={alt} src={src}/>
 			</a>
 		);
 	}

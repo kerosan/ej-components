@@ -9,7 +9,7 @@ type R = renderer.ReactTestRendererJSON;
 describe('ExpandablePanel', () => {
 
 	it('Simple usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<ExpandablePanel />
 		);
 
@@ -96,7 +96,7 @@ describe('ExpandablePanel', () => {
 					Some text
 				</span>
 			),
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<ExpandablePanel header={header} defaultExpanded={true} />
 			);
 
@@ -180,7 +180,7 @@ describe('ExpandablePanel', () => {
 	});
 
 	xit('Check expand/collapse', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 				<ExpandablePanel defaultExpanded={true} />
 			);
 

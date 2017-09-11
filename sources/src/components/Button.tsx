@@ -1,11 +1,15 @@
 import './Button.scss';
 
 import * as React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 export interface IButtonProps {
-	text?: string;
+	text?: string | JSX.Element;
 	disabled?: boolean;
 	className?: string;
+	type?: "default" | "primary" | "secondary";
+	icon?: string;
+	iconAlign?: "left" | "right";
 
 	onClick?: () => void;
 }
@@ -22,10 +26,24 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 	}
 
 	public render(): any {
-		let classNames: string[] = ['ej-components__button', 'btn btn-primary'];
+		let classNames: string[] = ['ej-components__button'],
+			leftIcon: JSX.Element = null,
+			rightIcon: JSX.Element = null;
 
 		if (this.props.disabled) {
 			classNames.push('disabled');
+		}
+
+		if (this.props.icon && this.props.iconAlign) {
+			if (this.props.iconAlign === "left") {
+				leftIcon = <Glyphicon glyph={this.props.icon} className={'left'}/>;
+			} else {
+				rightIcon = <Glyphicon glyph={this.props.icon} className={'right'}/>;
+			}
+		}
+
+		if (this.props.type) {
+			classNames.push(this.props.type);
 		}
 
 		if (this.props.className) {
@@ -34,8 +52,10 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 
 		return (
 			<a className={classNames.join(' ')}
-			   onClick={this.onClick} >
+			   onClick={this.onClick}>
+				{leftIcon}
 				{(this.props.text ? this.props.text : this.props.children)}
+				{rightIcon}
 			</a>
 		);
 	}

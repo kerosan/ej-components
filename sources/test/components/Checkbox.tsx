@@ -9,7 +9,7 @@ type R = renderer.ReactTestRendererJSON;
 describe('Checkbox', () => {
 
 	it('Simple usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Checkbox />
 		);
 
@@ -17,7 +17,7 @@ describe('Checkbox', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'span',
 				props: {
-					className: 'ej-components__checkbox form-group',
+					className: 'ej-components__checkbox',
 				},
 				children: [
 					{
@@ -49,7 +49,7 @@ describe('Checkbox', () => {
 	});
 
 	it('Advanced usage', () => {
-		const component: renderer.Renderer = renderer.create(
+		const component: renderer.ReactTestInstance = renderer.create(
 			<Checkbox name={'my-name'}
 					  label={'Some text'}
 					  checked={true}
@@ -63,7 +63,7 @@ describe('Checkbox', () => {
 			expected: renderer.ReactTestRendererJSON = {
 				type: 'span',
 				props: {
-					className: 'ej-components__checkbox form-group my-class',
+					className: 'ej-components__checkbox my-class',
 				},
 				children: [
 					{
@@ -108,7 +108,7 @@ describe('Checkbox', () => {
 				actual = checked;
 				actualName = name;
 			},
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<Checkbox onChange={onChange} name={expectedName} />
 			);
 
@@ -140,7 +140,7 @@ describe('Checkbox', () => {
 		const onChange: (checked: boolean, name: string) => void = (checked: boolean, name: string) => {
 				actual = true;
 			},
-			component: renderer.Renderer = renderer.create(
+			component: renderer.ReactTestInstance = renderer.create(
 				<Checkbox onChange={onChange} checked={true} disabled={true} />
 			);
 

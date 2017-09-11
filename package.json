@@ -1,56 +1,57 @@
 {
   "name": "@ej/components",
-  "main": "index.ts",
-  "version": "0.2.9",
+  "main": "sources/src/components/",
+  "types": "index.d.ts",
+  "version": "0.2.10-10",
   "description": "EJ Client components",
   "dependencies": {
-    "@types/node": "^7.0.4",
-    "@types/react": "^15.0.21",
-    "@types/react-bootstrap": "^0.0.47",
-    "@types/react-dom": "^0.14.23",
-    "@types/react-widgets": "^3.2.26",
-    "moment": "^2.17.1",
-    "react": "^15.4.2",
-    "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.4.2",
+    "react-gemini-scrollbar": "^2.3.2",
     "react-widgets": "^3.4.5"
   },
   "repository": "http://diary-gitlab.abatapka.net/EJ/libs/components.git",
   "scripts": {
-    "test": "jest"
+    "test": "jest --color --coverage --silent --env=jsdom --expand --coverageDirectory=.coverage"
   },
+  "files": [
+    "sources/src/components",
+    "sources/src/types",
+    "index.d.ts"
+  ],
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/chai": "^3.5.1",
     "@types/jest": "^19.2.2",
-    "@types/react-test-renderer": "^15.4.5",
-    "chai": "^3.5.0",
+    "@types/node": "^7.0.42",
+    "@types/react": "^16.0.2",
+    "@types/react-bootstrap": "^0.0.47",
+    "@types/react-dom": "^15.5.3",
+    "@types/react-test-renderer": "^15.5.3",
+    "@types/react-widgets": "^3.2.31",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
-    "grunt-mocha-test": "^0.13.2",
     "grunt-notify": "^0.4.5",
     "grunt-run": "^0.6.0",
     "grunt-ts": "^6.0.0-beta.15",
     "grunt-tslint": "^5.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^19.0.2",
+    "jest": "^21.0.1",
     "load-grunt-config": "^0.19.2",
-    "react-router": "^4.1.1",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.2",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.1.2",
     "react-test-renderer": "^15.5.4",
     "time-grunt": "^1.4.0",
-    "ts-jest": "^19.0.11",
-    "tslint": "^5.1.0",
-    "tslint-react": "^2.6.0",
-    "typescript": "^2.1.5"
+    "ts-jest": "^21.0.0",
+    "tslint": "^5.6.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.5.0"
   },
   "jest": {
-    "globals": {
-      "__TS_CONFIG__": "tsconfig.json"
-    },
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     },
+    "mapCoverage": true,
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },

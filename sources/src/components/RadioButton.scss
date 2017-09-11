@@ -1,18 +1,12 @@
 @import 'vars';
 @import 'mixin';
 
-.ej-components__checkbox {
+.ej-components__radiobutton {
 	margin-bottom: 0;
-	.checkbox-inline {
-		line-height: 20px !important;
-		padding-top: 0px !important;
-		padding-left: 15px;
-		padding-right: 5px;
-	}
 	&:active {
 		& > label {
-			& > .ej-components__checkbox-icon__unchecked,
-			& > .ej-components__checkbox-icon__checked {
+			& > .ej-components__radiobutton-icon__unchecked,
+			& > .ej-components__radiobutton-icon__checked {
 				border: 2px solid #00abc0;
 				.glyphicon {
 					color: #ffffff !important;
@@ -20,12 +14,18 @@
 					border-color: #00abc0 !important;
 				}
 			}
-			& > .ej-components__checkbox-icon__checked {
+			& > .ej-components__radiobutton-icon__checked {
 				background-color: #00abc0 !important;
 			}
 		}
 	}
-	input[type="checkbox"] {
+	.radiobutton-inline {
+		line-height: 20px !important;
+		padding-top: 0px !important;
+		padding-left: 15px;
+		padding-right: 5px;
+	}
+	input[type="radiobutton"] {
 		display: none;
 	}
 	& > label {
@@ -36,8 +36,8 @@
 		cursor: pointer;
 		font-size: 10px;
 		margin-bottom: 0;
-		& > .ej-components__checkbox-icon__checked,
-		& > .ej-components__checkbox-icon__unchecked {
+		& > .ej-components__radiobutton-icon__checked,
+		& > .ej-components__radiobutton-icon__unchecked {
 			margin: 10px;
 			padding: 3px;
 			vertical-align: middle;
@@ -47,27 +47,26 @@
 			color: #ffffff;
 			width: 22px;
 			height: 22px;
-
+			border-radius: 50%;
 		}
-		& > .ej-components__checkbox-icon__checked {
+		& > .ej-components__radiobutton-icon__checked {
 			background-color: #3696e0 !important;
 			border: 2px solid #3696e0;
 			top: 0px;
-
 		}
-		& > .ej-components__checkbox-icon__unchecked {
+		& > .ej-components__radiobutton-icon__unchecked {
 			background-color: transparent !important;
 			border: 2px solid #999999;
 		}
-		& > .ej-components__checkbox-label {
+		& > .ej-components__radiobutton-label {
 			font-size: 12px;
 			position: relative;
 			vertical-align: middle;
 		}
 		&.disabled {
 			background-color: transparent !important;
-			& > .ej-components__checkbox-icon__checked,
-			& > .ej-components__checkbox-icon__unchecked {
+			& > .ej-components__radiobutton-icon__checked,
+			& > .ej-components__radiobutton-icon__unchecked {
 				border: 2px solid #d6d6d6 !important;
 			}
 			.glyphicon {
@@ -75,7 +74,7 @@
 				background-color: #d6d6d6 !important;
 				border-color: #d6d6d6 !important;
 			}
-			.ej-components__checkbox-label {
+			.ej-components__radiobutton-label {
 				color: #b4bab9;
 			}
 		}

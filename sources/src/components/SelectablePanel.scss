@@ -1,0 +1,103 @@
+@import 'vars';
+@import 'mixin';
+
+.ej-components__selectable-panel {
+	margin: 0 10px;
+	display: inline-block;
+	.checkbox-inline {
+		line-height: 20px !important;
+		padding-top: 0px !important;
+		padding-left: 15px;
+		padding-right: 5px;
+	}
+	&:active {
+		& > label {
+			& > .ej-components__selectable-panel-icon__unchecked,
+			& > .ej-components__selectable-panel-icon__checked {
+				border: 1px solid #00abc0;
+				.glyphicon {
+					color: #ffffff !important;
+					background-color: #00abc0 !important;
+					border-color: #00abc0 !important;
+				}
+			}
+			& > .ej-components__selectable-panel-icon__checked {
+				background-color: #00abc0 !important;
+			}
+		}
+	}
+	& > label {
+		position: relative;
+		font-weight: $font-light;
+		@include ej-components__no-user-select;
+		cursor: pointer;
+		font-size: 20px;
+		margin: 10px 0;
+		border: 1px solid #999999;
+		min-width: 180px;
+		min-height: 180px;
+		padding: 20px 0;
+		&.checked {
+			border: 1px solid #3696e0;
+		}
+		&:active {
+			border: 1px solid #00abc0;
+		}
+		&:hover {
+			border: 1px solid #3696e0;
+			& > .ej-components__selectable-panel-icon__checked,
+			& > .ej-components__selectable-panel-icon__unchecked {
+				border: 1px solid #3696e0;
+			}
+			&:active {
+				border: 1px solid #00abc0;
+				& > .ej-components__selectable-panel-icon__checked,
+				& > .ej-components__selectable-panel-icon__unchecked {
+					border: 1px solid #00abc0;
+				}
+			}
+		}
+		& > .ej-components__selectable-panel-icon__checked,
+		& > .ej-components__selectable-panel-icon__unchecked {
+			margin: 10px;
+			padding: 4px;
+			vertical-align: middle;
+			display: inline-block;
+			cursor: pointer;
+			font-size: 20px;
+			color: #ffffff;
+			width: 32px;
+			height: 32px;
+			top: -11px;
+			position: absolute;
+			left: -11px;
+			border-width: 1px !important;
+		}
+		& > .ej-components__selectable-panel-icon__checked {
+			background-color: #3696e0 !important;
+			border: 1px solid #3696e0;
+		}
+		& > .ej-components__selectable-panel-icon__unchecked {
+			background-color: #ffffff !important;
+			border: 2px solid #999999;
+		}
+		& > .ej-components__selectable-panel-label {
+			font-size: 12px;
+		}
+		&.disabled {
+			background-color: #ffffff !important;
+			& > .ej-components__selectable-panel-icon__checked,
+			& > .ej-components__selectable-panel-icon__unchecked {
+				border: 2px solid #d6d6d6 !important;
+			}
+			.glyphicon {
+				color: #f3f3f3 !important;
+				background-color: #d6d6d6 !important;
+				border-color: #d6d6d6 !important;
+			}
+			.ej-components__selectable-panel-label {
+				color: #b4bab9;
+			}
+		}
+	}
+}

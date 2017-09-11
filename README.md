@@ -10,145 +10,538 @@
 
     npm i @ej/components --save-dev
     
+Demo
+----
+[Посмотреть demo тут](http://editor.abatapka.net/components/)
 ## Компоненты ##
-### Button ###
-Кнопка  
+### Alert ###
+ 
+Панель оповещения
+
 Простое использование:
 
-    <Button />
-    
+```
+<Alert>
+  Поле c сообщением
+</Alert>
+```
+
 Расширенное использование:
 
-    <Button text={"Текст на кнопке"} disabled={true} className={'some-css-class'} />
+```
+<Alert bsStyle='warning'>
+  <strong>{'Warning!'}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>
+```
 
 или
-
-    <Button disabled={true} className={'some-css-class'} >
-        <span>Текст на кнопке</span>
-    </Button>
-
+```
+<Alert bsStyle='danger'>
+  <strong>{'Error!'}</strong> Поле сообщения со <a href='javascript://'>ссылкой</a>
+</Alert>
+```
 Свойства:
 
-* className: string - дополнительный CSS-класс;
-* disabled: boolean - кнопка активна / не активна;
-* text: string - текст на кнопке;
+| имя       | тип                                    | значение по умолчанию | описание                    |
+|-----------|----------------------------------------|-----------------------|-----------------------------|
+| bsStyle   | 'success', 'warning', 'danger', 'info' | 'info'                | стилизация панели           |
+| className | string                                 |                       | дополнительный CSS-класс    |
 
 События:
 
-* onClick(): void - срабатывает по клику по кнопке. Не срабатывает если кнопка не активна;
+| имя     | тип        | описание                                        |
+|---------|------------|-------------------------------------------------|
+| onClick | () => void | срабатывает по клику в любое место панели       |
+| onClose | () => void | срабатывает по клику на крестик.                |
+|         |            | (если нет обработчика, крестик не отображается) |
+
 
 CSS-классы:
 
-* ej-components__button
+* `.ej-components__alert`
 
-### Checkbox ###
-Галочка  
+### Button ###
+ 
+Кнопка
+
 Простое использование:
 
-    <Checkbox />
-    
+```
+<Button />;
+```
+
 Расширенное использование:
 
-    <Checkbox name={'checkbox-name'}
-              label={'Текст'}
-              className={'some-css-class'}
-              checked={true}
-              disabled={true}
-              inline={true}
-              clickCapture={true} />
+```
+<Button text={'Текст на кнопке'} disabled={true} className={'some-css-class'} />
+```
 
+или
+```
+<Button disabled={true} className={'some-css-class'} >
+  <span>Текст на кнопке</span>
+</Button>
+```
 Свойства:
 
-* checked: boolean - включена галочка или нет;
-* className: string - дополнительный CSS-класс;
-* clickCapture: boolean - прекращать или нет дальнейшую передачу текущего события;
-* disabled: boolean - галочка активна / не активна;
-* inline: boolean - добаляет CSS-класс "inline" (@todo уточнить подробности у Коли);
-* label: string - текст рядом с галочкой;
-* name: string - имя галочки;
+| имя       | тип                               | значение по умолчанию | описание                    |
+|-----------|-----------------------------------|-----------------------|-----------------------------|
+| className | string                            |                       | дополнительный CSS-класс    |
+| disabled  | boolean                           | false                 | кнопка активна / не активна |
+| text      | string, JSX.Element               |                       | текст на кнопке             |
+| type      | 'default', 'primary', 'secondary' | 'default'             | тип стилизации кнопки       |
 
 События:
 
-* onChange(checked: boolean, name?: string): void - срабатывает при измении состояния галочки.
-Не срабатывает если галочка не активна. Параметры:
-    * checked: boolean - включена галочка или нет;
-    * name: string - имя галочки, если имя было передано, если нет то undefined;
-    
+| имя     | тип             | описание                              |
+|---------|-----------------|---------------------------------------|
+| onClick | (event) => void | срабатывает по клику по кнопке.       |
+|         |                 | Не срабатывает если disabled={true}   |
+
+
 CSS-классы:
 
-* ej-components__checkbox
-    * ej-components__checkbox-icon__checked - класс иконки включенной галочки;
-    * ej-components__checkbox-icon__unchecked - класс иконки выключенной галочки;
+* `.ej-components__button`
+
+### Checkbox ###
+Галочка
+
+Простое использование:
+```
+<Checkbox />
+```
+Расширенное использование:
+```
+<Checkbox name={'checkbox-name'}
+  label={'Текст'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={true}
+  inline={true}
+  clickCapture={true} />
+```
+Свойства:
+
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена галочка или нет                                |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | галочка активна / не активна                            |
+| label        | string  |                       | текст рядом с галочкой                                  |
+| name         | string  |                       | имя галочки                                             |
+
+События:
+
+| имя      | тип                                       | описание                                   |
+|----------|-------------------------------------------|--------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
+|          |                                           | Не срабатывает если disabled={true}        |
+
+CSS-классы:
+
+* `.ej-components__checkbox`
+    * `.ej-components__checkbox-icon__checked` - класс иконки включенной галочки;
+    * `.ej-components__checkbox-icon__unchecked` - класс иконки выключенной галочки;
 
 ### ExpandablePanel ###
 Раскрывающаяся панель  
 Простое использование:
-
-    <ExpandablePanel />
-    
+```
+<ExpandablePanel>
+  <div>контент</div>
+</ExpandablePanel>
+```
 Расширенное использование:
-
-    const header: JSX.Element = (
-            <span>
-                Текст в заголовке
-            </span>
-        );
-    ...
-    <ExpandablePanel header={header} defaultExpanded={true} />
-
+```
+const header: JSX.Element = (
+  <span>
+    Текст в заголовке
+  </span>
+);
+...
+<ExpandablePanel header={header} defaultExpanded={true}>
+  <div>контент</div>
+</ExpandablePanel>
+```
 Свойства:
 
-* header: JSX.Element - содержимое заголовка панели;
-* defaultExpanded: boolean - должна ли панель быть по умолчаниб развернута или нет;
+| имя             | тип         | значение по умолчанию | описание                                              |
+|-----------------|-------------|-----------------------|-------------------------------------------------------|
+| defaultExpanded | boolean     | false                 | должна ли панель быть по умолчаниб развернута или нет |
+| header          | JSX.Element |                       | обязательное поле, содержимое заголовка панели        |
 
 События:  
-Компонент не имеет событий  
+Компонент не имеет событий
 
-CSS-классы:  
+CSS-классы:
 
-* ej-components__expandable-panel
-    * ej-components__expandable-panel-header - класс заголовка панели;
-        * ej-components__expandable-panel-header-icon - класс иконки в заголовке панели;
+* `.ej-components__expandable-panel`
+    * `.ej-components__expandable-panel-header` - класс заголовка панели;
+        * `.ej-components__expandable-panel-header-icon` - класс иконки в заголовке панели;
 
-### Userpic ###
-Аватарка пользователя  
-Простое использовани:
+### Input ###
+Поле ввода `<input>`
 
-    <Userpic size={'40x40'} />
-    
+Простое использование:
+```
+<Input placeholder='Поле ввода' value='значение'/>
+```
 Расширенное использование:
-   
-   			<Userpic size={'40x40'}
-   					 href={'http://example.com/'}
-   					 target={'_self'}
-   					 alt={'Всплавающая подсказка'}
-   					 src={'/path/to/my/image.png'}
-   					 className={'some-css-class'}
-   					 userId={5} />
-   					 
+```
+<Input placeholder='Стандартное поле' warning message='Предупреждение.'/>
+```
 Свойства:
 
-* size: UserpicSize - обязательное поле! Размер аватарки. Допустимые значения: 40x40, 50x50, 80x80, 150x150, 200x200;
-* href: string - ссылка по которой произойдет переход при клике;
-* target: LinkTarget - где должна открываться страница при клике. Допустимые значение: _blank, _self, _parent, _top. По умолчанию: _blank;
-* alt: string - текст с всплывающей подсказкой;
-* src: string - адрес аватарки. По умолчанию: @todo подкорректировать путь;
-* className: string - дополнительный CSS-класс;
-* userId: number - идентификатор пользователя;
+| имя          | тип                | значение по умолчанию | описание                                           |
+|--------------|--------------------|-----------------------|----------------------------------------------------|
+| className    | string             |                       | дополнительный CSS-класс                           |
+| message      | string             |                       | текст сообщения ошибки/предупреждения валидации    |
+| placeholder  | string             |                       | текст приглашения при незаполненном поле           |
+| type         | string             | 'text'                | тип поля ввода `<input>`: text, password, email... |
+| validation   | 'error', 'warning' |                       | ошибка валидации                                   |
+| value        | string             |                       | значение записанное в поле ввода                   |
+
 
 События:
 
-* onClick: (userId: number) => void - срабатывает по клику по аватарке;
+| имя      | тип             | описание                                    |
+|----------|-----------------|---------------------------------------------|
+| onChange | (event) => void | срабатывает при измении текста в поле ввода |
 
 CSS-классы:  
 
-* ej-components__userpic-40x40
-* ej-components__userpic-50x50
-* ej-components__userpic-80x80
-* ej-components__userpic-150x150
-* ej-components__userpic-200x200
+* `.ej-components__input`
+   * `.ej-components__input-validation-error` - окрашивает рамку в красный цвет
+   * `.ej-components__input-validation-warning` - окрашивает рамку в оранжевый цвет
+
+### Link ###
+Ссылка `<a>`
+
+Простое использование:
+```
+<Link>
+  Ссылка
+</Link>
+```
+Расширенное использование:
+```
+<Link type='primary' href='http://google.com'>
+  Ссылка
+</Link>
+```
+Свойства:
+
+| имя       | тип                  | значение по умолчанию | описание                                   |
+|-----------|----------------------|-----------------------|--------------------------------------------|
+| className | string               |                       | дополнительный CSS-класс                   |
+| href      | string               | 'javascript://'       | URL ссылки                                 |
+| target    | LinkTarget           | '_self'               | где должна открываться страница при клике. |
+| text      | string               |                       | текст ссылки                               |
+| type      | 'default', 'primary' | 'default'             | тип ссылки:  default, primary              |
+
+События:
+
+| имя     | тип        | описание                                             |
+|---------|------------|------------------------------------------------------|
+| onClick | () => void | обработчик клика, если объявлен то href игнорируется |
+
+CSS-классы:  
+
+* `.ej-components__link`
+
+### List ###
+Список `<ul>`
+
+Простое использование:
+```
+<List>
+  <ListItem>Элемент списка</ListItem>
+</List>
+```
+
+Свойства:
+
+| имя           | тип    | значение по умолчанию | описание                                                                  |
+|---------------|--------|-----------------------|---------------------------------------------------------------------------|
+| className     | string |                       | дополнительный CSS-класс                                                  |
+| emptyTitle    | string | 'Empty list'          | заголовок пустого списка                                                  |
+| minItemsCount | number | 5                     | минимальное колличество строк без появления скролла в списке (не менее 5) |
+| selectedItem  | string |                       | имя выбранной строки                                                      |
+
+События:
+
+| имя      | тип                                                                   | описание                                         |
+|----------|-----------------------------------------------------------------------|--------------------------------------------------|
+| onChange | (event: React.MouseEvent<HTMLElement>, selectedItem: string) => void; | обработчик изменения выделенного элемента списка |
+
+CSS-классы:
+
+* `.ej-components__list`
+* `.ej-components__list-no_scroll`
+
+
+### ListItem ###
+Элемент списка `<li>`
+
+Простое использование:
+```
+<ListItem>
+  Элемент списка
+</ListItem>
+```
+Расширенное использование:
+```
+<ListItem 
+  selected={true}
+  disabled={false}
+  text='Строка 1'
+  onClick={() => console.log('Выбрана строка 1')}
+/>
+```
+Свойства:
+
+| имя        | тип                 | значение по умолчанию | описание                                                 |
+|------------|---------------------|-----------------------|----------------------------------------------------------|
+| className  | string              |                       | дополнительный CSS-класс                                 |
+| empty      | boolean             | false                 | если true, то итем выступает в роли надписи 'Список пуст'|
+| name       | string              |                       | имя элемента списка                                      |
+| text       | string, JSX.Element |                       | текст или разметка строки                                |
+| selected   | boolean             | false                 | помечает строку как выделенную                           |
+| disabled   | boolean             | false                 | 'отключает' элемент списка                               |
+
+События:
+
+| имя     | тип                                                                             | описание         |
+|---------|---------------------------------------------------------------------------------|------------------|
+| onClick | (event: React.MouseEvent<HTMLElement>, selected: boolean, name: string) => void | обработчик клика |
+
+CSS-классы:
+
+* `.ej-components__list-item`
+
+### RadioButton ###
+Радио-кнопка
+
+Простое использование:
+```
+<RadioButton />
+```
+Расширенное использование:
+```
+<RadioButton name={'radio-btn-name'}
+  label={'Текст'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={true}
+  clickCapture={true} />
+```
+Свойства:
+
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена радио-кнопка или нет                           |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | радио-кнопка активна / не активна                       |
+| label        | string  |                       | текст рядом с радио-кнопкой                             |
+| name         | string  |                       | имя радио-кнопки                                        |
+
+События:
+
+| имя      | тип                                       | описание                                        |
+|----------|-------------------------------------------|-------------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния радио-кнопки. |
+|          |                                           | Не срабатывает если disabled={true}             |
+
+CSS-классы:
+
+* `.ej-components__radiobutton`
+    * `.ej-components__radiobutton-icon__checked` - класс иконки включенной радио-кнопки;
+    * `.ej-components__radiobutton-icon__unchecked` - класс иконки выключенной радио-кнопки;
+
+### SelectablePanel ###
+Панель с галочкой
+
+Простое использование:
+```
+<SelectablePanel>
+  <div>контент</div>
+</SelectablePanel>
+
+```
+Расширенное использование:
+```
+<SelectablePanel name={'checkbox-name'}
+  className={'some-css-class'}
+  checked={true}
+  disabled={false}
+  clickCapture={true}>
+  <div>контент</div>
+</SelectablePanel>
+```
+Свойства:
+
+| имя          | тип     | значение по умолчанию | описание                                                |
+|--------------|---------|-----------------------|---------------------------------------------------------|
+| checked      | boolean | false                 | включена галочка или нет                                |
+| className    | string  |                       | дополнительный CSS-класс                                |
+| clickCapture | boolean | false                 | прекращать или нет дальнейшую передачу текущего события |
+| disabled     | boolean | false                 | галочка активна / не активна                            |
+| name         | string  |                       | имя галочки                                             |
+
+События:
+
+| имя      | тип                                       | описание                                                              |
+|----------|-------------------------------------------|--------------------------------------------|
+| onChange | (checked: boolean, name?: string) => void | срабатывает при измении состояния галочки. |
+|          |                                           | Не срабатывает если disabled={true}        |
+
+CSS-классы:
+
+* `.ej-components__selectable-panel`
+    * `.ej-components__selectable-panel-icon__checked` - класс иконки включенной галочкой;
+    * `.ej-components__selectable-panel-icon__unchecked` - класс иконки выключенной галочкой;
+
+### Text ###
+текст `<span>`
+
+Простое использование:
+```
+<Text>{`пример текста`}</Text>
+```    
+Расширенное использование:
+```
+<Text text={'пример текст'} type={`label`} className={'some-css-class'} />
+```
+или
+```
+<Text type={`label`} className={'some-css-class'} >
+  <span>пример текстa с разметкой</span>
+</Text>
+```
+Свойства:
+
+| props     | тип                             | значение по умолчанию | описание                 |
+|-----------|---------------------------------|-----------------------|--------------------------|
+| className | string                          |                       | дополнительный CSS-класс |
+| text      | string, JSX.Element             |                       | текст или JSX разметка   |
+| type      | 'default', 'primary', 'label'   | 'default'             | тип стилизации текста    |
+
+CSS-классы:
+
+* `.ej-components__text`
+
+### TextArea ###
+Поле ввода `<textarea>`
+
+Простое использование:
+```
+<TextArea placeholder='Поле ввода' value='значение'/>
+```
+Расширенное использование:
+```
+<TextArea placeholder='Стандартное поле' warning message='Предупреждение.'/>
+```
+Свойства:
+
+| имя          | тип     | значение по умолчанию | описание                                 |
+|--------------|---------|-----------------------|------------------------------------------|
+| className    | string  |                       | дополнительный CSS-класс                 |
+| placeholder  | string  |                       | текст приглашения при незаполненном поле |
+| required     | boolean | false                 | выделяет рамку красным цветом            |
+| value        | string  |                       | значение записанное в поле ввода         |
+
+События:
+
+| имя      | тип             | описание                                    |
+|----------|-----------------|---------------------------------------------|
+| onChange | (event) => void | срабатывает при измении текста в поле ввода |
+
+CSS-классы:
+
+* `.ej-components__textarea`
+* `.ej-components__textarea-required`- окрашивает рамку в красный цвет
+
+### Title ###
+Заголовок
+
+Простое использование:
+```
+<Title>{`пример текста`}</Title>
+```    
+Расширенное использование:
+```
+<Title text={'пример текст'} className={'some-css-class'} />
+```
+или
+```
+<Title type={`h2`} className={'some-css-class'} >
+  <span>пример заголовка с разметкой</span>
+</Title>
+```
+Свойства:
+
+| props     | тип                    | значение по умолчанию | описание                                    |
+|-----------|------------------------|-----------------------|---------------------------------------------|
+| className | string                 |                       | дополнительный CSS-класс                    |
+| text      | string, JSX.Element    |                       | текст или JSX разметка                      |
+| type      | 'h1', 'h2', 'h3', 'h4' | 'h1'                  | тип стилизации заголовка                    |
+| inline    | boolean                | false                 | если true, то заголовок становится строчный |
+
+CSS-классы:
+
+* `.ej-components__title`
+* `.ej-components__title_h1`
+* `.ej-components__title_h2`
+* `.ej-components__title_h3`
+* `.ej-components__title_h4`
+
+
+### Userpic ###
+Аватарка пользователя
+
+Простое использование:
+```
+<Userpic size={'40x40'} />
+```
+Расширенное использование:
+```
+<Userpic size={'40x40'}
+  href={'http://example.com/'}
+  target={'_self'}
+  alt={'Всплавающая подсказка'}
+  src={'/path/to/my/image.png'}
+  className={'some-css-class'}
+  userId={5} />
+```
+Свойства:
+
+| имя       | тип         | значение по умолчанию | описание                                                   |
+|-----------|-------------|-----------------------|------------------------------------------------------------|
+| alt       | string      |                       | текст с всплывающей подсказкой                             |
+| className | string      |                       | дополнительный CSS-класс                                   |
+| href      | string      | 'javascript://'       | ссылка по которой произойдет переход при клике             |
+| size      | UserpicSize |                       | обязательное поле! Размер аватарки.                        |
+| src       | string      |                       | адрес аватарки. По умолчанию: @todo подкорректировать путь |
+| target    | LinkTarget  | '_blank'              | где должна открываться страница при клике.                 |
+| userId    | number      |                       | идентификатор пользователя                                 |
+
+События:
+
+| имя     | тип                      | описание                         |
+|---------|--------------------------|----------------------------------|
+| onClick | (userId: number) => void | срабатывает по клику по аватарке |
+
+CSS-классы:
+
+* `.ej-components__userpic-40x40`
+* `.ej-components__userpic-80x80`
+* `.ej-components__userpic-200x200`
 
 Недоработки:
-
+------------
 * Подправить пути к аватаркам по умолчанию;
 * Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
