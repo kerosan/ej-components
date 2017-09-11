@@ -91,9 +91,9 @@ export class List extends React.Component<IListProps, IListStates> {
 		}
 		if (item && !item.classList.contains('disabled')) {
 			this.setState({selectedItem: item.dataset.name});
-		}
-		if (this.props.onChange) {
-			this.props.onChange(event, item.dataset.name);
+			if (this.props.onChange) {
+				this.props.onChange(event, item.dataset.name);
+			}
 		}
 	}
 }
