@@ -27,8 +27,13 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	constructor(public props: INumberFieldProps) {
 		super(props);
 
+		this.incrementValue = this.incrementValue.bind(this);
+		this.decrementValue = this.decrementValue.bind(this);
 		this.onTopButtonClick = this.onTopButtonClick.bind(this);
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
+		this.onTouchStart = this.onTouchStart.bind(this);
+		this.onTouchMove = this.onTouchMove.bind(this);
+		this.onTouchEnd = this.onTouchEnd.bind(this);
 
 		this.state = this.getInitState();
 	}
@@ -96,6 +101,26 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTopButtonClick(): void {
+		this.incrementValue();
+	}
+
+	private onBottomButtonClick(): void {
+		this.decrementValue();
+	}
+
+	private onTouchStart(e: React.TouchEvent<any>): void {
+
+	}
+
+	private onTouchMove(e: React.TouchEvent<any>): void {
+		e.preventDefault();
+	}
+
+	private onTouchEnd(e: React.TouchEvent<any>): void {
+
+	}
+
+	private incrementValue(): void {
 		if (!this.state.topButtonDisabled) {
 			return;
 		}
@@ -145,7 +170,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 	}
 
-	private onBottomButtonClick(): void {
+	private decrementValue(): void {
 		if (!this.state.bottomButtonDisabled) {
 			return;
 		}
