@@ -41,6 +41,13 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		};
 	}
 
+	public componentWillReceiveProps(newProps: INumberFieldProps): void {
+		this.setState({
+			...this.state,
+			value: newProps.value,
+		});
+	}
+
 	public render(): any {
 		let classNames: string[] = ['ej-components__number-field'],
 			topClassNames: string[] = [],
@@ -49,7 +56,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			minValue: number = this.props.minValue,
 			maxValue: number = this.props.maxValue,
 
-			numValue: number = this.props.value,
+			numValue: number = this.state.value,
 			value: string = numValue.toString();
 
 		if (!minValue) {
