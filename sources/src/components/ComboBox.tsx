@@ -170,7 +170,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
-		let touchStart: number = e.touches[0].clientY;
+		let touchStart: number = e.changedTouches[0].clientY;
 
 		this.setState({
 			...this.state,
@@ -179,13 +179,13 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private onTouchEnd(e: React.TouchEvent<any>): void {
-		let touchEnd: number = e.touches[0].clientY,
+		let touchEnd: number = e.changedTouches[0].clientY,
 			touchStart: number = this.state.touchStart;
 
-		if (touchStart > touchEnd + 5){
-			this.previousValue();
-		} else if (touchStart < touchEnd - 5) {
+		if (touchStart > touchEnd + 5) {
 			this.nextValue();
+		} else if (touchStart < touchEnd - 5) {
+			this.previousValue();
 		}
 
 		this.setState({
