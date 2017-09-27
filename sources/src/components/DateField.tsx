@@ -11,7 +11,7 @@ export interface IDateFieldProps {
 	maxValue: string;
 	cycle?: boolean;
 
-	obChange?: (value: string) => void;
+	onChange?: (value: string) => void;
 }
 
 interface IDateFieldState {
@@ -54,27 +54,88 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		};
 	}
 
-	public render(): JSX.Element {
-		let dayValue: number = this.state.dayValue,
-			monthKey: string = this.state.monthKey,
-			yearValue: number = this.state.yearValue,
+	public componentWillReceiveProps(newProps: IDateFieldProps): void {
+		let day: number = this.getDay(newProps.value),
+			month: number = this.getMonth(newProps.value),
+			year: number = this.getYear(newProps.value);
 
-			months: {[key: string]: string} = this.getMonthValues();
+		if (this.state.dayValue !== day
+			|| this.state.monthKey !== month.toString()
+			|| this.state.yearValue !== year) {
+			this.setState({
+				...this.state,
+				dayValue: day,
+				monthKey: month.toString(),
+				yearValue: year,
+			});
+		}
+	}
+
+	public render(): JSX.Element {
+		let months: {[key: string]: string} = this.getMonthValues(),
+
+			dayField: JSX.Element = <NumberField maxLength={2}
+												 minValue={this.getDayMinValue()}
+												 maxValue={this.getDayMaxValue()}
+												 value={this.state.dayValue}
+												 onChange={this.changeDay}/>,
+			monthField: JSX.Element = 	<ComboBox value={this.state.monthKey}
+												  values={months}
+												  width={0}
+												  onChange={this.changeMonth}/>,
+			firstElement: JSX.Element,
+			secondElement: JSX.Element;
+
+		switch (this.props.locale) {
+			case 'ru':
+			case 'ua':
+				firstElement = dayField;
+				secondElement = monthField;
+				break;
+
+			default:
+				firstElement = monthField;
+				secondElement = dayField;
+				break;
+		}
 
 		return <div>
-			<NumberField maxLength={2}
-						 value={dayValue}
-						 onChange={this.changeDay}/>
-
-			<ComboBox value={monthKey}
-					  values={months}
-					  width={0}
-					  onChange={this.changeMonth}/>
-
+			{firstElement}
+			{secondElement}
 			<NumberField maxLength={4}
-						 value={yearValue}
+						 value={this.state.yearValue}
+						 minValue={this.getYear(this.props.minValue)}
+						 maxValue={this.getYear(this.props.maxValue)}
 						 onChange={this.changeYear}/>
 		</div>
+	}
+
+	private getDayMinValue(): number {
+		let minYear: number = this.getYear(this.props.minValue),
+			minMonth: number = this.getMonth(this.props.minValue),
+
+			currentYear: number = this.state.yearValue,
+			currentMonth: number = +this.state.monthKey;
+
+		if (minYear === currentYear && minMonth === currentMonth) {
+			return this.getDay(this.props.minValue);
+		} else {
+			return 1;
+		}
+	}
+
+	private getDayMaxValue(): number {
+		let maxYear: number = this.getYear(this.props.maxValue),
+			maxMonth: number = this.getMonth(this.props.maxValue),
+
+			currentYear: number = this.state.yearValue,
+			currentMonth: number = +this.state.monthKey;
+
+		if (maxYear === currentYear && maxMonth === currentMonth) {
+			return this.getDay(this.props.maxValue);
+		} else {
+			return this.getDaysInMonthCount(currentYear, currentMonth);
+		}
 	}
 
 	private getDay(date: string): number {
@@ -134,6 +195,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			...this.state,
 			dayValue: value,
 		});
+
+		this.onChange();
 	}
 
 	private changeMonth(key: string, value: string): void {
@@ -141,6 +204,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			...this.state,
 			monthKey: key,
 		});
+
+		this.onChange();
 	}
 
 	private changeYear(value: number): void {
@@ -148,5 +213,17 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			...this.state,
 			yearValue: value,
 		});
+
+		this.onChange();
+	}
+
+	private onChange(): void {
+		if (this.props.onChange) {
+			let year: number = this.state.yearValue,
+				month: string = this.state.monthKey,
+				day: number = this.state.dayValue;
+
+			this.props.onChange(year + '-' + month + '-' + day);
+		}
 	}
 }
