@@ -77,6 +77,10 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 
 			field: JSX.Element = null;
 
+		console.error(key, values);
+		console.error(values[key]);
+		console.error(values.key);
+
 		if (this.state.isStandardComboBox) {
 			let options: JSX.Element[] = [];
 
