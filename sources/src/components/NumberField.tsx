@@ -77,15 +77,16 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			topClassNames: string[] = [],
 			bottomClassNames: string[] = [],
 
-			minValue: number = this.props.minValue,
-			maxValue: number = this.props.maxValue,
-
-			numValue: number = +this.state.value,
-			value: string = numValue.toString(),
+			value: string = this.state.value,
 
 			field: JSX.Element = null;
 
 		if (!this.state.isInput) {
+			let numValue: number = +value,
+
+				minValue: number = this.props.minValue,
+				maxValue: number = this.props.maxValue;
+
 			if (!minValue) {
 				minValue = 0;
 			}
@@ -128,6 +129,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			<div className={classNames.join(' ')}
 				 onTouchStart={this.onTouchStart}
 				 onTouchEnd={this.onTouchEnd}>
+
 				<a className={topClassNames.join(' ')}
 				   onClick={this.onTopButtonClick}>
 					<Glyphicon glyph={'menu-up'}/>
