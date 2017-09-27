@@ -148,7 +148,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		let value: string = e.target['value'],
 			regExp: RegExp = /^\-?[0-9]+$/;
 
-		if (regExp.test(value) || value === '-') {
+		if (!value || regExp.test(value) || value === '-') {
 			this.setState({
 				...this.state,
 				value: value,
