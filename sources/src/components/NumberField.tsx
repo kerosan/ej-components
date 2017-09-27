@@ -20,6 +20,8 @@ export interface INumberFieldState {
 
 	topButtonDisabled?: boolean;
 	bottomButtonDisabled?: boolean;
+
+	touchStart?: number;
 }
 
 export class NumberField extends React.Component<INumberFieldProps, INumberFieldState> {
@@ -28,11 +30,11 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		super(props);
 
 		this.incrementValue = this.incrementValue.bind(this);
-		this.decrementValue = this.decrementValue.bind(this);
+		this.decrementValue = this.decrementValue.bind(this)
+
 		this.onTopButtonClick = this.onTopButtonClick.bind(this);
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
 		this.onTouchStart = this.onTouchStart.bind(this);
-		this.onTouchMove = this.onTouchMove.bind(this);
 		this.onTouchEnd = this.onTouchEnd.bind(this);
 
 		this.state = this.getInitState();
@@ -43,6 +45,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			value: 0,
 			topButtonDisabled: false,
 			bottomButtonDisabled: false,
+
+			touchStart: null,
 		};
 	}
 
@@ -85,7 +89,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		return (
-			<div className={classNames.join(' ')}>
+			<div className={classNames.join(' ')} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
 				<a className={topClassNames.join(' ')} onClick={this.onTopButtonClick}>
 					<Glyphicon glyph={'glyphicon-chevron-up'} className={'top'}/>
 				</a>
@@ -109,15 +113,28 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
+		let touchStart: number = e.touches[0].clientY;
 
-	}
-
-	private onTouchMove(e: React.TouchEvent<any>): void {
-		e.preventDefault();
+		this.setState({
+			...this.state,
+			touchStart: touchStart,
+		});
 	}
 
 	private onTouchEnd(e: React.TouchEvent<any>): void {
+		let touchEnd: number = e.touches[0].clientY,
+			touchStart: number = this.state.touchStart;
 
+		if (touchStart > touchEnd + 5){
+			this.decrementValue();
+		} else if (touchStart < touchEnd - 5) {
+			this.incrementValue();
+		}
+
+		this.setState({
+			...this.state,
+			touchStart: null,
+		});
 	}
 
 	private incrementValue(): void {
