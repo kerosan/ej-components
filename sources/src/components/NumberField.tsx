@@ -144,28 +144,9 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 	private onChange(e: React.ChangeEvent<HTMLInputElement>): void {
 		let value: string = e.target['value'],
-			numValue: number = parseInt(value, 10),
+			regExp: RegExp = /^\-?[0-9]+$/;
 
-			minValue: number = this.props.minValue,
-			maxValue: number = this.props.maxValue,
-
-			regExp: RegExp = /^-?[0-9]+/;
-
-		if (!isNaN(numValue)) {
-			if (!minValue) {
-				minValue = 0;
-			}
-
-			if (!maxValue) {
-				maxValue = Math.pow(10, this.props.maxLength - 1);
-			}
-
-			if ((numValue < minValue) || (numValue > maxValue) || (value.length > this.props.maxLength)) {
-				return;
-			}
-		}
-
-		if (regExp.test(value)) {
+		if (regExp.test(value) || value === '-') {
 			this.setState({
 				...this.state,
 				value: value,
@@ -177,12 +158,24 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		let value: string = this.state.value,
 			numValue: number = parseInt(value, 10);
 
-		if (!isNaN(numValue)) {
-			if (this.props.onChange) {
-				this.props.onChange(+value);
-			}
-		} else {
+		if (isNaN(numValue)) {
 			value = this.props.value.toString();
+		} else {
+			let minValue: number = this.props.minValue,
+				maxValue: number = this.props.maxValue;
+
+			if (!minValue) {
+				minValue = 0;
+			}
+			if (!maxValue) {
+				maxValue = Math.pow(10, this.props.maxLength - 1);
+			}
+
+			if (numValue < minValue) {
+				value = minValue.toString();
+			} else if (maxValue < numValue || numValue.toString().length > this.props.maxLength) {
+				value = maxValue.toString();
+			}
 		}
 
 		this.setState({
@@ -265,7 +258,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!step) {
 			step = 1;
 		}
-
 		if (!maxValue) {
 			maxValue = Math.pow(10, this.props.maxLength - 1);
 		}
@@ -315,7 +307,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!step) {
 			step = 1;
 		}
-
 		if (!minValue) {
 			minValue = 0;
 		}
