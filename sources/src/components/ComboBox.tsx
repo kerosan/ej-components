@@ -46,19 +46,22 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 
 	private getInitState(): IComboBoxState {
 		return {
-			value: '',
-			topButtonDisabled: false,
-			bottomButtonDisabled: false,
+			key: '',
+
+			isTopButtonDisabled: false,
+			isBottomButtonDisabled: false,
+			isStandardComboBox: false,
+			isFrameVisible: false,
 
 			touchStart: null,
 		};
 	}
 
 	public componentWillReceiveProps(newProps: IComboBoxProps): void {
-		if (newProps.value !== this.state.value) {
+		if (newProps.value !== this.state.key) {
 			this.setState({
 				...this.state,
-				value: newProps.value,
+				key: newProps.value,
 			});
 		}
 	}
@@ -86,7 +89,9 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			field = <select onChange={this.onChange}
 						   	onBlur={this.onBlur}
 						   	multiple={false}
-						  	autoFocus={true}/>
+						  	autoFocus={true}>
+						{options}
+					</select>;
 		} else {
 			if (this.state.isFrameVisible) {
 				fieldClassNames.push('framed');
@@ -203,10 +208,67 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private nextValue(): void {
-		//
+		let key: string = this.state.key,
+			values: {[key: string]: string} = this.props.values,
+
+			isNext: boolean = false;
+
+		for (let k in values) {
+			if (isNext) {
+				key = k;
+				break;
+			}
+
+			if (k === key) {
+				isNext = true;
+			}
+		}
+
+		if (key === this.state.key) {
+			return;
+		}
+
+		this.setState({
+			...this.state,
+			key: key,
+		});
+
+		if (this.props.onChange) {
+			this.props.onChange(key, this.props.values[key]);
+		}
 	}
 
 	private previousValue(): void {
-		//
+		let key: string = this.state.key,
+			previousKey: string,
+			values: {[key: string]: string} = this.props.values,
+
+			isNext: boolean = false;
+
+		for (let k in values) {
+			previousKey = k;
+
+			if (isNext) {
+				key = previousKey;
+				break;
+			}
+
+			if (k === key) {
+				isNext = true;
+			}
+		}
+
+		if (key === this.state.key) {
+			return;
+		}
+
+		this.setState({
+			...this.state,
+			key: key,
+		});
+
+		if (this.props.onChange) {
+			this.props.onChange(key, this.props.values[key]);
+		}
 	}
 }
