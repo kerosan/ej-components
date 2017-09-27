@@ -104,7 +104,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			field = <input onChange={this.onChange}
 						   onBlur={this.onBlur}
 						   maxLength={this.props.maxLength}
-						   value={value}/>
+						   value={value}
+						   autoFocus={true}/>
 		} else {
 			if (this.state.isFrameVisible) {
 				fieldClassNames.push('framed');
