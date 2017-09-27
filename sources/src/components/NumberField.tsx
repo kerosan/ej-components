@@ -16,10 +16,13 @@ export interface INumberFieldProps {
 }
 
 export interface INumberFieldState {
-	value?: number;
+	value?: string;
 
 	topButtonDisabled?: boolean;
 	bottomButtonDisabled?: boolean;
+
+	frameVisible?: boolean;
+	isInput?: boolean;
 
 	touchStart?: number;
 }
@@ -36,25 +39,33 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
 		this.onTouchStart = this.onTouchStart.bind(this);
 		this.onTouchEnd = this.onTouchEnd.bind(this);
+		this.onMouseEnter = this.onMouseEnter.bind(this);
+		this.onMouseLeave = this.onMouseLeave.bind(this);
+		this.onClick = this.onClick.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 
 		this.state = this.getInitState();
 	}
 
 	private getInitState(): INumberFieldState {
 		return {
-			value: 0,
+			value: '',
 			topButtonDisabled: false,
 			bottomButtonDisabled: false,
+
+			frameVisible: false,
+			isInput: false,
 
 			touchStart: null,
 		};
 	}
 
 	public componentWillReceiveProps(newProps: INumberFieldProps): void {
-		if (newProps.value !== this.state.value) {
+		if (newProps.value.toString() !== this.state.value) {
 			this.setState({
 				...this.state,
-				value: newProps.value,
+				value: newProps.value.toString(),
 			});
 		}
 	}
@@ -67,43 +78,137 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			minValue: number = this.props.minValue,
 			maxValue: number = this.props.maxValue,
 
-			numValue: number = this.state.value,
-			value: string = numValue.toString();
+			numValue: number = +this.state.value,
+			value: string = numValue.toString(),
 
-		if (!minValue) {
-			minValue = 0;
-		}
+			field: JSX.Element = null;
 
-		if (!maxValue) {
-			maxValue = Math.pow(10, this.props.maxLength - 1);
-		}
+		if (!this.state.isInput) {
+			if (!minValue) {
+				minValue = 0;
+			}
 
-		if (this.props.zerofill) {
-			while (value.length < this.props.maxLength) {
-				value = '0' + value;
+			if (!maxValue) {
+				maxValue = Math.pow(10, this.props.maxLength - 1);
+			}
+
+			if (this.props.zerofill) {
+				while (value.length < this.props.maxLength) {
+					value = '0' + value;
+				}
+			}
+
+			if (numValue === minValue && !this.props.cycle) {
+				bottomClassNames.push('disabled');
+			} else if (numValue === maxValue && !this.props.cycle) {
+				topClassNames.push('disabled');
 			}
 		}
 
-		if (numValue === minValue && !this.props.cycle) {
-			bottomClassNames.push('disabled');
-		} else if (numValue === maxValue && !this.props.cycle) {
-			topClassNames.push('disabled');
+		if (this.state.isInput) {
+			field = <input value={value}/>
+		} else {
+			field = <div onMouseEnter={this.onMouseEnter}
+						 onMouseLeave={this.onMouseLeave}
+						 onClick={this.onClick}>
+				{value}
+				</div>
 		}
 
 		return (
-			<div className={classNames.join(' ')} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
-				<a className={topClassNames.join(' ')} onClick={this.onTopButtonClick}>
+			<div className={classNames.join(' ')}
+				 onTouchStart={this.onTouchStart}
+				 onTouchEnd={this.onTouchEnd}>
+				<a className={topClassNames.join(' ')}
+				   onClick={this.onTopButtonClick}>
 					<Glyphicon glyph={'menu-up'}/>
 				</a>
 
-				<div>
-					{value}
-				</div>
+				{field}
 
-				<a className={bottomClassNames.join(' ')} onClick={this.onBottomButtonClick}>
+				<a className={bottomClassNames.join(' ')}
+				   onClick={this.onBottomButtonClick}>
 					<Glyphicon glyph={'menu-down'}/>
 				</a>
 			</div>);
+	}
+
+	private onChange(e: React.FormEvent<string>): void {
+		let value: string = e.target['value'],
+			numValue: number = parseInt(value, 10),
+
+			minValue: number = this.props.minValue,
+			maxValue: number = this.props.maxValue,
+
+			regExp: RegExp = /^-?[0-9]+/;
+
+		if (!isNaN(numValue)) {
+			if (!minValue) {
+				minValue = 0;
+			}
+
+			if (!maxValue) {
+				maxValue = Math.pow(10, this.props.maxLength - 1);
+			}
+
+			if ((numValue < minValue) || (numValue > maxValue) || (value.length > this.props.maxLength)) {
+				return;
+			}
+		}
+
+		if (regExp.test(value)) {
+			this.setState({
+				...this.state,
+				value: value,
+			});
+		}
+	}
+
+	private onBlur(): void {
+		let value: string = this.state.value,
+			numValue: number = parseInt(value, 10);
+
+		if (!isNaN(numValue)) {
+			if (this.props.onChange) {
+				this.props.onChange(+value);
+			}
+		} else {
+			value = this.props.value.toString();
+		}
+
+		this.setState({
+			...this.state,
+			value: value,
+			isInput: false,
+		});
+	}
+
+	private onClick(): void {
+		if (!this.state.isInput) {
+			this.setState({
+				...this.state,
+				isInput: true,
+				frameVisible: false,
+			});
+		}
+	}
+
+	private onMouseLeave(): void {
+		if (!this.state.isInput) {
+			this.setState({
+				...this.state,
+				frameVisible: false,
+			});
+		}
+	}
+
+	private onMouseEnter(): void {
+		if (!this.state.isInput) {
+			this.setState({
+				...this.state,
+				frameVisible: true,
+			});
+		}
 	}
 
 	private onTopButtonClick(): void {
@@ -145,7 +250,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		let step: number = this.props.step,
-			value: number = this.state.value,
+			value: number = +this.state.value,
 			maxValue: number = this.props.maxValue;
 
 		if (!step) {
@@ -164,7 +269,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 			this.setState({
 				...this.state,
-				value: value,
+				value: value.toString(),
 				topButtonDisabled: topButtonDisabled,
 			});
 
@@ -180,7 +285,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 			this.setState({
 				...this.state,
-				value: value,
+				value: value.toString(),
 			});
 
 			if (this.props.onChange) {
@@ -195,7 +300,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		let step: number = this.props.step,
-			value: number = this.state.value,
+			value: number = +this.state.value,
 			minValue: number = this.props.minValue;
 
 		if (!step) {
@@ -214,7 +319,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 			this.setState({
 				...this.state,
-				value: value,
+				value: value.toString(),
 				bottomButtonDisabled: bottomButtonDisabled,
 			});
 
@@ -230,7 +335,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 			this.setState({
 				...this.state,
-				value: value,
+				value: value.toString(),
 			});
 
 			if (this.props.onChange) {
