@@ -207,11 +207,15 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTopButtonClick(): void {
-		this.incrementValue();
+		if (!this.state.isInput) {
+			this.incrementValue();
+		}
 	}
 
 	private onBottomButtonClick(): void {
-		this.decrementValue();
+		if (!this.state.isInput) {
+			this.decrementValue();
+		}
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
