@@ -51,10 +51,12 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	public componentWillReceiveProps(newProps: INumberFieldProps): void {
-		this.setState({
-			...this.state,
-			value: newProps.value,
-		});
+		if (newProps.value !== this.state.value) {
+			this.setState({
+				...this.state,
+				value: newProps.value,
+			});
+		}
 	}
 
 	public render(): any {
@@ -138,7 +140,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private incrementValue(): void {
-		if (!this.state.topButtonDisabled) {
+		if (this.state.topButtonDisabled) {
 			return;
 		}
 
@@ -188,7 +190,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private decrementValue(): void {
-		if (!this.state.bottomButtonDisabled) {
+		if (this.state.bottomButtonDisabled) {
 			return;
 		}
 
