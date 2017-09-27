@@ -39,7 +39,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		this.onTopButtonClick = this.onTopButtonClick.bind(this);
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
 		this.onTouchStart = this.onTouchStart.bind(this);
-		this.onTouchMove = this.onTouchMove.bind(this);
 		this.onTouchEnd = this.onTouchEnd.bind(this);
 		this.onMouseEnter = this.onMouseEnter.bind(this);
 		this.onMouseLeave = this.onMouseLeave.bind(this);
@@ -129,7 +128,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		return (
 			<div className={classNames.join(' ')}
 				 onTouchStart={this.onTouchStart}
-				 onTouchMove={this.onTouchMove}
 				 onTouchEnd={this.onTouchEnd}>
 
 				<a className={topClassNames.join(' ')}
@@ -231,25 +229,20 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
 		console.error('touchstart', e.nativeEvent);
-		if (e.touches.length > 0) {
-			let touchStart: number = e.touches[0].clientY;
 
-			this.setState({
-				...this.state,
-				touchStart: touchStart,
-			});
-		}
-	}
+		let touchStart: number = e.changedTouches[0].clientY;
 
-	private onTouchMove(e: React.TouchEvent<any>): void {
-		e.preventDefault();
+		this.setState({
+			...this.state,
+			touchStart: touchStart,
+		});
 	}
 
 	private onTouchEnd(e: React.TouchEvent<any>): void {
 		console.error('touchend', e.nativeEvent);
-		if (e.touches.length > 0) {
-			let touchEnd: number = e.touches[0].clientY,
-				touchStart: number = this.state.touchStart;
+
+		let touchEnd: number = e.changedTouches[0].clientY,
+			touchStart: number = this.state.touchStart;
 
 		if (touchStart > touchEnd + 5) {
 			this.decrementValue();
@@ -261,7 +254,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			...this.state,
 			touchStart: null,
 		});
-	}
 	}
 
 	private incrementValue(): void {
