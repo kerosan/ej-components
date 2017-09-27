@@ -7,7 +7,7 @@ export interface IComboBoxProps {
 	value: string;
 	values: {[key: string]: string};
 	cycle?: boolean;
-	width: number;
+	width: number; // @todo component width not in use now
 
 	onChange?: (key: string, value: string) => void;
 }
