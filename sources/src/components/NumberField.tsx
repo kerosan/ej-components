@@ -185,6 +185,10 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			value: value,
 			isInput: false,
 		});
+
+		if (this.props.onChange && +value !== this.props.value) {
+			this.props.onChange(+value);
+		}
 	}
 
 	private onClick(): void {
@@ -224,6 +228,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
+		console.error(e.touches);
+
 		let touchStart: number = e.touches[0].clientY;
 
 		this.setState({
@@ -233,6 +239,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTouchEnd(e: React.TouchEvent<any>): void {
+		console.error(e.touches);
+
 		let touchEnd: number = e.touches[0].clientY,
 			touchStart: number = this.state.touchStart;
 
