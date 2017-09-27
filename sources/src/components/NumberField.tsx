@@ -9,6 +9,7 @@ export interface INumberFieldProps {
 	step?: number;
 	minValue?: number;
 	maxValue?: number;
+
 	cycle?: boolean;
 	zerofill?: boolean;
 
