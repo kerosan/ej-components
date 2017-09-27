@@ -335,6 +335,12 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		} else if (this.props.cycle) {
 			value = this.props.maxValue;
 
+			if (value.toString().length > this.props.maxLength) {
+				while (value.toString().length > this.props.maxLength) {
+					value--;
+				}
+			}
+
 			if (!value) {
 				value = Math.pow(10, this.props.maxLength - 1);
 			}
