@@ -6,17 +6,19 @@ import { Glyphicon } from 'react-bootstrap';
 export interface IComboBoxProps {
 	value: string;
 	values: {[key: string]: string};
-
 	cycle?: boolean;
+	width: number;
 
 	onChange?: (key: string, value: string) => void;
 }
 
 export interface IComboBoxState {
-	value?: string;
+	key?: string;
 
-	topButtonDisabled?: boolean;
-	bottomButtonDisabled?: boolean;
+	isTopButtonDisabled?: boolean;
+	isBottomButtonDisabled?: boolean;
+	isStandardComboBox?: boolean;
+	isFrameVisible?: boolean;
 
 	touchStart?: number;
 }
@@ -26,13 +28,18 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	constructor(public props: IComboBoxProps) {
 		super(props);
 
-		this.incrementValue = this.incrementValue.bind(this);
-		this.decrementValue = this.decrementValue.bind(this)
+		this.nextValue = this.nextValue.bind(this);
+		this.previousValue = this.previousValue.bind(this);
 
 		this.onTopButtonClick = this.onTopButtonClick.bind(this);
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
 		this.onTouchStart = this.onTouchStart.bind(this);
 		this.onTouchEnd = this.onTouchEnd.bind(this);
+		this.onMouseEnter = this.onMouseEnter.bind(this);
+		this.onMouseLeave = this.onMouseLeave.bind(this);
+		this.onClick = this.onClick.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 
 		this.state = this.getInitState();
 	}
@@ -60,8 +67,38 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 		let classNames: string[] = ['ej-components__combo-box'],
 			topClassNames: string[] = [],
 			bottomClassNames: string[] = [],
+			fieldClassNames: string[] = [],
 
-			value: string = this.state.value;
+			key: string = this.state.key,
+			values: {[key: string]: string} = this.props.values,
+
+			field: JSX.Element = null;
+
+		if (this.state.isStandardComboBox) {
+			let options: JSX.Element[] = [];
+
+			for (let key in values) {
+				options.push(<option value={key}>
+					{values[key]}
+				</option>)
+			}
+
+			field = <select onChange={this.onChange}
+						   	onBlur={this.onBlur}
+						   	multiple={false}
+						  	autoFocus={true}/>
+		} else {
+			if (this.state.isFrameVisible) {
+				fieldClassNames.push('framed');
+			}
+
+			field = <div className={fieldClassNames.join(' ')}
+						 onMouseEnter={this.onMouseEnter}
+						 onMouseLeave={this.onMouseLeave}
+						 onClick={this.onClick}>
+				{values[key]}
+			</div>
+		}
 
 		return (
 			<div className={classNames.join(' ')} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
@@ -70,7 +107,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 				</a>
 
 				<div>
-					{value}
+					{field}
 				</div>
 
 				<a className={bottomClassNames.join(' ')} onClick={this.onBottomButtonClick}>
@@ -79,12 +116,65 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			</div>);
 	}
 
+	private onChange(e: React.ChangeEvent<HTMLSelectElement>): void {
+		let key: string = e.target['value'];
+
+		this.setState({
+			...this.state,
+			key: key,
+		});
+	}
+
+	private onBlur(e: React.FormEvent<any>): void {
+		e.stopPropagation();
+
+		let key: string = this.state.key;
+
+		this.setState({
+			...this.state,
+			key: key,
+			isStandardComboBox: false,
+		});
+
+		if (this.props.onChange && (key !== this.props.value)) {
+			this.props.onChange(key, this.props.values['key']);
+		}
+	}
+
+	private onClick(): void {
+		if (!this.state.isStandardComboBox) {
+			this.setState({
+				...this.state,
+				isStandardComboBox: true,
+				isFrameVisible: false,
+			});
+		}
+	}
+
+	private onMouseLeave(): void {
+		if (!this.state.isStandardComboBox) {
+			this.setState({
+				...this.state,
+				isFrameVisible: false,
+			});
+		}
+	}
+
+	private onMouseEnter(): void {
+		if (!this.state.isStandardComboBox) {
+			this.setState({
+				...this.state,
+				isFrameVisible: true,
+			});
+		}
+	}
+
 	private onTopButtonClick(): void {
-		this.incrementValue();
+		this.nextValue();
 	}
 
 	private onBottomButtonClick(): void {
-		this.decrementValue();
+		this.previousValue();
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
@@ -101,9 +191,9 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			touchStart: number = this.state.touchStart;
 
 		if (touchStart > touchEnd + 5){
-			this.decrementValue();
+			this.previousValue();
 		} else if (touchStart < touchEnd - 5) {
-			this.incrementValue();
+			this.nextValue();
 		}
 
 		this.setState({
@@ -112,103 +202,11 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 		});
 	}
 
-	private incrementValue(): void {
-		/*if (this.state.topButtonDisabled) {
-			return;
-		}
-
-		let step: number = this.props.step,
-			value: number = this.state.value,
-			maxValue: number = this.props.maxValue;
-
-		if (!step) {
-			step = 1;
-		}
-
-		if (!maxValue) {
-			maxValue = Math.pow(10, this.props.maxLength - 1);
-		}
-
-		value += step;
-
-		if (value <= maxValue && value.toString().length <= this.props.maxLength) {
-			let topButtonDisabled: boolean = ((value === maxValue) || (value + step > maxValue))
-				&& !this.props.cycle;
-
-			this.setState({
-				...this.state,
-				value: value,
-				topButtonDisabled: topButtonDisabled,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		} else if (this.props.cycle) {
-			value = this.props.minValue;
-
-			if (!value) {
-				value = 0;
-			}
-
-			this.setState({
-				...this.state,
-				value: value,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		}*/
+	private nextValue(): void {
+		//
 	}
 
-	private decrementValue(): void {
-		/*if (this.state.bottomButtonDisabled) {
-			return;
-		}
-
-		let step: number = this.props.step,
-			value: number = this.state.value,
-			minValue: number = this.props.minValue;
-
-		if (!step) {
-			step = 1;
-		}
-
-		if (!minValue) {
-			minValue = 0;
-		}
-
-		value -= step;
-
-		if (value >= minValue && value.toString().length <= this.props.maxLength) {
-			let bottomButtonDisabled: boolean = ((value === minValue) || (value - step < minValue))
-				&& !this.props.cycle;
-
-			this.setState({
-				...this.state,
-				value: value,
-				bottomButtonDisabled: bottomButtonDisabled,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		} else if (this.props.cycle) {
-			value = this.props.maxValue;
-
-			if (!value) {
-				value = Math.pow(10, this.props.maxLength - 1);
-			}
-
-			this.setState({
-				...this.state,
-				value: value,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		}*/
+	private previousValue(): void {
+		//
 	}
 }
