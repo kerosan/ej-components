@@ -79,7 +79,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		if (this.props.zerofill) {
-			for (let i: number = 1; i < this.props.maxLength; i++) {
+			while (value.length < this.props.maxLength) {
 				value = '0' + value;
 			}
 		}
