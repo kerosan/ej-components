@@ -19,10 +19,9 @@ export interface INumberFieldProps {
 export interface INumberFieldState {
 	value?: string;
 
-	topButtonDisabled?: boolean;
-	bottomButtonDisabled?: boolean;
-
-	frameVisible?: boolean;
+	isTopButtonDisabled?: boolean;
+	isBottomButtonDisabled?: boolean;
+	isFrameVisible?: boolean;
 	isInput?: boolean;
 
 	touchStart?: number;
@@ -35,7 +34,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 		this.incrementValue = this.incrementValue.bind(this);
 		this.decrementValue = this.decrementValue.bind(this)
-
 		this.onTopButtonClick = this.onTopButtonClick.bind(this);
 		this.onBottomButtonClick = this.onBottomButtonClick.bind(this);
 		this.onTouchStart = this.onTouchStart.bind(this);
@@ -52,10 +50,10 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	private getInitState(): INumberFieldState {
 		return {
 			value: '',
-			topButtonDisabled: false,
-			bottomButtonDisabled: false,
 
-			frameVisible: false,
+			isTopButtonDisabled: false,
+			isBottomButtonDisabled: false,
+			isFrameVisible: false,
 			isInput: false,
 
 			touchStart: null,
@@ -63,7 +61,9 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	public componentWillReceiveProps(newProps: INumberFieldProps): void {
-		if (newProps.value.toString() !== this.state.value) {
+		let numValue: number = parseInt(this.state.value, 10);
+
+		if (newProps.value !== numValue) {
 			this.setState({
 				...this.state,
 				value: newProps.value.toString(),
@@ -84,16 +84,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!this.state.isInput) {
 			let numValue: number = +value,
 
-				minValue: number = this.props.minValue,
-				maxValue: number = this.props.maxValue;
-
-			if (!minValue) {
-				minValue = 0;
-			}
-
-			if (!maxValue) {
-				maxValue = Math.pow(10, this.props.maxLength - 1);
-			}
+				minValue: number = this.getMinValue(),
+				maxValue: number = this.getMaxValue();
 
 			if (this.props.zerofill) {
 				while (value.length < this.props.maxLength) {
@@ -111,9 +103,10 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (this.state.isInput) {
 			field = <input onChange={this.onChange}
 						   onBlur={this.onBlur}
+						   maxLength={this.props.maxLength}
 						   value={value}/>
 		} else {
-			if (this.state.frameVisible) {
+			if (this.state.isFrameVisible) {
 				fieldClassNames.push('framed');
 			}
 
@@ -163,15 +156,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (isNaN(numValue)) {
 			value = this.props.value.toString();
 		} else {
-			let minValue: number = this.props.minValue,
-				maxValue: number = this.props.maxValue;
-
-			if (!minValue) {
-				minValue = 0;
-			}
-			if (!maxValue) {
-				maxValue = Math.pow(10, this.props.maxLength - 1);
-			}
+			let minValue: number = this.getMinValue(),
+				maxValue: number = this.getMaxValue();
 
 			if (numValue < minValue) {
 				value = minValue.toString();
@@ -186,8 +172,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isInput: false,
 		});
 
-		if (this.props.onChange && +value !== this.props.value) {
-			this.props.onChange(+value);
+		if (this.props.onChange && (!isNaN(numValue)) && (numValue !== this.props.value)) {
+			this.props.onChange(numValue);
 		}
 	}
 
@@ -196,7 +182,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			this.setState({
 				...this.state,
 				isInput: true,
-				frameVisible: false,
+				isFrameVisible: false,
 			});
 		}
 	}
@@ -205,7 +191,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!this.state.isInput) {
 			this.setState({
 				...this.state,
-				frameVisible: false,
+				isFrameVisible: false,
 			});
 		}
 	}
@@ -214,7 +200,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!this.state.isInput) {
 			this.setState({
 				...this.state,
-				frameVisible: true,
+				isFrameVisible: true,
 			});
 		}
 	}
@@ -253,106 +239,100 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private incrementValue(): void {
-		if (this.state.topButtonDisabled) {
+		if (this.state.isTopButtonDisabled) {
 			return;
 		}
 
-		let step: number = this.props.step,
-			value: number = +this.state.value,
-			maxValue: number = this.props.maxValue;
+		let step: number = this.getStep(),
+			numValue: number = parseInt(this.state.value, 10),
+			maxValue: number = this.getMaxValue(),
+			maxLength: number = this.props.maxLength,
 
-		if (!step) {
-			step = 1;
+			isTopButtonDisabled: boolean = false,
+			cycle: boolean = this.props.cycle;
+
+		numValue += step;
+
+		if (numValue <= maxValue && numValue.toString().length <= maxLength) {
+			isTopButtonDisabled = ((numValue === maxValue) || (numValue + step > maxValue))	&& !cycle;
+		} else if (cycle) {
+			numValue = this.getMinValue();
+		} else {
+			return;
 		}
-		if (!maxValue) {
-			maxValue = Math.pow(10, this.props.maxLength - 1);
-		}
 
-		value += step;
+		this.setState({
+			...this.state,
+			value: numValue.toString(),
+			isTopButtonDisabled: isTopButtonDisabled,
+		});
 
-		if (value <= maxValue && value.toString().length <= this.props.maxLength) {
-			let topButtonDisabled: boolean = ((value === maxValue) || (value + step > maxValue))
-				&& !this.props.cycle;
-
-			this.setState({
-				...this.state,
-				value: value.toString(),
-				topButtonDisabled: topButtonDisabled,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		} else if (this.props.cycle) {
-			value = this.props.minValue;
-
-			if (!value) {
-				value = 0;
-			}
-
-			this.setState({
-				...this.state,
-				value: value.toString(),
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
+		if (this.props.onChange) {
+			this.props.onChange(numValue);
 		}
 	}
 
 	private decrementValue(): void {
-		if (this.state.bottomButtonDisabled) {
+		if (this.state.isBottomButtonDisabled) {
 			return;
 		}
 
-		let step: number = this.props.step,
-			value: number = +this.state.value,
-			minValue: number = this.props.minValue;
+		let step: number = this.getStep(),
+			numValue: number = parseInt(this.state.value, 10),
+			minValue: number = this.getMinValue(),
+			maxLength: number = this.props.maxLength,
 
-		if (!step) {
-			step = 1;
-		}
-		if (!minValue) {
-			minValue = 0;
-		}
+			isBottomButtonDisabled: boolean = false,
+			cycle: boolean = this.props.cycle;
 
-		value -= step;
+		numValue -= step;
 
-		if (value >= minValue && value.toString().length <= this.props.maxLength) {
-			let bottomButtonDisabled: boolean = ((value === minValue) || (value - step < minValue))
-				&& !this.props.cycle;
+		if (numValue >= minValue && numValue.toString().length <= maxLength) {
+			isBottomButtonDisabled = ((numValue === minValue) || (numValue - step < minValue)) && !cycle;
+		} else if (cycle) {
+			numValue = this.getMaxValue();
 
-			this.setState({
-				...this.state,
-				value: value.toString(),
-				bottomButtonDisabled: bottomButtonDisabled,
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
-		} else if (this.props.cycle) {
-			value = this.props.maxValue;
-
-			if (value.toString().length > this.props.maxLength) {
-				while (value.toString().length > this.props.maxLength) {
-					value--;
+			if (numValue.toString().length > maxLength) {
+				while (numValue.toString().length > maxLength) {
+					numValue--;
 				}
 			}
-
-			if (!value) {
-				value = Math.pow(10, this.props.maxLength - 1);
-			}
-
-			this.setState({
-				...this.state,
-				value: value.toString(),
-			});
-
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
+		} else {
+			return;
 		}
+
+		this.setState({
+			...this.state,
+			value: numValue.toString(),
+			isBottomButtonDisabled: isBottomButtonDisabled,
+		});
+
+		if (this.props.onChange) {
+			this.props.onChange(numValue);
+		}
+	}
+
+	private getMinValue(): number {
+		if (this.props.minValue) {
+			return this.props.minValue;
+		}
+
+		return 0;
+	}
+
+	private getMaxValue(): number {
+		if (this.props.maxValue) {
+			return this.props.maxValue;
+		}
+
+		return Math.pow(10, this.props.maxLength - 1);
+	}
+
+	private getStep(): number {
+		if (this.props.step) {
+			return this.props.step;
+		}
+
+		return 1;
 	}
 }
