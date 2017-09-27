@@ -150,7 +150,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 	}
 
-	private onBlur(): void {
+	private onBlur(e: React.FormEvent<any>): void {
+		e.preventDefault();
 		console.error('blur');
 		let value: string = this.state.value,
 			numValue: number = parseInt(value, 10);
@@ -215,6 +216,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onBottomButtonClick(): void {
+		console.error('buttonclick', this.state.isInput);
 		if (!this.state.isInput) {
 			this.decrementValue();
 		}
