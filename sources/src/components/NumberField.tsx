@@ -73,6 +73,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 	public render(): any {
 		let classNames: string[] = ['ej-components__number-field'],
+			fieldClassNames: string[] = [],
 			topClassNames: string[] = [],
 			bottomClassNames: string[] = [],
 
@@ -109,7 +110,12 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (this.state.isInput) {
 			field = <input value={value}/>
 		} else {
-			field = <div onMouseEnter={this.onMouseEnter}
+			if (this.state.frameVisible) {
+				fieldClassNames.push('framed');
+			}
+
+			field = <div className={fieldClassNames.join(' ')}
+						 onMouseEnter={this.onMouseEnter}
 						 onMouseLeave={this.onMouseLeave}
 						 onClick={this.onClick}>
 				{value}
