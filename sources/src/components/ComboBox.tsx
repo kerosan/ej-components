@@ -158,11 +158,15 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private onTopButtonClick(): void {
-		this.nextValue();
+		if (!this.state.isStandardComboBox) {
+			this.nextValue();
+		}
 	}
 
 	private onBottomButtonClick(): void {
-		this.previousValue();
+		if (!this.state.isStandardComboBox) {
+			this.previousValue();
+		}
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
@@ -191,25 +195,26 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private nextValue(): void {
-		console.error('nextVal');
 		let key: string = this.props.value,
-			values: {[key: string]: string} = this.props.values,
+			keys: string[] = this.getKeys(),
 
-			isNext: boolean = false;
+			cycle: boolean = this.props.cycle,
+			isTopButtonDisabled: boolean = false;
 
-		console.error('currentKey ', key);
-
-		for (let k in values) {
-			if (isNext) {
-				console.error('nextKey', k);
-				key = k;
-				break;
+		if (keys.indexOf(key) === keys.length - 1) {
+			if (cycle) {
+				key = keys[0];
+			} else {
+				isTopButtonDisabled = true;
 			}
-
-			if (k === key) {
-				isNext = true;
-			}
+		} else {
+			key = keys[keys.indexOf(key) + 1];
 		}
+
+		this.setState({
+			...this.state,
+			isTopButtonDisabled: isTopButtonDisabled,
+		});
 
 		if (this.props.onChange && key !== this.props.value) {
 			this.props.onChange(key, this.props.values[key]);
@@ -217,32 +222,39 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private previousValue(): void {
-		console.error('prevVal');
 		let key: string = this.props.value,
-			previousKey: string = '',
-			values: {[key: string]: string} = this.props.values,
+			keys: string[] = this.getKeys(),
 
-			isPrevious: boolean = false;
+			cycle: boolean = this.props.cycle,
+			isBottomButtonDisabled: boolean = false;
 
-		console.error('currentKey ', key);
-
-		for (let k in values) {
-			if (isPrevious) {
-				console.error('prevKey', previousKey);
-				key = previousKey;
-				break;
+		if (keys.indexOf(key) === 0) {
+			if (cycle) {
+				key = keys[keys.length - 1];
+			} else {
+				isBottomButtonDisabled = true;
 			}
-
-			if (k === key) {
-				isPrevious = true;
-				continue;
-			}
-
-			previousKey = k;
+		} else {
+			key = keys[keys.indexOf(key) - 1];
 		}
+
+		this.setState({
+			...this.state,
+			isBottomButtonDisabled: isBottomButtonDisabled,
+		});
 
 		if (this.props.onChange && key !== this.props.value) {
 			this.props.onChange(key, this.props.values[key]);
 		}
+	}
+
+	private getKeys(): string[] {
+		let keys: string[] = [];
+
+		for (let key in this.props.values) {
+			keys.push(key);
+		}
+
+		return keys;
 	}
 }
