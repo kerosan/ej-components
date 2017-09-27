@@ -228,23 +228,22 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onTouchStart(e: React.TouchEvent<any>): void {
-		console.error(e.touches);
+		if (e.touches.length > 0) {
+			let touchStart: number = e.touches[0].clientY;
 
-		let touchStart: number = e.touches[0].clientY;
-
-		this.setState({
-			...this.state,
-			touchStart: touchStart,
-		});
+			this.setState({
+				...this.state,
+				touchStart: touchStart,
+			});
+		}
 	}
 
 	private onTouchEnd(e: React.TouchEvent<any>): void {
-		console.error(e.touches);
+		if (e.touches.length > 0) {
+			let touchEnd: number = e.touches[0].clientY,
+				touchStart: number = this.state.touchStart;
 
-		let touchEnd: number = e.touches[0].clientY,
-			touchStart: number = this.state.touchStart;
-
-		if (touchStart > touchEnd + 5){
+		if (touchStart > touchEnd + 5) {
 			this.decrementValue();
 		} else if (touchStart < touchEnd - 5) {
 			this.incrementValue();
@@ -254,6 +253,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			...this.state,
 			touchStart: null,
 		});
+	}
 	}
 
 	private incrementValue(): void {
