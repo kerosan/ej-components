@@ -46,8 +46,6 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 
 	private getInitState(): IComboBoxState {
 		return {
-			key: '',
-
 			isTopButtonDisabled: false,
 			isBottomButtonDisabled: false,
 			isStandardComboBox: false,
@@ -57,22 +55,13 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 		};
 	}
 
-	public componentWillReceiveProps(newProps: IComboBoxProps): void {
-		if (newProps.value !== this.state.key) {
-			this.setState({
-				...this.state,
-				key: newProps.value,
-			});
-		}
-	}
-
 	public render(): any {
 		let classNames: string[] = ['ej-components__combo-box'],
 			topClassNames: string[] = [],
 			bottomClassNames: string[] = [],
 			fieldClassNames: string[] = [],
 
-			key: string = this.state.key,
+			key: string = this.props.value,
 			values: {[key: string]: string} = this.props.values,
 
 			field: JSX.Element = null;
@@ -128,26 +117,16 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	private onChange(e: React.ChangeEvent<HTMLSelectElement>): void {
 		let key: string = e.target['value'];
 
-		this.setState({
-			...this.state,
-			key: key,
-		});
+		if (this.props.onChange && (key !== this.props.value)) {
+			this.props.onChange(key, this.props.values[key]);
+		}
 	}
 
 	private onBlur(e: React.FormEvent<any>): void {
-		e.stopPropagation();
-
-		let key: string = this.state.key;
-
 		this.setState({
 			...this.state,
-			key: key,
 			isStandardComboBox: false,
 		});
-
-		if (this.props.onChange && (key !== this.props.value)) {
-			this.props.onChange(key, this.props.values['key']);
-		}
 	}
 
 	private onClick(): void {
@@ -212,7 +191,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private nextValue(): void {
-		let key: string = this.state.key,
+		let key: string = this.props.value,
 			values: {[key: string]: string} = this.props.values,
 
 			isNext: boolean = false;
@@ -228,22 +207,13 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			}
 		}
 
-		if (key === this.state.key) {
-			return;
-		}
-
-		this.setState({
-			...this.state,
-			key: key,
-		});
-
-		if (this.props.onChange) {
+		if (this.props.onChange && key !== this.props.value) {
 			this.props.onChange(key, this.props.values[key]);
 		}
 	}
 
 	private previousValue(): void {
-		let key: string = this.state.key,
+		let key: string = this.props.value,
 			previousKey: string,
 			values: {[key: string]: string} = this.props.values,
 
@@ -262,16 +232,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			}
 		}
 
-		if (key === this.state.key) {
-			return;
-		}
-
-		this.setState({
-			...this.state,
-			key: key,
-		});
-
-		if (this.props.onChange) {
+		if (this.props.onChange && key !== this.props.value) {
 			this.props.onChange(key, this.props.values[key]);
 		}
 	}
