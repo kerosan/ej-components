@@ -66,10 +66,6 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 
 			field: JSX.Element = null;
 
-		console.error(key, values);
-		console.error(values[key]);
-		console.error(values.key);
-
 		if (this.state.isStandardComboBox) {
 			let options: JSX.Element[] = [];
 
@@ -99,8 +95,11 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 		}
 
 		return (
-			<div className={classNames.join(' ')} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
-				<a className={topClassNames.join(' ')} onClick={this.onTopButtonClick}>
+			<div className={classNames.join(' ')}
+				 onTouchStart={this.onTouchStart}
+				 onTouchEnd={this.onTouchEnd}>
+				<a className={topClassNames.join(' ')}
+				   onClick={this.onTopButtonClick}>
 					<Glyphicon glyph={'menu-up'}/>
 				</a>
 
@@ -108,7 +107,8 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 					{field}
 				</div>
 
-				<a className={bottomClassNames.join(' ')} onClick={this.onBottomButtonClick}>
+				<a className={bottomClassNames.join(' ')}
+				   onClick={this.onBottomButtonClick}>
 					<Glyphicon glyph={'menu-down'}/>
 				</a>
 			</div>);
@@ -191,13 +191,17 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private nextValue(): void {
+		console.error('nextVal');
 		let key: string = this.props.value,
 			values: {[key: string]: string} = this.props.values,
 
 			isNext: boolean = false;
 
+		console.error('currentKey ', key);
+
 		for (let k in values) {
 			if (isNext) {
+				console.error('nextKey', k);
 				key = k;
 				break;
 			}
@@ -213,23 +217,28 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 	}
 
 	private previousValue(): void {
+		console.error('prevVal');
 		let key: string = this.props.value,
-			previousKey: string,
+			previousKey: string = '',
 			values: {[key: string]: string} = this.props.values,
 
-			isNext: boolean = false;
+			isPrevious: boolean = false;
+
+		console.error('currentKey ', key);
 
 		for (let k in values) {
-			previousKey = k;
-
-			if (isNext) {
+			if (isPrevious) {
+				console.error('prevKey', previousKey);
 				key = previousKey;
 				break;
 			}
 
 			if (k === key) {
-				isNext = true;
+				isPrevious = true;
+				continue;
 			}
+
+			previousKey = k;
 		}
 
 		if (this.props.onChange && key !== this.props.value) {
