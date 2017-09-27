@@ -108,7 +108,9 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		if (this.state.isInput) {
-			field = <input value={value}/>
+			field = <input onChange={this.onChange}
+						   onBlur={this.onBlur}
+						   value={value}/>
 		} else {
 			if (this.state.frameVisible) {
 				fieldClassNames.push('framed');
@@ -140,7 +142,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			</div>);
 	}
 
-	private onChange(e: React.FormEvent<string>): void {
+	private onChange(e: React.ChangeEvent<HTMLInputElement>): void {
 		let value: string = e.target['value'],
 			numValue: number = parseInt(value, 10),
 
