@@ -91,7 +91,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		return (
 			<div className={classNames.join(' ')} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
 				<a className={topClassNames.join(' ')} onClick={this.onTopButtonClick}>
-					<Glyphicon glyph={'glyphicon-chevron-up'} className={'top'}/>
+					<Glyphicon glyph={'menu-up'}/>
 				</a>
 
 				<div>
@@ -99,7 +99,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 				</div>
 
 				<a className={bottomClassNames.join(' ')} onClick={this.onBottomButtonClick}>
-					<Glyphicon glyph={'glyphicon-chevron-down'} className={'bottom'}/>
+					<Glyphicon glyph={'menu-down'}/>
 				</a>
 			</div>);
 	}
