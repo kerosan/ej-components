@@ -12,7 +12,7 @@ export interface IComboBoxProps {
 	onChange?: (key: string, value: string) => void;
 }
 
-export interface IComboBoxState {
+interface IComboBoxState {
 	key?: string;
 
 	isTopButtonDisabled?: boolean;

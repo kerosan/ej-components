@@ -16,7 +16,7 @@ export interface INumberFieldProps {
 	onChange?: (value: number) => void;
 }
 
-export interface INumberFieldState {
+interface INumberFieldState {
 	value?: string;
 
 	isTopButtonDisabled?: boolean;
