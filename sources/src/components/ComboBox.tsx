@@ -70,7 +70,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			let options: JSX.Element[] = [];
 
 			for (let key in values) {
-				options.push(<option value={key}>
+				options.push(<option selected={key === this.props.value} value={key}>
 					{values[key]}
 				</option>)
 			}
