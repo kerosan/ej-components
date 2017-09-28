@@ -117,7 +117,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			currentYear: number = this.state.yearValue,
 			currentMonth: number = +this.state.monthKey;
 
-		if (minYear === currentYear && minMonth === currentMonth) {
+		if (!this.props.cycle && minYear === currentYear && minMonth === currentMonth) {
 			return this.getDay(this.props.minValue);
 		} else {
 			return 1;
@@ -131,7 +131,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			currentYear: number = this.state.yearValue,
 			currentMonth: number = +this.state.monthKey;
 
-		if (maxYear === currentYear && maxMonth === currentMonth) {
+		if (!this.props.cycle && maxYear === currentYear && maxMonth === currentMonth) {
 			return this.getDay(this.props.maxValue);
 		} else {
 			return this.getDaysInMonthCount(currentYear, currentMonth);
@@ -190,28 +190,125 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		}
 	}
 
-	private changeDay(value: number): void {
+	private checkDay(dayValue: number): string {
+		let monthKey: number = +this.state.monthKey,
+			yearValue: number = this.state.yearValue,
+			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey),
+
+			dateString: string;
+
+		if (dayValue < daysInCurrentMonth) {
+			monthKey += 1;
+			dayValue = 1;
+
+			if (monthKey === 13) {
+				yearValue += 1;
+				monthKey = 1;
+			}
+		} else if (dayValue === 0) {
+			monthKey -= 1;
+
+			if (monthKey === 0) {
+				monthKey = 12;
+				yearValue -= 1;
+			}
+
+			dayValue = this.getDaysInMonthCount(yearValue, monthKey);
+		}
+
+		dateString = this.getDateString(yearValue, monthKey, dayValue);
+
+		if (dateString <= this.props.maxValue) {
+			return dateString;
+		} else if (this.props.cycle) {
+			return this.props.minValue;
+		} else {
+			// @todo return current date value
+		}
+	}
+
+	private checkMaxDate(dayValue: number, monthKey: number, yearValue: number): boolean {
+		let maxDay: number = this.getDay(this.props.maxValue),
+			maxMonth: number = this.getMonth(this.props.maxValue),
+			maxYear: number = this.getYear(this.props.maxValue);
+
+		if (maxYear > yearValue) {
+			return true;
+		} else if (maxYear < yearValue) {
+			return false;
+		} else if (monthKey < maxMonth) {
+			return true;
+		} else if (monthKey > maxMonth) {
+			return false;
+		} else if (dayValue < maxDay) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private checkMinDate(dayValue: number, monthKey: number, yearValue: number): boolean {
+		let minDay: number = this.getDay(this.props.minValue),
+			minMonth: number = this.getMonth(this.props.minValue),
+			minYear: number = this.getYear(this.props.minValue);
+
+		if (minYear < yearValue) {
+			return true;
+		} else if (minYear > yearValue) {
+			return false;
+		} else if (monthKey > minMonth) {
+			return true;
+		} else if (monthKey < minMonth) {
+			return false;
+		} else if (dayValue > minDay) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private getDateString(yearValue: number, monthKey: number, dayValue: number): string {
+		if (yearValue === null) {
+			yearValue = this.state.yearValue;
+		}
+		if (monthKey === null) {
+			monthKey = +this.state.monthKey;
+		}
+		if (dayValue === null) {
+			dayValue = this.state.dayValue;
+		}
+
+		return yearValue + '-' + monthKey + '-' + dayValue;
+	}
+
+	private changeDay(dayValue: number): void {
+		let dateString: string = this.getDateString(null, null, dayValue);
+
+		if (this.checkMaxDate(dateString)) {
+
+		}
+
 		this.setState({
 			...this.state,
-			dayValue: value,
+			dayValue: dayValue,
 		});
 
 		this.onChange();
 	}
 
-	private changeMonth(key: string, value: string): void {
+	private changeMonth(monthKey: string, value: string): void {
 		this.setState({
 			...this.state,
-			monthKey: key,
+			monthKey: monthKey,
 		});
 
 		this.onChange();
 	}
 
-	private changeYear(value: number): void {
+	private changeYear(yearValue: number): void {
 		this.setState({
 			...this.state,
-			yearValue: value,
+			yearValue: yearValue,
 		});
 
 		this.onChange();
@@ -219,11 +316,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 
 	private onChange(): void {
 		if (this.props.onChange) {
-			let year: number = this.state.yearValue,
-				month: string = this.state.monthKey,
-				day: number = this.state.dayValue;
+			let value: string = this.getDateString(null, null, null);
 
-			this.props.onChange(year + '-' + month + '-' + day);
+			this.props.onChange(value);
 		}
 	}
 }
