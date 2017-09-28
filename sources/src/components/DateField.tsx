@@ -310,9 +310,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getDateString(yearValue: number, monthKey: number, dayValue: number): string {
-		let year: string = yearValue === null ? yearValue.toString() : this.state.yearValue.toString(),
-			month: string = monthKey === null ? monthKey.toString() : this.state.monthKey,
-			day: string = dayValue === null ? dayValue.toString() : this.state.dayValue.toString();
+		let year: string = yearValue !== null ? yearValue.toString() : this.state.yearValue.toString(),
+			month: string = monthKey !== null ? monthKey.toString() : this.state.monthKey,
+			day: string = dayValue !== null ? dayValue.toString() : this.state.dayValue.toString();
 
 		while (year.length < 4) {
 			year = '0' + year;
