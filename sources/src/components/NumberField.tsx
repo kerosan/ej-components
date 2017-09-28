@@ -43,6 +43,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 
 		this.state = this.getInitState();
 	}
@@ -114,6 +115,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (this.state.isInput) {
 			field = <input onChange={this.onChange}
 						   onBlur={this.onBlur}
+						   onKeyDown={this.onKeyDown}
 						   maxLength={this.props.maxLength}
 						   value={value}
 						   autoFocus={true}/>
@@ -161,8 +163,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 	}
 
-	private onBlur(e: React.FormEvent<any>): void {
-		e.stopPropagation();
+	private onBlur(): void {
 		let value: string = this.state.value,
 			numValue: number = parseInt(value, 10);
 
@@ -197,6 +198,12 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 				isInput: true,
 				isFrameVisible: false,
 			});
+		}
+	}
+
+	private onKeyDown(e: React.KeyboardEvent<any>): void {
+		if (e.keyCode === 13) {
+			this.onBlur();
 		}
 	}
 
