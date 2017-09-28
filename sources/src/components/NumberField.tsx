@@ -72,6 +72,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isBottomButtonDisabled: boolean = ((numValue === minValue)
 				|| (numValue - step < minValue)) && !cycle;
 
+		console.error(this.state.value, this.state.isInput, newProps.value);
+
 		this.setState({
 			...this.state,
 			value: newProps.value.toString(),
@@ -177,13 +179,11 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			}
 		}
 
-		console.error('here!');
 		this.setState({
 			...this.state,
 			value: value,
 			isInput: false,
 		});
-		console.error(this.state);
 
 		if (this.props.onChange && (!isNaN(numValue)) && (numValue !== this.props.value)) {
 			this.props.onChange(numValue);
