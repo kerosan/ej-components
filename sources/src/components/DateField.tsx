@@ -76,6 +76,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 												 minValue={0}
 												 maxValue={32}
 												 value={this.state.dayValue}
+												 zerofill={true}
 												 onChange={this.changeDay}/>,
 			monthField: JSX.Element = 	<ComboBox value={this.state.monthKey}
 												  values={months}
@@ -140,12 +141,20 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		let regExp: RegExp = /-\d{2}$/,
 			dayString: string = regExp.exec(date)[0];
 
+		if (dayString.charAt(0) === '-') {
+			dayString = dayString.charAt(1);
+		}
+
 		return parseInt(dayString, 10);
 	}
 
 	private getMonth(date: string): number {
 		let regExp: RegExp = /-\d{2}/,
 			monthString: string = regExp.exec(date)[0];
+
+		if (monthString.charAt(0) === '-') {
+			monthString = monthString.charAt(1);
+		}
 
 		return parseInt(monthString, 10);
 	}
