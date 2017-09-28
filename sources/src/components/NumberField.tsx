@@ -70,15 +70,15 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isTopButtonDisabled: boolean = ((numValue === maxValue)
 				|| (numValue + step > maxValue)) && !cycle,
 			isBottomButtonDisabled: boolean = ((numValue === minValue)
-				|| (numValue - step < minValue)) && !cycle;
-
-		console.error(this.state.value, this.state.isInput, newProps.value);
+				|| (numValue - step < minValue)) && !cycle,
+			isInput: boolean = this.state.isInput && (numValue === newProps.value);
 
 		this.setState({
 			...this.state,
 			value: newProps.value.toString(),
 			isTopButtonDisabled: isTopButtonDisabled,
 			isBottomButtonDisabled: isBottomButtonDisabled,
+			isInput: isInput,
 		});
 	}
 
