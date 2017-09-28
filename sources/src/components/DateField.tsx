@@ -54,6 +54,23 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		};
 	}
 
+	public componentDidMount(): void {
+		let regExp: RegExp = /^\d{4}-\d{2}-\d{2}$/,
+			value: string = this.props.value,
+			minValue: string = this.props.minValue,
+			maxValue: string = this.props.maxValue;
+
+		if (!regExp.test(value)) {
+			console.error('Value string has wrong format! YYYY-MM-DD format is required');
+		}
+		if (!regExp.test(minValue)) {
+			console.error('MinValue string has wrong format! YYYY-MM-DD format is required');
+		}
+		if (!regExp.test(maxValue)) {
+			console.error('MaxValue string has wrong format! YYYY-MM-DD format is required');
+		}
+	}
+
 	public componentWillReceiveProps(newProps: IDateFieldProps): void {
 		let day: number = this.getDay(newProps.value),
 			month: number = this.getMonth(newProps.value),
@@ -108,34 +125,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 						 onChange={this.changeYear}/>
 		</div>
 	}
-
-	/*private getDayMinValue(): number {
-		let minYear: number = this.getYear(this.props.minValue),
-			minMonth: number = this.getMonth(this.props.minValue),
-
-			currentYear: number = this.state.yearValue,
-			currentMonth: number = +this.state.monthKey;
-
-		if (!this.props.cycle && minYear === currentYear && minMonth === currentMonth) {
-			return this.getDay(this.props.minValue);
-		} else {
-			return 1;
-		}
-	}
-
-	private getDayMaxValue(): number {
-		let maxYear: number = this.getYear(this.props.maxValue),
-			maxMonth: number = this.getMonth(this.props.maxValue),
-
-			currentYear: number = this.state.yearValue,
-			currentMonth: number = +this.state.monthKey;
-
-		if (!this.props.cycle && maxYear === currentYear && maxMonth === currentMonth) {
-			return this.getDay(this.props.maxValue);
-		} else {
-			return this.getDaysInMonthCount(currentYear, currentMonth);
-		}
-	}*/
 
 	private getDay(date: string): number {
 		let regExp: RegExp = /-\d{2}$/,
