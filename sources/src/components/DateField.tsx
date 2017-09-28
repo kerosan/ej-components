@@ -353,12 +353,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			yearValue: year,
 		});
 
-		this.onChange();
-	}
-
-	private onChange(): void {
 		if (this.props.onChange) {
-			let value: string = this.getDateString(null, null, null);
+			let value: string = this.getDateString(day, month, year);
 
 			this.props.onChange(value);
 		}
