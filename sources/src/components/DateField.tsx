@@ -289,7 +289,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			return true;
 		} else if (monthKey > maxMonth) {
 			return false;
-		} else if (dayValue < maxDay) {
+		} else if (dayValue <= maxDay) {
 			return true;
 		}
 
@@ -309,7 +309,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			return true;
 		} else if (monthKey < minMonth) {
 			return false;
-		} else if (dayValue > minDay) {
+		} else if (dayValue >= minDay) {
 			return true;
 		}
 
