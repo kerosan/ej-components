@@ -317,7 +317,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private changeDay(dayValue: number): void {
-		console.error('changeday: ' + dayValue);
 		this.changeState(this.checkDay(dayValue));
 	}
 
@@ -330,7 +329,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private changeState(dateString: string): void {
-		console.error('changestate: ' + dateString);
 		let day: number = this.getDay(dateString),
 			month: number = this.getMonth(dateString),
 			year: number = this.getYear(dateString);
@@ -343,7 +341,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		});
 
 		if (this.props.onChange) {
-			let value: string = this.getDateString(day, month, year);
+			let value: string = this.getDateString(year, month, day);
 
 			this.props.onChange(value);
 		}
