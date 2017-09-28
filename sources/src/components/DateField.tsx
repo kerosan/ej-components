@@ -59,9 +59,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			month: number = this.getMonth(newProps.value),
 			year: number = this.getYear(newProps.value);
 
-		if (this.state.dayValue !== day
-			|| this.state.monthKey !== month.toString()
-			|| this.state.yearValue !== year) {
+		if (this.state.dayValue !== day	|| this.state.monthKey !== month.toString()	|| this.state.yearValue !== year) {
 			this.setState({
 				...this.state,
 				dayValue: day,
@@ -139,14 +137,14 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}*/
 
 	private getDay(date: string): number {
-		let regExp: RegExp = /^\d{4}/,
+		let regExp: RegExp = /^\-\d{2}/,
 			dayString: string = regExp.exec(date)[1];
 
 		return parseInt(dayString, 10);
 	}
 
 	private getMonth(date: string): number {
-		let regExp: RegExp = /^\d{4}/,
+		let regExp: RegExp = /^\-\d{2}/,
 			monthString: string = regExp.exec(date)[0];
 
 		return parseInt(monthString, 10);
