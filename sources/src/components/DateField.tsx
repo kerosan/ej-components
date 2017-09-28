@@ -75,8 +75,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		let months: {[key: string]: string} = this.getMonthValues(),
 
 			dayField: JSX.Element = <NumberField maxLength={2}
-												 minValue={this.getDayMinValue()}
-												 maxValue={this.getDayMaxValue()}
+												 minValue={0}
+												 maxValue={32}
 												 value={this.state.dayValue}
 												 onChange={this.changeDay}/>,
 			monthField: JSX.Element = 	<ComboBox value={this.state.monthKey}
@@ -110,7 +110,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		</div>
 	}
 
-	private getDayMinValue(): number {
+	/*private getDayMinValue(): number {
 		let minYear: number = this.getYear(this.props.minValue),
 			minMonth: number = this.getMonth(this.props.minValue),
 
@@ -136,7 +136,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		} else {
 			return this.getDaysInMonthCount(currentYear, currentMonth);
 		}
-	}
+	}*/
 
 	private getDay(date: string): number {
 		let regExp: RegExp = /^\d{4}/,
