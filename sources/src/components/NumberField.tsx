@@ -177,11 +177,13 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			}
 		}
 
+		console.error('here!');
 		this.setState({
 			...this.state,
 			value: value,
 			isInput: false,
 		});
+		console.error(this.state);
 
 		if (this.props.onChange && (!isNaN(numValue)) && (numValue !== this.props.value)) {
 			this.props.onChange(numValue);
