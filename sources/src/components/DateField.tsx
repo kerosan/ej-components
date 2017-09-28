@@ -194,11 +194,15 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkDay(dayValue: number): string {
+		console.error('checkDay: ' + dayValue);
+
 		let monthKey: number = +this.state.monthKey,
 			yearValue: number = this.state.yearValue,
 			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey);
 
-		if (dayValue < daysInCurrentMonth) {
+		console.error('monthKey: ' + monthKey + '\nyearValue: ' + yearValue + '\ndaysInMonth: ' + daysInCurrentMonth);
+
+		if (dayValue > daysInCurrentMonth) {
 			monthKey += 1;
 			dayValue = 1;
 
@@ -255,8 +259,11 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkDates(dayValue: number, monthKey: number, yearValue: number): string {
+		console.error('checkDate: dayValue: ' + dayValue + '\nmonthKey: ' + monthKey + '\nyearValue: ' + yearValue);
 		let maxValid: boolean = this.checkMaxDate(dayValue, monthKey, yearValue),
 			minValid: boolean = this.checkMinDate(dayValue, monthKey, yearValue);
+
+		console.error('min: ' + minValid + '\nmax: ' + maxValid);
 
 		if (maxValid && minValid) {
 			return this.getDateString(yearValue, monthKey, dayValue);
