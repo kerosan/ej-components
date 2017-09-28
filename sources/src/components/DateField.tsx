@@ -347,6 +347,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private changeState(dateString: string): void {
+		console.error('changeState: ' + dateString);
+
 		let day: number = this.getDay(dateString),
 			month: number = this.getMonth(dateString),
 			year: number = this.getYear(dateString);
