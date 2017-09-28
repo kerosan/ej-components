@@ -61,12 +61,23 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	public componentWillReceiveProps(newProps: INumberFieldProps): void {
-		let numValue: number = parseInt(this.state.value, 10);
+		let numValue: number = parseInt(this.state.value, 10),
+			step: number = this.getStep(),
+			maxValue: number = this.getMaxValue(),
+			minValue: number = this.getMinValue(),
+
+			cycle: boolean = this.props.cycle,
+			isTopButtonDisabled: boolean = ((numValue === maxValue)
+				|| (numValue + step > maxValue)) && !cycle,
+			isBottomButtonDisabled: boolean = ((numValue === minValue)
+				|| (numValue - step < minValue)) && !cycle;
 
 		if (newProps.value !== numValue) {
 			this.setState({
 				...this.state,
 				value: newProps.value.toString(),
+				isTopButtonDisabled: isTopButtonDisabled,
+				isBottomButtonDisabled: isBottomButtonDisabled,
 			});
 		}
 	}
