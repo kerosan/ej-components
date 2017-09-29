@@ -58,16 +58,51 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		let regExp: RegExp = /^\d{4}-\d{2}-\d{2}$/,
 			value: string = this.props.value,
 			minValue: string = this.props.minValue,
-			maxValue: string = this.props.maxValue;
+			maxValue: string = this.props.maxValue,
+
+			failed: boolean = false;
 
 		if (!regExp.test(value)) {
-			console.error('Value string has wrong format! YYYY-MM-DD format is required');
+			console.error('Value prop has wrong format! YYYY-MM-DD format is required');
+			failed = true;
 		}
 		if (!regExp.test(minValue)) {
-			console.error('MinValue string has wrong format! YYYY-MM-DD format is required');
+			console.error('MinValue prop has wrong format! YYYY-MM-DD format is required');
+			failed = true;
 		}
 		if (!regExp.test(maxValue)) {
-			console.error('MaxValue string has wrong format! YYYY-MM-DD format is required');
+			console.error('MaxValue prop has wrong format! YYYY-MM-DD format is required');
+			failed = true;
+		}
+
+		if (!failed) {
+			let minYear: number = this.getYear(minValue),
+				minMonth: number = this.getMonth(minValue),
+				minDay: number = this.getDay(minValue),
+
+				maxYear: number = this.getYear(maxValue),
+				maxMonth: number = this.getMonth(maxValue),
+				maxDay: number = this.getDay(maxValue),
+
+				currentYear: number = this.getYear(value),
+				currentMonth: number = this.getMonth(value),
+				currentDay: number = this.getDay(value);
+
+			if (minYear > maxYear
+				|| (minYear === maxYear && minMonth > maxMonth)
+				|| (minYear === maxYear && minMonth === maxMonth && minDay > maxDay)) {
+				console.error('MinValue and MaxValue prop are wrong and MinValue prop is bigger than MaxValue prop!');
+			}
+
+			if (currentYear > maxYear
+				|| (currentYear === maxYear && currentMonth > maxMonth)
+				|| (currentYear === maxYear && currentMonth === maxMonth && currentDay > maxDay)) {
+				console.error('Value prop is wrong and bigger than MaxValue prop!');
+			} else if (currentYear < minYear
+				|| (currentYear === minYear && currentMonth < minMonth)
+				|| (currentYear === minYear && currentMonth === minMonth && currentDay < minDay)) {
+				console.error('Value prop is wrong and lesser than MinValue prop!');
+			}
 		}
 	}
 
