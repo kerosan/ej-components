@@ -10,11 +10,11 @@ export interface IInputProps {
 	message?: string;
 	validation?: "warning" | "error";
 
-	onChange?: (event) => void;
+	onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
 
-	onKeyUp?: (event) => void;
-	onKeyPress?: (event) => void;
-	onKeyDown?: (event) => void;
+	onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+	onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+	onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export interface IInputStates {
