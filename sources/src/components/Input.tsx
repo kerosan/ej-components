@@ -11,6 +11,7 @@ export interface IInputProps {
 	validation?: "warning" | "error";
 
 	onChange?: (event) => void;
+	onKeyDown?: (event) => void;
 }
 
 export interface IInputStates {
@@ -32,6 +33,8 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		}
 
 		this.onChange = this.onChange.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
+
 		this.state = {value: this.props.value || ""}
 	}
 
@@ -51,10 +54,20 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 
 		return (
 			<div className={classNames.join(' ')}>
-				<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
+				<input value={this.state.value}
+					   type={this._type}
+					   placeholder={this._placeholder}
+					   onChange={this.onChange}
+					   onKeyDown={this.onKeyDown}/>
 				<div className={messageClass}>{this.props.message}</div>
 			</div>
 		);
+	}
+
+	private onKeyDown(event): void {
+		if (this.props.onKeyDown) {
+			this.props.onKeyDown(event);
+		}
 	}
 
 	private onChange(event): void {
