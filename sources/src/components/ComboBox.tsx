@@ -62,6 +62,7 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 			fieldClassNames: string[] = [],
 
 			key: string = this.props.value,
+			keys: string[],
 			values: {[key: string]: string} = this.props.values,
 
 			field: JSX.Element = null;
@@ -84,6 +85,14 @@ export class ComboBox extends React.Component<IComboBoxProps, IComboBoxState> {
 		} else {
 			if (this.state.isFrameVisible) {
 				fieldClassNames.push('framed');
+			}
+
+			keys = this.getKeys();
+
+			if (keys.indexOf(key) === 0 && !this.props.cycle) {
+				bottomClassNames.push('disabled');
+			} else if (keys.indexOf(key) === keys.length - 1 && !this.props.cycle) {
+				topClassNames.push('disabled');
 			}
 
 			field = <div className={fieldClassNames.join(' ')}
