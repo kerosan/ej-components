@@ -158,10 +158,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			leapYearDayInMonth: number[] = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 		if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
-			console.error('lear');
 			array = leapYearDayInMonth;
 		} else {
-			console.error('usual');
 			array = usualYearDayInMonth;
 		}
 
