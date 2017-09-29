@@ -71,26 +71,26 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		);
 	}
 
-	private onKeyPress(event): void {
+	private onKeyPress(event: React.KeyboardEvent<HTMLInputElement>): void {
 		if (this.props.onKeyPress) {
 			this.props.onKeyPress(event);
 		}
 	}
 
-	private onKeyUp(event): void {
+	private onKeyUp(event: React.KeyboardEvent<HTMLInputElement>): void {
 		if (this.props.onKeyUp) {
 			this.props.onKeyUp(event);
 		}
 	}
 
-	private onKeyDown(event): void {
+	private onKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
 		if (this.props.onKeyDown) {
 			this.props.onKeyDown(event);
 		}
 	}
 
-	private onChange(event): void {
-		this.setState({value: event.target.value});
+	private onChange(event: React.FormEvent<HTMLInputElement>): void {
+		this.setState({value: event.target['value']});
 		if (this.props.onChange) {
 			this.props.onChange(event);
 		}
