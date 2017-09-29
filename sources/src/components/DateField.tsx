@@ -154,8 +154,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 
 	private getDaysInMonthCount(year: number, month: number): number {
 		let array: number[],
-			leapYearDayInMonth: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-			usualYearDayInMonth: number[] = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			usualYearDayInMonth: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+			leapYearDayInMonth: number[] = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 		if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
 			console.error('lear');
