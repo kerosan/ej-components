@@ -10,7 +10,11 @@ export interface IInputProps {
 	message?: string;
 	validation?: "warning" | "error";
 
-	onChange?: (event) => void;
+	onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+
+	onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+	onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+	onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export interface IInputStates {
@@ -32,6 +36,10 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 		}
 
 		this.onChange = this.onChange.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
+		this.onKeyUp = this.onKeyUp.bind(this);
+		this.onKeyPress = this.onKeyPress.bind(this);
+
 		this.state = {value: this.props.value || ""}
 	}
 
@@ -51,14 +59,38 @@ export class Input extends React.Component<IInputProps, IInputStates> {
 
 		return (
 			<div className={classNames.join(' ')}>
-				<input value={this.state.value} type={this._type} placeholder={this._placeholder} onChange={this.onChange}/>
+				<input value={this.state.value}
+					   type={this._type}
+					   placeholder={this._placeholder}
+					   onChange={this.onChange}
+					   onKeyUp={this.onKeyUp}
+					   onKeyPress={this.onKeyPress}
+					   onKeyDown={this.onKeyDown}/>
 				<div className={messageClass}>{this.props.message}</div>
 			</div>
 		);
 	}
 
-	private onChange(event): void {
-		this.setState({value: event.target.value});
+	private onKeyPress(event: React.KeyboardEvent<HTMLInputElement>): void {
+		if (this.props.onKeyPress) {
+			this.props.onKeyPress(event);
+		}
+	}
+
+	private onKeyUp(event: React.KeyboardEvent<HTMLInputElement>): void {
+		if (this.props.onKeyUp) {
+			this.props.onKeyUp(event);
+		}
+	}
+
+	private onKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
+		if (this.props.onKeyDown) {
+			this.props.onKeyDown(event);
+		}
+	}
+
+	private onChange(event: React.FormEvent<HTMLInputElement>): void {
+		this.setState({value: event.target['value']});
 		if (this.props.onChange) {
 			this.props.onChange(event);
 		}
