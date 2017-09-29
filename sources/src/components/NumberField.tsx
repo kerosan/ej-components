@@ -163,7 +163,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private onBlur(): void {
-		console.error('onblur');
 		let value: string = this.state.value,
 			numValue: number = parseInt(value, 10);
 

@@ -97,6 +97,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 												 onChange={this.changeDay}/>,
 			monthField: JSX.Element = 	<ComboBox value={this.state.monthKey}
 												  values={months}
+												  cycle={true}
 												  width={0}
 												  onChange={this.changeMonth}/>,
 			firstElement: JSX.Element,
@@ -214,10 +215,10 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			yearValue: number = this.state.yearValue,
 			daysInCurrentMonth: number;
 
-		if (monthKey === 13) {
+		if (monthKey === 1 && this.state.monthKey === '12') {
 			yearValue += 1;
 			monthKey = 1;
-		} else if (monthKey === 0) {
+		} else if (monthKey === 12 && this.state.monthKey === '1') {
 			yearValue -= 1;
 			monthKey = 12;
 		}
