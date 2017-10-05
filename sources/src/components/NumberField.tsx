@@ -267,20 +267,29 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		let step: number = this.getStep(),
-			numValue: number = parseInt(this.state.value, 10),
+			numValue: number = this.props.value,
 			maxValue: number = this.getMaxValue(),
 			maxLength: number = this.props.maxLength,
 
 			isTopButtonDisabled: boolean = false,
 			cycle: boolean = this.props.cycle;
 
+		console.error('step: ' + step);
+		console.error('numValue: ' + numValue);
+		console.error('maxValue: ' + maxValue);
+		console.error('maxLength: ' + maxLength);
+		console.error('cycle: ' + cycle);
+
 		numValue += step;
 
 		if (numValue <= maxValue && numValue.toString().length <= maxLength) {
+			console.error('1');
 			isTopButtonDisabled = ((numValue === maxValue) || (numValue + step > maxValue))	&& !cycle;
 		} else if (cycle) {
+			console.error('2');
 			numValue = this.getMinValue();
 		} else {
+			console.error('3');
 			return;
 		}
 
@@ -302,7 +311,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		}
 
 		let step: number = this.getStep(),
-			numValue: number = parseInt(this.state.value, 10),
+			numValue: number = this.props.value,
 			minValue: number = this.getMinValue(),
 			maxLength: number = this.props.maxLength,
 
