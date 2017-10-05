@@ -111,14 +111,14 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			month: number = this.getMonth(newProps.value),
 			year: number = this.getYear(newProps.value);
 
-		if (this.state.dayValue !== day	|| this.state.monthKey !== month.toString()	|| this.state.yearValue !== year) {
+		// if (this.state.dayValue !== day	|| this.state.monthKey !== month.toString()	|| this.state.yearValue !== year) {
 			this.setState({
 				...this.state,
 				dayValue: day,
 				monthKey: month.toString(),
 				yearValue: year,
 			});
-		}
+		// }
 	}
 
 	public render(): JSX.Element {
