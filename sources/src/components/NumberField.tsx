@@ -92,6 +92,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 
 			field: JSX.Element = null;
 
+		console.error('numberfield: ' + value);
+
 		if (!this.state.isInput) {
 			let numValue: number = +value,
 
