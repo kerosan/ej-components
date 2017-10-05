@@ -110,6 +110,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			dayField: JSX.Element = <NumberField maxLength={2}
 												 minValue={0}
 												 maxValue={32}
+												 step={1}
 												 value={dayValue}
 												 zerofill={true}
 												 onChange={this.changeDay}/>,
@@ -142,6 +143,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			{secondElement}
 			<NumberField maxLength={4}
 						 value={yearValue}
+						 step={1}
 						 minValue={this.getYear(this.props.minValue)}
 						 maxValue={this.getYear(this.props.maxValue)}
 						 onChange={this.changeYear}/>
