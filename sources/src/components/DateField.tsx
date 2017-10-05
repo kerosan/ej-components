@@ -350,6 +350,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private changeYear(yearValue: number): void {
+		console.error(yearValue);
 		this.changeState(this.checkYear(yearValue));
 	}
 
