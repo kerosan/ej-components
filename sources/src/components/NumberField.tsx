@@ -289,7 +289,9 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isTopButtonDisabled: isTopButtonDisabled,
 		});
 
+		console.error(this.props.onChange);
 		if (this.props.onChange) {
+			console.error(numValue);
 			this.props.onChange(numValue);
 		}
 	}
