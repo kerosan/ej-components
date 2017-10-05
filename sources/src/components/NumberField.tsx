@@ -274,12 +274,6 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isTopButtonDisabled: boolean = false,
 			cycle: boolean = this.props.cycle;
 
-		console.error('step: ' + step);
-		console.error('numValue: ' + numValue);
-		console.error('maxValue: ' + maxValue);
-		console.error('maxLength: ' + maxLength);
-		console.error('cycle: ' + cycle);
-
 		numValue += step;
 
 		if (numValue <= maxValue && numValue.toString().length <= maxLength) {

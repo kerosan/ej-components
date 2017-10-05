@@ -39,17 +39,11 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		this.changeDay = this.changeDay.bind(this);
 		this.changeMonth = this.changeMonth.bind(this);
 		this.changeYear = this.changeYear.bind(this);
-
-		this.state = this.getInitState();
-	}
-
-	private getInitState(): IDateFieldState {
-		return {
-		};
 	}
 
 	public componentDidMount(): void {
 		let regExp: RegExp = /^\d{4}-\d{2}-\d{2}$/,
+
 			value: string = this.props.value,
 			minValue: string = this.props.minValue,
 			maxValue: string = this.props.maxValue,
@@ -78,9 +72,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 				maxMonth: number = this.getMonth(maxValue),
 				maxDay: number = this.getDay(maxValue),
 
-				currentYear: number = this.getYear(value),
-				currentMonth: number = this.getMonth(value),
-				currentDay: number = this.getDay(value);
+				currentYear: number = this.getYear(),
+				currentMonth: number = this.getMonth(),
+				currentDay: number = this.getDay();
 
 			if (minYear > maxYear
 				|| (minYear === maxYear && minMonth > maxMonth)
@@ -103,9 +97,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	public render(): JSX.Element {
 		let months: {[key: string]: string} = this.getMonthValues(),
 
-			dayValue: number = this.getDay(this.props.value),
-			monthValue: string = this.getMonth(this.props.value).toString(),
-			yearValue: number = this.getYear(this.props.value),
+			dayValue: number = this.getDay(),
+			monthValue: string = this.getMonth().toString(),
+			yearValue: number = this.getYear(),
 
 			dayField: JSX.Element = <NumberField maxLength={2}
 												 minValue={0}
@@ -121,9 +115,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 												  onChange={this.changeMonth}/>,
 			firstElement: JSX.Element,
 			secondElement: JSX.Element;
-
-		console.error(dayValue, monthValue, yearValue);
-
 
 		switch (this.props.locale) {
 			case 'ru':
@@ -150,8 +141,11 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		</div>
 	}
 
-	private getDay(date: string): number {
-		console.error('getday: ' + date);
+	private getDay(date: string = null): number {
+		if (date === null) {
+			date = this.props.value;
+		}
+
 		let regExp: RegExp = /-\d{2}$/,
 			dayString: string = regExp.exec(date)[0];
 
@@ -160,8 +154,10 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		return parseInt(dayString, 10);
 	}
 
-	private getMonth(date: string): number {
-		console.error('getMonth: ' + date);
+	private getMonth(date: string = null): number {
+		if (date === null) {
+			date = this.props.value;
+		}
 
 		let regExp: RegExp = /-\d{2}/,
 			monthString: string = regExp.exec(date)[0];
@@ -171,8 +167,10 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		return parseInt(monthString, 10);
 	}
 
-	private getYear(date: string): number {
-		console.error('getYear: ' + date);
+	private getYear(date: string = null): number {
+		if (date === null) {
+			date = this.props.value;
+		}
 
 		let regExp: RegExp = /^\d{4}/,
 			yearString: string = regExp.exec(date)[0];
@@ -212,8 +210,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkDay(dayValue: number): string {
-		let monthKey: number = this.getMonth(this.props.value),
-			yearValue: number = this.getYear(this.props.value),
+		let monthKey: number = this.getMonth(),
+			yearValue: number = this.getYear(),
 			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey);
 
 		if (dayValue > daysInCurrentMonth) {
@@ -239,9 +237,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkMonth(monthKey: number): string {
-		let dayValue: number = this.getDay(this.props.value),
-			yearValue: number = this.getYear(this.props.value),
-			_monthKey: number = this.getMonth(this.props.value),
+		let dayValue: number = this.getDay(),
+			yearValue: number = this.getYear(),
+			_monthKey: number = this.getMonth(),
 			daysInCurrentMonth: number;
 
 		if (monthKey === 1 && _monthKey === 12) {
@@ -262,8 +260,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkYear(yearValue: number): string {
-		let dayValue: number = this.getDay(this.props.value),
-			monthKey: number = this.getMonth(this.props.value),
+		let dayValue: number = this.getDay(),
+			monthKey: number = this.getMonth(),
 			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey);
 
 		if (dayValue > daysInCurrentMonth) {
@@ -282,9 +280,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		} else if (!this.props.cycle) {
 			return this.getDateString(null, null, null);
 		} else if (maxValid) {
-			return this.props.minValue;
-		} else {
 			return this.props.maxValue;
+		} else {
+			return this.props.minValue;
 		}
 	}
 
@@ -329,9 +327,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getDateString(yearValue: number, monthKey: number, dayValue: number): string {
-		let year: string = yearValue !== null ? yearValue.toString() : this.getYear(this.props.value).toString(),
-			month: string = monthKey !== null ? monthKey.toString() : this.getMonth(this.props.value).toString(),
-			day: string = dayValue !== null ? dayValue.toString() : this.getDay(this.props.value).toString();
+		let year: string = yearValue !== null ? yearValue.toString() : this.getYear().toString(),
+			month: string = monthKey !== null ? monthKey.toString() : this.getMonth().toString(),
+			day: string = dayValue !== null ? dayValue.toString() : this.getDay().toString();
 
 		while (year.length < 4) {
 			year = '0' + year;
@@ -355,7 +353,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private changeYear(yearValue: number): void {
-		console.error(yearValue);
 		this.changeState(this.checkYear(yearValue));
 	}
 
