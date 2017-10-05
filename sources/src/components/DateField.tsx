@@ -15,9 +15,6 @@ export interface IDateFieldProps {
 }
 
 interface IDateFieldState {
-	dayValue?: number;
-	monthKey?: string;
-	yearValue?: number;
 }
 
 export class DateField extends React.Component<IDateFieldProps, IDateFieldState> {
@@ -48,9 +45,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 
 	private getInitState(): IDateFieldState {
 		return {
-			dayValue: 1,
-			monthKey: '1',
-			yearValue: 0,
 		};
 	}
 
@@ -103,21 +97,6 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 				|| (currentYear === minYear && currentMonth === minMonth && currentDay < minDay)) {
 				console.error('Value prop is wrong and lesser than MinValue prop!');
 			}
-		}
-	}
-
-	public componentWillReceiveProps(newProps: IDateFieldProps): void {
-		let day: number = this.getDay(newProps.value),
-			month: number = this.getMonth(newProps.value),
-			year: number = this.getYear(newProps.value);
-
-		if (this.state.dayValue !== day	|| this.state.monthKey !== month.toString()	|| this.state.yearValue !== year) {
-			this.setState({
-				...this.state,
-				dayValue: day,
-				monthKey: month.toString(),
-				yearValue: year,
-			});
 		}
 	}
 
@@ -226,8 +205,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkDay(dayValue: number): string {
-		let monthKey: number = +this.state.monthKey,
-			yearValue: number = this.state.yearValue,
+		let monthKey: number = this.getMonth(this.props.value),
+			yearValue: number = this.getYear(this.props.value),
 			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey);
 
 		if (dayValue > daysInCurrentMonth) {
@@ -253,14 +232,15 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkMonth(monthKey: number): string {
-		let dayValue: number = this.state.dayValue,
-			yearValue: number = this.state.yearValue,
+		let dayValue: number = this.getDay(this.props.value),
+			yearValue: number = this.getYear(this.props.value),
+			_monthKey: number = this.getMonth(this.props.value),
 			daysInCurrentMonth: number;
 
-		if (monthKey === 1 && this.state.monthKey === '12') {
+		if (monthKey === 1 && _monthKey === 12) {
 			yearValue += 1;
 			monthKey = 1;
-		} else if (monthKey === 12 && this.state.monthKey === '1') {
+		} else if (monthKey === 12 && _monthKey === 1) {
 			yearValue -= 1;
 			monthKey = 12;
 		}
@@ -275,8 +255,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private checkYear(yearValue: number): string {
-		let dayValue: number = this.state.dayValue,
-			monthKey: number = +this.state.monthKey,
+		let dayValue: number = this.getDay(this.props.value),
+			monthKey: number = this.getMonth(this.props.value),
 			daysInCurrentMonth: number = this.getDaysInMonthCount(yearValue, monthKey);
 
 		if (dayValue > daysInCurrentMonth) {
@@ -293,7 +273,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		if (maxValid && minValid) {
 			return this.getDateString(yearValue, monthKey, dayValue);
 		} else if (!this.props.cycle) {
-			return this.getDateString(this.state.yearValue, +this.state.monthKey, this.state.dayValue);
+			return this.getDateString(null, null, null);
 		} else if (maxValid) {
 			return this.props.maxValue;
 		} else {
@@ -342,9 +322,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getDateString(yearValue: number, monthKey: number, dayValue: number): string {
-		let year: string = yearValue !== null ? yearValue.toString() : this.state.yearValue.toString(),
-			month: string = monthKey !== null ? monthKey.toString() : this.state.monthKey,
-			day: string = dayValue !== null ? dayValue.toString() : this.state.dayValue.toString();
+		let year: string = yearValue !== null ? yearValue.toString() : this.getYear(this.props.value).toString(),
+			month: string = monthKey !== null ? monthKey.toString() : this.getMonth(this.props.value).toString(),
+			day: string = dayValue !== null ? dayValue.toString() : this.getDay(this.props.value).toString();
 
 		while (year.length < 4) {
 			year = '0' + year;
