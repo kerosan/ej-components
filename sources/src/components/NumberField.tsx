@@ -262,6 +262,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private incrementValue(): void {
+		console.error(this.state.isTopButtonDisabled);
+
 		if (this.state.isTopButtonDisabled) {
 			return;
 		}
@@ -296,6 +298,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 	}
 
 	private decrementValue(): void {
+		console.error(this.state.isBottomButtonDisabled);
+
 		if (this.state.isBottomButtonDisabled) {
 			return;
 		}
