@@ -73,11 +73,8 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isBottomButtonDisabled: boolean = ((numValue === minValue)
 				|| (numValue - step < minValue)) && !cycle;
 
-		console.error('component will rec props: ' + newProps.value);
-
 		this.setState({
 			...this.state,
-			value: newProps.value.toString(),
 			isTopButtonDisabled: isTopButtonDisabled,
 			isBottomButtonDisabled: isBottomButtonDisabled,
 			isInput: false,
@@ -90,11 +87,9 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			topClassNames: string[] = [],
 			bottomClassNames: string[] = [],
 
-			value: string = this.state.value,
+			value: string = this.props.value.toString(),
 
 			field: JSX.Element = null;
-
-		console.error('numberfield: ' + value);
 
 		if (!this.state.isInput) {
 			let numValue: number = +value,
@@ -113,16 +108,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			} else if (numValue === maxValue && !this.props.cycle) {
 				topClassNames.push('disabled');
 			}
-		}
 
-		if (this.state.isInput) {
-			field = <input onChange={this.onChange}
-						   onBlur={this.onBlur}
-						   onKeyDown={this.onKeyDown}
-						   maxLength={this.props.maxLength}
-						   value={value}
-						   autoFocus={true}/>
-		} else {
 			if (this.state.isFrameVisible) {
 				fieldClassNames.push('framed');
 			}
@@ -132,7 +118,16 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 						 onMouseLeave={this.onMouseLeave}
 						 onClick={this.onClick}>
 				{value}
-				</div>
+			</div>
+		} else {
+			value = this.state.value;
+
+			field = <input onChange={this.onChange}
+						   onBlur={this.onBlur}
+						   onKeyDown={this.onKeyDown}
+						   maxLength={this.props.maxLength}
+						   value={value}
+						   autoFocus={true}/>
 		}
 
 		return (
@@ -198,6 +193,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		if (!this.state.isInput) {
 			this.setState({
 				...this.state,
+				value: this.props.value.toString(),
 				isInput: true,
 				isFrameVisible: false,
 			});
