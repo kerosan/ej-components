@@ -124,19 +124,26 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	public render(): JSX.Element {
 		let months: {[key: string]: string} = this.getMonthValues(),
 
+			dayValue: number = this.state.dayValue,
+			monthValue: string = this.state.monthKey,
+			yearValue: number = this.state.yearValue,
+
 			dayField: JSX.Element = <NumberField maxLength={2}
 												 minValue={0}
 												 maxValue={32}
-												 value={this.state.dayValue}
+												 value={dayValue}
 												 zerofill={true}
 												 onChange={this.changeDay}/>,
-			monthField: JSX.Element = 	<ComboBox value={this.state.monthKey}
+			monthField: JSX.Element = 	<ComboBox value={monthValue}
 												  values={months}
 												  cycle={true}
 												  width={0}
 												  onChange={this.changeMonth}/>,
 			firstElement: JSX.Element,
 			secondElement: JSX.Element;
+
+		console.error(dayValue, monthValue, yearValue);
+
 
 		switch (this.props.locale) {
 			case 'ru':
@@ -155,7 +162,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 			{firstElement}
 			{secondElement}
 			<NumberField maxLength={4}
-						 value={this.state.yearValue}
+						 value={yearValue}
 						 minValue={this.getYear(this.props.minValue)}
 						 maxValue={this.getYear(this.props.maxValue)}
 						 onChange={this.changeYear}/>
