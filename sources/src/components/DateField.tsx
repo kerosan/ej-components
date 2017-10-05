@@ -151,6 +151,7 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getDay(date: string): number {
+		console.error('getday: ' + date);
 		let regExp: RegExp = /-\d{2}$/,
 			dayString: string = regExp.exec(date)[0];
 
@@ -160,6 +161,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getMonth(date: string): number {
+		console.error('getMonth: ' + date);
+
 		let regExp: RegExp = /-\d{2}/,
 			monthString: string = regExp.exec(date)[0];
 
@@ -169,6 +172,8 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 	}
 
 	private getYear(date: string): number {
+		console.error('getYear: ' + date);
+
 		let regExp: RegExp = /^\d{4}/,
 			yearString: string = regExp.exec(date)[0];
 

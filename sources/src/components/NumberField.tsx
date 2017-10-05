@@ -283,13 +283,10 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 		numValue += step;
 
 		if (numValue <= maxValue && numValue.toString().length <= maxLength) {
-			console.error('1');
 			isTopButtonDisabled = ((numValue === maxValue) || (numValue + step > maxValue))	&& !cycle;
 		} else if (cycle) {
-			console.error('2');
 			numValue = this.getMinValue();
 		} else {
-			console.error('3');
 			return;
 		}
 
@@ -298,9 +295,7 @@ export class NumberField extends React.Component<INumberFieldProps, INumberField
 			isTopButtonDisabled: isTopButtonDisabled,
 		});
 
-		console.error(this.props.onChange);
 		if (this.props.onChange) {
-			console.error(numValue);
 			this.props.onChange(numValue);
 		}
 	}
