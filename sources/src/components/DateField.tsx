@@ -282,9 +282,9 @@ export class DateField extends React.Component<IDateFieldProps, IDateFieldState>
 		} else if (!this.props.cycle) {
 			return this.getDateString(null, null, null);
 		} else if (maxValid) {
-			return this.props.maxValue;
-		} else {
 			return this.props.minValue;
+		} else {
+			return this.props.maxValue;
 		}
 	}
 
