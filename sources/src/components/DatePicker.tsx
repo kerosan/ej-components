@@ -6,8 +6,8 @@ import {Calendar} from 'react-widgets';
 import {Glyphicon} from 'react-bootstrap';
 // tslint:disable-next-line:no-var-requires
 // let Moment = require('moment');
-import * as Moment from 'moment';
-// import Moment = require('moment')
+// import * as Moment from 'moment';
+import Moment = require('moment')
 
 // moment.locale('uk'); // todo setup language i18n ru | uk | en
 
