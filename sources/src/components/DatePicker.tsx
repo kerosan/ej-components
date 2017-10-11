@@ -1,22 +1,15 @@
 import './DatePicker.scss';
 
 import * as React from 'react';
-import {ToggleType, PopoverPosition} from './enum';
-import {Calendar} from 'react-widgets';
-import {Glyphicon} from 'react-bootstrap';
-// tslint:disable-next-line:no-var-requires
-let Moment = require('moment');
-// import * as Moment from 'moment';
-// import Moment = require('moment')
+import { ToggleType, PopoverPosition } from './enum';
+import { Calendar } from 'react-widgets';
+import { Glyphicon } from 'react-bootstrap';
+import * as moment from 'moment';
+import * as momentLocalizer from 'react-widgets-moment';
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 
-// moment.locale('uk'); // todo setup language i18n ru | uk | en
-
-// tslint:disable-next-line:no-var-requires
-// let momentLocalizer = require('react-widgets/lib/localizers/moment');
-// momentLocalizer(Moment);
-
-// import 'react-widgets/dist/css/react-widgets.css'
-import {Popover, OverlayTrigger} from 'react-bootstrap';
+moment.locale('uk'); // todo setup language i18n ru | uk | en
+momentLocalizer();
 
 export interface IDatePickerProps {
 	position?: PopoverPosition;
@@ -39,6 +32,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	public state: IDatePickerState;
 
 	private componentClassName: string = '';
+	private _overlay: any;
 
 	constructor(props: IDatePickerProps) {
 		super(props);
@@ -75,23 +69,23 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		let toggleComponent: JSX.Element;
 		let value: string = '';
 		if (this.state.value) {
-			value = Moment(this.state.value).format('L');
+			value = moment(this.state.value).format('L');
 		} else if (this.props.defaultValue) {
 			if (typeof this.props.defaultValue === 'string') {
 				value = this.props.defaultValue as string;
 			} else if (this.props.defaultValue instanceof Date) {
-				value = Moment(this.props.defaultValue as Date).format('L');
+				value = moment(this.props.defaultValue as Date).format('L');
 			}
 		}
 		switch (this.props.type) {
 			case ToggleType.Input:
 				toggleComponent = (
-					<input type="text" value={value}/>
+					<input type='text' value={value}/>
 				);
 				break;
 			case ToggleType.Link:
 				toggleComponent = (
-					<a href="javascript://">{value}<span className='caret'/></a>
+					<a href='javascript://'>{value}<span className='caret'/></a>
 				);
 				break;
 			case ToggleType.Option:
@@ -101,7 +95,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				break;
 			default:
 				toggleComponent = (
-					<a href="javascript://" className={this.componentClassName}>{value}</a>
+					<a href='javascript://' className={this.componentClassName}>{value}</a>
 				);
 				break;
 		}
@@ -110,7 +104,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			value: this.state.value,
 			onChange: this.onChangeDatePicker.bind(this),
 			headerFormat: (d) => {
-				return Moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
+				return moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
 			},
 			messages: {
 				moveBack: 'Назад', // todo i18n
@@ -130,13 +124,15 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			};
 		}
 		let popoverBottom = (
-			<Popover id="popover-positioned-bottom" className='ejDatePicker--Popover'>
+			<Popover id='popover-positioned-bottom' className='ejDatePicker--Popover'>
 				<Calendar {...calendarProps} />
 			</Popover>
 		);
 		return (
 			<div className='ejDatePicker'>
-				<OverlayTrigger container={this} ref='overlay' overlay={popoverBottom} trigger="click"
+				<OverlayTrigger container={this} ref={(overlay) => {
+					this._overlay = overlay;
+				}} overlay={popoverBottom} trigger='click'
 								placement={"bottom"} rootClose>
 					<div>{toggleComponent}</div>
 				</OverlayTrigger>
@@ -149,6 +145,6 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		if (this.props.onChange) {
 			this.props.onChange(e);
 		}
-		(this.refs['overlay'] as OverlayTrigger).setState({show: false});
+		(this._overlay as OverlayTrigger).setState({show: false});
 	}
 }
