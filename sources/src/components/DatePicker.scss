@@ -1,0 +1,229 @@
+@import 'vars';
+@import 'mixin';
+
+.ejDatePicker--Popover {
+	max-width: 316px;
+	width: 315px;
+	border-radius: 2px;
+	left: -230px !important;
+	padding: 0;
+	.arrow {
+		left: 94% !important;
+	}
+
+	& > .popover-content {
+		padding: 0px;
+		direction: ltr;
+		width: 100%;
+	}
+	.rw-widget.rw-calendar {
+		width: 100%;
+	}
+}
+
+.ejDatePicker {
+	position: relative;
+	padding: 0 3px;
+	display: inline-block;
+	outline: none !important;
+	& * {
+		outline: none !important;
+
+	}
+	a {
+		text-decoration: none;
+		cursor: pointer;
+		&:hover {
+			color: $ej-grey-darken;
+		}
+	}
+
+	.rw-btn, .rw-input {
+		color: $ej-grey-darken;
+		font: inherit;
+		margin: 0
+	}
+	.rw-header {
+		height: 45px;
+		background-color: $ej-blue-lightest;
+		.rw-btn {
+			background-color: transparent;
+			outline: none;
+			box-shadow: none;
+			border: 0px;
+			border-radius: 0px;
+			&:hover {
+				background-color: $ej-blue;
+				color: $ej-white !important;
+			}
+			&.rw-btn-left {
+				width: 45px;
+				height: 45px;
+				color: $ej-grey;
+			}
+			&.rw-btn-right {
+				width: 45px;
+				height: 45px;
+				color: $ej-grey;
+			}
+			&.rw-btn-view {
+				height: 45px;
+				top: 0px;
+				width: 221px;
+				position: relative;
+			}
+		}
+		.rw-i {
+			position: relative;
+			top: 1px;
+			display: inline-block;
+			font-family: 'Glyphicons Halflings';
+			font-style: normal;
+			font-weight: normal;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+			&.rw-i-caret-down:before {
+				content: '\e803'
+			}
+			&.rw-i-caret-up:before {
+				content: '\e800'
+			}
+			&.rw-i-caret-left:before {
+				content: '\e079';
+			}
+			&.rw-i-caret-right:before {
+				content: '\e080';
+			}
+			&.rw-i-clock-o:before {
+				content: '\e805'
+			}
+			&.rw-i-calendar:before {
+				content: '\e804'
+			}
+			&.rw-i-search:before {
+				content: '\e806'
+			}
+		}
+		.rw-widget, .rw-widget * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			outline: none !important;
+
+			&.rw-calendar {
+				outline: none !important;
+			}
+			&.rw-state-focus {
+				border: 0px;
+				outline: none !important;
+			}
+		}
+	}
+	.rw-calendar-grid {
+		margin-left: -1px;
+		margin-right: -1px;
+		table-layout: fixed;
+		width: 100%;
+		text-align: center;
+		& > thead {
+			& > tr {
+				height: 45px;
+				& > th {
+					text-align: center;
+					font-size: 12px;
+					font-weight: $font-light;
+					color: $ej-grey-light;
+					text-transform: capitalize;
+				}
+			}
+		}
+		& > tbody {
+			& > tr {
+				& > td {
+					height: 45px;
+					width: 45px;
+					border: $borderGrey;
+					cursor: pointer;
+					&:hover {
+						background-color: $ej-blue;
+						color: $ej-white;
+					}
+					&[aria-selected=true] {
+						background-color: $ej-blue;
+						color: $ej-white !important;
+						&:hover {
+							background-color: $ej-blue;
+							color: $ej-white;
+						}
+					}
+
+					span {
+						height: 100%;
+						line-height: 44px;
+						padding: 0 !important;
+					}
+					.rw-now {
+						background-color: $ej-blue-light;
+						//color: $ej-white;
+						&:hover {
+							background-color: $ej-blue;
+							color: $ej-white;
+						}
+					}
+				}
+			}
+		}
+	}
+	.rw-calendar-grid.rw-nav-view .rw-empty-cell {
+		background-color: $ej-event-grey;
+	}
+	.rw-calendar-grid.rw-nav-view .rw-btn {
+		padding: .25em 0 .3em;
+		display: block;
+		overflow: hidden;
+		text-align: center;
+		white-space: normal;
+		background-color: $ej-white;
+		color: $ej-grey-darken;
+
+		&:hover {
+			background-color: $ej-blue;
+			color: $ej-white;
+		}
+		&.rw-now {
+			background-color: $ej-blue-light;
+			//color: $ej-white;
+			&:hover {
+				background-color: $ej-blue;
+				color: $ej-white;
+			}
+		}
+	}
+	.rw-state-selected {
+		background-color: $ej-blue !important;
+		color: $ej-white !important;
+		&:hover {
+			background-color: $ej-blue;
+			color: $ej-white;
+		}
+	}
+	.rw-state-disabled {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		cursor: not-allowed;
+		opacity: 1
+	}
+	.rw-btn[disabled], .rw-state-disabled .rw-btn, .rw-state-readonly .rw-btn {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		pointer-events: none;
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		opacity: .65
+	}
+	.rw-widget.rw-state-readonly, .rw-widget.rw-state-readonly > .rw-multiselect-wrapper {
+		cursor: not-allowed
+	}
+}
