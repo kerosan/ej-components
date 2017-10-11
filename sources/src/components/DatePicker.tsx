@@ -1,18 +1,17 @@
 import './DatePicker.scss';
 
 import * as React from 'react';
-import * as moment from 'moment';
 import {ToggleType, PopoverPosition} from './enum';
 import {Calendar} from 'react-widgets';
 import {Glyphicon} from 'react-bootstrap';
 // tslint:disable-next-line:no-var-requires
-// let Moment = require('moment');
+let Moment = require('moment');
 
 // moment.locale('uk'); // todo setup language i18n ru | uk | en
 
 // tslint:disable-next-line:no-var-requires
 let momentLocalizer = require('react-widgets/lib/localizers/moment');
-momentLocalizer(moment);
+momentLocalizer(Moment);
 
 // import 'react-widgets/dist/css/react-widgets.css'
 import {Popover, OverlayTrigger} from 'react-bootstrap';
@@ -74,12 +73,12 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		let toggleComponent: JSX.Element;
 		let value: string = '';
 		if (this.state.value) {
-			value = moment(this.state.value).format('L');
+			value = Moment(this.state.value).format('L');
 		} else if (this.props.defaultValue) {
 			if (typeof this.props.defaultValue === 'string') {
 				value = this.props.defaultValue as string;
 			} else if (this.props.defaultValue instanceof Date) {
-				value = moment(this.props.defaultValue as Date).format('L');
+				value = Moment(this.props.defaultValue as Date).format('L');
 			}
 		}
 		switch (this.props.type) {
@@ -109,7 +108,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			value: this.state.value,
 			onChange: this.onChangeDatePicker.bind(this),
 			headerFormat: (d) => {
-				return moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
+				return Moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
 			},
 			messages: {
 				moveBack: 'Назад', // todo i18n
