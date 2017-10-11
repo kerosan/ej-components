@@ -7,6 +7,7 @@ import {Glyphicon} from 'react-bootstrap';
 // tslint:disable-next-line:no-var-requires
 let Moment = require('moment');
 Moment.locale('uk'); // todo setup language i18n ru | uk | en
+console.error(Moment);
 // tslint:disable-next-line:no-var-requires
 let momentLocalizer = require('react-widgets/lib/localizers/moment');
 momentLocalizer(Moment);
