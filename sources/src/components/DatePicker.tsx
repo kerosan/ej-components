@@ -10,8 +10,8 @@ let Moment = require('moment');
 // moment.locale('uk'); // todo setup language i18n ru | uk | en
 
 // tslint:disable-next-line:no-var-requires
-let momentLocalizer = require('react-widgets/lib/localizers/moment');
-momentLocalizer(Moment);
+// let momentLocalizer = require('react-widgets/lib/localizers/moment');
+// momentLocalizer(Moment);
 
 // import 'react-widgets/dist/css/react-widgets.css'
 import {Popover, OverlayTrigger} from 'react-bootstrap';
