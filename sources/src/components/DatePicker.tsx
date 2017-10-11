@@ -10,7 +10,7 @@ import {Glyphicon} from 'react-bootstrap';
 
 console.error(moment);
 
-moment.locale('uk'); // todo setup language i18n ru | uk | en
+moment().locale('uk'); // todo setup language i18n ru | uk | en
 
 // tslint:disable-next-line:no-var-requires
 let momentLocalizer = require('react-widgets/lib/localizers/moment');
