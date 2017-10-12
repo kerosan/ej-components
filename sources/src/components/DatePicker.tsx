@@ -8,18 +8,19 @@ import * as moment from 'moment';
 import * as momentLocalizer from 'react-widgets-moment';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 
-moment.locale('uk'); // todo setup language i18n ru | uk | en
-momentLocalizer();
-
 export interface IDatePickerProps {
-	position?: PopoverPosition;
-	type?: ToggleType;
+	locale: string;
 	className?: string;
+
 	value?: Date;
+	minValue?: Date;
+	maxValue?: Date;
 	defaultValue?: Date | string;
+
+	type?: ToggleType;
+	position?: PopoverPosition;
+
 	onChange?: (e: Date) => void;
-	min?: Date;
-	max?: Date;
 }
 
 export interface IDatePickerState {
@@ -39,8 +40,9 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		this.state = this.getInitState();
 	}
 
-	public init(): void {
-		// do nothing
+	public componentDidMount(): void {
+		moment.locale(this.props.locale);
+		momentLocalizer();
 	}
 
 	public getInitState(): IDatePickerState {
@@ -111,16 +113,16 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				moveForward: 'Вперёд', // todo i18n
 			}
 		};
-		if (this.props.min instanceof Date) {
+		if (this.props.minValue instanceof Date) {
 			calendarProps = {
 				...calendarProps,
-				min: this.props.min
+				minValue: this.props.minValue
 			};
 		}
-		if (this.props.max instanceof Date) {
+		if (this.props.maxValue instanceof Date) {
 			calendarProps = {
 				...calendarProps,
-				max: this.props.max
+				maxValue: this.props.maxValue
 			};
 		}
 		let popoverBottom = (
