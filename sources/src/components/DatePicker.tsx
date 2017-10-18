@@ -20,11 +20,17 @@ export interface IDatePickerProps {
 	type?: ToggleType;
 	position?: PopoverPosition;
 
+	prevBtnText?: string;
+	nextBtnText?: string;
+
 	onChange?: (e: Date) => void;
 }
 
 export interface IDatePickerState {
 	value: Date;
+
+	prevBtnText?: string;
+	nextBtnText?: string;
 }
 
 export class DatePicker extends React.Component<IDatePickerProps, IDatePickerState> {
@@ -46,18 +52,44 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public getInitState(): IDatePickerState {
+		let prevBtnText: string = this.props.prevBtnText,
+			nextBtnText: string = this.props.nextBtnText;
+
+		if (!prevBtnText) {
+			prevBtnText = 'Previous';
+		}
+		if (!nextBtnText) {
+			nextBtnText = 'Next';
+		}
+
 		if (this.props.value) {
-			return {value: this.props.value};
+			return {
+				value: this.props.value,
+				prevBtnText: prevBtnText,
+				nextBtnText: nextBtnText,
+			};
 		}
 		if (this.props.defaultValue) {
 			if (this.props.defaultValue instanceof Date) {
-				return {value: this.props.defaultValue as Date};
+				return {
+					value: this.props.defaultValue as Date,
+					prevBtnText: prevBtnText,
+					nextBtnText: nextBtnText,
+				};
 			}
 			if (new Date(this.props.defaultValue).toString() !== 'Invalid Date') {
-				return {value: new Date(this.props.defaultValue)};
+				return {
+					value: new Date(this.props.defaultValue),
+					prevBtnText: prevBtnText,
+					nextBtnText: nextBtnText,
+				};
 			}
 		}
-		return {value: null};
+		return {
+			value: null,
+			prevBtnText: prevBtnText,
+			nextBtnText: nextBtnText,
+		};
 	}
 
 	public componentWillReceiveProps(nextProps: IDatePickerProps): void {
@@ -102,6 +134,9 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				break;
 		}
 		//  trigger="click" placement="bottom"
+		let prevBtnText: string = this.state.prevBtnText,
+			nextBtnText: string = this.state.nextBtnText;
+
 		let calendarProps: any = {
 			value: this.state.value,
 			onChange: this.onChangeDatePicker.bind(this),
@@ -109,8 +144,8 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				return moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
 			},
 			messages: {
-				moveBack: 'Назад', // todo i18n
-				moveForward: 'Вперёд', // todo i18n
+				moveBack: {prevBtnText},
+				moveForward: {nextBtnText},
 			}
 		};
 		if (this.props.minValue instanceof Date) {
