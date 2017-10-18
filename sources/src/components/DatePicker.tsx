@@ -47,8 +47,11 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public componentDidMount(): void {
+		console.error(this.props.locale);
 		moment.locale(this.props.locale);
+		console.error(moment.locale());
 		momentLocalizer();
+		console.error(moment.locale());
 	}
 
 	public getInitState(): IDatePickerState {
