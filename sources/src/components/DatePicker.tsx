@@ -46,14 +46,6 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		this.state = this.getInitState();
 	}
 
-	public componentDidMount(): void {
-		console.error(this.props.locale);
-		moment.locale(this.props.locale);
-		console.error(moment.locale());
-		momentLocalizer();
-		console.error(moment.locale());
-	}
-
 	public getInitState(): IDatePickerState {
 		let prevBtnText: string = this.props.prevBtnText,
 			nextBtnText: string = this.props.nextBtnText;
@@ -105,6 +97,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	public render(): JSX.Element {
 		if (this.props.locale !== moment.locale()) {
 			moment.locale(this.props.locale);
+			momentLocalizer();
 		}
 
 		let toggleComponent: JSX.Element;
