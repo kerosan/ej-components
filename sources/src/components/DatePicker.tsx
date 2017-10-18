@@ -100,7 +100,10 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public render(): JSX.Element {
-		console.error(moment.locale());
+		if (this.props.locale !== moment.locale()) {
+			moment.locale(this.props.locale);
+		}
+
 		let toggleComponent: JSX.Element;
 		let value: string = '';
 		if (this.state.value) {
