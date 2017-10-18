@@ -100,6 +100,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public render(): JSX.Element {
+		console.error(moment.locale());
 		let toggleComponent: JSX.Element;
 		let value: string = '';
 		if (this.state.value) {
@@ -111,6 +112,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				value = moment(this.props.defaultValue as Date).format('L');
 			}
 		}
+
 		switch (this.props.type) {
 			case ToggleType.Input:
 				toggleComponent = (
