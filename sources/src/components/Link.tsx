@@ -31,9 +31,9 @@ export class Link extends React.Component<ILinkProps, ILinkStates> {
 
 		if (this.props.type) {
 			classNames.push(this.props.type);
+		} else {
+			classNames.push('default');
 		}
-
-
 
 		if (this.props.className) {
 			classNames.push(this.props.className);
