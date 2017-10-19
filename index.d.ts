@@ -12,4 +12,5 @@ export * from './sources/src/components/RadioButton';
 export * from './sources/src/components/Text';
 export * from './sources/src/components/TextArea';
 export * from './sources/src/components/Title';
+export * from './sources/src/components/enum';
 export * from './sources/src/types/index';
