@@ -10,14 +10,13 @@ import {
 	OverlayTrigger,
 	Form,
 	FormGroup,
-	InputGroupAddon,
 	Glyphicon,
 	InputGroup,
 	FormControl
 } from 'react-bootstrap';
 
 export interface IDatePickerProps {
-	intl: any;
+	locale: string;
 	className?: string;
 
 	value?: Date;
@@ -28,11 +27,17 @@ export interface IDatePickerProps {
 	type?: ToggleType;
 	position?: PopoverPosition;
 
+	prevBtnText?: string;
+	nextBtnText?: string;
+
 	onChange?: (e: Date) => void;
 }
 
 export interface IDatePickerState {
 	value: Date;
+
+	prevBtnText?: string;
+	nextBtnText?: string;
 }
 
 export class DatePicker extends React.Component<IDatePickerProps, IDatePickerState> {
@@ -49,23 +54,49 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public componentDidMount(): void {
-		moment.locale(this.props.intl.locale);
+		moment.locale(this.props.locale);
 		momentLocalizer();
 	}
 
 	public getInitState(): IDatePickerState {
+		let prevBtnText: string = this.props.prevBtnText,
+			nextBtnText: string = this.props.nextBtnText;
+
+		if (!prevBtnText) {
+			prevBtnText = 'Previous';
+		}
+		if (!nextBtnText) {
+			nextBtnText = 'Next';
+		}
+
 		if (this.props.value) {
-			return { value: this.props.value };
+			return {
+				value: this.props.value,
+				prevBtnText: prevBtnText,
+				nextBtnText: nextBtnText,
+			};
 		}
 		if (this.props.defaultValue) {
 			if (this.props.defaultValue instanceof Date) {
-				return { value: this.props.defaultValue as Date };
+				return {
+					value: this.props.defaultValue as Date,
+					prevBtnText: prevBtnText,
+					nextBtnText: nextBtnText,
+				};
 			}
 			if (new Date(this.props.defaultValue).toString() !== 'Invalid Date') {
-				return { value: new Date(this.props.defaultValue) };
+				return {
+					value: new Date(this.props.defaultValue),
+					prevBtnText: prevBtnText,
+					nextBtnText: nextBtnText,
+				};
 			}
 		}
-		return { value: null };
+		return {
+			value: null,
+			prevBtnText: prevBtnText,
+			nextBtnText: nextBtnText,
+		};
 	}
 
 	public componentWillReceiveProps(nextProps: IDatePickerProps): void {
@@ -76,6 +107,11 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	}
 
 	public render(): JSX.Element {
+		if (this.props.locale !== moment.locale()) {
+			moment.locale(this.props.locale);
+			momentLocalizer();
+		}
+
 		let toggleComponent: JSX.Element;
 		let value: string = '';
 		if (this.state.value) {
@@ -87,6 +123,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 				value = moment(this.props.defaultValue as Date).format('L');
 			}
 		}
+
 		switch (this.props.type) {
 			case ToggleType.Link:
 				toggleComponent = (<a href='javascript://' className={this.componentClassName}>{value}<span className='caret' /></a>);;
@@ -105,22 +142,24 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 							</button>
 						</InputGroup.Button>
 					</InputGroup >
-				);;
+				);
 				break;
 		}
 		//  trigger="click" placement="bottom"
-		let intl = this.props.intl;
+
+		let prevBtnText: string = this.state.prevBtnText,
+			nextBtnText: string = this.state.nextBtnText;
+
 		let calendarProps: any = {
 			value: this.state.value,
 			onChange: this.onChangeDatePicker.bind(this),
-			locale: intl.locale || 'en',
 			headerFormat: (d) => {
 				return moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
 			},
 			footer: false,
 			messages: {
-				moveBack: intl.formatMessage({id: 'BACK'}) || 'Back',
-				moveForward: intl.formatMessage({id: 'FORWARD'}) || 'Forward',
+				moveBack: {prevBtnText},
+				moveForward: {nextBtnText},
 			}
 		};
 		if (this.props.minValue instanceof Date) {
