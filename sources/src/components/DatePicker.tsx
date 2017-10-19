@@ -3,10 +3,17 @@ import './DatePicker.scss';
 import * as React from 'react';
 import { ToggleType, PopoverPosition } from './enum';
 import { Calendar } from 'react-widgets';
-import { Glyphicon } from 'react-bootstrap';
 import * as moment from 'moment';
 import * as momentLocalizer from 'react-widgets-moment';
-import { Popover, OverlayTrigger } from 'react-bootstrap';
+import {
+	Popover,
+	OverlayTrigger,
+	Form,
+	FormGroup,
+	Glyphicon,
+	InputGroup,
+	FormControl
+} from 'react-bootstrap';
 
 export interface IDatePickerProps {
 	locale: string;
@@ -44,6 +51,11 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	constructor(props: IDatePickerProps) {
 		super(props);
 		this.state = this.getInitState();
+	}
+
+	public componentDidMount(): void {
+		moment.locale(this.props.locale);
+		momentLocalizer();
 	}
 
 	public getInitState(): IDatePickerState {
@@ -90,7 +102,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 	public componentWillReceiveProps(nextProps: IDatePickerProps): void {
 		if ((this.props.value !== nextProps.value)
 			|| (this.props.value && nextProps.value && (this.props.value.valueOf() !== nextProps.value.valueOf()))) {
-			this.setState({value: nextProps.value});
+			this.setState({ value: nextProps.value });
 		}
 	}
 
@@ -113,28 +125,28 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		}
 
 		switch (this.props.type) {
-			case ToggleType.Input:
-				toggleComponent = (
-					<input type='text' value={value}/>
-				);
-				break;
 			case ToggleType.Link:
-				toggleComponent = (
-					<a href='javascript://'>{value}<span className='caret'/></a>
-				);
+				toggleComponent = (<a href='javascript://' className={this.componentClassName}>{value}<span className='caret' /></a>);;
 				break;
 			case ToggleType.Option:
-				toggleComponent = (
-					<Glyphicon glyph='option'/>
-				);
+				toggleComponent = (<Glyphicon glyph='option-vertical' className={this.componentClassName} />);;
 				break;
+			case ToggleType.Input:
 			default:
 				toggleComponent = (
-					<a href='javascript://' className={this.componentClassName}>{value}</a>
+					<InputGroup className={this.componentClassName}>
+						<FormControl type='text' value={value} />
+						<InputGroup.Button>
+							<button className="btn btn-default" type="button">
+								<Glyphicon glyph='calendar' />
+							</button>
+						</InputGroup.Button>
+					</InputGroup >
 				);
 				break;
 		}
 		//  trigger="click" placement="bottom"
+
 		let prevBtnText: string = this.state.prevBtnText,
 			nextBtnText: string = this.state.nextBtnText;
 
@@ -144,6 +156,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			headerFormat: (d) => {
 				return moment(d).format('MMMM').toUpperCase() + ' ' + d.getFullYear();
 			},
+			footer: false,
 			messages: {
 				moveBack: {prevBtnText},
 				moveForward: {nextBtnText},
@@ -167,22 +180,24 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			</Popover>
 		);
 		return (
-			<div className='ejDatePicker'>
-				<OverlayTrigger container={this} ref={(overlay) => {
-					this._overlay = overlay;
-				}} overlay={popoverBottom} trigger='click'
-								placement={"bottom"} rootClose>
-					<div>{toggleComponent}</div>
-				</OverlayTrigger>
-			</div>
+			<Form inline className='ejDatePicker'>
+				<FormGroup>
+					<OverlayTrigger container={this} ref={(overlay) => {
+						this._overlay = overlay;
+					}} overlay={popoverBottom} trigger='click'
+						placement={"bottom"} rootClose>
+						{toggleComponent}
+					</OverlayTrigger>
+				</FormGroup>
+			</Form>
 		);
 	}
 
 	private onChangeDatePicker(e: Date): void {
-		this.setState({value: e});
+		this.setState({ value: e });
 		if (this.props.onChange) {
 			this.props.onChange(e);
 		}
-		(this._overlay as OverlayTrigger).setState({show: false});
+		(this._overlay as OverlayTrigger).setState({ show: false });
 	}
 }
