@@ -2,7 +2,7 @@
   "name": "@ej/components",
   "main": "sources/src/components/",
   "types": "index.d.ts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "EJ Client components",
   "dependencies": {
     "globalize": "^1.3.0",
