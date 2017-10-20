@@ -1,58 +1,57 @@
 @import "~react-widgets/lib/scss/react-widgets";
+
 .ej-footer-panel {
-	.ej-footer-panel {
+	height: 60px;
+	line-height: 60px;
+	padding-left: 15px;
+	.ej-components__text {
 		height: 60px;
 		line-height: 60px;
-		padding-left: 15px;
-		.ej-components__text {
-			height: 60px;
-			line-height: 60px;
-			float: left;
+		float: left;
 
-		}
-		& > ul {
-			display: none;
-			//left: 50%;
-			text-align: center;
-			//display: inline !important;
-			padding: 0px;
-			margin: 0px auto;
-			height: 60px;
-			width: calc(100% - 100px - 100px);
-			float: left;
-			white-space: nowrap;
-			& > li {
-				border-bottom: 5px solid transparent;
+	}
+	& > ul {
+		display: none;
+		//left: 50%;
+		text-align: center;
+		//display: inline !important;
+		padding: 0px;
+		margin: 0px auto;
+		height: 60px;
+		width: calc(100% - 100px - 100px);
+		float: left;
+		white-space: nowrap;
+		& > li {
+			border-bottom: 5px solid transparent;
 
-				& > a {
-					//@extend .ej-footer-item;
-					height: 60px;
-					line-height: 60px;
-					font-weight: 600 !important;
-					font-size: 14px;
-					margin-left: 15px !important;
-					margin-right: 15px !important;
+			& > a {
+				//@extend .ej-footer-item;
+				height: 60px;
+				line-height: 60px;
+				font-weight: 600 !important;
+				font-size: 14px;
+				margin-left: 15px !important;
+				margin-right: 15px !important;
+				color: #262626 !important;
+			}
+			&:hover {
+				border-bottom: 5px solid darkorange;
+				transition: border .2s;
+			}
+			&.active {
+				a {
 					color: #262626 !important;
 				}
-				&:hover {
-					border-bottom: 5px solid darkorange;
-					transition: border .2s;
-				}
-				&.active {
-					a {
-						color: #262626 !important;
-					}
-					border-bottom: 5px solid darkorange;
-					transition: border .2s;
-				}
+				border-bottom: 5px solid darkorange;
+				transition: border .2s;
 			}
 		}
-		.rw-dropdown-list {
-			width: 100px;
-			float: right;
-			line-height: normal;
-			top: 15px;
-		}
+	}
+	.rw-dropdown-list {
+		width: 100px;
+		float: right;
+		line-height: normal;
+		top: 15px;
 	}
 }
 
