@@ -32,7 +32,6 @@
 				&:focus {
 					color: #262626 !important;
 				}
-
 			}
 			&:hover {
 				border-bottom: 5px solid darkorange;
@@ -56,6 +55,13 @@
 			background-color: transparent;
 			border: none;
 			box-shadow: none;
+
+		}
+		.rw-list-option.rw-state-selected,
+		.rw-list-option.rw-state-selected:hover {
+			background-color: #3696e0;
+			border: #3696e0 1px solid;
+			color: white;
 		}
 	}
 }
@@ -93,7 +99,6 @@
 					&:focus, &:visited {
 						color: #262626 !important;
 					}
-
 				}
 				&:hover {
 					border-bottom: 5px solid darkorange;
