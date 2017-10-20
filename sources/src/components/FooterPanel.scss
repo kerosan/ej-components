@@ -19,6 +19,8 @@
 		float: left;
 		white-space: nowrap;
 		& > li {
+			height: 60px;
+			line-height: 60px;
 			border-bottom: 5px solid transparent;
 			& > .ej-components__link {
 				height: 60px;
@@ -30,10 +32,11 @@
 				&:focus {
 					color: #262626 !important;
 				}
-				&:hover {
-					border-bottom: 5px solid darkorange;
-					transition: border .2s;
-				}
+
+			}
+			&:hover {
+				border-bottom: 5px solid darkorange;
+				transition: border .2s;
 			}
 			&.active {
 				& > .ej-components__link {
@@ -77,6 +80,8 @@
 			float: left;
 			white-space: nowrap;
 			& > li {
+				height: 60px;
+				line-height: 60px;
 				border-bottom: 5px solid transparent;
 				& > .ej-components__link {
 					height: 60px;
@@ -88,10 +93,11 @@
 					&:focus, &:visited {
 						color: #262626 !important;
 					}
-					&:hover {
-						border-bottom: 5px solid darkorange;
-						transition: border .2s;
-					}
+
+				}
+				&:hover {
+					border-bottom: 5px solid darkorange;
+					transition: border .2s;
 				}
 				&.active {
 					& > .ej-components__link {
