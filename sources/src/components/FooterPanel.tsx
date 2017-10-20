@@ -36,7 +36,7 @@ export class FooterPanel extends React.Component<IFooterPanelProps, IFooterPanel
 			if (link.href === document.location.href) {
 				return <li className='active' key={key}><Link href={link.href}>{link.title}</Link></li>;
 			}
-			return <li key={key}><Link href={link.href}>{link.title}</Link></li>;
+			return <li key={key}><Link type='primary' href={link.href}>{link.title}</Link></li>;
 		});
 		let langSwitcher = this.props.switcher || <DropdownList
             dropUp
