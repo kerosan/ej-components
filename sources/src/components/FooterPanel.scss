@@ -35,6 +35,9 @@
 				color: #262626 !important;
 				text-decoration: none !important;
 			}
+			&:focus {
+				color: #262626 !important;
+			}
 			&:hover {
 				border-bottom: 5px solid darkorange;
 				transition: border .2s;
@@ -91,8 +94,11 @@
 					line-height: 60px;
 					font-weight: 600 !important;
 					font-size: 14px;
-					margin-left: 15px !important;
-					margin-right: 15px !important;
+					//margin-left: 15px !important;
+					//margin-right: 15px !important;
+					color: #262626 !important;
+				}
+				&:focus {
 					color: #262626 !important;
 				}
 				&:hover {
