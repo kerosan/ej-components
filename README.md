@@ -60,6 +60,46 @@ CSS-классы:
 
 * `.ej-components__alert`
 
+### BreadCrumbsPanel ###
+
+Хлебные крошки
+
+Использование:
+
+```
+<BreadCrumbsPanel
+  items={[
+    {id: 0, href: '/', title: 'Home'},
+    {href: 'http://google.com', title: 'My Page'},
+    {id: 2, href: 'http://i.ua', title: 'My Site'},
+    {title: 'Settings'}
+  ]}
+  onClick={(arg) => console.log('BC => ', arg)}
+  currentId={2}
+/>
+```
+Свойства:
+
+| имя         | тип                               | значение по умолчанию | описание                   |
+|-------------|-----------------------------------|-----------------------|----------------------------|
+| className   | string                            |                       | дополнительный CSS-класс   |
+| items       | ILinks                            |                       | массив ссылок ILink        |
+| currentId   | number                            |                       | выделенный элемент по id   |
+| currentHref | string                            |                       | выделенный элемент по href |
+
+События:
+
+| имя     | тип             | описание                        |
+|---------|-----------------|---------------------------------|
+| onClick | (event) => void | срабатывает по клику по ссылке. |
+
+
+CSS-классы:
+
+* `.ej-components__breadcrumbs`
+* `.ej-components__breadcrumb-item`
+* `.ej-components__breadcrumbs-delimiter`
+
 ### Button ###
  
 Кнопка
@@ -321,6 +361,63 @@ CSS-классы:
 
 * `.ej-components__list-item`
 
+### PaginationPanel ###
+Пагинация
+
+Использование:
+
+```
+<PaginationPanel
+ pageCount={20}
+ currentPage={5}
+ onChange={(page)=>console.log('PgP =>', page)}
+/>
+```
+Свойства:
+
+| имя         | тип    | описание                 |
+|-------------|--------|--------------------------|
+| className   | string | дополнительный CSS-класс |
+| pageCount   | number | количечтво страниц       |
+| currentPage | number | текущая страница         |
+
+События:
+
+| имя      | тип            | описание                                 |
+|----------|----------------|------------------------------------------|
+| onChange | (page) => void | срабатывает при клике по номеру страницы |
+
+* `.ej-components__pagination-panel`
+
+### PerPagePanel ###
+Количество элементов на страницу
+
+Использование:
+```
+<PerPagePanel
+  values={[10,20,30,40]}
+  value={20}
+  label='Отображать по'
+  onChange={(digit)=>console.log('PP =>',digit)}
+/>
+```
+Свойства:
+
+| имя       | тип      | описание                            |
+|-----------|----------|-------------------------------------|
+| className | string   | дополнительный CSS-класс            |
+| values    | number[] | массив значений итемов на страницу  |
+| value     | number   | текущее значение итемов на страницу |
+| label     | string   | текст рядом с радио-кнопкой         |
+
+События:
+
+| имя      | тип             | описание                              |
+|----------|-----------------|---------------------------------------|
+| onChange | (value) => void | срабатывает при клике по числу итемов |
+
+* `.ej-components__per-page-panel`
+
 ### RadioButton ###
 Радио-кнопка
 
@@ -338,7 +435,6 @@ CSS-классы:
   clickCapture={true} />
 ```
 Свойства:
-
 
 | имя          | тип     | значение по умолчанию | описание                                                |
 |--------------|---------|-----------------------|---------------------------------------------------------|
