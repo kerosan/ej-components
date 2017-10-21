@@ -11,7 +11,7 @@ export interface IButtonProps {
 	icon?: string;
 	iconAlign?: "left" | "right";
 
-	onClick?: () => void;
+	onClick?: (e) => void;
 }
 
 export interface IButtonStates {
@@ -60,9 +60,9 @@ export class Button extends React.Component<IButtonProps, IButtonStates> {
 		);
 	}
 
-	private onClick(): void {
+	private onClick(e): void {
 		if (this.props.onClick && !this.props.disabled) {
-			this.props.onClick();
+			this.props.onClick(e);
 		}
 	}
 }

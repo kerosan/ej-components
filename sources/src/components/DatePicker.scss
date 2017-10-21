@@ -1,14 +1,13 @@
 @import 'vars';
-@import 'mixin';
 
 .ejDatePicker--Popover {
 	max-width: 310px;
 	width: 310px;
 	border-radius: 2px;
-	left: -198px !important;
+	//left: -198px !important;
 	padding: 0;
 	.arrow {
-		left: 94% !important;
+		//left: 94% !important;
 	}
 
 	& > .popover-content {
@@ -41,12 +40,12 @@
 		.form-group {
 			.input-group {
 				.form-control {
-					border-color: $ej-blue !important;
+					border-color: #3696e0 !important;
 				}
 				.btn {
-					border-color: $ej-blue !important;
+					border-color: #3696e0 !important;
 					.glyphicon {
-						color: $ej-blue !important;
+						color: #3696e0 !important;
 					}
 				}
 			}
@@ -80,27 +79,27 @@
 				font-size: 12px;
 				padding: 4px 6px !important;
 				box-shadow: none !important;
-				border-color: $ej-grey !important;
+				border-color: #999999 !important;
 				border-top-left-radius: 2px;
 				border-bottom-left-radius: 2px;
 			}
 			.input-group-addon {
 				width: 40px;
-				background-color: $ej-white;
+				background-color: #ffffff;
 				padding: 6px 15px;
 			}
 			.btn {
 				width: 32px;
 				height: 29px;
 				padding: 5px 7px;
-				background-color: $ej-white !important;
+				background-color: #ffffff !important;
 				box-shadow: none !important;
-				border-color: $ej-grey !important;
+				border-color: #999999 !important;
 				border-top-right-radius: 2px;
 				border-bottom-right-radius: 2px;
 				.glyphicon {
 					font-size: 17px;
-					color: $ej-grey !important;
+					color: #999999 !important;
 				}
 			}
 		}
@@ -113,18 +112,18 @@
 		text-decoration: none;
 		cursor: pointer;
 		&:hover {
-			color: $ej-grey-darken;
+			color: #262626;
 		}
 	}
 
 	.rw-btn, .rw-input {
-		color: $ej-grey-darken;
+		color: #262626;
 		font: inherit;
 		margin: 0
 	}
 	.rw-calendar-header {
 		height: 52px;
-		background-color: $ej-white;
+		background-color: #ffffff;
 		border-bottom: 1px solid #f4f5f5;
 		.rw-btn {
 			background-color: transparent;
@@ -133,13 +132,13 @@
 			border: 0px;
 			border-radius: 0px;
 			&:hover {
-				background-color: $ej-blue;
-				color: $ej-white !important;
+				background-color: #3696e0;
+				color: #ffffff !important;
 			}
 			&.rw-calendar-btn-left {
 				width: 52px;
 				height: 52px;
-				color: $ej-grey;
+				color: #999999;
 				font-size: 31px;
 				// left: 4px;
 				// top: -2px;
@@ -151,7 +150,7 @@
 			&.rw-calendar-btn-right {
 				width: 52px;
 				height: 52px;
-				color: $ej-grey;
+				color: #999999;
 				font-size: 31px;
 				// left: 4px;
 				// top: -2px;
@@ -229,9 +228,9 @@
 					text-align: center;
 					font-size: 12px;
 					font-weight: $font-light;
-					color: $ej-grey-light;
+					//color: #b4bab9;
 					text-transform: capitalize;
-					color: $ej-grey-darken;
+					color: #262626;
 					border-bottom: 1px solid #f4f5f5;
 				}
 			}
@@ -244,20 +243,20 @@
 					// border: $borderGrey;
 					border-radius: 0 !important;
 					cursor: pointer;
-					color: $ej-grey-darken;
+					color: #262626;
 					&:hover {
-						background-color: $ej-blue;
-						border-color: $ej-blue;
-						color: $ej-white;
+						background-color: #3696e0;
+						border-color: #3696e0;
+						color: #ffffff;
 					}
 					&[aria-selected=true] {
-						background-color: $ej-blue;
-						border-color: $ej-blue;
-						color: $ej-white !important;
+						background-color: #3696e0;
+						border-color: #3696e0;
+						color: #ffffff !important;
 						&:hover {
-							background-color: $ej-blue;
-							border-color: $ej-blue;
-							color: $ej-white;
+							background-color: #3696e0;
+							border-color: #3696e0;
+							color: #ffffff;
 						}
 					}
 
@@ -266,39 +265,43 @@
 						line-height: 44px;
 						padding: 0 !important;
 					}
-					.rw-now {
-						background-color: $ej-blue-light;
-						//color: $ej-white;
+					.rw-now.rw-now {
+						background-color: #e1e8ed;
+						//color: #ffffff;
 						&:hover {
-							background-color: $ej-blue;
-							color: $ej-white;
+							background-color: #3696e0;
+							color: #ffffff !important;
 						}
 					}
 					&.rw-cell-off-range {
-						color: $ej-white !important;
-						background-color: $ej-white !important;
-						border-color: $ej-white !important;
+						color: #ffffff !important;
+						//background-color: #ffffff !important;
+						border-color: #ffffff !important;
 						pointer-events: none;
 						cursor: default;
 					}
 					&.rw-cell-not-allowed {
-						color: $ej-grey;
+						color: #999999;
 						&:hover {
-							background-color: $ej-blue;
-							border-color: $ej-blue;
-							color: $ej-blue-lighten;
+							background-color: #3696e0;
+							border-color: #3696e0;
+							color: #e1e3e4;
 						}
 					}
 
 					&.rw-now {
-						color: $ej-blue;
+						color: #3696e0;
+						&:hover {
+							background-color: #3696e0;
+							color: #ffffff !important;
+						}
 					}
 				}
 			}
 		}
 	}
 	.rw-calendar-grid.rw-nav-view .rw-empty-cell {
-		background-color: $ej-event-grey;
+		background-color: #f0f1f1;
 	}
 	.rw-calendar-grid.rw-nav-view .rw-btn {
 		padding: .25em 0 .3em;
@@ -306,28 +309,28 @@
 		overflow: hidden;
 		text-align: center;
 		white-space: normal;
-		background-color: $ej-white;
-		color: $ej-grey-darken;
+		background-color: #ffffff;
+		color: #262626;
 
 		&:hover {
-			background-color: $ej-blue;
-			color: $ej-white;
+			background-color: #3696e0;
+			color: #ffffff;
 		}
 		&.rw-now {
-			background-color: $ej-blue-light;
-			//color: $ej-white;
+			background-color: #e1e8ed;
+			//color: #ffffff;
 			&:hover {
-				background-color: $ej-blue;
-				color: $ej-white;
+				background-color: #3696e0;
+				color: #ffffff;
 			}
 		}
 	}
 	.rw-state-selected {
-		background-color: $ej-blue !important;
-		color: $ej-white !important;
+		background-color: #3696e0 !important;
+		color: #ffffff !important;
 		&:hover {
-			background-color: $ej-blue;
-			color: $ej-white;
+			background-color: #3696e0;
+			color: #ffffff;
 		}
 	}
 	.rw-state-disabled {

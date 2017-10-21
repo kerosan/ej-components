@@ -1,0 +1,3115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Alert danger 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__alert alert alert-danger"
+          onClick={[Function]}
+          role="alert"
+        >
+          Hello Alert
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Alert
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        bsStyle
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            danger
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              clicked()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    Hello Alert
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    Alert
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Alert default 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__alert alert alert-info"
+          onClick={[Function]}
+          role="alert"
+        >
+          Hello Alert
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Alert
+                  </span>
+                  <span>
+                    <span>
+                       
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              clicked()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    Hello Alert
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    Alert
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Alert success 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__alert alert alert-success"
+          onClick={[Function]}
+          role="alert"
+        >
+          Hello Alert
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Alert
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        bsStyle
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            success
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              clicked()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    Hello Alert
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    Alert
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Alert warning 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__alert alert alert-warning"
+          onClick={[Function]}
+          role="alert"
+        >
+          Hello Alert
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Alert
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        bsStyle
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            warning
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              clicked()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    Hello Alert
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    Alert
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Alert with close button 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__alert alert alert-info alert-dismissable"
+          onClick={[Function]}
+          role="alert"
+        >
+          <button
+            className="close"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+            <span
+              className="sr-only"
+            >
+              Close alert
+            </span>
+          </button>
+          Hello Alert
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Alert
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              clicked()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClose
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              closed()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    Hello Alert
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    Alert
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots BreadCrumbsPanel default 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="ej-components__breadcrumbs"
+        >
+          <span
+            className="ej-components__breadcrumb-item"
+            onClick={[Function]}
+          >
+            <a
+              className="ej-components__link default"
+              href="/"
+              onClick={[Function]}
+              target="_self"
+            >
+              <span>
+                Home
+              </span>
+            </a>
+            <span
+              className="ej-components__breadcrumbs-delimiter"
+            >
+              /
+            </span>
+          </span>
+          <span
+            className="ej-components__breadcrumb-item"
+            onClick={[Function]}
+          >
+            <a
+              className="ej-components__link default"
+              href="http://google.com"
+              onClick={[Function]}
+              target="_self"
+            >
+              <span>
+                My Page
+              </span>
+            </a>
+            <span
+              className="ej-components__breadcrumbs-delimiter"
+            >
+              /
+            </span>
+          </span>
+          <span
+            className="ej-components__breadcrumb-item"
+            onClick={[Function]}
+          >
+            <a
+              className="ej-components__link default"
+              href="http://i.ua"
+              onClick={[Function]}
+              target="_self"
+            >
+              <u>
+                <span>
+                  My Site
+                </span>
+              </u>
+            </a>
+            <span
+              className="ej-components__breadcrumbs-delimiter"
+            >
+              /
+            </span>
+          </span>
+          <span
+            className="ej-components__text ej-components__text-default ej-components__breadcrumb-item"
+          >
+            <span>
+              Settings
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  &lt;
+                  BreadCrumbsPanel
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      items
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            [
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  id
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#a11",
+                                      }
+                                    }
+                                  >
+                                    0
+                                  </span>
+                                  }
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  href
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  /
+                                  "
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  title
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  Home
+                                  "
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  href
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  http://google.com
+                                  "
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  title
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  My Page
+                                  "
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  id
+                                </span>
+                                : 
+                                <span>
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#a11",
+                                      }
+                                    }
+                                  >
+                                    2
+                                  </span>
+                                  }
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  href
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  http://i.ua
+                                  "
+                                </span>
+                                , 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  title
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  My Site
+                                  "
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            , 
+                            <span>
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#666",
+                                    }
+                                  }
+                                >
+                                  title
+                                </span>
+                                : 
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#22a",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  "
+                                  Settings
+                                  "
+                                </span>
+                                }
+                              </span>
+                              }
+                            </span>
+                            ]
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      onClick
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            Click_on_BreadCrumb()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      currentId
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#a11",
+                              }
+                            }
+                          >
+                            2
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  /&gt;
+                </span>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Button Button Toolbar 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="btn-toolbar"
+          role="toolbar"
+        >
+          <a
+            className="ej-components__button secondary"
+            onClick={[Function]}
+          >
+            <span
+              className="left glyphicon glyphicon-chevron-left"
+            />
+            Prev
+          </a>
+          <a
+            className="ej-components__button secondary"
+            onClick={[Function]}
+          >
+            Next
+            <span
+              className="right glyphicon glyphicon-chevron-right"
+            />
+          </a>
+        </div>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    ButtonToolbar
+                  </span>
+                  <span />
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Button
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        text
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            Prev
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        type
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            secondary
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        icon
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            chevron-left
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        iconAlign
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            left
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              Click_on_Prev_Button()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    /&gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 33,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;
+                    Button
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        text
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            Next
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        type
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            secondary
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        icon
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            chevron-right
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        iconAlign
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            "
+                            right
+                            "
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onClick
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              Click_on_Next_Button()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    /&gt;
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }
+                  >
+                    &lt;/
+                    ButtonToolbar
+                    &gt;
+                  </span>
+                </div>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Button Primary 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <a
+          className="ej-components__button primary"
+          onClick={[Function]}
+        >
+          Button
+        </a>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  &lt;
+                  Button
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      text
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          Button
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      type
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          primary
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      onClick
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            Click_on_Button()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  /&gt;
+                </span>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Button Secondary 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <a
+          className="ej-components__button secondary"
+          onClick={[Function]}
+        >
+          Button
+          <span
+            className="right glyphicon glyphicon-chevron-right"
+          />
+        </a>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  &lt;
+                  Button
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      text
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          Button
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      type
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          secondary
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      icon
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          chevron-right
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      iconAlign
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          right
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      onClick
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            Click_on_Button()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  /&gt;
+                </span>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Button default 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <a
+          className="ej-components__button"
+          onClick={[Function]}
+        >
+          Button
+        </a>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  &lt;
+                  Button
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      text
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          Button
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      onClick
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            Click_on_Button()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  /&gt;
+                </span>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Checkbox default 1`] = `
+<div>
+  <style>
+    body {
+					margin: 20px !important;
+				}
+
+				code {
+					padding: 20px !important;
+					margin-bottom: 5px;
+					display: inline-block;
+					white-space: pre;
+				}
+
+				.ej-component {
+					display: block;
+					padding: 20px;
+					border: 1px dashed grey;
+					min-width: 360px;
+				}
+				textarea {
+					width: 300px;
+					height: 68px;
+				}
+  </style>
+  <div
+    className="ej-component"
+  >
+    <div>
+      <div
+        style={Object {}}
+      >
+        <span
+          className="ej-components__checkbox"
+        >
+          <label
+            className=""
+            onClick={[Function]}
+          >
+            <span
+              className="ej-components__checkbox-icon__unchecked"
+            />
+            <span
+              className="ej-components__checkbox-label"
+            >
+              Check
+            </span>
+          </label>
+        </span>
+      </div>
+      <div
+        style={undefined}
+      >
+        <div
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "boxShadow": "0px 2px 3px rgba(0, 0, 0, 0.05)",
+              "color": "#444",
+              "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginTop": "50px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "backgroundColor": "#fafafa",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 18,
+                    "paddingRight": 3,
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  &lt;
+                  Checkbox
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      label
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          Check
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      name
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          "
+                          chk-1
+                          "
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}
+                    >
+                      onChange
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}
+                      >
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            Change_on_Checkbox()
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }
+                >
+                  /&gt;
+                </span>
+              </div>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
