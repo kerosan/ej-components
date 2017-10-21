@@ -1,0 +1,123 @@
+@import "~react-widgets/lib/scss/react-widgets";
+
+.ej-footer-panel {
+	height: 60px;
+	line-height: 60px;
+	padding-left: 15px;
+	.ej-components__text {
+		height: 60px;
+		line-height: 60px;
+		float: left;
+	}
+	& > ul {
+		display: none;
+		text-align: center;
+		padding: 0px;
+		margin: 0px auto;
+		height: 60px;
+		width: calc(100% - 100px - 100px);
+		float: left;
+		white-space: nowrap;
+		& > li {
+			height: 60px;
+			line-height: 60px;
+			border-bottom: 5px solid transparent;
+			& > .ej-components__link {
+				height: 60px;
+				line-height: 60px;
+				font-weight: 600 !important;
+				font-size: 14px;
+				color: #262626 !important;
+				text-decoration: none !important;
+				&:focus {
+					color: #262626 !important;
+				}
+			}
+			&:hover {
+				border-bottom: 5px solid darkorange;
+				transition: border .2s;
+			}
+			&.active {
+				& > .ej-components__link {
+					color: #262626 !important;
+				}
+				border-bottom: 5px solid darkorange;
+				transition: border .2s;
+			}
+		}
+	}
+	.rw-dropdown-list {
+		width: 100px;
+		float: right;
+		line-height: normal;
+		top: 15px;
+		.rw-widget-container {
+			background-color: transparent;
+			border: none;
+			box-shadow: none;
+
+		}
+		.rw-list-option.rw-state-selected,
+		.rw-list-option.rw-state-selected:hover {
+			background-color: #3696e0;
+			border: #3696e0 1px solid;
+			color: white;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.ej-footer-panel {
+		height: 60px;
+		line-height: 60px;
+		padding-left: 15px;
+		.ej-components__text {
+			height: 60px;
+			line-height: 60px;
+			float: left;
+		}
+		& > ul {
+			text-align: center;
+			display: inline !important;
+			padding: 0px;
+			margin: 0px auto;
+			height: 60px;
+			width: calc(100% - 100px - 100px);
+			float: left;
+			white-space: nowrap;
+			& > li {
+				height: 60px;
+				line-height: 60px;
+				border-bottom: 5px solid transparent;
+				& > .ej-components__link {
+					height: 60px;
+					line-height: 60px;
+					font-weight: 600 !important;
+					font-size: 14px;
+					color: #262626 !important;
+					outline: none !important;
+					&:focus, &:visited {
+						color: #262626 !important;
+					}
+				}
+				&:hover {
+					border-bottom: 5px solid darkorange;
+					transition: border .2s;
+				}
+				&.active {
+					& > .ej-components__link {
+						color: #262626 !important;
+					}
+					border-bottom: 5px solid darkorange;
+					transition: border .2s;
+				}
+			}
+		}
+		.rw-dropdown-list {
+			width: 100px;
+			float: right;
+			line-height: normal;
+			top: 15px;
+		}
+	}
+}

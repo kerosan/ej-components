@@ -185,6 +185,8 @@ CSS-классы:
     * `.ej-components__checkbox-icon__checked` - класс иконки включенной галочки;
     * `.ej-components__checkbox-icon__unchecked` - класс иконки выключенной галочки;
 
+### DatePicker ###
+
 ### ExpandablePanel ###
 Раскрывающаяся панель  
 Простое использование:
@@ -220,6 +222,24 @@ CSS-классы:
 * `.ej-components__expandable-panel`
     * `.ej-components__expandable-panel-header` - класс заголовка панели;
         * `.ej-components__expandable-panel-header-icon` - класс иконки в заголовке панели;
+
+### FooterPanel ###
+Футер
+
+Использование:
+```
+<FooterPanel/>
+```
+Свойства:
+   
+| имя          | тип                | описание                                           |
+|--------------|--------------------|----------------------------------------------------|
+| className    | string             | дополнительный CSS-класс                           |
+| links        | ILinks             | ссылки нижнего меню неавторизованного пользователя |
+| switcher     | JSX.Element        | переключатель языка                                |
+CSS-классы:  
+
+* `.ej-footer-panel`
 
 ### Input ###
 Поле ввода `<input>`
