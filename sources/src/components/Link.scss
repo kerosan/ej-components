@@ -7,12 +7,15 @@
 	font-weight: $font-light;
 	cursor: pointer;
 	&:visited, &:focus {
-		color: #3696e0;
+		color: #3696e0 !important;
 		text-decoration: none;
 	}
 	&:hover, &:active {
 		color: #3696e0;
 		text-decoration: underline;
+	}
+	&.default {
+		color: #3696e0;
 	}
 	&.primary {
 		font-size: 14px;
