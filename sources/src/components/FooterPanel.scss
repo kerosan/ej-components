@@ -1,4 +1,4 @@
-@import "~react-widgets/lib/scss/react-widgets";
+//@import "~react-widgets/lib/scss/react-widgets";
 
 .ej-footer-panel {
 	height: 60px;
@@ -25,7 +25,7 @@
 			& > .ej-components__link {
 				height: 60px;
 				line-height: 60px;
-				font-weight: 600 !important;
+				font-weight: 500 !important;
 				font-size: 14px;
 				color: #262626 !important;
 				text-decoration: none !important;
@@ -92,7 +92,7 @@
 				& > .ej-components__link {
 					height: 60px;
 					line-height: 60px;
-					font-weight: 600 !important;
+					font-weight: 500 !important;
 					font-size: 14px;
 					color: #262626 !important;
 					outline: none !important;

@@ -1,4 +1,6 @@
 import './FooterPanel.scss';
+import 'react-widgets/lib/scss/react-widgets.scss';
+
 import * as React from 'react';
 import { Text } from './Text';
 import { Link } from './Link';

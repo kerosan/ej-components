@@ -4,7 +4,7 @@ import * as React from 'react';
 import {Panel, Glyphicon} from 'react-bootstrap';
 
 export interface IExpandablePanelProps {
-	header: JSX.Element;
+	header: JSX.Element | string;
 	defaultExpanded?: boolean;
 	onExpandToggle?: (expanded: boolean) => void;
 }
