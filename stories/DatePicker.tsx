@@ -32,6 +32,7 @@ storiesOf('DatePicker', module)
 		withInfo()(() =>
 			<DatePicker
 				id={'1'}
+				value={new Date()}
 				locale={'ru'}
 			/>
 		));
