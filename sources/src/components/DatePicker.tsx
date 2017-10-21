@@ -3,8 +3,8 @@ import './DatePicker.scss';
 import * as React from 'react';
 import { ToggleType, PopoverPosition } from './enum';
 import { Calendar } from 'react-widgets';
-import * as moment from 'moment';
-import * as momentLocalizer from 'react-widgets-moment';
+const moment = require('moment');
+const momentLocalizer = require('react-widgets-moment');
 import {
 	Popover,
 	OverlayTrigger,
