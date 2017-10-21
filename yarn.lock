@@ -1949,10 +1949,6 @@ classnames@^2.1.2, classnames@^2.2.5:
   version "2.2.5"
   resolved "http://flashdev.od.ua:4873/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
-cldrjs@^0.4.6:
-  version "0.4.8"
-  resolved "http://flashdev.od.ua:4873/cldrjs/-/cldrjs-0.4.8.tgz#3b994c464d2a32b5aca7c5de17a60a87e45dc4f9"
-
 cliui@^2.1.0:
   version "2.1.0"
   resolved "http://flashdev.od.ua:4873/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
@@ -3283,12 +3279,6 @@ global@^4.3.2:
   dependencies:
     min-document "^2.19.0"
     process "~0.5.1"
-
-globalize@^1.3.0:
-  version "1.3.0"
-  resolved "http://flashdev.od.ua:4873/globalize/-/globalize-1.3.0.tgz#c56524b8acfd2ce38d0c97ddfdceb38f644b3392"
-  dependencies:
-    cldrjs "^0.4.6"
 
 globals@^9.18.0:
   version "9.18.0"
@@ -5966,7 +5956,7 @@ react-docgen@^2.15.0:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-gemini-scrollbar@^2.3.3:
+react-gemini-scrollbar@^2.3.4:
   version "2.3.4"
   resolved "http://flashdev.od.ua:4873/react-gemini-scrollbar/-/react-gemini-scrollbar-2.3.4.tgz#defd60ddf243dafaa354fc3a4d0ef972b9137732"
   dependencies:
@@ -6131,12 +6121,6 @@ react-treebeard@^2.0.3:
     radium "^0.19.0"
     shallowequal "^0.2.2"
     velocity-react "^1.3.1"
-
-react-widgets-globalize@^4.0.2:
-  version "4.0.2"
-  resolved "http://flashdev.od.ua:4873/react-widgets-globalize/-/react-widgets-globalize-4.0.2.tgz#77a20dfb4dac2f9db28a3eb7099d1c3c4a26242b"
-  dependencies:
-    prop-types "^15.6.0"
 
 react-widgets-moment-localizer@^1.0.2:
   version "1.0.2"
@@ -6561,10 +6545,6 @@ schema-utils@^0.3.0:
   resolved "http://flashdev.od.ua:4873/schema-utils/-/schema-utils-0.3.0.tgz#f5877222ce3e931edae039f17eb3716e7137f8cf"
   dependencies:
     ajv "^5.0.0"
-
-scss-loader@^0.0.1:
-  version "0.0.1"
-  resolved "http://flashdev.od.ua:4873/scss-loader/-/scss-loader-0.0.1.tgz#eae017b9e0f38c12a532db25c220b902fb34e671"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
