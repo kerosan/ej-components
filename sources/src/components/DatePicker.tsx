@@ -55,6 +55,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 		if (!this.props.id) {
 			throw new Error('DatePicker: Props \'id\' is required!');
 		}
+		this.onChangeInput = this.onChangeInput.bind(this);
 	}
 
 	public componentDidMount(): void {
@@ -139,7 +140,7 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			default:
 				toggleComponent = (
 					<InputGroup className={this.componentClassName}>
-						<FormControl type='text' value={value}/>
+						<FormControl type='text' value={value} onChange={this.onChangeInput}/>
 						<InputGroup.Button>
 							<button className='btn btn-default' type='button'>
 								<Glyphicon glyph='calendar'/>
@@ -162,8 +163,8 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			},
 			footer: false,
 			messages: {
-				moveBack: {prevBtnText},
-				moveForward: {nextBtnText},
+				moveBack: prevBtnText,
+				moveForward: nextBtnText,
 			}
 		};
 		if (this.props.minValue instanceof Date) {
@@ -203,5 +204,9 @@ export class DatePicker extends React.Component<IDatePickerProps, IDatePickerSta
 			this.props.onChange(e);
 		}
 		(this._overlay as OverlayTrigger).setState({show: false});
+	}
+
+	private onChangeInput(e) {
+		// do nothing
 	}
 }

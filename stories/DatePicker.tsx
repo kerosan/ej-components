@@ -34,5 +34,6 @@ storiesOf('DatePicker', module)
 				id={'1'}
 				value={new Date()}
 				locale={'ru'}
+				onChange={action('Pick date')}
 			/>
 		));

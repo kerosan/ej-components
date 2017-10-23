@@ -7,7 +7,7 @@ import { setDefaults } from '@storybook/addon-info';
 setOptions({
 	name: 'EJ Components',
 	url: 'http://diary-gitlab.abatapka.net/EJ/libs/components',
-	downPanelInRight: true,
+	downPanelInRight: false,
 });
 
 setDefaults({
@@ -29,6 +29,7 @@ require('./BreadCrumbsPanel');
 require('./Button');
 require('./Checkbox');
 require('./DatePicker');
+require('./DropMenu');
 require('./ExpandablePanel');
 require('./FooterPanel');
 require('./Input');

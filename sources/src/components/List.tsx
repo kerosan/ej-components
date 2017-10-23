@@ -18,7 +18,7 @@ export interface IListStates {
 	selectedItem?: string;
 }
 
-const NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL = 5;
+export const NUMBER_OF_LIST_ITEMS_WITHOUT_SCROLL = 5;
 
 export class List extends React.Component<IListProps, IListStates> {
 
