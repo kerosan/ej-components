@@ -6,7 +6,7 @@ import { setDefaults } from '@storybook/addon-info';
 
 setOptions({
 	name: 'EJ Components',
-	url: 'http://diary-gitlab.abatapka.net/EJ/libs/components',
+	url: 'https://github.com/kerosan/ej-components',
 	downPanelInRight: false,
 });
 
