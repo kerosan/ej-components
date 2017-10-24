@@ -1,14 +1,5 @@
 # Библиотека компонентов (@ej/components) #
 ## Установка ##
-Создать в корне проекта файл .npmrc с содержимым:
-
-	@ej:registry=http://flashdev.od.ua:4873/
-	@common:registry=http://flashdev.od.ua:4873/
-	@types:registry=https://registry.npmjs.org/
-	@storybook:registry=https://registry.npmjs.org/
-	@hypnosphi:registry=https://registry.npmjs.org/
-	always-auth=true
-	registry=http://flashdev.od.ua:4873/
 
 В командной строке выполнить команду:
 
@@ -46,8 +37,3 @@ Demo
 [TextArea](docs/TextArea.md)		
 [Title](docs/Title.md)		
 [Userpic](docs/Userpic.md)		
-
-Недоработки:
-------------
-* Подправить пути к аватаркам по умолчанию;
-* Сделать поведение по умолчанию: по клику открывать страницу пользователя в новом окне;
