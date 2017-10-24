@@ -1,0 +1,13 @@
+.ej-components__breadcrumbs {
+	margin: 10px;
+	color: #262626;
+	font-size: 12px;
+	height: 12px;
+	line-height: 12px;
+	.ej-components__breadcrumb-item {
+		font-size: 12px;
+		.ej-components__breadcrumbs-delimiter {
+			padding: 0 10px;
+		}
+	}
+}
